@@ -1,0 +1,18 @@
+// Dynamic CSharp Compile Artefact | T1027.004 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_csharp_compile_artefact.yml
+TargetFilename:*.cmdline
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "TargetFilename:*.cmdline",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

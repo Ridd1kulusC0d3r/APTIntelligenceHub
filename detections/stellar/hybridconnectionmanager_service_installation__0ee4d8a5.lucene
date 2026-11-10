@@ -1,0 +1,18 @@
+// HybridConnectionManager Service Installation | T1554 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_hybridconnectionmgr_svc_installation.yml
+EventID:4697 AND ServiceName:HybridConnectionManager AND ServiceFileName:*HybridConnectionManager*
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "EventID:4697 AND ServiceName:HybridConnectionManager AND ServiceFileName:*HybridConnectionManager*",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

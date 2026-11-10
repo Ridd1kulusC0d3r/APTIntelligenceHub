@@ -1,0 +1,2 @@
+# Disabling Security Tools - Builtin | T1686 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/builtin/syslog/lnx_syslog_security_tools_disabling_syslog.yml
+"stopping iptables" OR "stopping ip6tables" OR "stopping firewalld" OR "stopping cbdaemon" OR "stopping falcon-sensor"

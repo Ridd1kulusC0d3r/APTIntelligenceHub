@@ -1,0 +1,18 @@
+// DNS Query Request To OneLaunch Update Service | T1056 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/dns_query/dns_query_win_onelaunch_update_service.yml
+QueryName:update.onelaunch.com AND Image:*\\OneLaunch.exe
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "QueryName:update.onelaunch.com AND Image:*\\\\OneLaunch.exe",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

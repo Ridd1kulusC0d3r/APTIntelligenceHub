@@ -1,0 +1,2 @@
+# Turla Group Lateral Movement | T1021.002, T1059, T1083, T1135 | https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2014/TA/Turla/proc_creation_win_apt_turla_commands_critical.yml
+source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=1 (CommandLine IN ("net use \\\\%DomainController%\\C$ \"P@ssw0rd\" *", "dir c:\\*.doc* /s", "dir %TEMP%\\*.exe"))

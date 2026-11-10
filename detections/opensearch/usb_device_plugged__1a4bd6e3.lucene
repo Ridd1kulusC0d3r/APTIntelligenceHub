@@ -1,0 +1,2 @@
+// USB Device Plugged | T1200 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/driverframeworks/win_usb_device_plugged.yml
+winlog.channel:Microsoft\-Windows\-DriverFrameworks\-UserMode\/Operational AND (event.code:(2003 OR 2100 OR 2102))

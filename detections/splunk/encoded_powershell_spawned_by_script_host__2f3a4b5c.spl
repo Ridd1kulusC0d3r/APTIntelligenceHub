@@ -1,0 +1,2 @@
+# Encoded PowerShell Spawned By Script Host | T1059.001, T1059.007 | Hub
+source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=1 (ParentImage IN ("*\\wscript.exe", "*\\cscript.exe", "*\\mshta.exe")) Image="*\\powershell.exe" (CommandLine IN ("* -enc*", "* -EncodedCommand*", "* -e *"))

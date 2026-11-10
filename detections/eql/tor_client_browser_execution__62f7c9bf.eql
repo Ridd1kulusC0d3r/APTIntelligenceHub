@@ -1,0 +1,2 @@
+// Tor Client/Browser Execution | T1090.003 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_browsers_tor_execution.yml
+any where process.pe.description:"Tor Browser" or process.pe.product:"Tor Browser" or (process.executable.caseless like~ ("*\\tor.exe", "*\\Tor Browser\\Browser\\firefox.exe"))

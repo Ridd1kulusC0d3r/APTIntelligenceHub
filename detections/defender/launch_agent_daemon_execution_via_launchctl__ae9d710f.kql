@@ -1,0 +1,3 @@
+// Launch Agent/Daemon Execution Via Launchctl | T1543.001, T1543.004, T1569.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_launchctl_execution.yml
+DeviceProcessEvents
+| where FolderPath endswith "/launchctl" and (ProcessCommandLine contains "submit" or ProcessCommandLine contains "load" or ProcessCommandLine contains "start")

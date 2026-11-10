@@ -1,0 +1,2 @@
+# Suspicious IIS Module Registration | T1505.004 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_iis_susp_module_registration.yml
+source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=1 ParentImage="*\\w3wp.exe" (CommandLine="*appcmd.exe add module*" OR (CommandLine="* system.enterpriseservices.internal.publish*" Image="*\\powershell.exe") OR (CommandLine="*gacutil*" CommandLine="* /I*"))

@@ -1,0 +1,2 @@
+// Suspicious Redirection to Local Admin Share | T1048 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_redirect_local_admin_share.yml
+from * metadata _id, _index, _version | where process.command_line like "*>*" and (process.command_line like "*\\\\127.0.0.1\\admin$\\*" or process.command_line like "*\\\\localhost\\admin$\\*")

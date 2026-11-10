@@ -1,0 +1,2 @@
+-- HackTool - Mimikatz Kirbi File Creation | T1558 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_hktl_mimikatz_files.yml
+SELECT * FROM events WHERE devicetype=12 AND (LOWER(Filename) LIKE '%.kirbi' OR LOWER(Filename) LIKE '%mimilsa.log')

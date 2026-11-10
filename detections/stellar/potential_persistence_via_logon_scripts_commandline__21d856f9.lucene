@@ -1,0 +1,18 @@
+// Potential Persistence Via Logon Scripts - CommandLine | T1037.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_registry_logon_script.yml
+CommandLine:*UserInitMprLogonScript*
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "CommandLine:*UserInitMprLogonScript*",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

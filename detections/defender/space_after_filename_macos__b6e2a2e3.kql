@@ -1,0 +1,3 @@
+// Space After Filename - macOS | T1036.006 | https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_space_after_filename.yml
+DeviceProcessEvents
+| where ProcessCommandLine endswith " " or FolderPath endswith " "

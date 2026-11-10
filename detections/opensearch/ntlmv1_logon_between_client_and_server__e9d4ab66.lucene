@@ -1,0 +1,2 @@
+// NTLMv1 Logon Between Client and Server | T1550.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/system/lsasrv/win_system_lsasrv_ntlmv1.yml
+winlog.channel:System AND (winlog.provider_name:LsaSrv AND (event.code:(6038 OR 6039)))

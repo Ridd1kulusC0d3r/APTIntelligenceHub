@@ -1,0 +1,18 @@
+// AWS Console GetSigninToken Potential Abuse | T1021.007, T1550.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/aws/cloudtrail/aws_console_getsignintoken.yml
+(eventSource:signin.amazonaws.com AND eventName:GetSigninToken) AND (NOT userAgent:*Jersey\/$\{project.version\}*)
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(eventSource:signin.amazonaws.com AND eventName:GetSigninToken) AND (NOT userAgent:*Jersey\\/$\\{project.version\\}*)",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

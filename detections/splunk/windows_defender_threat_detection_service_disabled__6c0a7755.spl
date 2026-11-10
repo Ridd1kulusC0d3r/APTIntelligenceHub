@@ -1,0 +1,2 @@
+# Windows Defender Threat Detection Service Disabled | T1685 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/system/service_control_manager/win_system_defender_disabled.yml
+source="WinEventLog:System" EventCode=7036 Provider_Name="Service Control Manager" (param1 IN ("Windows Defender Antivirus Service", "Service antivirus Microsoft Defender")) (param2 IN ("stopped", "arrêté"))

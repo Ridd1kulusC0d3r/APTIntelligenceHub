@@ -1,0 +1,2 @@
+-- MSExchange Transport Agent Installation | T1505.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_msexchange_transport_agent.yml
+SELECT * FROM events WHERE devicetype=12 AND LOWER(Command) LIKE '%install-transportagent%'

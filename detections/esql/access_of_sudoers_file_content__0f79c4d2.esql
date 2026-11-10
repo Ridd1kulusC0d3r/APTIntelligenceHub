@@ -1,0 +1,2 @@
+// Access of Sudoers File Content | T1592.004 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_susp_process_reading_sudoers.yml
+from * metadata _id, _index, _version | where (ends_with(Image, "/cat") or ends_with(Image, "/ed") or ends_with(Image, "/egrep") or ends_with(Image, "/emacs") or ends_with(Image, "/fgrep") or ends_with(Image, "/grep") or ends_with(Image, "/head") or ends_with(Image, "/less") or ends_with(Image, "/more") or ends_with(Image, "/nano") or ends_with(Image, "/tail")) and CommandLine like "* /etc/sudoers*"

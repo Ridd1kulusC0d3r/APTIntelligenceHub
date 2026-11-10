@@ -1,0 +1,2 @@
+-- Suspicious Rejected SMB Guest Logon From IP | T1110.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/smbclient/security/win_smbclient_security_susp_failed_guest_logon.yml | NOTA: fallback QRadarAQL_payload_pipeline: campos sem propriedade DSM mapeada são buscados em UTF8(payload) – custo maior, crie custom properties
+SELECT * FROM events WHERE devicetype IN(11, 12) AND "Event ID"=31017 AND Username='' AND LOWER(UTF8(payload)) LIKE '%\1%'

@@ -1,0 +1,18 @@
+// Bitbucket User Login Failure Via SSH | T1021.004, T1110 | https://github.com/SigmaHQ/sigma/blob/master/rules/application/bitbucket/audit/bitbucket_audit_user_login_failure_via_ssh_detected.yml
+auditType.category:Authentication AND auditType.action:"User login failed\(SSH\)"
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "auditType.category:Authentication AND auditType.action:\"User login failed\\(SSH\\)\"",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

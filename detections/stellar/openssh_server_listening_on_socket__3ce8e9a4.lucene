@@ -1,0 +1,18 @@
+// OpenSSH Server Listening On Socket | T1021.004 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/openssh/win_sshd_openssh_server_listening_on_socket.yml
+EventID:4 AND process:sshd AND payload:Server\ listening\ on\ *
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "EventID:4 AND process:sshd AND payload:Server\\ listening\\ on\\ *",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

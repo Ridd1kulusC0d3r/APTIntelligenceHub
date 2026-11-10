@@ -1,0 +1,2 @@
+-- ESXi Admin Permission Assigned To Account Via ESXCLI | T1059.012, T1098 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_esxcli_permission_change_admin.yml
+SELECT * FROM events WHERE devicetype=11 AND (LOWER("Process Path") LIKE '%/esxcli' OR LOWER("Process Name") LIKE '%/esxcli') AND LOWER(Command) LIKE '%system%' AND (LOWER(Command) LIKE '% permission %' AND LOWER(Command) LIKE '% set%' AND LOWER(Command) LIKE '%admin%')

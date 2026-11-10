@@ -1,0 +1,2 @@
+# AWS IAM S3Browser Templated S3 Bucket Policy Creation | T1059.009, T1078.004 | https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/aws/cloudtrail/aws_iam_s3browser_templated_s3_bucket_policy_creation.yml
+eventSource="iam.amazonaws.com" eventName="PutUserPolicy" userAgent="*S3 Browser*" requestParameters="*\"arn:aws:s3:::<YOUR-BUCKET-NAME>/*\"*" requestParameters="*\"s3:GetObject\"*" requestParameters="*\"Allow\"*"

@@ -1,0 +1,2 @@
+// Suspicious Executable File Creation | T1564 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_susp_executable_creation.yml
+from * metadata _id, _index, _version | where ends_with(file.path, ":\\$Recycle.Bin.exe") or ends_with(file.path, ":\\Documents and Settings.exe") or ends_with(file.path, ":\\MSOCache.exe") or ends_with(file.path, ":\\PerfLogs.exe") or ends_with(file.path, ":\\Recovery.exe") or ends_with(file.path, ".bat.exe") or ends_with(file.path, ".sys.exe")

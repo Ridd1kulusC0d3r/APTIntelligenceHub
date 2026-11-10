@@ -1,0 +1,2 @@
+-- PowerShell Get-Process LSASS | T1552.004 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_getprocess_lsass.yml
+SELECT * FROM events WHERE devicetype=12 AND (LOWER(Command) LIKE '%get-process lsas%' OR LOWER(Command) LIKE '%ps lsas%' OR LOWER(Command) LIKE '%gps lsas%')

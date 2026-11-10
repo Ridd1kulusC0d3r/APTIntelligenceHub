@@ -1,0 +1,18 @@
+// Important Windows Eventlog Cleared | T1685.005 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/system/microsoft_windows_eventlog/win_system_susp_eventlog_cleared.yml
+EventID:104 AND Provider_Name:Microsoft\-Windows\-Eventlog AND (Channel:(Microsoft\-Windows\-PowerShell\/Operational OR Microsoft\-Windows\-Sysmon\/Operational OR PowerShellCore\/Operational OR Security OR System OR "Windows PowerShell"))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "EventID:104 AND Provider_Name:Microsoft\\-Windows\\-Eventlog AND (Channel:(Microsoft\\-Windows\\-PowerShell\\/Operational OR Microsoft\\-Windows\\-Sysmon\\/Operational OR PowerShellCore\\/Operational OR Security OR System OR \"Windows PowerShell\"))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

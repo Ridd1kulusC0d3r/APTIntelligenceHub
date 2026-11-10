@@ -1,0 +1,18 @@
+// Multifactor Authentication Interrupted | T1078.004, T1110, T1621 | https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/azure/signin_logs/azure_mfa_interrupted.yml
+(ResultType:50074 AND ResultDescription:*Strong\ Auth\ required*) OR (ResultType:500121 AND ResultDescription:*Authentication\ failed\ during\ strong\ authentication\ request*)
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(ResultType:50074 AND ResultDescription:*Strong\\ Auth\\ required*) OR (ResultType:500121 AND ResultDescription:*Authentication\\ failed\\ during\\ strong\\ authentication\\ request*)",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

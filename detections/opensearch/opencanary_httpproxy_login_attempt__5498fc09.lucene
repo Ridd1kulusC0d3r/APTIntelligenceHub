@@ -1,0 +1,2 @@
+// OpenCanary - HTTPPROXY Login Attempt | T1090 | https://github.com/SigmaHQ/sigma/blob/master/rules/application/opencanary/opencanary_httpproxy_login_attempt.yml
+logtype:7001

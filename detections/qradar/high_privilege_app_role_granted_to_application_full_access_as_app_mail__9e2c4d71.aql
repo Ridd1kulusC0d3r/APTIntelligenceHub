@@ -1,0 +1,2 @@
+-- High-Privilege App Role Granted To Application (full_access_as_app / Mail.Read) | T1098.003 | Hub | NOTA: fallback QRadarAQL_payload_pipeline: campos sem propriedade DSM mapeada são buscados em UTF8(payload) – custo maior, crie custom properties
+SELECT * FROM events WHERE LOWER(UTF8(payload)) LIKE '%add app role assignment to service principal%' AND (LOWER(UTF8(payload)) LIKE '%full_access_as_app%' OR LOWER(UTF8(payload)) LIKE '%mail.read%' OR LOWER(UTF8(payload)) LIKE '%mail.readwrite%' OR LOWER(UTF8(payload)) LIKE '%rolemanagement.readwrite.directory%')

@@ -1,0 +1,3 @@
+// OilRig APT Activity | T1053.005, T1071.004, T1112, T1543.003 | https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2018/TA/OilRig/proc_creation_win_apt_oilrig_mar18.yml
+DeviceProcessEvents
+| where (ProcessCommandLine contains "SC Scheduled Scan" and ProcessCommandLine contains "\\microsoft\\Taskbar\\autoit3.exe") or (FolderPath contains "\\Windows\\Temp\\DB\\" and FolderPath endswith ".exe") or (FolderPath =~ "C:\\Windows\\system32\\Service.exe" and (ProcessCommandLine contains "i" or ProcessCommandLine contains "u")) or (InitiatingProcessFolderPath endswith "\\local\\microsoft\\Taskbar\\autoit3.exe" and (ProcessCommandLine contains "nslookup.exe" and ProcessCommandLine contains "-q=TXT"))

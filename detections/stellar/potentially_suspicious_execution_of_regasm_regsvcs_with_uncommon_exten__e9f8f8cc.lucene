@@ -1,0 +1,18 @@
+// Potentially Suspicious Execution Of Regasm/Regsvcs With Uncommon Extension | T1218.009 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_regasm_regsvcs_uncommon_extension_execution.yml
+((Image:(*\\Regsvcs.exe OR *\\Regasm.exe)) OR (OriginalFileName:(RegSvcs.exe OR RegAsm.exe))) AND (CommandLine:(*.dat* OR *.gif* OR *.jpeg* OR *.jpg* OR *.png* OR *.txt*))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "((Image:(*\\\\Regsvcs.exe OR *\\\\Regasm.exe)) OR (OriginalFileName:(RegSvcs.exe OR RegAsm.exe))) AND (CommandLine:(*.dat* OR *.gif* OR *.jpeg* OR *.jpg* OR *.png* OR *.txt*))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,2 @@
+// Suspicious RazerInstaller Explorer Subprocess | T1553 | https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2021/Exploits/RazerInstaller-LPE-Exploit/proc_creation_win_exploit_other_razorinstaller_lpe.yml
+any where (process.parent.executable.caseless:"*\\RazerInstaller.exe" and (winlog.event_data.IntegrityLevel like~ ("System", "S-1-16-16384"))) and (not process.executable.caseless:"C:\\Windows\\Installer\\Razer\\Installer\\*")

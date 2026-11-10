@@ -1,0 +1,18 @@
+// Potential Persistence Via Microsoft Office Add-In | T1137.006 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_office_addin_persistence.yml
+(TargetFilename:*\\Microsoft\\Word\\Startup\\* AND TargetFilename:*.wll) OR (TargetFilename:*\\Microsoft\\Excel\\Startup\\* AND TargetFilename:*.xll) OR (TargetFilename:*Microsoft\\Excel\\XLSTART\\* AND TargetFilename:*.xlam) OR (TargetFilename:*\\Microsoft\\Addins\\* AND (TargetFilename:(*.xlam OR *.xla OR *.ppam)))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(TargetFilename:*\\\\Microsoft\\\\Word\\\\Startup\\\\* AND TargetFilename:*.wll) OR (TargetFilename:*\\\\Microsoft\\\\Excel\\\\Startup\\\\* AND TargetFilename:*.xll) OR (TargetFilename:*Microsoft\\\\Excel\\\\XLSTART\\\\* AND TargetFilename:*.xlam) OR (TargetFilename:*\\\\Microsoft\\\\Addins\\\\* AND (TargetFilename:(*.xlam OR *.xla OR *.ppam)))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

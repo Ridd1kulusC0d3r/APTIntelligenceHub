@@ -1,0 +1,2 @@
+-- USB Device Plugged | T1200 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/driverframeworks/win_usb_device_plugged.yml
+SELECT * FROM events WHERE devicetype=12 AND "Event ID" IN('2003', '2100', '2102')

@@ -1,0 +1,2 @@
+// Suspicious Unsigned Thor Scanner Execution | T1574.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_thor_unsigned_execution.yml
+((process.executable.caseless:(*\\thor.exe OR *\\thor64.exe)) AND (file.path:(*\\thor.exe OR *\\thor64.exe))) AND (NOT (file.code_signature.signed:true AND file.code_signature.status:valid AND winlog.event_data.Signature:"Nextron Systems GmbH"))

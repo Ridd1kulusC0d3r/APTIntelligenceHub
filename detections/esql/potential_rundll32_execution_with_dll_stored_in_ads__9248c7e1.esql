@@ -1,0 +1,2 @@
+// Potential Rundll32 Execution With DLL Stored In ADS | T1564.004 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_ads_stored_dll_execution.yml
+from * metadata _id, _index, _version | where (ends_with(process.executable.caseless, "\\rundll32.exe") or process.pe.original_file_name=="RUNDLL32.EXE") and process.command_line rlike "[Rr][Uu][Nn][Dd][Ll][Ll]32(?:\\.[Ee][Xx][Ee])? \\S+?\\w:\\S+?:"

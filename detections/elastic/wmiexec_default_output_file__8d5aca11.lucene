@@ -1,0 +1,2 @@
+// Wmiexec Default Output File | T1047 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_wmiexec_default_filename.yml
+file.path:/\\Windows\\__1\d{9}\.\d{1,7}$/ OR file.path:/C:\\__1\d{9}\.\d{1,7}$/ OR file.path:/D:\\__1\d{9}\.\d{1,7}$/

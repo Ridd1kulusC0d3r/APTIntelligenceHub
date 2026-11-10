@@ -1,0 +1,2 @@
+-- Disk Image Mounting Via Hdiutil - MacOS | T1560.001, T1566.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_hdiutil_mount.yml
+SELECT * FROM events WHERE devicetype=102 AND (LOWER("Process Path") LIKE '%/hdiutil' OR LOWER("Process Name") LIKE '%/hdiutil') AND (LOWER(Command) LIKE '%attach %' OR LOWER(Command) LIKE '%mount %')

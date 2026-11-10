@@ -1,0 +1,2 @@
+# Equation Group C2 Communication | T1041 | https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2017/TA/Equation-Group/net_firewall_apt_equationgroup_c2.yml
+dst_ip IN ("69.42.98.86", "89.185.234.145") OR src_ip IN ("69.42.98.86", "89.185.234.145")

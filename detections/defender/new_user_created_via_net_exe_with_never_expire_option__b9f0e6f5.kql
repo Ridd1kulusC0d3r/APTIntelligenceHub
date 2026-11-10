@@ -1,0 +1,3 @@
+// New User Created Via Net.EXE With Never Expire Option | T1136.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_net_user_add_never_expire.yml
+DeviceProcessEvents
+| where ((FolderPath endswith "\\net.exe" or FolderPath endswith "\\net1.exe") or (ProcessVersionInfoOriginalFileName in~ ("net.exe", "net1.exe"))) and (ProcessCommandLine contains "user" and ProcessCommandLine contains "add" and ProcessCommandLine contains "expires:never")

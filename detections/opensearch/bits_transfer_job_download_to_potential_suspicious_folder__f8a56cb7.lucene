@@ -1,0 +1,2 @@
+// BITS Transfer Job Download To Potential Suspicious Folder | T1197 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/bits_client/win_bits_client_new_trasnfer_susp_local_folder.yml
+winlog.channel:Microsoft\-Windows\-Bits\-Client\/Operational AND (event.code:16403 AND (winlog.event_data.LocalName:(*\\Desktop\\* OR *C\:\\Users\\Public\\* OR *C\:\\PerfLogs\\*)))

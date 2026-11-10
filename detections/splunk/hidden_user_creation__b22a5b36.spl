@@ -1,0 +1,5 @@
+# Hidden User Creation | T1564.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_create_hidden_account.yml
+
+| rex field=CommandLine "(?<CommandLineMatch>([0-9]|[1-9][0-9]|[1-4][0-9]{2}))"
+| eval CommandLineCondition=if(isnotnull(CommandLineMatch), "true", "false")
+| search (Image="*/dscl" CommandLine="*create*" CommandLine="*UniqueID*" CommandLineCondition="true") OR (Image="*/dscl" CommandLine="*create*" CommandLine="*IsHidden*" (CommandLine IN ("*true*", "*yes*", "*1*")))

@@ -1,0 +1,18 @@
+// Potential Secure Deletion with SDelete | T1027.005, T1070.004, T1485, T1553.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_sdelete_potential_secure_deletion.yml
+(EventID:(4656 OR 4663 OR 4658)) AND (ObjectName:(*.AAA OR *.ZZZ))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(EventID:(4656 OR 4663 OR 4658)) AND (ObjectName:(*.AAA OR *.ZZZ))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

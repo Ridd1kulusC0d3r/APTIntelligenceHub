@@ -1,0 +1,2 @@
+-- Remote LSASS Process Access Through Windows Remote Management | T1003.001, T1021.006, T1059.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_access/proc_access_win_lsass_remote_access_trough_winrm.yml
+SELECT * FROM events WHERE devicetype=12 AND (LOWER("Target Process Path") LIKE '%\lsass.exe' AND LOWER("Source Process Path") LIKE '%:\windows\system32\wsmprovhost.exe') AND (NOT("Granted Access"='0x80000000'))

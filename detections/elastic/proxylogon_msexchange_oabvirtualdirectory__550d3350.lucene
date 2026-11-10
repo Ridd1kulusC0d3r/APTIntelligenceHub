@@ -1,0 +1,2 @@
+// ProxyLogon MSExchange OabVirtualDirectory | T1587.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/msexchange/win_exchange_proxylogon_oabvirtualdir.yml
+winlog.channel:"MSExchange Management" AND ((*OabVirtualDirectory* AND *\ \-ExternalUrl\ *) AND (*eval\(request* OR *http\:\/\/f\/\<script* OR *\"unsafe\"\};* OR *function\ Page_Load\(\)*))

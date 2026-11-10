@@ -1,0 +1,3 @@
+// Tunneling Tool Execution | T1041, T1071.001, T1572 | https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_susp_exfil_and_tunneling_tool_execution.yml
+DeviceProcessEvents
+| where FolderPath endswith "\\httptunnel.exe" or FolderPath endswith "\\plink.exe" or FolderPath endswith "\\socat.exe" or FolderPath endswith "\\stunnel.exe"

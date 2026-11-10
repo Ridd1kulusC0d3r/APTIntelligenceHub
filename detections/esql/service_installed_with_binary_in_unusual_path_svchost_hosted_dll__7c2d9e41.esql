@@ -1,0 +1,2 @@
+// Service Installed With Binary In Unusual Path (svchost-hosted DLL) | T1543.003 | Hub
+from * metadata _id, _index, _version | where registry.path like "*\\Services\\*" and ends_with(registry.path, "\\Parameters\\ServiceDll") and not (starts_with(winlog.event_data.Details, "C:\\Windows\\System32\\") or starts_with(winlog.event_data.Details, "%SystemRoot%\\System32\\") or starts_with(winlog.event_data.Details, "%systemroot%\\system32\\"))

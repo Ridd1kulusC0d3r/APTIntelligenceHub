@@ -1,0 +1,2 @@
+// HackTool - Powerup Write Hijack DLL | T1574.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_hktl_powerup_dllhijacking.yml
+(process.executable.caseless:(*\\powershell.exe OR *\\pwsh.exe)) AND file.path:*.bat

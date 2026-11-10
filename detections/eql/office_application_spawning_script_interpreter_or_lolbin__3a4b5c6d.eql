@@ -1,0 +1,2 @@
+// Office Application Spawning Script Interpreter Or LOLBin | T1204.002, T1221 | Hub
+any where (process.parent.executable.caseless like~ ("*\\WINWORD.EXE", "*\\EXCEL.EXE", "*\\POWERPNT.EXE")) and (process.executable.caseless like~ ("*\\wscript.exe", "*\\cscript.exe", "*\\mshta.exe", "*\\powershell.exe", "*\\cmd.exe"))

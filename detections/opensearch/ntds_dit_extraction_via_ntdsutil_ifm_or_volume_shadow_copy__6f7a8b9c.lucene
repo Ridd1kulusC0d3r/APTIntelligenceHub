@@ -1,0 +1,2 @@
+// NTDS.dit Extraction Via Ntdsutil IFM Or Volume Shadow Copy | T1003.003 | Hub
+(process.executable.caseless:*\\ntdsutil.exe AND process.command_line:*ifm*) OR (process.executable.caseless:*\\vssadmin.exe AND (process.command_line:*create* AND process.command_line:*shadow*))

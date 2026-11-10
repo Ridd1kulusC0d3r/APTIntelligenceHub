@@ -1,0 +1,18 @@
+// Potential Rundll32 Execution With DLL Stored In ADS | T1564.004 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_ads_stored_dll_execution.yml
+(Image:*\\rundll32.exe OR OriginalFileName:RUNDLL32.EXE) AND CommandLine:/[Rr][Uu][Nn][Dd][Ll][Ll]32(?:\.[Ee][Xx][Ee])? \S+?\w:\S+?:/
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(Image:*\\\\rundll32.exe OR OriginalFileName:RUNDLL32.EXE) AND CommandLine:/[Rr][Uu][Nn][Dd][Ll][Ll]32(?:\\.[Ee][Xx][Ee])? \\S+?\\w:\\S+?:/",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

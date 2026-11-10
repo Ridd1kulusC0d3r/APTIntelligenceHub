@@ -1,0 +1,3 @@
+// Touch Suspicious Service File | T1070.006 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_touch_susp.yml
+DeviceProcessEvents
+| where FolderPath endswith "/touch" and ProcessCommandLine contains " -t " and ProcessCommandLine endswith ".service"

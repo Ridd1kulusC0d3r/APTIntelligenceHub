@@ -1,0 +1,2 @@
+-- NTLM Hash Leak Via Curl NTLM Authentication | T1187 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_curl_ntlm_hash_leak_attempt.yml
+SELECT * FROM events WHERE devicetype=12 AND ((LOWER("Process Path") LIKE '%\curl.exe' OR LOWER("Process Name") LIKE '%\curl.exe') OR Filename='curl.exe') AND LOWER(Command) LIKE '%--ntlm%' AND Command MATCHES '(?i)\s(-u|--user)\s*:'

@@ -1,0 +1,18 @@
+// DNS Query for Anonfiles.com Domain - DNS Client | T1567.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/dns_client/win_dns_client_anonymfiles_com.yml
+EventID:3008 AND QueryName:*.anonfiles.com*
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "EventID:3008 AND QueryName:*.anonfiles.com*",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

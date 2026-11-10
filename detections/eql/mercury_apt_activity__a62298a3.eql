@@ -1,0 +1,2 @@
+// MERCURY APT Activity | T1059.001 | https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2022/TA/MERCURY/proc_creation_win_apt_mercury.yml
+any where process.command_line:"*-exec bypass -w 1 -enc*" and process.command_line:"*UwB0AGEAcgB0AC0ASgBvAGIAIAAtAFMAYwByAGkAcAB0AEIAbABvAGMAawAgAHsAKABzAGEAcABzACAAKAAiAHAA*"

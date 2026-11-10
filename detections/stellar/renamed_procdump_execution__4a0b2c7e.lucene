@@ -1,0 +1,18 @@
+// Renamed ProcDump Execution | T1036.003 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_renamed_sysinternals_procdump.yml
+(OriginalFileName:procdump OR ((CommandLine:(*\ \-ma\ * OR *\ \/ma\ * OR *\ –ma\ * OR *\ —ma\ * OR *\ ―ma\ *) OR CommandLine:(*\ \-mp\ * OR *\ \/mp\ * OR *\ –mp\ * OR *\ —mp\ * OR *\ ―mp\ *)) AND CommandLine:(*\ \-accepteula* OR *\ \/accepteula* OR *\ –accepteula* OR *\ —accepteula* OR *\ ―accepteula*))) AND (NOT (Image:(*\\procdump.exe OR *\\procdump64.exe OR *\\procdump64a.exe)))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(OriginalFileName:procdump OR ((CommandLine:(*\\ \\-ma\\ * OR *\\ \\/ma\\ * OR *\\ \u2013ma\\ * OR *\\ \u2014ma\\ * OR *\\ \u2015ma\\ *) OR CommandLine:(*\\ \\-mp\\ * OR *\\ \\/mp\\ * OR *\\ \u2013mp\\ * OR *\\ \u2014mp\\ * OR *\\ \u2015mp\\ *)) AND CommandLine:(*\\ \\-accepteula* OR *\\ \\/accepteula* OR *\\ \u2013accepteula* OR *\\ \u2014accepteula* OR *\\ \u2015accepteula*))) AND (NOT (Image:(*\\\\procdump.exe OR *\\\\procdump64.exe OR *\\\\procdump64a.exe)))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

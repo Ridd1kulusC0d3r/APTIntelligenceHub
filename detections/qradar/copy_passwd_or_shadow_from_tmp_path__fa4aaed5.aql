@@ -1,0 +1,2 @@
+-- Copy Passwd Or Shadow From TMP Path | T1552.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_cp_passwd_or_shadow_tmp.yml
+SELECT * FROM events WHERE devicetype=11 AND (LOWER("Process Path") LIKE '%/cp' OR LOWER("Process Name") LIKE '%/cp') AND LOWER(Command) LIKE '%/tmp/%' AND (LOWER(Command) LIKE '%passwd%' OR LOWER(Command) LIKE '%shadow%')

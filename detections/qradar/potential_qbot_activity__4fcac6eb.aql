@@ -1,0 +1,2 @@
+-- Potential QBot Activity | T1059.005 | https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2019/Malware/QBot/proc_creation_win_malware_qbot.yml
+SELECT * FROM events WHERE devicetype=12 AND ((LOWER("Parent Process Path") LIKE '%\winrar.exe' AND (LOWER("Process Path") LIKE '%\wscript.exe' OR LOWER("Process Name") LIKE '%\wscript.exe')) OR LOWER(Command) LIKE '% /c ping.exe -n 6 127.0.0.1 & type %' OR (LOWER(Command) LIKE '%regsvr32.exe%' AND LOWER(Command) LIKE '%c:\programdata%' AND LOWER(Command) LIKE '%.tmp%'))

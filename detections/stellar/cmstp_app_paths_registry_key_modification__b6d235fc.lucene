@@ -1,0 +1,18 @@
+// CMSTP App Paths Registry Key Modification | T1218.003 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/registry_event_cmstp_execution_by_registry.yml
+TargetObject:*SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\App\ Paths\\cmmgr32.exe\\* AND (NOT ((TargetObject:*SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\App\ Paths\\cmmgr32.exe\\CmstpExtensionDll AND (Details:(C\:\\Windows\\System32\\cmcfg32.dll OR C\:\\Windows\\SysWOW64\\cmcfg32.dll))) OR Details:\(Empty\)))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "TargetObject:*SOFTWARE\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\App\\ Paths\\\\cmmgr32.exe\\\\* AND (NOT ((TargetObject:*SOFTWARE\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\App\\ Paths\\\\cmmgr32.exe\\\\CmstpExtensionDll AND (Details:(C\\:\\\\Windows\\\\System32\\\\cmcfg32.dll OR C\\:\\\\Windows\\\\SysWOW64\\\\cmcfg32.dll))) OR Details:\\(Empty\\)))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

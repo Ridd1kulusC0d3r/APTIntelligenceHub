@@ -1,0 +1,3 @@
+// PowerShell Profile Modification | T1546.013 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_susp_powershell_profile.yml
+DeviceFileEvents
+| where FolderPath endswith "\\Microsoft.PowerShell_profile.ps1" or FolderPath endswith "\\PowerShell\\profile.ps1" or FolderPath endswith "\\Program Files\\PowerShell\\7-preview\\profile.ps1" or FolderPath endswith "\\Program Files\\PowerShell\\7\\profile.ps1" or FolderPath endswith "\\Windows\\System32\\WindowsPowerShell\\v1.0\\profile.ps1" or FolderPath endswith "\\WindowsPowerShell\\profile.ps1"

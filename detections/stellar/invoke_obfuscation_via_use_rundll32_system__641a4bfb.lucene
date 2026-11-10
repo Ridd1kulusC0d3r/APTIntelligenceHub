@@ -1,0 +1,18 @@
+// Invoke-Obfuscation Via Use Rundll32 - System | T1027, T1059.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/system/service_control_manager/win_system_invoke_obfuscation_via_use_rundll32_services.yml
+Provider_Name:"Service Control Manager" AND EventID:7045 AND (ImagePath:*\&\&* AND ImagePath:*rundll32* AND ImagePath:*shell32.dll* AND ImagePath:*shellexec_rundll*) AND (ImagePath:(*value* OR *invoke* OR *comspec* OR *iex*))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "Provider_Name:\"Service Control Manager\" AND EventID:7045 AND (ImagePath:*\\&\\&* AND ImagePath:*rundll32* AND ImagePath:*shell32.dll* AND ImagePath:*shellexec_rundll*) AND (ImagePath:(*value* OR *invoke* OR *comspec* OR *iex*))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

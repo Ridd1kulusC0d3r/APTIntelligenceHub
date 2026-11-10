@@ -1,0 +1,18 @@
+// Suspicious History File Operations - Linux | T1552.003 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/execve/lnx_auditd_susp_histfile_operations.yml
+type:EXECVE AND (*.bash_history* OR *.zsh_history* OR *.zhistory* OR *.history* OR *.sh_history* OR *fish_history*)
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "type:EXECVE AND (*.bash_history* OR *.zsh_history* OR *.zhistory* OR *.history* OR *.sh_history* OR *fish_history*)",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

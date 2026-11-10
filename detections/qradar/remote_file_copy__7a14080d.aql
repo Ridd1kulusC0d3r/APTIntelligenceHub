@@ -1,0 +1,2 @@
+-- Remote File Copy | T1105 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/builtin/lnx_file_copy.yml | NOTA: fallback QRadarAQL_payload_pipeline: campos sem propriedade DSM mapeada são buscados em UTF8(payload) – custo maior, crie custom properties
+SELECT * FROM events WHERE devicetype=11 AND (LOWER(UTF8(payload)) LIKE '%scp %' OR LOWER(UTF8(payload)) LIKE '%rsync %' OR LOWER(UTF8(payload)) LIKE '%sftp %') AND (LOWER(UTF8(payload)) LIKE '%@%' OR LOWER(UTF8(payload)) LIKE '%:%')

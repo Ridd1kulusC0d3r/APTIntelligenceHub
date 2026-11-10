@@ -1,0 +1,18 @@
+// KrbRelayUp Service Installation | T1543 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/system/service_control_manager/win_system_krbrelayup_service_installation.yml
+EventID:7045 AND ServiceName:KrbSCM
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "EventID:7045 AND ServiceName:KrbSCM",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

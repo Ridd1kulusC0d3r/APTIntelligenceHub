@@ -1,0 +1,18 @@
+// Turla Group Commands May 2020 | T1027, T1053.005, T1059.001 | https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2014/TA/Turla/proc_creation_win_apt_turla_comrat_may20.yml
+(CommandLine:(*tracert\ \-h\ 10\ yahoo.com* OR *.WSqmCons\)\)\|iex;* OR *Fr`omBa`se6`4Str`ing*)) OR (CommandLine:/net\s+use\s+https:\/\/docs.live.net/ AND CommandLine:*@aol.co.uk*)
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(CommandLine:(*tracert\\ \\-h\\ 10\\ yahoo.com* OR *.WSqmCons\\)\\)\\|iex;* OR *Fr`omBa`se6`4Str`ing*)) OR (CommandLine:/net\\s+use\\s+https:\\/\\/docs.live.net/ AND CommandLine:*@aol.co.uk*)",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,18 @@
+// Clipboard Access Via OSAScript | T1059.002, T1115 | https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_clipboard_access_via_osascript.yml
+(Image:*\/osascript AND (CommandLine:*\ \-e\ * AND CommandLine:*clipboard*)) AND (NOT (ParentImage:*opencode AND (CommandLine:*osascript* AND CommandLine:*\ \-e\ * AND CommandLine:*set\ imageData\ to\ the\ clipboard* AND CommandLine:*set\ fileRef*)))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(Image:*\\/osascript AND (CommandLine:*\\ \\-e\\ * AND CommandLine:*clipboard*)) AND (NOT (ParentImage:*opencode AND (CommandLine:*osascript* AND CommandLine:*\\ \\-e\\ * AND CommandLine:*set\\ imageData\\ to\\ the\\ clipboard* AND CommandLine:*set\\ fileRef*)))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

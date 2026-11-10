@@ -1,0 +1,18 @@
+// GUI Input Capture - macOS | T1056.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_gui_input_capture.yml
+Image:*\/osascript AND (CommandLine:*\-e* AND CommandLine:*display* AND CommandLine:*dialog* AND CommandLine:*answer*) AND (CommandLine:(*admin* OR *administrator* OR *authenticate* OR *authentication* OR *credentials* OR *pass* OR *password* OR *unlock*))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "Image:*\\/osascript AND (CommandLine:*\\-e* AND CommandLine:*display* AND CommandLine:*dialog* AND CommandLine:*answer*) AND (CommandLine:(*admin* OR *administrator* OR *authenticate* OR *authentication* OR *credentials* OR *pass* OR *password* OR *unlock*))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,18 @@
+// Potential Manage-bde.wsf Abuse To Proxy Execution | T1216 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_manage_bde.yml
+((Image:*\\wscript.exe OR OriginalFileName:wscript.exe) AND CommandLine:*manage\-bde.wsf*) OR (((ParentImage:(*\\cscript.exe OR *\\wscript.exe)) AND ParentCommandLine:*manage\-bde.wsf*) AND (NOT Image:*\\cmd.exe))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "((Image:*\\\\wscript.exe OR OriginalFileName:wscript.exe) AND CommandLine:*manage\\-bde.wsf*) OR (((ParentImage:(*\\\\cscript.exe OR *\\\\wscript.exe)) AND ParentCommandLine:*manage\\-bde.wsf*) AND (NOT Image:*\\\\cmd.exe))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

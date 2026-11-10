@@ -1,0 +1,2 @@
+-- Suspicious SSL Connection | T1573 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/powershell/powershell_script/posh_ps_susp_ssl_keyword.yml
+SELECT * FROM events WHERE devicetype=12 AND LOWER(Message) LIKE '%system.net.security.sslstream%' AND LOWER(Message) LIKE '%net.security.remotecertificatevalidationcallback%' AND LOWER(Message) LIKE '%.authenticateasclient%'

@@ -1,0 +1,2 @@
+// System Information Discovery | T1082 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_system_info_discovery.yml
+from * metadata _id, _index, _version | where ends_with(Image, "/uname") or ends_with(Image, "/hostname") or ends_with(Image, "/uptime") or ends_with(Image, "/lspci") or ends_with(Image, "/dmidecode") or ends_with(Image, "/lscpu") or ends_with(Image, "/lsmod")

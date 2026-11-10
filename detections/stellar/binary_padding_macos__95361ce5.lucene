@@ -1,0 +1,18 @@
+// Binary Padding - MacOS | T1027.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_binary_padding.yml
+(Image:*\/truncate AND CommandLine:*\-s\ \+*) OR (Image:*\/dd AND (CommandLine:(*if\=\/dev\/zero* OR *if\=\/dev\/random* OR *if\=\/dev\/urandom*)))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(Image:*\\/truncate AND CommandLine:*\\-s\\ \\+*) OR (Image:*\\/dd AND (CommandLine:(*if\\=\\/dev\\/zero* OR *if\\=\\/dev\\/random* OR *if\\=\\/dev\\/urandom*)))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

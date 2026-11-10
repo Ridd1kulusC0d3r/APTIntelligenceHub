@@ -1,0 +1,18 @@
+// MSHTA Or HH Spawning Script Interpreter From Document Lure | T1218.001, T1218.005 | Hub
+(ParentImage:(*\\mshta.exe OR *\\hh.exe)) AND (Image:(*\\powershell.exe OR *\\cmd.exe OR *\\wscript.exe OR *\\cscript.exe OR *\\curl.exe))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(ParentImage:(*\\\\mshta.exe OR *\\\\hh.exe)) AND (Image:(*\\\\powershell.exe OR *\\\\cmd.exe OR *\\\\wscript.exe OR *\\\\cscript.exe OR *\\\\curl.exe))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

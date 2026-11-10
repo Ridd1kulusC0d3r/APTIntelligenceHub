@@ -1,0 +1,18 @@
+// Potential Ransomware or Unauthorized MBR Tampering Via Bcdedit.EXE | T1070, T1542.003 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_bcdedit_susp_execution.yml
+(Image:*\\bcdedit.exe OR OriginalFileName:bcdedit.exe) AND (CommandLine:(*delete* OR *deletevalue* OR *import* OR *safeboot* OR *network*))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(Image:*\\\\bcdedit.exe OR OriginalFileName:bcdedit.exe) AND (CommandLine:(*delete* OR *deletevalue* OR *import* OR *safeboot* OR *network*))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

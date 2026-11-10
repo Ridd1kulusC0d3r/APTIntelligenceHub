@@ -1,0 +1,18 @@
+// Certificate Private Key Acquired | T1649 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/capi2/win_capi2_acquire_certificate_private_key.yml
+EventID:70
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "EventID:70",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

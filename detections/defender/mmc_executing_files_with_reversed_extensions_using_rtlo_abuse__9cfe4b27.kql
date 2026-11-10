@@ -1,0 +1,3 @@
+// MMC Executing Files with Reversed Extensions Using RTLO Abuse | T1036.002, T1204.002, T1218.014 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_mmc_rlo_abuse_pattern.yml
+DeviceProcessEvents
+| where (FolderPath endswith "\\mmc.exe" or ProcessVersionInfoOriginalFileName =~ "MMC.exe") and (ProcessCommandLine contains "cod.msc" or ProcessCommandLine contains "fdp.msc" or ProcessCommandLine contains "ftr.msc" or ProcessCommandLine contains "lmth.msc" or ProcessCommandLine contains "slx.msc" or ProcessCommandLine contains "tdo.msc" or ProcessCommandLine contains "xcod.msc" or ProcessCommandLine contains "xslx.msc" or ProcessCommandLine contains "xtpp.msc")

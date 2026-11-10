@@ -1,0 +1,2 @@
+// Suspicious Ping/Del Command Combination | T1070.004 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_cmd_ping_del_combined_execution.yml
+process.command_line:(*\ \-n\ * OR *\ \/n\ * OR *\ –n\ * OR *\ —n\ * OR *\ ―n\ *) AND process.command_line:*Nul* AND (process.command_line:(*\ \-f\ * OR *\ \/f\ * OR *\ –f\ * OR *\ —f\ * OR *\ ―f\ *) OR process.command_line:(*\ \-q\ * OR *\ \/q\ * OR *\ –q\ * OR *\ —q\ * OR *\ ―q\ *)) AND (process.command_line:*ping* AND process.command_line:*del\ *)

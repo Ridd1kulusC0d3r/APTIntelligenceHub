@@ -1,0 +1,2 @@
+// Suspicious Network Communication With IPFS | T1056 | https://github.com/SigmaHQ/sigma/blob/master/rules/web/proxy_generic/proxy_susp_ipfs_cred_harvest.yml
+from * metadata _id, _index, _version | where `cs-uri` rlike "(?i)(ipfs\\.io/|ipfs\\.io\\s).+\\..+@.+\\.[a-z]+"

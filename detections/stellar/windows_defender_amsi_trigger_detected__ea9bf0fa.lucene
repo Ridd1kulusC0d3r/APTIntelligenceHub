@@ -1,0 +1,18 @@
+// Windows Defender AMSI Trigger Detected | T1059 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/windefend/win_defender_malware_detected_amsi_source.yml
+EventID:1116 AND SourceName:AMSI
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "EventID:1116 AND SourceName:AMSI",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

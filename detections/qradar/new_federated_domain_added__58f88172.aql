@@ -1,0 +1,2 @@
+-- New Federated Domain Added | T1484.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/m365/audit/microsoft365_new_federated_domain_added_audit.yml | NOTA: fallback QRadarAQL_payload_pipeline: campos sem propriedade DSM mapeada são buscados em UTF8(payload) – custo maior, crie custom properties
+SELECT * FROM events WHERE devicetype=397 AND LOWER(UTF8(payload)) LIKE '%domain%' AND (LOWER(UTF8(payload)) LIKE '%add%' OR LOWER(UTF8(payload)) LIKE '%new%')

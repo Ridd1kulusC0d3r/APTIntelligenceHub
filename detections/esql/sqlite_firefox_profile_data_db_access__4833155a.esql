@@ -1,0 +1,2 @@
+// SQLite Firefox Profile Data DB Access | T1005, T1539 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sqlite_firefox_gecko_profile_data.yml
+from * metadata _id, _index, _version | where (process.pe.product=="SQLite" or ends_with(process.executable.caseless, "\\sqlite.exe") or ends_with(process.executable.caseless, "\\sqlite3.exe")) and (process.command_line like "*cookies.sqlite*" or process.command_line like "*places.sqlite*")

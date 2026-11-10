@@ -1,0 +1,2 @@
+// Telegram API Access | T1071.001, T1102.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/web/proxy_generic/proxy_telegram_api.yml
+from * metadata _id, _index, _version | where `cs-host`=="api.telegram.org" and not (`c-useragent` like "*Telegram*" or `c-useragent` like "*Bot*")

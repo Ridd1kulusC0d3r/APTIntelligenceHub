@@ -1,0 +1,2 @@
+// Remote Server Service Abuse for Lateral Movement | T1569.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/application/rpc_firewall/rpc_firewall_remote_service_lateral_movement.yml
+any where EventLog:"RPCFW" and EventID:3 and InterfaceUuid:"367abb81-9844-35f1-ad32-98f038001003"

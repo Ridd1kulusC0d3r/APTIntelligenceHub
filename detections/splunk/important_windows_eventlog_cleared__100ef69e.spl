@@ -1,0 +1,2 @@
+# Important Windows Eventlog Cleared | T1685.005 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/system/microsoft_windows_eventlog/win_system_susp_eventlog_cleared.yml
+source="WinEventLog:System" EventCode=104 Provider_Name="Microsoft-Windows-Eventlog" (Channel IN ("Microsoft-Windows-PowerShell/Operational", "Microsoft-Windows-Sysmon/Operational", "PowerShellCore/Operational", "Security", "System", "Windows PowerShell"))

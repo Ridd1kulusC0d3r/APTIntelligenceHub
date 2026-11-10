@@ -1,0 +1,2 @@
+// Suspicious Child Process of Notepad++ Updater - GUP.Exe | T1195.002, T1557 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_gup_susp_child_process.yml
+any where process.parent.executable.caseless:"*\\gup.exe" and ((process.executable.caseless like~ ("*\\cmd.exe", "*\\powershell.exe", "*\\pwsh.exe", "*\\cscript.exe", "*\\wscript.exe", "*\\mshta.exe")) or (process.command_line like~ ("*bitsadmin*", "*certutil*", "*curl*", "*finger*", "*forfiles*", "*regsvr32*", "*rundll32*", "*wget*")))

@@ -1,0 +1,18 @@
+// Print History File Contents | T1592.004 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_susp_history_recon.yml
+(Image:(*\/cat OR *\/head OR *\/tail OR *\/more)) AND ((CommandLine:(*\/.bash_history* OR *\/.zsh_history*)) OR (CommandLine:(*_history OR *.history OR *zhistory)))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(Image:(*\\/cat OR *\\/head OR *\\/tail OR *\\/more)) AND ((CommandLine:(*\\/.bash_history* OR *\\/.zsh_history*)) OR (CommandLine:(*_history OR *.history OR *zhistory)))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

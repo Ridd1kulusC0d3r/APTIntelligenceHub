@@ -1,0 +1,2 @@
+// AWS IAM S3Browser User or AccessKey Creation | T1059.009, T1078.004 | https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/aws/cloudtrail/aws_iam_s3browser_user_or_accesskey_creation.yml
+from * metadata _id, _index, _version | where eventSource=="iam.amazonaws.com" and (eventName in ("CreateUser", "CreateAccessKey")) and userAgent like "*S3 Browser*"

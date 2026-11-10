@@ -1,0 +1,2 @@
+-- Audit Rules Deleted Via Auditctl | T1685.004 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_auditctl_clear_rules.yml
+SELECT * FROM events WHERE devicetype=11 AND (LOWER("Process Path") LIKE '%/auditctl' OR LOWER("Process Name") LIKE '%/auditctl') AND Command MATCHES '-D'

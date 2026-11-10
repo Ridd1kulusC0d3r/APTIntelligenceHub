@@ -1,0 +1,18 @@
+// AWL Bypass with Winrm.vbs and Malicious WsmPty.xsl/WsmTxt.xsl - File | T1216 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_winrm_awl_bypass.yml
+(TargetFilename:(*WsmPty.xsl OR *WsmTxt.xsl)) AND (NOT (TargetFilename:(C\:\\Windows\\System32\\* OR C\:\\Windows\\SysWOW64\\*)))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(TargetFilename:(*WsmPty.xsl OR *WsmTxt.xsl)) AND (NOT (TargetFilename:(C\\:\\\\Windows\\\\System32\\\\* OR C\\:\\\\Windows\\\\SysWOW64\\\\*)))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

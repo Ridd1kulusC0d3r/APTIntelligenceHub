@@ -1,0 +1,2 @@
+-- DEWMODE Webshell Access | T1505.003 | https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2021/TA/UNC2546/web_unc2546_dewmode_php_webshell.yml
+SELECT * FROM events WHERE (LOWER(URL) LIKE '%_dwn=%' AND LOWER(URL) LIKE '%&fn=%' AND LOWER(URL) LIKE '%.html_%') OR (LOWER(URL) LIKE '%&dwn=%' AND LOWER(URL) LIKE '%_fn=%' AND LOWER(URL) LIKE '%.html_%')

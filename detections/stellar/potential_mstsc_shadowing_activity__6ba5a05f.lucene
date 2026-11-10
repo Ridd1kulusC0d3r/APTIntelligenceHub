@@ -1,0 +1,18 @@
+// Potential MSTSC Shadowing Activity | T1563.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_mstsc_rdp_hijack_shadowing.yml
+CommandLine:*noconsentprompt* AND CommandLine:*shadow\:*
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "CommandLine:*noconsentprompt* AND CommandLine:*shadow\\:*",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

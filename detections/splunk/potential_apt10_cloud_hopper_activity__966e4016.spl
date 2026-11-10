@@ -1,0 +1,2 @@
+# Potential APT10 Cloud Hopper Activity | T1059.005 | https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2017/TA/APT10/proc_creation_win_apt_apt10_cloud_hopper.yml
+source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=1 ((Image="*\\cscript.exe" CommandLine="*.vbs /shell *") OR (CommandLine="*csvde -f C:\\windows\\web\\*" CommandLine="*.log*"))

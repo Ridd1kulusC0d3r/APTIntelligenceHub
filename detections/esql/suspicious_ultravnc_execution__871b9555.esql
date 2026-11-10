@@ -1,0 +1,2 @@
+// Suspicious UltraVNC Execution | T1021.005 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_ultravnc_susp_execution.yml
+from * metadata _id, _index, _version | where process.command_line like "*-autoreconnect *" and process.command_line like "*-connect *" and process.command_line like "*-id:*"

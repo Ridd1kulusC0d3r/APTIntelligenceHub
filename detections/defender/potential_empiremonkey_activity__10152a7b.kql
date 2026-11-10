@@ -1,0 +1,3 @@
+// Potential EmpireMonkey Activity | T1218.010 | https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2019/TA/EmpireMonkey/proc_creation_win_apt_empiremonkey.yml
+DeviceProcessEvents
+| where ProcessCommandLine contains "/e:jscript" and ProcessCommandLine contains "\\Local\\Temp\\Errors.bat"

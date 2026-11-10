@@ -1,0 +1,18 @@
+// New DLL Added to AppCertDlls Registry Key | T1546.009 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/registry_event_new_dll_added_to_appcertdlls_registry_key.yml
+TargetObject:"HKLM\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\AppCertDlls" OR NewName:"HKLM\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\AppCertDlls"
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "TargetObject:\"HKLM\\\\SYSTEM\\\\CurrentControlSet\\\\Control\\\\Session Manager\\\\AppCertDlls\" OR NewName:\"HKLM\\\\SYSTEM\\\\CurrentControlSet\\\\Control\\\\Session Manager\\\\AppCertDlls\"",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

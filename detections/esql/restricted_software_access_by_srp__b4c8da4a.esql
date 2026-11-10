@@ -1,0 +1,2 @@
+// Restricted Software Access By SRP | T1072 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/application/microsoft_windows_software_restriction_policies/win_software_restriction_policies_block.yml
+from * metadata _id, _index, _version | where winlog.channel=="Application" and winlog.provider_name=="Microsoft-Windows-SoftwareRestrictionPolicies" and (event.code in ("865", "866", "867", "868", "882"))

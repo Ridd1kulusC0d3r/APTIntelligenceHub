@@ -1,0 +1,2 @@
+# Security Eventlog Cleared | T1685.005 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_audit_log_cleared.yml
+source="WinEventLog:Security" ((EventCode=517 Provider_Name="Security") OR (EventCode=1102 Provider_Name="Microsoft-Windows-Eventlog"))

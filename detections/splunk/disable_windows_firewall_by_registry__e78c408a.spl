@@ -1,0 +1,2 @@
+# Disable Windows Firewall by Registry | T1686.003 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_disable_windows_firewall.yml
+source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=13 (TargetObject IN ("*\\SOFTWARE\\Policies\\Microsoft\\WindowsFirewall\\StandardProfile\\EnableFirewall", "*\\SOFTWARE\\Policies\\Microsoft\\WindowsFirewall\\DomainProfile\\EnableFirewall")) Details="DWORD (0x00000000)"

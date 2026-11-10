@@ -1,0 +1,2 @@
+// TAIDOOR RAT DLL Load | T1055.001 | https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2020/TA/TAIDOOR-RAT/proc_creation_win_apt_taidoor.yml
+any where (process.command_line like~ ("*dll,MyStart*", "*dll MyStart*")) or (process.command_line:"* MyStart" and process.command_line:"*rundll32.exe*")

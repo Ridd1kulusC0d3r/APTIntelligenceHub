@@ -1,0 +1,18 @@
+// PowerShell Set-Acl On Windows Folder - PsScript | T1222 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/powershell/powershell_script/posh_ps_set_acl_susp_location.yml
+(ScriptBlockText:*Set\-Acl\ * AND ScriptBlockText:*\-AclObject\ *) AND (ScriptBlockText:(*\-Path\ \"C\:\\Windows* OR *\-Path\ \"C\:\/Windows* OR *\-Path\ 'C\:\\Windows* OR *\-Path\ 'C\:\/Windows* OR *\-Path\ C\:\\Windows* OR *\-Path\ C\:\/Windows* OR *\-Path\ $env\:windir* OR *\-Path\ \"$env\:windir* OR *\-Path\ '$env\:windir*)) AND (ScriptBlockText:(*FullControl* OR *Allow*))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(ScriptBlockText:*Set\\-Acl\\ * AND ScriptBlockText:*\\-AclObject\\ *) AND (ScriptBlockText:(*\\-Path\\ \\\"C\\:\\\\Windows* OR *\\-Path\\ \\\"C\\:\\/Windows* OR *\\-Path\\ 'C\\:\\\\Windows* OR *\\-Path\\ 'C\\:\\/Windows* OR *\\-Path\\ C\\:\\\\Windows* OR *\\-Path\\ C\\:\\/Windows* OR *\\-Path\\ $env\\:windir* OR *\\-Path\\ \\\"$env\\:windir* OR *\\-Path\\ '$env\\:windir*)) AND (ScriptBlockText:(*FullControl* OR *Allow*))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

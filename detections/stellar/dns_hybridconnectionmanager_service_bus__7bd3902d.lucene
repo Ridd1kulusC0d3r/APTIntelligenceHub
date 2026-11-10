@@ -1,0 +1,18 @@
+// DNS HybridConnectionManager Service Bus | T1554 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/dns_query/dns_query_win_hybridconnectionmgr_servicebus.yml
+QueryName:*servicebus.windows.net* AND Image:*HybridConnectionManager*
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "QueryName:*servicebus.windows.net* AND Image:*HybridConnectionManager*",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,2 @@
+# Remotely Hosted HTA File Executed Via Mshta.EXE | T1218.005 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_mshta_http.yml
+source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=1 (Image="*\\mshta.exe" OR OriginalFileName="MSHTA.EXE") (CommandLine IN ("*http://*", "*https://*", "*ftp://*"))

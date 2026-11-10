@@ -1,0 +1,18 @@
+// Shadow Copies Deletion Using Operating Systems Utilities | T1070, T1490 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_shadow_copies_deletion.yml
+(((Image:(*\\powershell.exe OR *\\pwsh.exe OR *\\wmic.exe OR *\\vssadmin.exe OR *\\diskshadow.exe)) OR (OriginalFileName:(PowerShell.EXE OR pwsh.dll OR wmic.exe OR VSSADMIN.EXE OR diskshadow.exe))) AND (CommandLine:*shadow* AND CommandLine:*delete*)) OR ((Image:*\\wbadmin.exe OR OriginalFileName:WBADMIN.EXE) AND (CommandLine:*delete* AND CommandLine:*catalog* AND CommandLine:*quiet*)) OR ((Image:*\\vssadmin.exe OR OriginalFileName:VSSADMIN.EXE) AND ((CommandLine:*resize* AND CommandLine:*shadowstorage*) AND (CommandLine:(*unbounded* OR *\/MaxSize\=*))))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(((Image:(*\\\\powershell.exe OR *\\\\pwsh.exe OR *\\\\wmic.exe OR *\\\\vssadmin.exe OR *\\\\diskshadow.exe)) OR (OriginalFileName:(PowerShell.EXE OR pwsh.dll OR wmic.exe OR VSSADMIN.EXE OR diskshadow.exe))) AND (CommandLine:*shadow* AND CommandLine:*delete*)) OR ((Image:*\\\\wbadmin.exe OR OriginalFileName:WBADMIN.EXE) AND (CommandLine:*delete* AND CommandLine:*catalog* AND CommandLine:*quiet*)) OR ((Image:*\\\\vssadmin.exe OR OriginalFileName:VSSADMIN.EXE) AND ((CommandLine:*resize* AND CommandLine:*shadowstorage*) AND (CommandLine:(*unbounded* OR *\\/MaxSize\\=*))))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

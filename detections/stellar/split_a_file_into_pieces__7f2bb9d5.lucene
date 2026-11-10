@@ -1,0 +1,18 @@
+// Split A File Into Pieces | T1030 | https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_split_file_into_pieces.yml
+Image:*\/split
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "Image:*\\/split",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

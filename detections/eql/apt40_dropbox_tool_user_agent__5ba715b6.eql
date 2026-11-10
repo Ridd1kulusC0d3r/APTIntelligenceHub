@@ -1,0 +1,2 @@
+// APT40 Dropbox Tool User Agent | T1071.001, T1567.002 | https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2019/TA/APT40/proxy_apt_apt40_dropbox_tool_ua.yml
+any where c-useragent:"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/36.0.1985.143 Safari/537.36" and cs-host:"api.dropbox.com"

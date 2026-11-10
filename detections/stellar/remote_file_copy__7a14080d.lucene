@@ -1,0 +1,18 @@
+// Remote File Copy | T1105 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/builtin/lnx_file_copy.yml
+(*scp\ * OR *rsync\ * OR *sftp\ *) AND (*@* OR *\:*)
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(*scp\\ * OR *rsync\\ * OR *sftp\\ *) AND (*@* OR *\\:*)",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,2 @@
+// Suspicious Where Execution | T1217 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_where_browser_data_recon.yml
+(process.executable.caseless:*\\where.exe OR process.pe.original_file_name:where.exe) AND (process.command_line:(*places.sqlite* OR *cookies.sqlite* OR *formhistory.sqlite* OR *logins.json* OR *key4.db* OR *key3.db* OR *sessionstore.jsonlz4* OR *History* OR *Bookmarks* OR *Cookies* OR *Login\ Data*))

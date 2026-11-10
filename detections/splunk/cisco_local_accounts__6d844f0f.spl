@@ -1,0 +1,2 @@
+# Cisco Local Accounts | T1098, T1136.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/network/cisco/aaa/cisco_cli_local_accounts.yml
+"username" OR "aaa"

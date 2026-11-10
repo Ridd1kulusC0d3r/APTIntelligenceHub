@@ -1,0 +1,2 @@
+-- Windows Update Error | T1584 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/system/microsoft_windows_windows_update_client/win_system_susp_system_update_error.yml | NOTA: fallback QRadarAQL_payload_pipeline: campos sem propriedade DSM mapeada são buscados em UTF8(payload) – custo maior, crie custom properties
+SELECT * FROM events WHERE devicetype=12 AND LOWER(UTF8(payload)) LIKE '%microsoft-windows-windowsupdateclient%' AND ("Event ID" IN('16', '20', '24', '213', '217'))

@@ -1,0 +1,2 @@
+// Multifactor Authentication Denied | T1078.004, T1110, T1621 | https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/azure/signin_logs/azure_mfa_denies.yml
+AuthenticationRequirement:multiFactorAuthentication AND Status:*MFA\ Denied*

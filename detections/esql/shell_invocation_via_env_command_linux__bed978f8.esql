@@ -1,0 +1,2 @@
+// Shell Invocation via Env Command - Linux | T1059.004 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_env_shell_invocation.yml
+from * metadata _id, _index, _version | where ends_with(Image, "/env") and (CommandLine like "*/bin/bash*" or CommandLine like "*/bin/dash*" or CommandLine like "*/bin/fish*" or CommandLine like "*/bin/sh*" or CommandLine like "*/bin/zsh*")

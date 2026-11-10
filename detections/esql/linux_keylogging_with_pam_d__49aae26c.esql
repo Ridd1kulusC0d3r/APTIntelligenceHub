@@ -1,0 +1,2 @@
+// Linux Keylogging with Pam.d | T1003, T1056.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/lnx_auditd_keylogging_with_pam_d.yml
+from * metadata _id, _index, _version | where type=="PATH" and (name in ("/etc/pam.d/system-auth", "/etc/pam.d/password-auth")) or type in ("TTY", "USER_TTY")

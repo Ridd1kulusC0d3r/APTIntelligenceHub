@@ -1,0 +1,2 @@
+# Modify Group Policy Settings | T1484.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_reg_modify_group_policy_settings.yml
+source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=1 (Image="*\\reg.exe" OR OriginalFileName="reg.exe") CommandLine="*\\SOFTWARE\\Policies\\Microsoft\\Windows\\System*" (CommandLine IN ("*GroupPolicyRefreshTimeDC*", "*GroupPolicyRefreshTimeOffsetDC*", "*GroupPolicyRefreshTime*", "*GroupPolicyRefreshTimeOffset*", "*EnableSmartScreen*", "*ShellSmartScreenLevel*"))

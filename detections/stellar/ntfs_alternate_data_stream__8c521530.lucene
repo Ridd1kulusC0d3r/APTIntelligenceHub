@@ -1,0 +1,18 @@
+// NTFS Alternate Data Stream | T1059.001, T1564.004 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/powershell/powershell_script/posh_ps_ntfs_ads_access.yml
+(ScriptBlockText:(*set\-content* OR *add\-content*)) AND ScriptBlockText:*\-stream*
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(ScriptBlockText:(*set\\-content* OR *add\\-content*)) AND ScriptBlockText:*\\-stream*",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

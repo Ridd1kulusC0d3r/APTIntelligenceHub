@@ -1,0 +1,18 @@
+// Potential Base64 Decoded From Images | T1140 | https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_tail_base64_decode_from_image.yml
+Image:*\/bash AND (CommandLine:*tail* AND CommandLine:*\-c*) AND (CommandLine:*base64* AND CommandLine:*\-d* AND CommandLine:*\>*) AND (CommandLine:(*.avif* OR *.gif* OR *.jfif* OR *.jpeg* OR *.jpg* OR *.pjp* OR *.pjpeg* OR *.png* OR *.svg* OR *.webp*))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "Image:*\\/bash AND (CommandLine:*tail* AND CommandLine:*\\-c*) AND (CommandLine:*base64* AND CommandLine:*\\-d* AND CommandLine:*\\>*) AND (CommandLine:(*.avif* OR *.gif* OR *.jfif* OR *.jpeg* OR *.jpg* OR *.pjp* OR *.pjpeg* OR *.png* OR *.svg* OR *.webp*))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

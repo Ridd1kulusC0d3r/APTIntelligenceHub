@@ -1,0 +1,2 @@
+// Suspicious Scheduled Task Write to System32 Tasks | T1053 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_susp_task_write.yml
+from * metadata _id, _index, _version | where file.path like "*\\Windows\\System32\\Tasks*" and (process.executable.caseless like "*\\AppData\\*" or process.executable.caseless like "*C:\\PerfLogs*" or process.executable.caseless like "*\\Windows\\System32\\config\\systemprofile*")

@@ -1,0 +1,18 @@
+// Disable System Firewall | T1686 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/service_stop/lnx_auditd_disable_system_firewall.yml
+type:SERVICE_STOP AND (unit:(firewalld OR iptables OR ufw))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "type:SERVICE_STOP AND (unit:(firewalld OR iptables OR ufw))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

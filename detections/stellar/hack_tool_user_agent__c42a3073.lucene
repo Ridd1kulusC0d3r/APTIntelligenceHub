@@ -1,0 +1,18 @@
+// Hack Tool User Agent | T1110, T1190 | https://github.com/SigmaHQ/sigma/blob/master/rules/web/proxy_generic/proxy_ua_hacktool.yml
+c-useragent:(*\(hydra\)* OR *\ arachni\/* OR *\ BFAC\ * OR *\ brutus\ * OR *\ cgichk\ * OR *core\-project\/1.0* OR *\ crimscanner\/* OR *datacha0s* OR *dirbuster* OR *domino\ hunter* OR *dotdotpwn* OR *FHScan\ Core* OR *floodgate* OR *get\-minimal* OR *gootkit\ auto\-rooter\ scanner* OR *grendel\-scan* OR *\ inspath\ * OR *internet\ ninja* OR *jaascois* OR *\ zmeu\ * OR *masscan* OR *\ metis\ * OR *morfeus\ fucking\ scanner* OR *n\-stealth* OR *nsauditor* OR *pmafind* OR *security\ scan* OR *springenwerk* OR *teh\ forest\ lobster* OR *toata\ dragostea* OR *\ vega\/* OR *voideye* OR *webshag* OR *webvulnscan* OR *\ whcc\/* OR *\ Havij* OR *absinthe* OR *bsqlbf* OR *mysqloit* OR *pangolin* OR *sql\ power\ injector* OR *sqlmap* OR *sqlninja* OR *uil2pn* OR *ruler* OR *Mozilla\/5.0\ \(Windows;\ U;\ Windows\ NT\ 5.1;\ pt\-PT;\ rv\:1.9.1.2\)\ Gecko\/20090729\ Firefox\/3.5.2\ \(.NET\ CLR\ 3.5.30729\)*)
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "c-useragent:(*\\(hydra\\)* OR *\\ arachni\\/* OR *\\ BFAC\\ * OR *\\ brutus\\ * OR *\\ cgichk\\ * OR *core\\-project\\/1.0* OR *\\ crimscanner\\/* OR *datacha0s* OR *dirbuster* OR *domino\\ hunter* OR *dotdotpwn* OR *FHScan\\ Core* OR *floodgate* OR *get\\-minimal* OR *gootkit\\ auto\\-rooter\\ scanner* OR *grendel\\-scan* OR *\\ inspath\\ * OR *internet\\ ninja* OR *jaascois* OR *\\ zmeu\\ * OR *masscan* OR *\\ metis\\ * OR *morfeus\\ fucking\\ scanner* OR *n\\-stealth* OR *nsauditor* OR *pmafind* OR *security\\ scan* OR *springenwerk* OR *teh\\ forest\\ lobster* OR *toata\\ dragostea* OR *\\ vega\\/* OR *voideye* OR *webshag* OR *webvulnscan* OR *\\ whcc\\/* OR *\\ Havij* OR *absinthe* OR *bsqlbf* OR *mysqloit* OR *pangolin* OR *sql\\ power\\ injector* OR *sqlmap* OR *sqlninja* OR *uil2pn* OR *ruler* OR *Mozilla\\/5.0\\ \\(Windows;\\ U;\\ Windows\\ NT\\ 5.1;\\ pt\\-PT;\\ rv\\:1.9.1.2\\)\\ Gecko\\/20090729\\ Firefox\\/3.5.2\\ \\(.NET\\ CLR\\ 3.5.30729\\)*)",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

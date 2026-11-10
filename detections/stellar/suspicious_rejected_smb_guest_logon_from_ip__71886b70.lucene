@@ -1,0 +1,18 @@
+// Suspicious Rejected SMB Guest Logon From IP | T1110.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/smbclient/security/win_smbclient_security_susp_failed_guest_logon.yml
+EventID:31017 AND UserName:"" AND ServerName:\\1*
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "EventID:31017 AND UserName:\"\" AND ServerName:\\\\1*",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

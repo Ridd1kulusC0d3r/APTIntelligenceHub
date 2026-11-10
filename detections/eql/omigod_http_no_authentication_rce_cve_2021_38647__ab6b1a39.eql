@@ -1,0 +1,2 @@
+// OMIGOD HTTP No Authentication RCE - CVE-2021-38647 | T1021.006, T1068, T1190, T1203, T1210 | https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2021/Exploits/CVE-2021-38647/zeek_http_exploit_cve_2021_38647_omigod_no_auth_rce.yml
+any where (status_code:200 and uri:"/wsman" and method:"POST") and (not client_header_names:"*AUTHORIZATION*") and (not request_body_len:0)

@@ -1,0 +1,2 @@
+# Potentially Suspicious DLL Registered Via Odbcconf.EXE | T1218.008 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_odbcconf_register_dll_regsvr_susp.yml
+source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=1 (Image="*\\odbcconf.exe" OR OriginalFileName="odbcconf.exe") CommandLine="*REGSVR *" NOT CommandLine="*.dll*"

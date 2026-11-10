@@ -1,0 +1,2 @@
+# Suspicious Printer Driver Empty Manufacturer | T1574 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_susp_printer_driver.yml
+source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=13 TargetObject="*\\Control\\Print\\Environments\\Windows x64\\Drivers*" TargetObject="*\\Manufacturer*" Details="(Empty)" NOT (TargetObject="*\\CutePDF Writer v4.0\\*" OR TargetObject IN ("*\\VNC Printer (PS)\\*", "*\\VNC Printer (UD)\\*") OR TargetObject="*\\Version-3\\PDF24\\*")

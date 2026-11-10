@@ -1,0 +1,18 @@
+// Fsutil Drive Enumeration | T1120 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_fsutil_drive_enumeration.yml
+(Image:*\\fsutil.exe OR OriginalFileName:fsutil.exe) AND CommandLine:*drives*
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(Image:*\\\\fsutil.exe OR OriginalFileName:fsutil.exe) AND CommandLine:*drives*",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

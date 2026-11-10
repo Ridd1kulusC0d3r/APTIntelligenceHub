@@ -1,0 +1,2 @@
+// Boot Configuration Tampering Via Bcdedit.EXE | T1490 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_bcdedit_boot_conf_tamper.yml
+any where (process.executable.caseless:"*\\bcdedit.exe" or process.pe.original_file_name:"bcdedit.exe") and process.command_line:"*set*" and ((process.command_line:"*bootstatuspolicy*" and process.command_line:"*ignoreallfailures*") or (process.command_line:"*recoveryenabled*" and process.command_line:"*no*"))

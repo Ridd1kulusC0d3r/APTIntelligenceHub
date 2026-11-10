@@ -1,0 +1,2 @@
+// PUA - Advanced IP/Port Scanner Update Check | T1590 | https://github.com/SigmaHQ/sigma/blob/master/rules/web/proxy_generic/proxy_pua_advanced_ip_scanner_update_check.yml
+c-uri:*\/checkupdate.php* AND (c-uri-query:*lng\=* AND c-uri-query:*ver\=* AND c-uri-query:*beta\=* AND c-uri-query:*type\=* AND c-uri-query:*rmode\=* AND c-uri-query:*product\=*)

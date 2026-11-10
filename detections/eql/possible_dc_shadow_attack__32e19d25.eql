@@ -1,0 +1,2 @@
+// Possible DC Shadow Attack | T1207 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_possible_dc_shadow.yml
+any where winlog.channel:"Security" and ((event.code:"4742" and winlog.event_data.ServicePrincipalNames:"*GC/*") or (event.code:"5136" and winlog.event_data.AttributeLDAPDisplayName:"servicePrincipalName" and winlog.event_data.AttributeValue:"GC/*"))

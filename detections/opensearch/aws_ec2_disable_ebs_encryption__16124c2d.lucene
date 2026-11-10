@@ -1,0 +1,2 @@
+// AWS EC2 Disable EBS Encryption | T1486, T1565 | https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/aws/cloudtrail/aws_ec2_disable_encryption.yml
+eventSource:ec2.amazonaws.com AND eventName:DisableEbsEncryptionByDefault

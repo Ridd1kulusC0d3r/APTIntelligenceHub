@@ -1,0 +1,2 @@
+# Scheduled Task Or Executable Dropped Into SYSVOL Policies | T1484.001, T1485 | Hub
+source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=11 TargetFilename="*\\SYSVOL\\*" TargetFilename="*\\Policies\\*" (TargetFilename IN ("*.exe", "*.dll", "*.ps1", "*.bat", "*\\ScheduledTasks.xml"))

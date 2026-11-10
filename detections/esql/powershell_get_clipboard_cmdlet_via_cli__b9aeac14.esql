@@ -1,0 +1,2 @@
+// PowerShell Get-Clipboard Cmdlet Via CLI | T1115 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_get_clipboard.yml
+from * metadata _id, _index, _version | where process.command_line like "*Get-Clipboard*"

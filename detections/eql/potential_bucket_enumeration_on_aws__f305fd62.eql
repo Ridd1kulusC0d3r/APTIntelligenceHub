@@ -1,0 +1,2 @@
+// Potential Bucket Enumeration on AWS | T1580, T1619 | https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/aws/cloudtrail/aws_enum_buckets.yml
+any where (eventSource:"s3.amazonaws.com" and eventName:"ListBuckets") and (not userIdentity.type:"AssumedRole")

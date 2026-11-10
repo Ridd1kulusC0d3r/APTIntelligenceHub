@@ -1,0 +1,2 @@
+// Bitbucket Unauthorized Full Data Export Triggered | T1213.003, T1586 | https://github.com/SigmaHQ/sigma/blob/master/rules/application/bitbucket/audit/bitbucket_audit_unauthorized_full_data_export_triggered.yml
+any where auditType.category:"Data pipeline" and auditType.action:"Unauthorized full data export triggered"

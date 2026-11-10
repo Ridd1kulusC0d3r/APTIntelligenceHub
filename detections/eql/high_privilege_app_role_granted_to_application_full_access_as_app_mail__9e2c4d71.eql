@@ -1,0 +1,2 @@
+// High-Privilege App Role Granted To Application (full_access_as_app / Mail.Read) | T1098.003 | Hub
+any where OperationName:"Add app role assignment to service principal" and (TargetResources like~ ("*full_access_as_app*", "*Mail.Read*", "*Mail.ReadWrite*", "*RoleManagement.ReadWrite.Directory*"))

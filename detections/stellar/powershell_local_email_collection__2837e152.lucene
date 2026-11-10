@@ -1,0 +1,18 @@
+// Powershell Local Email Collection | T1114.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/powershell/powershell_script/posh_ps_susp_mail_acces.yml
+ScriptBlockText:(*Get\-Inbox.ps1* OR *Microsoft.Office.Interop.Outlook* OR *Microsoft.Office.Interop.Outlook.olDefaultFolders* OR *\-comobject\ outlook.application*)
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "ScriptBlockText:(*Get\\-Inbox.ps1* OR *Microsoft.Office.Interop.Outlook* OR *Microsoft.Office.Interop.Outlook.olDefaultFolders* OR *\\-comobject\\ outlook.application*)",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

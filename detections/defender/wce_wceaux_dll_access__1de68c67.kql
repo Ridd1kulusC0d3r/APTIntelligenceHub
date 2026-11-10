@@ -1,0 +1,3 @@
+// WCE wceaux.dll Access | T1003 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_mal_wceaux_dll.yml
+DeviceRegistryEvents
+| where RegistryKey endswith "\\wceaux.dll"

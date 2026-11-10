@@ -1,0 +1,2 @@
+// Modifying Crontab | T1053.003 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/builtin/cron/lnx_cron_crontab_file_modification.yml
+any where "REPLACE"

@@ -1,0 +1,2 @@
+-- Registry-Free Process Scope COR_PROFILER | T1574.012 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/powershell/powershell_script/posh_ps_cor_profiler.yml
+SELECT * FROM events WHERE devicetype=12 AND LOWER(Message) LIKE '%$env:cor_enable_profiling%' AND LOWER(Message) LIKE '%$env:cor_profiler%' AND LOWER(Message) LIKE '%$env:cor_profiler_path%'

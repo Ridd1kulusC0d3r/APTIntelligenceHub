@@ -1,0 +1,2 @@
+// AWS EC2 Startup Shell Script Change | T1059.001, T1059.003, T1059.004 | https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/aws/cloudtrail/aws_ec2_startup_script_change.yml
+any where eventSource:"ec2.amazonaws.com" and requestParameters.attribute:"userData" and eventName:"ModifyInstanceAttribute"

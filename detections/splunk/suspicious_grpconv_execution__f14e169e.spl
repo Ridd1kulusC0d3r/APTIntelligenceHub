@@ -1,0 +1,2 @@
+# Suspicious GrpConv Execution | T1547 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_susp_grpconv.yml
+source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=1 (CommandLine IN ("*grpconv.exe -o*", "*grpconv -o*"))

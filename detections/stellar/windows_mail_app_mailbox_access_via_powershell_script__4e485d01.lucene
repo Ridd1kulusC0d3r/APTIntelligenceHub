@@ -1,0 +1,18 @@
+// Windows Mail App Mailbox Access Via PowerShell Script | T1070.008 | https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/powershell/powershell_script/posh_ps_mailbox_access.yml
+ScriptBlockText:*\\Comms\\Unistore\\data*
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "ScriptBlockText:*\\\\Comms\\\\Unistore\\\\data*",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

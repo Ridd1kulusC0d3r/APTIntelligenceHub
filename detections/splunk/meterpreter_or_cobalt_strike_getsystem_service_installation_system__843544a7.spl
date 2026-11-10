@@ -1,0 +1,2 @@
+# Meterpreter or Cobalt Strike Getsystem Service Installation - System | T1134.001, T1134.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/system/service_control_manager/win_system_meterpreter_or_cobaltstrike_getsystem_service_installation.yml
+source="WinEventLog:System" Provider_Name="Service Control Manager" EventCode=7045 ((ImagePath="*/c*" ImagePath="*echo*" ImagePath="*\\pipe\\*" (ImagePath IN ("*cmd*", "*%COMSPEC%*"))) OR (ImagePath="*rundll32*" ImagePath="*.dll,a*" ImagePath="*/p:*") OR ImagePath="\\\\127.0.0.1\\ADMIN$\\*")

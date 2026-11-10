@@ -1,0 +1,2 @@
+-- HackTool - QuarksPwDump Dump File | T1003.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_hktl_quarkspw_filedump.yml
+SELECT * FROM events WHERE devicetype=12 AND LOWER(Filename) LIKE '%\appdata\local\temp\sam-%' AND LOWER(Filename) LIKE '%.dmp%'

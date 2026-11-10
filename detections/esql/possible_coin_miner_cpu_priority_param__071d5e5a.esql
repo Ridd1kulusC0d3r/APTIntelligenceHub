@@ -1,0 +1,2 @@
+// Possible Coin Miner CPU Priority Param | T1068 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/execve/lnx_auditd_coinminer.yml
+from * metadata _id, _index, _version | where starts_with(a1, "--cpu-priority") or starts_with(a2, "--cpu-priority") or starts_with(a3, "--cpu-priority") or starts_with(a4, "--cpu-priority") or starts_with(a5, "--cpu-priority") or starts_with(a6, "--cpu-priority") or starts_with(a7, "--cpu-priority")

@@ -1,0 +1,2 @@
+-- Scheduled Task Created With Executable In User-Writable Location | T1053.005 | Hub
+SELECT * FROM events WHERE devicetype=12 AND ((LOWER("Process Path") LIKE '%\schtasks.exe' OR LOWER("Process Name") LIKE '%\schtasks.exe') AND LOWER(Command) LIKE '%/create%') AND (LOWER(Command) LIKE '%\appdata\%' OR LOWER(Command) LIKE '%\programdata\%' OR LOWER(Command) LIKE '%\users\public\%' OR LOWER(Command) LIKE '%%appdata%%' OR LOWER(Command) LIKE '%%programdata%%')

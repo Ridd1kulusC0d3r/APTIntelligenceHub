@@ -1,0 +1,2 @@
+-- DLL Execution Via Register-cimprovider.exe | T1574 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_registry_cimprovider_dll_load.yml
+SELECT * FROM events WHERE devicetype=12 AND (LOWER("Process Path") LIKE '%\register-cimprovider.exe' OR LOWER("Process Name") LIKE '%\register-cimprovider.exe') AND (LOWER(Command) LIKE '%-path%' AND LOWER(Command) LIKE '%dll%')

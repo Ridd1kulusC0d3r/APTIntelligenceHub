@@ -1,0 +1,2 @@
+// Cisco Clear Logs | T1070.003 | https://github.com/SigmaHQ/sigma/blob/master/rules/network/cisco/aaa/cisco_cli_clear_logs.yml
+*clear\ logging* OR *clear\ archive*

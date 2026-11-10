@@ -1,0 +1,2 @@
+# MMC Executing Files with Reversed Extensions Using RTLO Abuse | T1036.002, T1204.002, T1218.014 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_mmc_rlo_abuse_pattern.yml
+source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=1 (Image="*\\mmc.exe" OR OriginalFileName="MMC.exe") (CommandLine IN ("*cod.msc*", "*fdp.msc*", "*ftr.msc*", "*lmth.msc*", "*slx.msc*", "*tdo.msc*", "*xcod.msc*", "*xslx.msc*", "*xtpp.msc*"))

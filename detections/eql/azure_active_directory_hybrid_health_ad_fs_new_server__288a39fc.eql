@@ -1,0 +1,2 @@
+// Azure Active Directory Hybrid Health AD FS New Server | T1578 | https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/azure/activity_logs/azure_aadhybridhealth_adfs_new_server.yml
+any where category:"Administrative" and resourceId:"*AdFederationService*" and operationName:"MICROSOFT.ADHYBRIDHEALTHSERVICE/SERVICES/SERVICEMEMBERS/ACTION"

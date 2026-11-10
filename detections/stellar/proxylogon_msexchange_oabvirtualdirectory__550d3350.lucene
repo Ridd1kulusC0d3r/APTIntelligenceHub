@@ -1,0 +1,18 @@
+// ProxyLogon MSExchange OabVirtualDirectory | T1587.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/msexchange/win_exchange_proxylogon_oabvirtualdir.yml
+(*OabVirtualDirectory* AND *\ \-ExternalUrl\ *) AND (*eval\(request* OR *http\:\/\/f\/\<script* OR *\"unsafe\"\};* OR *function\ Page_Load\(\)*)
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(*OabVirtualDirectory* AND *\\ \\-ExternalUrl\\ *) AND (*eval\\(request* OR *http\\:\\/\\/f\\/\\<script* OR *\\\"unsafe\\\"\\};* OR *function\\ Page_Load\\(\\)*)",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

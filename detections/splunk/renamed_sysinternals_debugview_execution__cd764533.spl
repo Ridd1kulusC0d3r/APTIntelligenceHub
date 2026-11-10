@@ -1,0 +1,2 @@
+# Renamed SysInternals DebugView Execution | T1588.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_renamed_sysinternals_debugview.yml
+source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=1 Product="Sysinternals DebugView" NOT (OriginalFileName="Dbgview.exe" Image="*\\Dbgview.exe")

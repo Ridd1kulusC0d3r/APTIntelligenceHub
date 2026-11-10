@@ -1,0 +1,18 @@
+// Suspicious Cobalt Strike DNS Beaconing - Sysmon | T1071.004 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/dns_query/dns_query_win_mal_cobaltstrike.yml
+(QueryName:(aaa.stage.* OR post.1*)) OR QueryName:*.stage.123456.*
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(QueryName:(aaa.stage.* OR post.1*)) OR QueryName:*.stage.123456.*",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

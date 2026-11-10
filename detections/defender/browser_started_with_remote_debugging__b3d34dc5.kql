@@ -1,0 +1,3 @@
+// Browser Started with Remote Debugging | T1185 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_browsers_remote_debugging.yml
+DeviceProcessEvents
+| where ProcessCommandLine contains " --remote-debugging-" or (FolderPath endswith "\\firefox.exe" and ProcessCommandLine contains " -start-debugger-server")

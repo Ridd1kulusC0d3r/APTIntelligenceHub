@@ -1,0 +1,18 @@
+// Suspicious DNS Query with B64 Encoded String | T1048.003, T1071.004 | https://github.com/SigmaHQ/sigma/blob/master/rules/network/dns/net_dns_susp_b64_queries.yml
+query:*\=\=.*
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "query:*\\=\\=.*",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

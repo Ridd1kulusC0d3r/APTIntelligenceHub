@@ -1,0 +1,3 @@
+// ESXi Account Creation Via ESXCLI | T1059.012, T1136 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_esxcli_user_account_creation.yml
+DeviceProcessEvents
+| where FolderPath endswith "/esxcli" and (ProcessCommandLine contains "system " and ProcessCommandLine contains "account " and ProcessCommandLine contains "add ")

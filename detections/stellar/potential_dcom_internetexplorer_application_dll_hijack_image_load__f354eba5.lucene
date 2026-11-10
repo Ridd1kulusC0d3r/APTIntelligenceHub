@@ -1,0 +1,18 @@
+// Potential DCOM InternetExplorer.Application DLL Hijack - Image Load | T1021.002, T1021.003 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_iexplore_dcom_iertutil_dll_hijack.yml
+Image:*\\Internet\ Explorer\\iexplore.exe AND ImageLoaded:*\\Internet\ Explorer\\iertutil.dll
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "Image:*\\\\Internet\\ Explorer\\\\iexplore.exe AND ImageLoaded:*\\\\Internet\\ Explorer\\\\iertutil.dll",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

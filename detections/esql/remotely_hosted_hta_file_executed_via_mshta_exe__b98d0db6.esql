@@ -1,0 +1,2 @@
+// Remotely Hosted HTA File Executed Via Mshta.EXE | T1218.005 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_mshta_http.yml
+from * metadata _id, _index, _version | where (ends_with(process.executable.caseless, "\\mshta.exe") or process.pe.original_file_name=="MSHTA.EXE") and (process.command_line like "*http://*" or process.command_line like "*https://*" or process.command_line like "*ftp://*")

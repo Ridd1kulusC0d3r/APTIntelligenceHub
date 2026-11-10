@@ -1,0 +1,18 @@
+// Telegram API Access | T1071.001, T1102.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/web/proxy_generic/proxy_telegram_api.yml
+cs-host:api.telegram.org AND (NOT (c-useragent:(*Telegram* OR *Bot*)))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "cs-host:api.telegram.org AND (NOT (c-useragent:(*Telegram* OR *Bot*)))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

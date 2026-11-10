@@ -1,0 +1,2 @@
+// Mavinject Inject DLL Into Running Process | T1055.001, T1218.013 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_mavinject_process_injection.yml
+any where process.command_line:"* /INJECTRUNNING *" and (not process.parent.executable.caseless:"C:\\Windows\\System32\\AppVClient.exe")

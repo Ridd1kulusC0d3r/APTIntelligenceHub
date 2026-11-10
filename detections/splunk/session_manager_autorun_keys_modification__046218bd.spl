@@ -1,0 +1,2 @@
+# Session Manager Autorun Keys Modification | T1546.009, T1547.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_asep_reg_keys_modification_session_manager.yml
+source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=13 TargetObject="*\\System\\CurrentControlSet\\Control\\Session Manager*" (TargetObject IN ("*\\SetupExecute*", "*\\S0InitialCommand*", "*\\KnownDlls*", "*\\Execute*", "*\\BootExecute*", "*\\AppCertDlls*")) NOT Details="(Empty)"

@@ -1,0 +1,2 @@
+// DLL Load via LSASS | T1547.008 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/registry_event_susp_lsass_dll_load.yml
+any where (registry.path like~ ("*\\CurrentControlSet\\Services\\NTDS\\DirectoryServiceExtPt*", "*\\CurrentControlSet\\Services\\NTDS\\LsaDbExtPt*")) and (not (process.executable.caseless:"C:\\Windows\\system32\\lsass.exe" and (winlog.event_data.Details like~ ("%%systemroot%%\\system32\\ntdsa.dll", "%%systemroot%%\\system32\\lsadb.dll"))))

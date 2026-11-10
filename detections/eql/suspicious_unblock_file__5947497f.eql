@@ -1,0 +1,2 @@
+// Suspicious Unblock-File | T1553.005 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/powershell/powershell_script/posh_ps_susp_unblock_file.yml
+any where powershell.file.script_block_text:"*Unblock-File *" and powershell.file.script_block_text:"*-Path *"

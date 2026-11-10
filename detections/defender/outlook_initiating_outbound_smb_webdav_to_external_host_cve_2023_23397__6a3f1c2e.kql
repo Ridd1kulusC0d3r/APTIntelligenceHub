@@ -1,0 +1,3 @@
+// Outlook Initiating Outbound SMB/WebDAV to External Host (CVE-2023-23397 pattern) | T1187 | Hub
+DeviceNetworkEvents
+| where (InitiatingProcessFolderPath endswith "\\OUTLOOK.EXE" and (RemotePort in~ ("445", "139"))) and (not((ipv4_is_in_range(RemoteIP, "10.0.0.0/8") or ipv4_is_in_range(RemoteIP, "172.16.0.0/12") or ipv4_is_in_range(RemoteIP, "192.168.0.0/16") or ipv4_is_in_range(RemoteIP, "127.0.0.0/8"))))

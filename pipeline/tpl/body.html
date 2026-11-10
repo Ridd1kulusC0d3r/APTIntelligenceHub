@@ -1,0 +1,161 @@
+<body>
+<div id="loading"><div class="sp"></div><div>Descompactando base de inteligência (≈{{KB_MB}} MB)…</div></div>
+<header>
+  <h1>🛰️ APT Threat <span>Map</span> <span class="muted" style="font-size:13px;font-weight:400">· CTI → Detecção → Defesa → Resposta</span></h1>
+  <div class="sub">Grupo → artefato/ferramenta → técnica MITRE ATT&CK → Microsoft Defender → MITRE D3FEND → DeTT&CT → RE&CT · Detecções em Sigma, Splunk, Elastic, OpenSearch, QRadar, Stellar Cyber e Defender XDR · gerado em {{GEN}}</div>
+  <div class="kpis" id="kpis"></div>
+</header>
+<div id="fbar">
+  <span class="lbl">Filtros globais:</span>
+  <input type="search" id="fq" placeholder="Grupo, alias, ferramenta, técnica (T1566), operação…">
+  <select id="fOrig" title="País/bloco de origem (atribuição)"><option value="">Origem: todas</option></select>
+  <select id="fVic" title="País-alvo (vitimologia)"><option value="">País-alvo: todos</option></select>
+  <select id="fSec" title="Setor-alvo (normalizado)"><option value="">Setor: todos</option></select>
+  <select id="fMot"><option value="">Motivação: todas</option></select>
+  <select id="fTy"><option value="">Tipo: todos</option></select>
+  <input id="fTech" list="dlTech" placeholder="Técnica (ex.: T1059.001)" style="width:150px">
+  <input id="fTool" list="dlTool" placeholder="Ferramenta/malware" style="width:150px">
+  <select id="fSrc"><option value="">Fonte: qualquer</option></select>
+  <select id="fMin" title="Corroboração: nº mínimo de fontes independentes"><option value="1">≥1 fonte</option><option value="2">≥2 fontes</option><option value="3">≥3 fontes</option><option value="5">≥5 fontes</option><option value="8">≥8 fontes</option></select>
+  <label class="note"><input type="checkbox" id="fTTP"> só c/ TTPs</label>
+  <button class="btn" id="fClr">Limpar</button>
+  <button class="btn" data-preset="br">🇧🇷 Ameaças ao Brasil</button>
+  <button class="btn" data-preset="fin">💰 Setor financeiro</button>
+  <button class="btn" data-preset="gov">🏛️ Governo</button>
+  <span id="fcount"></span>
+  <datalist id="dlTech"></datalist><datalist id="dlTool"></datalist><datalist id="dlGrp"></datalist>
+</div>
+<nav id="nav">
+  <button data-t="map" class="on">🗺️ Mapa 2D</button>
+  <button data-t="graph">🕸️ Relacionamentos</button>
+  <button data-t="trace">🔗 Traçagem</button>
+  <button data-t="prio">🎯 Priorização (TID)</button>
+  <button data-t="det">🛡️ Detecções multi-SIEM</button>
+  <button data-t="mx">🧩 ATT&CK × Cobertura</button>
+  <button data-t="grp">📋 Grupos</button>
+  <button data-t="src">📚 Fontes & Metodologia</button>
+</nav>
+<main>
+<!-- ======================= MAPA ======================= -->
+<section id="t-map" class="tab on">
+ <div class="mapwrap">
+  <div id="mapbox">
+   <svg id="map"></svg>
+   <div class="mapctl">
+     <label>Coroplético <select id="mMode"><option value="vict">Alvos (nº de grupos que atacam)</option><option value="orig">Origem (nº de grupos atribuídos)</option><option value="none">Nenhum</option></select></label>
+     <label><input type="checkbox" id="mArcs" checked> fluxos origem→alvo</label>
+     <label>top <input type="range" id="mTop" min="30" max="700" step="10" value="220"><span id="mTopV">220</span></label>
+     <label><input type="checkbox" id="mMk" checked> grupos</label>
+     <button class="btn sm" id="mReset">reset</button>
+   </div>
+   <div class="zbtns"><button class="btn sm" id="mZin">＋</button><button class="btn sm" id="mZout">－</button></div>
+   <div id="mleg"></div>
+  </div>
+  <div id="mside"><h3>Como usar</h3><div class="note">
+   • <b>Clique num país</b> para ver quem o ataca, quem é atribuído a ele e o perfil de TTPs contra ele.<br>
+   • <b>Clique num ponto</b> (grupo) para ver os fluxos dele e abrir o dossiê.<br>
+   • Arcos = pares origem→alvo agregados dos grupos filtrados (espessura ∝ nº de grupos).<br>
+   • Cor do ponto = motivação; borda = origem. Use os filtros globais (setor, técnica, ferramenta…) para recortar o cenário.<br>
+   • Posições: coordenadas APTmap quando válidas; senão espiral ao redor do centróide do país.</div></div>
+ </div>
+</section>
+<!-- ======================= GRAFO ======================= -->
+<section id="t-graph" class="tab">
+ <div class="gwrap">
+  <div class="gctl">
+   <h4>Foco / ego-rede</h4>
+   <input id="gFocus" list="dlNodes" placeholder="Grupo, país, setor, ferramenta, técnica" style="width:100%;max-width:none"><datalist id="dlNodes"></datalist>
+   <div class="row" style="margin-top:6px;gap:6px"><label>saltos <select id="gHops"><option>1</option><option selected>2</option><option>3</option></select></label><button class="btn sm" id="gGo">focar</button><button class="btn sm" id="gUnfocus">visão geral</button></div>
+   <h4>Relações (arestas)</h4>
+   <label><input type="checkbox" data-e="attr" checked><span class="sw" style="background:#f5c542"></span>atribuído a (origem)</label>
+   <label><input type="checkbox" data-e="vic"><span class="sw" style="background:#ff6b6b"></span>ataca país</label>
+   <label><input type="checkbox" data-e="sec"><span class="sw" style="background:#2ecc8f"></span>ataca setor</label>
+   <label><input type="checkbox" data-e="tool" checked><span class="sw" style="background:#ff9f43"></span>usa ferramenta/malware</label>
+   <label><input type="checkbox" data-e="tech"><span class="sw" style="background:#a78bfa"></span>usa técnica ATT&CK</label>
+   <label><input type="checkbox" data-e="impl"><span class="sw" style="background:#64748b"></span>ferramenta implementa técnica</label>
+   <label><input type="checkbox" data-e="rel" checked><span class="sw" style="background:#22d3ee"></span>relação declarada (MISP/APTmap)</label>
+   <label><input type="checkbox" data-e="sim" checked><span class="sw" style="background:#f472b6"></span>similaridade TTP+ferramentas</label>
+   <h4>Escopo</h4>
+   <label>máx. grupos <input type="range" id="gN" min="20" max="600" step="10" value="90"><span id="gNv">90</span></label>
+   <label>ferramenta compartilhada por ≥ <select id="gMinTool"><option>1</option><option>2</option><option selected>3</option><option>5</option><option>8</option></select> grupos</label>
+   <label><input type="checkbox" id="gUbiq" checked> ocultar ferramentas ubíquas (&gt;12% dos grupos do recorte: Mimikatz, Cobalt Strike…)</label>
+   <label>técnica usada por ≥ <select id="gMinTech"><option>2</option><option>3</option><option selected>5</option><option>10</option><option>20</option></select> grupos</label>
+   <label>rótulos <select id="gLbl"><option value="1">auto</option><option value="2">todos</option><option value="0">nenhum</option></select></label>
+   <div class="row" style="gap:6px;margin-top:8px"><button class="btn sm pri" id="gBuild">reconstruir</button><button class="btn sm" id="gFreeze">pausar física</button><button class="btn sm" id="gPng">PNG</button><button class="btn sm" id="gJson">JSON</button></div>
+   <h4>Nós</h4>
+   <div class="note"><span class="nd" style="background:#4da3ff"></span> grupo (cor = origem) · <span class="nd" style="background:#f5c542"></span> país · <span class="nd" style="background:#2ecc8f"></span> setor · <span class="nd" style="background:#ff9f43"></span> ferramenta · <span class="nd" style="background:#a78bfa"></span> técnica</div>
+   <p class="note">Similaridade = cosseno TF-IDF sobre técnicas ATT&CK + ferramentas (≥0,22, top-6 por grupo) — indica possíveis sobreposições/clusters, <b>não</b> é atribuição.</p>
+  </div>
+  <div id="gbox"><canvas id="gcv"></canvas><div id="gstat"></div></div>
+  <div id="ginfo"><h3 style="margin:0 0 6px">Relacionamentos</h3><div class="note">Passe o mouse/clique em um nó. Arraste nós; role para zoom. Use “focar” para ego-redes de N saltos (respeitando os filtros globais).</div></div>
+ </div>
+</section>
+<!-- ======================= TRAÇAGEM ======================= -->
+<section id="t-trace" class="tab">
+ <div class="trbar">
+  <b>Grupo:</b><input id="trQ2" type="search" placeholder="filtrar lista (nome, alias, G-ID, país)…" style="width:200px">
+  <select id="trG" style="min-width:300px;max-width:380px"></select>
+  <button class="btn sm" id="trPrev" title="grupo anterior">◀</button><button class="btn sm" id="trNext" title="próximo grupo">▶</button>
+  <span id="trGn" class="note"></span>
+  <label class="note"><input type="checkbox" id="trVia"> incluir técnicas via ferramentas (software ATT&CK)</label>
+  <select id="trTac"><option value="">Todas as táticas</option></select>
+  <label class="note">top/coluna <select id="trTop"><option>12</option><option selected>20</option><option>35</option><option>60</option></select></label>
+  <span style="flex:1"></span>
+  <select id="trFmt"></select><button class="btn sm" id="trQ">⬇ consultas</button>
+  <button class="btn sm" id="trNav">⬇ Navigator</button><button class="btn sm" id="trDG">⬇ DeTT&CT group</button><button class="btn sm" id="trDS">⬇ DeTT&CT data sources</button><button class="btn sm" id="trDT">⬇ DeTT&CT techniques</button><button class="btn sm" id="trRP">⬇ RE&CT playbook</button><button class="btn sm" id="trSig">⬇ Sigma</button><button class="btn sm" id="trCsv">⬇ CSV</button>
+ </div>
+ <div class="info" id="trInfo">Clique em qualquer item para destacar a cadeia (ex.: uma técnica → ferramentas que a implementam → tabelas/ASR do Defender → contramedidas D3FEND → data sources DeTT&CT → ações RE&CT). O detalhe completo (procedimento, regras em 9 formatos, D3FEND por artefato) aparece abaixo.</div>
+ <div id="trwrap"><svg id="trsvg"></svg><div id="trcols"></div></div>
+ <div id="trdet"></div>
+</section>
+<!-- ======================= PRIORIZAÇÃO ======================= -->
+<section id="t-prio" class="tab">
+ <div class="card">
+  <h3>🎯 Threat-Informed Defense – perfil da sua organização</h3>
+  <div class="row">
+   <div style="flex:2;min-width:320px"><div class="note">Setores (seleção múltipla)</div><div class="chips" id="pSec"></div></div>
+   <div style="flex:1;min-width:240px"><div class="note">País da organização</div><select id="pCty" style="max-width:260px"></select>
+     <div class="note" style="margin-top:8px">Motivações consideradas</div><div class="chips" id="pMot"></div></div>
+   <div style="flex:1;min-width:240px"><div class="note">Opções</div>
+     <label class="note"><input type="checkbox" id="pVia"> incluir técnicas via ferramentas</label><br>
+     <label class="note">corroboração mínima <select id="pMin"><option value="1">1 fonte</option><option value="2" selected>2 fontes</option><option value="3">3 fontes</option><option value="5">5 fontes</option></select></label><br>
+     <label class="note">peso setor <input type="range" id="pWs" min="0" max="5" step="0.5" value="3"> país <input type="range" id="pWc" min="0" max="5" step="0.5" value="3"></label><br>
+     <button class="btn pri" id="pRun" style="margin-top:6px">Calcular prioridades</button>
+   </div>
+  </div>
+  <p class="note">Relevância do grupo <i>g</i>: R = w<sub>setor</sub>·[setor-alvo ∈ perfil] + w<sub>país</sub>·[país ∈ vitimologia]; confiança C = 0,5 + 0,5·min(1, nº fontes/8) (+0,15 se documentado no ATT&CK). Peso W = R·C. Prioridade da técnica P(t) = Σ W<sub>g</sub> dos grupos relevantes que usam t, normalizada 0–100. Cobertura: ● regra disponível · ◐ só ASR/D3FEND-Detect · ○ lacuna.</p>
+ </div>
+ <div id="pOut" style="margin-top:12px"></div>
+</section>
+<!-- ======================= DETECÇÕES ======================= -->
+<section id="t-det" class="tab">
+ <div class="warn">Regras <b>comportamentais</b> selecionadas do SigmaHQ (status stable/test, nível ≥ medium, até 3 por técnica com diversidade de logsource) + regras próprias do hub. Conversões automáticas com pySigma (backends oficiais) – <b>validar em homologação</b>, ajustar índices/sourcetypes e allowlists. Stellar Cyber não possui backend pySigma oficial: a saída é Lucene (Content Search/Threat Hunting) e DSL JSON com nomes de campos nativos Sysmon/Windows – mapear para as chaves Interflow do seu tenant via <i>Interflow Dictionary</i>.</div>
+ <div class="grid" id="dStats"></div>
+ <div class="row" style="margin:12px 0 8px;gap:6px">
+  <input type="search" id="dq" placeholder="Filtrar regras (título, técnica, logsource)…">
+  <select id="dSrc"><option value="">Origem: todas</option><option value="Hub">Hub (próprias)</option><option value="rules">SigmaHQ rules</option><option value="rules-threat-hunting">SigmaHQ threat-hunting</option><option value="rules-emerging-threats">SigmaHQ emerging-threats</option></select>
+  <select id="dLv"><option value="">Nível: todos</option><option>critical</option><option>high</option><option>medium</option><option>low</option></select>
+  <select id="dFmt"><option value="">Conversível para: qualquer</option></select>
+  <span id="dCnt" class="muted"></span>
+ </div>
+ <table><thead><tr><th>Regra</th><th>Nível</th><th>Logsource</th><th>Técnicas</th><th>Grupos que usam as técnicas</th><th>Formatos</th></tr></thead><tbody id="dTb"></tbody></table>
+ <h3 style="margin-top:22px">Grupos prioritários – detecções com agregação/contexto (KQL/SPL manuais)</h3>
+ <div id="dPri"></div>
+</section>
+<!-- ======================= MATRIZ ======================= -->
+<section id="t-mx" class="tab">
+ <div class="row" style="margin-bottom:10px;gap:8px"><select id="mxSel" style="max-width:320px"></select><label class="note"><input type="checkbox" id="mxSub" checked> incluir sub-técnicas</label><span class="note">Intensidade = nº de grupos (do conjunto) que usam a técnica · borda: <span class="stat st-ok">● regra</span> <span class="stat st-pa">◐ ASR/D3FEND</span> <span class="stat st-gap">○ lacuna</span></span><button class="btn sm" id="mxNav">⬇ Navigator</button></div>
+ <div id="mxBox" class="matrix"></div>
+</section>
+<!-- ======================= GRUPOS ======================= -->
+<section id="t-grp" class="tab">
+ <div class="row" style="margin-bottom:8px"><span class="note">Tabela respeita os filtros globais. Clique na linha para o dossiê. Colunas ordenáveis.</span><button class="btn sm" id="gCsv">⬇ CSV (filtrado)</button></div>
+ <table><thead><tr><th data-s="n">Grupo</th><th data-s="c">Origem</th><th data-s="m">ATT&CK</th><th>Motivação</th><th>Setores</th><th data-s="nv">Vítimas</th><th data-s="ns">Fontes</th><th data-s="nt">TTPs</th><th data-s="ntl">Ferram.</th><th>Similares</th></tr></thead><tbody id="gTb"></tbody></table>
+</section>
+<!-- ======================= FONTES ======================= -->
+<section id="t-src" class="tab"><div id="srcBox"></div></section>
+</main>
+<div id="drawer"><div class="dhd"><div id="dh"></div><button class="btn" onclick="closeD()">Fechar ✕</button></div><div class="dbd" id="db"></div></div>
+<div id="modal" onclick="if(event.target===this)closeM()"><div class="mbox"><div class="mhd"><div id="mh"></div><button class="btn" onclick="closeM()">Fechar ✕</button></div><div class="mbd" id="mb"></div></div></div>
+<div id="tip"></div>
+<footer>Fontes abertas consolidadas (MITRE ATT&CK, ThaiCERT/ETDA, MISP, Malpedia, APTmap, Google Cloud/Mandiant, Wikipedia, BRANDEFENSE, EternalLiberty, Microsoft, SigmaHQ, D3FEND, RE&CT, DeTT&CT…). Atribuições refletem as fontes citadas, não juízo próprio. Nenhuma amostra de malware foi baixada/executada. Uso exclusivamente defensivo.</footer>

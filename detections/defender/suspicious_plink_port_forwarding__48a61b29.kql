@@ -1,0 +1,3 @@
+// Suspicious Plink Port Forwarding | T1021.001, T1572 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_plink_port_forwarding.yml
+DeviceProcessEvents
+| where ProcessVersionInfoFileDescription =~ "Command-line SSH, Telnet, and Rlogin client" and ProcessCommandLine contains " -R "

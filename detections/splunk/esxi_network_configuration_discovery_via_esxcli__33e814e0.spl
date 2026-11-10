@@ -1,0 +1,2 @@
+# ESXi Network Configuration Discovery Via ESXCLI | T1007, T1033, T1059.012 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_esxcli_network_discovery.yml
+Image="*/esxcli" CommandLine="*network*" (CommandLine IN ("* get*", "* list*"))

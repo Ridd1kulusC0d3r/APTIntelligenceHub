@@ -1,0 +1,2 @@
+// Restore Public AWS RDS Instance | T1020 | https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/aws/cloudtrail/aws_rds_public_db_restore.yml
+eventSource:rds.amazonaws.com AND responseElements.publiclyAccessible:true AND eventName:RestoreDBInstanceFromDBSnapshot

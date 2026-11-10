@@ -1,0 +1,18 @@
+// Leviathan Registry Key Activity | T1547.001 | https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2020/TA/Leviathan/registry_event_apt_leviathan.yml
+TargetObject:*\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\ntkd*
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "TargetObject:*\\\\Software\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\Run\\\\ntkd*",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,18 @@
+// Add or Remove Computer from DC | T1207 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_add_remove_computer.yml
+EventID:(4741 OR 4743)
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "EventID:(4741 OR 4743)",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

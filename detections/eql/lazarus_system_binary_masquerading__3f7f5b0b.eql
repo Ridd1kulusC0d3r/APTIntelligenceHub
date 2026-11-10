@@ -1,0 +1,2 @@
+// Lazarus System Binary Masquerading | T1036.005 | https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2017/TA/Lazarus/proc_creation_win_apt_lazarus_binary_masquerading.yml
+any where (process.executable.caseless like~ ("*\\msdtc.exe", "*\\gpsvc.exe")) and (not (process.executable.caseless like~ ("C:\\Windows\\System32\\*", "C:\\Windows\\SysWOW64\\*")))

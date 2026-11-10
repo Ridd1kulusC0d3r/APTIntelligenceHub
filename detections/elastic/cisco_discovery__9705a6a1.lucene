@@ -1,0 +1,2 @@
+// Cisco Discovery | T1016, T1018, T1033, T1049, T1057, T1082, T1083, T1124, T1201 | https://github.com/SigmaHQ/sigma/blob/master/rules/network/cisco/aaa/cisco_cli_discovery.yml
+*dir* OR *show\ arp* OR *show\ cdp* OR *show\ clock* OR *show\ ip\ interface* OR *show\ ip\ route* OR *show\ ip\ sockets* OR *show\ processes* OR *show\ ssh* OR *show\ users* OR *show\ version*

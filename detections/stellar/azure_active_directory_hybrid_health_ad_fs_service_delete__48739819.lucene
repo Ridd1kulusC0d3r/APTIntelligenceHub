@@ -1,0 +1,18 @@
+// Azure Active Directory Hybrid Health AD FS Service Delete | T1578.003 | https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/azure/activity_logs/azure_aadhybridhealth_adfs_service_delete.yml
+category:Administrative AND resourceId:*AdFederationService* AND operationName:MICROSOFT.ADHYBRIDHEALTHSERVICE\/SERVICES\/DELETE
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "category:Administrative AND resourceId:*AdFederationService* AND operationName:MICROSOFT.ADHYBRIDHEALTHSERVICE\\/SERVICES\\/DELETE",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

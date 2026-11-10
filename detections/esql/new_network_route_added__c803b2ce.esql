@@ -1,0 +1,2 @@
+// New Network Route Added | T1686.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/aws/cloudtrail/aws_cloudtrail_new_route_added.yml
+from * metadata _id, _index, _version | where eventSource=="ec2.amazonaws.com" and eventName=="CreateRoute"

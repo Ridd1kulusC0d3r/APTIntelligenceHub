@@ -1,0 +1,18 @@
+// Windows Recall Feature Enabled - Registry | T1113 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_enable_windows_recall.yml
+TargetObject:*\\Software\\Policies\\Microsoft\\Windows\\WindowsAI\\DisableAIDataAnalysis AND Details:"DWORD \(0x00000000\)"
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "TargetObject:*\\\\Software\\\\Policies\\\\Microsoft\\\\Windows\\\\WindowsAI\\\\DisableAIDataAnalysis AND Details:\"DWORD \\(0x00000000\\)\"",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

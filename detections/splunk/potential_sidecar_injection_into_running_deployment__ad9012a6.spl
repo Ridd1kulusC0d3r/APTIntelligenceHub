@@ -1,0 +1,2 @@
+# Potential Sidecar Injection Into Running Deployment | T1609 | https://github.com/SigmaHQ/sigma/blob/master/rules/application/kubernetes/audit/kubernetes_audit_sidecar_injection.yml
+verb="patch" apiGroup="apps" objectRef.resource="deployments"

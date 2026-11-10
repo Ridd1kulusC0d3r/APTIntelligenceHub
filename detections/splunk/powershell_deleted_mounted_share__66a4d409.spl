@@ -1,0 +1,2 @@
+# PowerShell Deleted Mounted Share | T1070.005 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/powershell/powershell_script/posh_ps_susp_mounted_share_deletion.yml
+(ScriptBlockText IN ("*Remove-SmbShare*", "*Remove-FileShare*")) NOT (ScriptBlockText="*FileShare.cdxml*" ScriptBlockText="*Microsoft.PowerShell.Core\\Export-ModuleMember*" ScriptBlockText="*ROOT/Microsoft/Windows/Storage/MSFT_FileShare*" ScriptBlockText="*ObjectModelWrapper*" ScriptBlockText="*Cmdletization.MethodParameter*")

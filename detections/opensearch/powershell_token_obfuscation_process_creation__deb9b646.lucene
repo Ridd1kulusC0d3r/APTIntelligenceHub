@@ -1,0 +1,2 @@
+// Powershell Token Obfuscation - Process Creation | T1027.009 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_token_obfuscation.yml
+(process.command_line:/\w+`(?:\w+|-|.)`[\w+|\s]/ OR process.command_line:/"(?:\{\d\})+"\s*-f/ OR process.command_line:/(?i)\$\{`?e`?n`?v`?:`?p`?a`?t`?h`?\}/) AND (NOT process.command_line:*$\{env\:path\}*)

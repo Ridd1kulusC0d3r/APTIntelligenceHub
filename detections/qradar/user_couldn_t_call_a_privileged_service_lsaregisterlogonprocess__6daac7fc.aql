@@ -1,0 +1,2 @@
+-- User Couldn't Call a Privileged Service 'LsaRegisterLogonProcess' | T1558.003 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_user_couldnt_call_priv_service_lsaregisterlogonprocess.yml | NOTA: fallback QRadarAQL_payload_pipeline: campos sem propriedade DSM mapeada são buscados em UTF8(payload) – custo maior, crie custom properties
+SELECT * FROM events WHERE devicetype=12 AND "Event ID"=4673 AND "Service Name"='LsaRegisterLogonProcess()' AND LOWER(UTF8(payload)) LIKE '%0x8010000000000000%'

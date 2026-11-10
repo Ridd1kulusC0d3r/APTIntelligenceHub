@@ -1,0 +1,18 @@
+// Discovery of a System Time | T1124 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_remote_time_discovery.yml
+((Image:(*\\net.exe OR *\\net1.exe)) AND CommandLine:*time*) OR (Image:*\\w32tm.exe AND CommandLine:*tz*)
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "((Image:(*\\\\net.exe OR *\\\\net1.exe)) AND CommandLine:*time*) OR (Image:*\\\\w32tm.exe AND CommandLine:*tz*)",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

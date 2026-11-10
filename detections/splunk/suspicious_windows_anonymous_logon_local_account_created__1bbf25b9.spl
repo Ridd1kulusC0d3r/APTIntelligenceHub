@@ -1,0 +1,2 @@
+# Suspicious Windows ANONYMOUS LOGON Local Account Created | T1136.001, T1136.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_susp_local_anon_logon_created.yml
+source="WinEventLog:Security" EventCode=4720 SamAccountName="*ANONYMOUS*" SamAccountName="*LOGON*"

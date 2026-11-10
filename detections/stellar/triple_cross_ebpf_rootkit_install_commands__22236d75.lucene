@@ -1,0 +1,18 @@
+// Triple Cross eBPF Rootkit Install Commands | T1014 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_triple_cross_rootkit_install.yml
+Image:*\/sudo AND (CommandLine:*\ tc\ * AND CommandLine:*\ enp0s3\ *) AND (CommandLine:(*\ qdisc\ * OR *\ filter\ *))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "Image:*\\/sudo AND (CommandLine:*\\ tc\\ * AND CommandLine:*\\ enp0s3\\ *) AND (CommandLine:(*\\ qdisc\\ * OR *\\ filter\\ *))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,2 @@
+// NTLM Hash Leak Via Curl NTLM Authentication | T1187 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_curl_ntlm_hash_leak_attempt.yml
+(process.executable.caseless:*\\curl.exe OR process.pe.original_file_name:curl.exe) AND process.command_line:*\-\-ntlm* AND process.command_line:/(?i)\s(-u|--user)\s*:/

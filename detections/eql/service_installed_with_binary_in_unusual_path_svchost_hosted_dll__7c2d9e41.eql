@@ -1,0 +1,2 @@
+// Service Installed With Binary In Unusual Path (svchost-hosted DLL) | T1543.003 | Hub
+any where (registry.path:"*\\Services\\*" and registry.path:"*\\Parameters\\ServiceDll") and (not (winlog.event_data.Details like~ ("C:\\Windows\\System32\\*", "%SystemRoot%\\System32\\*", "%systemroot%\\system32\\*")))

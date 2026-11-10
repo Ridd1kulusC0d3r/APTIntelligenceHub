@@ -1,0 +1,18 @@
+// Registry Modification of MS-settings Protocol Handler | T1112, T1546.001, T1548.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_registry_modification_of_ms_setting_protocol_handler.yml
+(((Image:*\\reg.exe OR OriginalFileName:reg.exe) AND CommandLine:*add*) OR (((Image:(*\\powershell.exe OR *\\pwsh.exe)) OR (OriginalFileName:(powershell.exe OR pwsh.dll))) AND (CommandLine:(*New\-ItemProperty* OR *Set\-ItemProperty* OR *ni\ * OR *sp\ *)))) AND CommandLine:*\\ms\-settings\\shell\\open\\command*
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(((Image:*\\\\reg.exe OR OriginalFileName:reg.exe) AND CommandLine:*add*) OR (((Image:(*\\\\powershell.exe OR *\\\\pwsh.exe)) OR (OriginalFileName:(powershell.exe OR pwsh.dll))) AND (CommandLine:(*New\\-ItemProperty* OR *Set\\-ItemProperty* OR *ni\\ * OR *sp\\ *)))) AND CommandLine:*\\\\ms\\-settings\\\\shell\\\\open\\\\command*",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

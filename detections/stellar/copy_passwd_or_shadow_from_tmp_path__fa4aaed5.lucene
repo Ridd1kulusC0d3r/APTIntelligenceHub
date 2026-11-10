@@ -1,0 +1,18 @@
+// Copy Passwd Or Shadow From TMP Path | T1552.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_cp_passwd_or_shadow_tmp.yml
+Image:*\/cp AND CommandLine:*\/tmp\/* AND (CommandLine:(*passwd* OR *shadow*))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "Image:*\\/cp AND CommandLine:*\\/tmp\\/* AND (CommandLine:(*passwd* OR *shadow*))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

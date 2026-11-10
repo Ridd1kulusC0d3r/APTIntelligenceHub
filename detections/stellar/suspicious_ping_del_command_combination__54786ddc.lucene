@@ -1,0 +1,18 @@
+// Suspicious Ping/Del Command Combination | T1070.004 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_cmd_ping_del_combined_execution.yml
+CommandLine:(*\ \-n\ * OR *\ \/n\ * OR *\ –n\ * OR *\ —n\ * OR *\ ―n\ *) AND CommandLine:*Nul* AND (CommandLine:(*\ \-f\ * OR *\ \/f\ * OR *\ –f\ * OR *\ —f\ * OR *\ ―f\ *) OR CommandLine:(*\ \-q\ * OR *\ \/q\ * OR *\ –q\ * OR *\ —q\ * OR *\ ―q\ *)) AND (CommandLine:*ping* AND CommandLine:*del\ *)
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "CommandLine:(*\\ \\-n\\ * OR *\\ \\/n\\ * OR *\\ \u2013n\\ * OR *\\ \u2014n\\ * OR *\\ \u2015n\\ *) AND CommandLine:*Nul* AND (CommandLine:(*\\ \\-f\\ * OR *\\ \\/f\\ * OR *\\ \u2013f\\ * OR *\\ \u2014f\\ * OR *\\ \u2015f\\ *) OR CommandLine:(*\\ \\-q\\ * OR *\\ \\/q\\ * OR *\\ \u2013q\\ * OR *\\ \u2014q\\ * OR *\\ \u2015q\\ *)) AND (CommandLine:*ping* AND CommandLine:*del\\ *)",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

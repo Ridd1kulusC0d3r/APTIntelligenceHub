@@ -1,0 +1,18 @@
+// ShimCache Flush | T1112 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_susp_shimcache_flush.yml
+((CommandLine:*rundll32* AND CommandLine:*apphelp.dll*) AND (CommandLine:(*ShimFlushCache* OR *#250*))) OR ((CommandLine:*rundll32* AND CommandLine:*kernel32.dll*) AND (CommandLine:(*BaseFlushAppcompatCache* OR *#46*)))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "((CommandLine:*rundll32* AND CommandLine:*apphelp.dll*) AND (CommandLine:(*ShimFlushCache* OR *#250*))) OR ((CommandLine:*rundll32* AND CommandLine:*kernel32.dll*) AND (CommandLine:(*BaseFlushAppcompatCache* OR *#46*)))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

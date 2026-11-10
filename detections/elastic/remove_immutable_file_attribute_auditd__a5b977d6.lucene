@@ -1,0 +1,2 @@
+// Remove Immutable File Attribute - Auditd | T1222.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/execve/lnx_auditd_chattr_immutable_removal.yml
+type:EXECVE AND a0:*chattr* AND a1:*\-i*

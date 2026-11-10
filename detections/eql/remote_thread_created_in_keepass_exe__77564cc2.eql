@@ -1,0 +1,2 @@
+// Remote Thread Created In KeePass.EXE | T1555.005 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/create_remote_thread/create_remote_thread_win_keepass.yml
+any where winlog.event_data.TargetImage:"*\\KeePass.exe"

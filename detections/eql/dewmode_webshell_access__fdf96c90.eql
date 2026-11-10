@@ -1,0 +1,2 @@
+// DEWMODE Webshell Access | T1505.003 | https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2021/TA/UNC2546/web_unc2546_dewmode_php_webshell.yml
+any where (cs-uri-query:"*?dwn=*" and cs-uri-query:"*&fn=*" and cs-uri-query:"*.html?*") or (cs-uri-query:"*&dwn=*" and cs-uri-query:"*?fn=*" and cs-uri-query:"*.html?*")

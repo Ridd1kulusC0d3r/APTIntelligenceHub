@@ -1,0 +1,18 @@
+// Failed MSExchange Transport Agent Installation | T1505.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/msexchange/win_exchange_transportagent_failed.yml
+EventID:6 AND Data:*Install\-TransportAgent*
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "EventID:6 AND Data:*Install\\-TransportAgent*",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

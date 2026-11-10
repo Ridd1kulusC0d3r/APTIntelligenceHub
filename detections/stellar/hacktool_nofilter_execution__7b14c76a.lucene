@@ -1,0 +1,18 @@
+// HackTool - NoFilter Execution | T1134, T1134.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_hktl_nofilter.yml
+(EventID:5447 AND FilterName:*RonPolicy*) OR (EventID:5449 AND ProviderContextName:*RonPolicy*)
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(EventID:5447 AND FilterName:*RonPolicy*) OR (EventID:5449 AND ProviderContextName:*RonPolicy*)",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

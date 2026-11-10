@@ -1,0 +1,18 @@
+// Hiding User Account Via SpecialAccounts Registry Key | T1564.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_special_accounts.yml
+TargetObject:*\\SOFTWARE\\Microsoft\\Windows\ NT\\CurrentVersion\\Winlogon\\SpecialAccounts\\UserList* AND Details:"DWORD \(0x00000000\)"
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "TargetObject:*\\\\SOFTWARE\\\\Microsoft\\\\Windows\\ NT\\\\CurrentVersion\\\\Winlogon\\\\SpecialAccounts\\\\UserList* AND Details:\"DWORD \\(0x00000000\\)\"",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

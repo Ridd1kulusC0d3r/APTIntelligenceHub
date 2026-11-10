@@ -1,0 +1,18 @@
+// PST Export Alert Using New-ComplianceSearchAction | T1114 | https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/m365/threat_management/microsoft365_pst_export_alert_using_new_compliancesearchaction.yml
+eventSource:SecurityComplianceCenter AND (Payload:*New\-ComplianceSearchAction* AND Payload:*Export* AND Payload:*pst*)
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "eventSource:SecurityComplianceCenter AND (Payload:*New\\-ComplianceSearchAction* AND Payload:*Export* AND Payload:*pst*)",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

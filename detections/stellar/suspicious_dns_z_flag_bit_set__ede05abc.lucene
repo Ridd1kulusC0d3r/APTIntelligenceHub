@@ -1,0 +1,18 @@
+// Suspicious DNS Z Flag Bit Set | T1095, T1571 | https://github.com/SigmaHQ/sigma/blob/master/rules/network/zeek/zeek_dns_susp_zbit_flag.yml
+(NOT Z:0) AND query:*.* AND (NOT ((query:(*.arpa OR *.local OR *.ultradns.net OR *.twtrdns.net OR *.azuredns\-prd.info OR *.azure\-dns.com OR *.azuredns\-ff.info OR *.azuredns\-ff.org OR *.azuregov\-dns.org)) OR (qtype_name:(ns OR mx)) OR answers:*\\x00 OR (id.resp_p:(137 OR 138 OR 139))))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(NOT Z:0) AND query:*.* AND (NOT ((query:(*.arpa OR *.local OR *.ultradns.net OR *.twtrdns.net OR *.azuredns\\-prd.info OR *.azure\\-dns.com OR *.azuredns\\-ff.info OR *.azuredns\\-ff.org OR *.azuregov\\-dns.org)) OR (qtype_name:(ns OR mx)) OR answers:*\\\\x00 OR (id.resp_p:(137 OR 138 OR 139))))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

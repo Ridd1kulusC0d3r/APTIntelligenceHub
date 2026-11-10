@@ -1,0 +1,18 @@
+// AWS SecurityHub Findings Evasion | T1685 | https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/aws/cloudtrail/aws_securityhub_finding_evasion.yml
+eventSource:securityhub.amazonaws.com AND (eventName:(BatchUpdateFindings OR DeleteInsight OR UpdateFindings OR UpdateInsight))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "eventSource:securityhub.amazonaws.com AND (eventName:(BatchUpdateFindings OR DeleteInsight OR UpdateFindings OR UpdateInsight))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

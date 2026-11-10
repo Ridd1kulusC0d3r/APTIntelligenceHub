@@ -1,0 +1,2 @@
+// New DLL Added to AppCertDlls Registry Key | T1546.009 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/registry_event_new_dll_added_to_appcertdlls_registry_key.yml
+from * metadata _id, _index, _version | where registry.path=="HKLM\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\AppCertDlls" or winlog.event_data.NewName=="HKLM\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\AppCertDlls"

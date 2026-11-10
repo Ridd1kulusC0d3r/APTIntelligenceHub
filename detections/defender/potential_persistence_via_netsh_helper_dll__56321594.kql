@@ -1,0 +1,3 @@
+// Potential Persistence Via Netsh Helper DLL | T1546.007 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_netsh_helper_dll_persistence.yml
+DeviceProcessEvents
+| where (ProcessVersionInfoOriginalFileName =~ "netsh.exe" or FolderPath endswith "\\netsh.exe") and (ProcessCommandLine contains "add" and ProcessCommandLine contains "helper")

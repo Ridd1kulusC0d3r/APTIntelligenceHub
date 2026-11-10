@@ -1,0 +1,2 @@
+// Binary Padding - MacOS | T1027.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_binary_padding.yml
+from * metadata _id, _index, _version | where ends_with(Image, "/truncate") and CommandLine like "*-s +*" or ends_with(Image, "/dd") and (CommandLine like "*if=/dev/zero*" or CommandLine like "*if=/dev/random*" or CommandLine like "*if=/dev/urandom*")

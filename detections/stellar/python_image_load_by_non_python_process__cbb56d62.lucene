@@ -1,0 +1,18 @@
+// Python Image Load By Non-Python Process | T1027.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_susp_python_image_load.yml
+Description:"Python Core" AND (NOT (Image:*Python* OR (Image:(C\:\\Program\ Files\\* OR C\:\\Program\ Files\ \(x86\)\\* OR C\:\\ProgramData\\Anaconda3\\*)))) AND _exists_:Image
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "Description:\"Python Core\" AND (NOT (Image:*Python* OR (Image:(C\\:\\\\Program\\ Files\\\\* OR C\\:\\\\Program\\ Files\\ \\(x86\\)\\\\* OR C\\:\\\\ProgramData\\\\Anaconda3\\\\*)))) AND _exists_:Image",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

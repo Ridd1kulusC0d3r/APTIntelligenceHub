@@ -1,0 +1,3 @@
+// Share And Session Enumeration Using Net.EXE | T1018 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_net_view_share_and_sessions_enum.yml
+DeviceProcessEvents
+| where (((FolderPath endswith "\\net.exe" or FolderPath endswith "\\net1.exe") or (ProcessVersionInfoOriginalFileName in~ ("net.exe", "net1.exe"))) and ProcessCommandLine contains "view") and (not(ProcessCommandLine contains "\\\\"))

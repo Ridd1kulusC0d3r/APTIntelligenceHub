@@ -1,0 +1,2 @@
+// Potential DCOM InternetExplorer.Application DLL Hijack - Image Load | T1021.002, T1021.003 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_iexplore_dcom_iertutil_dll_hijack.yml
+any where process.executable.caseless:"*\\Internet Explorer\\iexplore.exe" and file.path:"*\\Internet Explorer\\iertutil.dll"

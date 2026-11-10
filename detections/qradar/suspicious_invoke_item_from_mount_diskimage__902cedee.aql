@@ -1,0 +1,2 @@
+-- Suspicious Invoke-Item From Mount-DiskImage | T1553.005 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/powershell/powershell_script/posh_ps_run_from_mount_diskimage.yml
+SELECT * FROM events WHERE devicetype=12 AND LOWER(Message) LIKE '%mount-diskimage %' AND LOWER(Message) LIKE '%-imagepath %' AND LOWER(Message) LIKE '%get-volume%' AND LOWER(Message) LIKE '%.driveletter%' AND LOWER(Message) LIKE '%invoke-item %' AND LOWER(Message) LIKE '%):\%'

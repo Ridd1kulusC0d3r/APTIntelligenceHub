@@ -1,0 +1,18 @@
+// MSHTA Execution with Suspicious File Extensions | T1059.007, T1140, T1218.005 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_mshta_susp_execution.yml
+(Image:*\\mshta.exe OR OriginalFileName:mshta.exe) AND (CommandLine:(*.7z* OR *.avi* OR *.bat* OR *.bmp* OR *.conf* OR *.csv* OR *.dll* OR *.doc* OR *.gif* OR *.gz* OR *.ini* OR *.jpe* OR *.jpg* OR *.json* OR *.lnk* OR *.log* OR *.mkv* OR *.mp3* OR *.mp4* OR *.pdf* OR *.png* OR *.ppt* OR *.rar* OR *.rtf* OR *.svg* OR *.tar* OR *.tmp* OR *.txt* OR *.xls* OR *.xml* OR *.yaml* OR *.yml* OR *.zip* OR *vbscript*))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(Image:*\\\\mshta.exe OR OriginalFileName:mshta.exe) AND (CommandLine:(*.7z* OR *.avi* OR *.bat* OR *.bmp* OR *.conf* OR *.csv* OR *.dll* OR *.doc* OR *.gif* OR *.gz* OR *.ini* OR *.jpe* OR *.jpg* OR *.json* OR *.lnk* OR *.log* OR *.mkv* OR *.mp3* OR *.mp4* OR *.pdf* OR *.png* OR *.ppt* OR *.rar* OR *.rtf* OR *.svg* OR *.tar* OR *.tmp* OR *.txt* OR *.xls* OR *.xml* OR *.yaml* OR *.yml* OR *.zip* OR *vbscript*))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

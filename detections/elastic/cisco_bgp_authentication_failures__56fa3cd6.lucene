@@ -1,0 +1,2 @@
+// Cisco BGP Authentication Failures | T1078, T1110, T1557 | https://github.com/SigmaHQ/sigma/blob/master/rules/network/cisco/bgp/cisco_bgp_md5_auth_failed.yml
+*\:179* AND *IP\-TCP\-3\-BADAUTH*

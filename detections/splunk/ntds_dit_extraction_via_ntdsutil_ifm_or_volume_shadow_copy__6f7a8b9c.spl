@@ -1,0 +1,2 @@
+# NTDS.dit Extraction Via Ntdsutil IFM Or Volume Shadow Copy | T1003.003 | Hub
+source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=1 ((Image="*\\ntdsutil.exe" CommandLine="*ifm*") OR (Image="*\\vssadmin.exe" CommandLine="*create*" CommandLine="*shadow*"))

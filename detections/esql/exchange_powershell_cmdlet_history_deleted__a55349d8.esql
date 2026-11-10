@@ -1,0 +1,2 @@
+// Exchange PowerShell Cmdlet History Deleted | T1070 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_delete/file_delete_win_delete_exchange_powershell_logs.yml
+from * metadata _id, _index, _version | where file.path like "*\\Logging\\CmdletInfra\\LocalPowerShell\\Cmdlet\\*" and file.path like "*_Cmdlet_*"

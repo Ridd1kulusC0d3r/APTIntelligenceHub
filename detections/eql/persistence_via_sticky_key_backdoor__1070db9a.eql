@@ -1,0 +1,2 @@
+// Persistence Via Sticky Key Backdoor | T1546.008 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_cmd_sticky_keys_replace.yml
+any where process.command_line:"*copy *" and process.command_line:"*/y *" and process.command_line:"*C:\\windows\\system32\\cmd.exe C:\\windows\\system32\\sethc.exe*"

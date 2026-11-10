@@ -1,0 +1,18 @@
+// Lazarus Group Activity | T1059 | https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2020/TA/Lazarus/proc_creation_win_apt_lazarus_group_activity.yml
+(CommandLine:(*reg.exe\ save\ hklm\\sam\ %temp%\\\~reg_sam.save* OR *1q2w3e4r@#$@#$@#$* OR *\ \-hp1q2w3e4\ * OR *.dat\ data03\ 10000\ \-p\ *)) OR (CommandLine:*netstat\ \-aon\ \|\ find\ * AND CommandLine:*ESTA* AND CommandLine:*\ \>\ %temp%\\\~*) OR (CommandLine:*.255\ 10\ C\:\\ProgramData\\IBM\\* AND CommandLine:*.DAT*) OR ((CommandLine:*\ \/c\ * AND CommandLine:*\ \-p\ 0x*) AND (CommandLine:(*C\:\\ProgramData\\* OR *C\:\\RECYCLER\\*))) OR ((CommandLine:*rundll32\ * AND CommandLine:*C\:\\ProgramData\\*) AND (CommandLine:(*.bin,* OR *.tmp,* OR *.dat,* OR *.io,* OR *.ini,* OR *.db,*)))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(CommandLine:(*reg.exe\\ save\\ hklm\\\\sam\\ %temp%\\\\\\~reg_sam.save* OR *1q2w3e4r@#$@#$@#$* OR *\\ \\-hp1q2w3e4\\ * OR *.dat\\ data03\\ 10000\\ \\-p\\ *)) OR (CommandLine:*netstat\\ \\-aon\\ \\|\\ find\\ * AND CommandLine:*ESTA* AND CommandLine:*\\ \\>\\ %temp%\\\\\\~*) OR (CommandLine:*.255\\ 10\\ C\\:\\\\ProgramData\\\\IBM\\\\* AND CommandLine:*.DAT*) OR ((CommandLine:*\\ \\/c\\ * AND CommandLine:*\\ \\-p\\ 0x*) AND (CommandLine:(*C\\:\\\\ProgramData\\\\* OR *C\\:\\\\RECYCLER\\\\*))) OR ((CommandLine:*rundll32\\ * AND CommandLine:*C\\:\\\\ProgramData\\\\*) AND (CommandLine:(*.bin,* OR *.tmp,* OR *.dat,* OR *.io,* OR *.ini,* OR *.db,*)))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,2 @@
+// Bitbucket User Login Failure Via SSH | T1021.004, T1110 | https://github.com/SigmaHQ/sigma/blob/master/rules/application/bitbucket/audit/bitbucket_audit_user_login_failure_via_ssh_detected.yml
+any where auditType.category:"Authentication" and auditType.action:"User login failed(SSH)"

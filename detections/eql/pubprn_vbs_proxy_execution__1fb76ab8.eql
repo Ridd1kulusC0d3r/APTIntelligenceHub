@@ -1,0 +1,2 @@
+// Pubprn.vbs Proxy Execution | T1216.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_pubprn.yml
+any where process.command_line:"*\\pubprn.vbs*" and process.command_line:"*script:*"

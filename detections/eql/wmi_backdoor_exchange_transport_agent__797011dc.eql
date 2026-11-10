@@ -1,0 +1,2 @@
+// WMI Backdoor Exchange Transport Agent | T1546.003 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wmi_backdoor_exchange_transport_agent.yml
+any where process.parent.executable.caseless:"*\\EdgeTransport.exe" and (not (process.executable.caseless:"C:\\Windows\\System32\\conhost.exe" or (process.executable.caseless:"C:\\Program Files\\Microsoft\\Exchange Server\\*" and process.executable.caseless:"*\\Bin\\OleConverter.exe")))

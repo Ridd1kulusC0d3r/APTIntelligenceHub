@@ -1,0 +1,18 @@
+// PUA - Netcat Suspicious Execution | T1095 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_netcat.yml
+(Image:(*\\nc.exe OR *\\ncat.exe OR *\\netcat.exe)) OR (CommandLine:(*\ \-lvp\ * OR *\ \-lvnp* OR *\ \-l\ \-v\ \-p\ * OR *\ \-lv\ \-p\ * OR *\ \-l\ \-\-proxy\-type\ http\ * OR *\ \-vnl\ \-\-exec\ * OR *\ \-vnl\ \-e\ * OR *\ \-\-lua\-exec\ * OR *\ \-\-sh\-exec\ *))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(Image:(*\\\\nc.exe OR *\\\\ncat.exe OR *\\\\netcat.exe)) OR (CommandLine:(*\\ \\-lvp\\ * OR *\\ \\-lvnp* OR *\\ \\-l\\ \\-v\\ \\-p\\ * OR *\\ \\-lv\\ \\-p\\ * OR *\\ \\-l\\ \\-\\-proxy\\-type\\ http\\ * OR *\\ \\-vnl\\ \\-\\-exec\\ * OR *\\ \\-vnl\\ \\-e\\ * OR *\\ \\-\\-lua\\-exec\\ * OR *\\ \\-\\-sh\\-exec\\ *))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

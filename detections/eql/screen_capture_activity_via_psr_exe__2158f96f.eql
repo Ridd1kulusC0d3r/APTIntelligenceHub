@@ -1,0 +1,2 @@
+// Screen Capture Activity Via Psr.EXE | T1113 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_psr_capture_screenshots.yml
+any where process.executable.caseless:"*\\Psr.exe" and (process.command_line like~ ("*/start*", "*-start*"))

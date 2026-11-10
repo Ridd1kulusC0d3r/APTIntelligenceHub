@@ -1,0 +1,18 @@
+// Turla Group Named Pipes | T1106 | https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2017/TA/Turla/pipe_created_apt_turla_named_pipes.yml
+PipeName:(\\atctl OR \\comnap OR \\iehelper OR \\sdlrpc OR \\userpipe)
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "PipeName:(\\\\atctl OR \\\\comnap OR \\\\iehelper OR \\\\sdlrpc OR \\\\userpipe)",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

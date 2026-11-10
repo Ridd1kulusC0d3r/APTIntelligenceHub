@@ -1,0 +1,18 @@
+// Possible PetitPotam Coerce Authentication Attempt | T1187 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_petitpotam_network_share.yml
+EventID:5145 AND ShareName:\\\\* AND ShareName:*\\IPC$ AND RelativeTargetName:lsarpc AND SubjectUserName:"ANONYMOUS LOGON"
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "EventID:5145 AND ShareName:\\\\\\\\* AND ShareName:*\\\\IPC$ AND RelativeTargetName:lsarpc AND SubjectUserName:\"ANONYMOUS LOGON\"",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

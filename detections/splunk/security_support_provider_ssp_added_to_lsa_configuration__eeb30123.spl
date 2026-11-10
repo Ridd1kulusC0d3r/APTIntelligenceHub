@@ -1,0 +1,2 @@
+# Security Support Provider (SSP) Added to LSA Configuration | T1547.005 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/registry_event_ssp_added_lsa_config.yml
+source="WinEventLog:Microsoft-Windows-Sysmon/Operational" (EventCode IN (12, 13, 14)) (TargetObject IN ("*\\Control\\Lsa\\Security Packages", "*\\Control\\Lsa\\OSConfig\\Security Packages")) NOT (Image IN ("C:\\Windows\\system32\\msiexec.exe", "C:\\Windows\\syswow64\\MsiExec.exe") OR NOT Image=*)

@@ -1,0 +1,30 @@
+title: Scheduled Task Or Executable Dropped Into SYSVOL Policies
+id: 2f8a6c19-3d4e-4b5a-9c7d-1e0f2a3b4c05
+status: experimental
+description: Detects creation of scripts/executables/ScheduledTasks.xml under SYSVOL Policies, used by Sandworm to mass-deploy wipers via GPO.
+author: CTI Consolidation
+date: 2025-01-01
+tags:
+    - attack.execution
+    - attack.t1484.001
+    - attack.impact
+    - attack.t1485
+logsource:
+    category: file_event
+    product: windows
+detection:
+    selection:
+        TargetFilename|contains: '\SYSVOL\'
+        TargetFilename|contains|all:
+            - '\Policies\'
+    selection_ext:
+        TargetFilename|endswith:
+            - '.exe'
+            - '.dll'
+            - '.ps1'
+            - '.bat'
+            - '\ScheduledTasks.xml'
+    condition: selection and selection_ext
+falsepositives:
+    - Deploy legítimo de software via GPO (validar janela de mudança)
+level: high

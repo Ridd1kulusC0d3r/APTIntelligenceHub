@@ -1,0 +1,2 @@
+-- Potential Obfuscated Ordinal Call Via Rundll32 | T1027.010 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_obfuscated_ordinal_call.yml
+SELECT * FROM events WHERE devicetype=12 AND ((LOWER("Process Path") LIKE '%\rundll32.exe' OR LOWER("Process Name") LIKE '%\rundll32.exe') OR Filename='RUNDLL32.EXE' OR LOWER(Command) LIKE '%rundll32%') AND (LOWER(Command) LIKE '%#+%' OR LOWER(Command) LIKE '%#-%' OR LOWER(Command) LIKE '%#0%' OR LOWER(Command) LIKE '%#655%' OR LOWER(Command) LIKE '%#656%')

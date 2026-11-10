@@ -1,0 +1,2 @@
+-- Masquerading as Linux Crond Process | T1036.003 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/execve/lnx_auditd_masquerading_crond.yml | NOTA: fallback QRadarAQL_payload_pipeline: campos sem propriedade DSM mapeada são buscados em UTF8(payload) – custo maior, crie custom properties
+SELECT * FROM events WHERE devicetype=11 AND LOWER(UTF8(payload)) LIKE '%execve%' AND LOWER(Command) LIKE '%a0%cp%' AND LOWER(Command) LIKE '%a1%/bin/sh%' AND LOWER(Command) LIKE '%a2%/crond%'

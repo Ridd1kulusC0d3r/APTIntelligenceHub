@@ -1,0 +1,2 @@
+// Bitsadmin to Uncommon TLD | T1071.001, T1197 | https://github.com/SigmaHQ/sigma/blob/master/rules/web/proxy_generic/proxy_ua_bitsadmin_susp_tld.yml
+any where c-useragent:"Microsoft BITS/*" and (not (cs-host like~ ("*.com", "*.microsoft", "*.net", "*.org", "*.scdn.co", "*.sfx.ms")))

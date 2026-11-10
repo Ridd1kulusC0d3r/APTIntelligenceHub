@@ -1,0 +1,18 @@
+// Gatekeeper Bypass via Xattr | T1553.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_xattr_gatekeeper_bypass.yml
+Image:*\/xattr AND (CommandLine:*\-d* AND CommandLine:*com.apple.quarantine*)
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "Image:*\\/xattr AND (CommandLine:*\\-d* AND CommandLine:*com.apple.quarantine*)",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

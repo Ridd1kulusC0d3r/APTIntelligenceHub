@@ -1,0 +1,18 @@
+// Potential APT FIN7 POWERHOLD Execution | T1059.001 | https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/FIN7/posh_ps_apt_fin7_powerhold.yml
+ScriptBlockText:*$env\:APPDATA* AND ScriptBlockText:*function\ MainPayload* AND ScriptBlockText:*\:\:WriteAllBytes* AND ScriptBlockText:*wscript.exe*
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "ScriptBlockText:*$env\\:APPDATA* AND ScriptBlockText:*function\\ MainPayload* AND ScriptBlockText:*\\:\\:WriteAllBytes* AND ScriptBlockText:*wscript.exe*",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

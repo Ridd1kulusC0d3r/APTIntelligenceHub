@@ -1,0 +1,18 @@
+// Sysmon Configuration Error | T1564 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/sysmon/sysmon_config_modification_error.yml
+(Description:(*Failed\ to\ open\ service\ configuration\ with\ error* OR *Failed\ to\ connect\ to\ the\ driver\ to\ update\ configuration*)) AND (NOT ((Description:*Failed\ to\ open\ service\ configuration\ with\ error* AND Description:*Last\ error\:\ The\ media\ is\ write\ protected.*) OR (Description:*Failed\ to\ open\ service\ configuration\ with\ error* AND Description:*Last\ error\:\ Média\ protégé\ en\ écriture.*) OR (Description:(*Failed\ to\ open\ service\ configuration\ with\ error\ 19* OR *Failed\ to\ open\ service\ configuration\ with\ error\ 93*))))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(Description:(*Failed\\ to\\ open\\ service\\ configuration\\ with\\ error* OR *Failed\\ to\\ connect\\ to\\ the\\ driver\\ to\\ update\\ configuration*)) AND (NOT ((Description:*Failed\\ to\\ open\\ service\\ configuration\\ with\\ error* AND Description:*Last\\ error\\:\\ The\\ media\\ is\\ write\\ protected.*) OR (Description:*Failed\\ to\\ open\\ service\\ configuration\\ with\\ error* AND Description:*Last\\ error\\:\\ M\u00e9dia\\ prot\u00e9g\u00e9\\ en\\ \u00e9criture.*) OR (Description:(*Failed\\ to\\ open\\ service\\ configuration\\ with\\ error\\ 19* OR *Failed\\ to\\ open\\ service\\ configuration\\ with\\ error\\ 93*))))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,3 @@
+# UNC4841 - SSL Certificate Exfiltration Via Openssl | T1140 | https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/UNC4841-Barracuda-ESG-Zero-Day-Exploitation/proc_creation_lnx_apt_unc4841_openssl_connection.yml
+Image="*/openssl" CommandLine="*s_client*" CommandLine="*-quiet*" CommandLine="*-connect*" (CommandLine IN ("*:443*", "*:8080*"))
+| regex CommandLine="[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}"

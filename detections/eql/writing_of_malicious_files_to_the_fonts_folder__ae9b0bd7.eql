@@ -1,0 +1,2 @@
+// Writing Of Malicious Files To The Fonts Folder | T1059, T1211 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_hiding_malware_in_fonts_folder.yml
+any where (process.command_line like~ ("*echo*", "*copy*", "*type*", "*file createnew*", "*cacls*")) and process.command_line:"*C:\\Windows\\Fonts\\*" and (process.command_line like~ ("*.sh*", "*.exe*", "*.dll*", "*.bin*", "*.bat*", "*.cmd*", "*.js*", "*.msh*", "*.reg*", "*.scr*", "*.ps*", "*.vb*", "*.jar*", "*.pl*", "*.inf*", "*.cpl*", "*.hta*", "*.msi*", "*.vbs*"))

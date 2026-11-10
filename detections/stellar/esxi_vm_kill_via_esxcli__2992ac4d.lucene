@@ -1,0 +1,18 @@
+// ESXi VM Kill Via ESXCLI | T1059.012, T1529 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_esxcli_vm_kill.yml
+Image:*\/esxcli AND (CommandLine:*vm\ process* AND CommandLine:*kill*)
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "Image:*\\/esxcli AND (CommandLine:*vm\\ process* AND CommandLine:*kill*)",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

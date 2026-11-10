@@ -1,0 +1,2 @@
+// HackTool - SharpImpersonation Execution | T1134.001, T1134.003 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_sharp_impersonation.yml
+any where (process.executable.caseless:"*\\SharpImpersonation.exe" or process.pe.original_file_name:"SharpImpersonation.exe") or ((process.command_line:"* user:*" and process.command_line:"* binary:*") or (process.command_line:"* user:*" and process.command_line:"* shellcode:*") or (process.command_line like~ ("* technique:CreateProcessAsUserW*", "* technique:ImpersonateLoggedOnuser*")))

@@ -1,0 +1,18 @@
+// HackTool - Potential CobaltStrike Process Injection | T1055.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/create_remote_thread/create_remote_thread_win_hktl_cobaltstrike.yml
+StartAddress:(*0B80 OR *0C7C OR *0C88)
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "StartAddress:(*0B80 OR *0C7C OR *0C88)",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

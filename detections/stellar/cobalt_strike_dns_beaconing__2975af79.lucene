@@ -1,0 +1,18 @@
+// Cobalt Strike DNS Beaconing | T1071.004 | https://github.com/SigmaHQ/sigma/blob/master/rules/network/dns/net_dns_mal_cobaltstrike.yml
+(query:(aaa.stage.* OR post.1*)) OR query:*.stage.123456.*
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(query:(aaa.stage.* OR post.1*)) OR query:*.stage.123456.*",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

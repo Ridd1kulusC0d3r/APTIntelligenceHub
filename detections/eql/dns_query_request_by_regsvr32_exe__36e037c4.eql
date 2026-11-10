@@ -1,0 +1,2 @@
+// DNS Query Request By Regsvr32.EXE | T1218.010, T1559.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/dns_query/dns_query_win_regsvr32_dns_query.yml
+any where process.executable.caseless:"*\\regsvr32.exe"

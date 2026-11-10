@@ -1,0 +1,2 @@
+-- RDP Port Forwarding Rule Added Via Netsh.EXE | T1090 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_netsh_port_forwarding_3389.yml
+SELECT * FROM events WHERE devicetype=12 AND ((LOWER("Process Path") LIKE '%\netsh.exe' OR LOWER("Process Name") LIKE '%\netsh.exe') OR Filename='netsh.exe') AND (LOWER(Command) LIKE '% i%' AND LOWER(Command) LIKE '% p%' AND LOWER(Command) LIKE '%=3389%' AND LOWER(Command) LIKE '% c%')

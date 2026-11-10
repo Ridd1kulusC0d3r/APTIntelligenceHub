@@ -1,0 +1,3 @@
+// Findstr Launching .lnk File | T1027.003, T1036, T1202 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_findstr_lnk.yml
+DeviceProcessEvents
+| where ((FolderPath endswith "\\find.exe" or FolderPath endswith "\\findstr.exe") or (ProcessVersionInfoOriginalFileName in~ ("FIND.EXE", "FINDSTR.EXE"))) and (ProcessCommandLine endswith ".lnk" or ProcessCommandLine endswith ".lnk\"" or ProcessCommandLine endswith ".lnk'")

@@ -1,0 +1,3 @@
+// HackTool - Inveigh Execution Artefacts | T1219.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_hktl_inveigh_artefacts.yml
+DeviceFileEvents
+| where FolderPath endswith "\\Inveigh-Log.txt" or FolderPath endswith "\\Inveigh-Cleartext.txt" or FolderPath endswith "\\Inveigh-NTLMv1Users.txt" or FolderPath endswith "\\Inveigh-NTLMv2Users.txt" or FolderPath endswith "\\Inveigh-NTLMv1.txt" or FolderPath endswith "\\Inveigh-NTLMv2.txt" or FolderPath endswith "\\Inveigh-FormInput.txt" or FolderPath endswith "\\Inveigh.dll" or FolderPath endswith "\\Inveigh.exe" or FolderPath endswith "\\Inveigh.ps1" or FolderPath endswith "\\Inveigh-Relay.ps1"

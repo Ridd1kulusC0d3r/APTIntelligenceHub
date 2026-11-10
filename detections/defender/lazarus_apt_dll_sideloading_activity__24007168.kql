@@ -1,0 +1,3 @@
+// Lazarus APT DLL Sideloading Activity | T1574.001 | https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/Lazarus/image_load_apt_lazarus_side_load_activity.yml
+DeviceImageLoadEvents
+| where (InitiatingProcessFolderPath =~ "C:\\ProgramShared\\PresentationHost.exe" and FolderPath endswith ":\\ProgramShared\\mscoree.dll") or (InitiatingProcessFolderPath =~ "C:\\ProgramData\\Adobe\\colorcpl.exe" and FolderPath =~ "C:\\ProgramData\\Adobe\\colorui.dll") or (InitiatingProcessFolderPath =~ "C:\\ProgramData\\Oracle\\Java\\fixmapi.exe" and FolderPath =~ "C:\\ProgramData\\Oracle\\Java\\mapistub.dll") or (InitiatingProcessFolderPath =~ "C:\\ProgramData\\Adobe\\ARM\\tabcal.exe" and FolderPath =~ "C:\\ProgramData\\Adobe\\ARM\\HID.dll")

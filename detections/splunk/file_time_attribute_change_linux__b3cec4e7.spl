@@ -1,0 +1,2 @@
+# File Time Attribute Change - Linux | T1070.006 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/execve/lnx_auditd_change_file_time_attr.yml
+type="EXECVE" "touch" ("-t" OR "-acmr" OR "-d" OR "-r")

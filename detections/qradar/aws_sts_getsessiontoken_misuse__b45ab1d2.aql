@@ -1,0 +1,2 @@
+-- AWS STS GetSessionToken Misuse | T1548, T1550, T1550.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/aws/cloudtrail/aws_sts_getsessiontoken_misuse.yml | NOTA: fallback QRadarAQL_payload_pipeline: campos sem propriedade DSM mapeada são buscados em UTF8(payload) – custo maior, crie custom properties
+SELECT * FROM events WHERE devicetype IN(516, 519, 456, 460, 501, 502, 507, 440, 347) AND QIDNAME(qid)='GetSessionToken' AND LOWER(UTF8(payload)) LIKE '%iamuser%'

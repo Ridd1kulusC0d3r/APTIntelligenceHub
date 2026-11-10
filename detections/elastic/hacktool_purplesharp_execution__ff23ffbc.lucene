@@ -1,0 +1,2 @@
+// HackTool - PurpleSharp Execution | T1587 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_purplesharp_indicators.yml
+(process.executable.caseless:*\\purplesharp* OR process.pe.original_file_name:PurpleSharp.exe) OR (process.command_line:(*xyz123456.exe* OR *PurpleSharp*))

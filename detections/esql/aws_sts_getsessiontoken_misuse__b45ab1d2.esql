@@ -1,0 +1,2 @@
+// AWS STS GetSessionToken Misuse | T1548, T1550, T1550.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/aws/cloudtrail/aws_sts_getsessiontoken_misuse.yml
+from * metadata _id, _index, _version | where eventSource=="sts.amazonaws.com" and eventName=="GetSessionToken" and userIdentity.type=="IAMUser"

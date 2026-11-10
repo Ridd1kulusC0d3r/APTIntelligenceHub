@@ -1,0 +1,2 @@
+-- Lace Tempest PowerShell Launcher | T1059.001 | https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/Lace-Tempest/posh_ps_apt_lace_tempest_malware_launcher.yml
+SELECT * FROM events WHERE devicetype=12 AND LOWER(Message) LIKE '%\sysaidserver\tomcat\webapps%' AND LOWER(Message) LIKE '%starting user.exe%' AND LOWER(Message) LIKE '%\usersfiles\user.exe%' AND LOWER(Message) LIKE '%remove-item -force "$wapps%' AND LOWER(Message) LIKE '%(sophos).%'

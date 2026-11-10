@@ -1,0 +1,3 @@
+// Github Self-Hosted Runner Execution | T1071, T1102.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_github_self_hosted_runner.yml
+DeviceProcessEvents
+| where ((FolderPath endswith "\\Runner.Worker.exe" or ProcessVersionInfoOriginalFileName =~ "Runner.Worker.dll") and ProcessCommandLine contains "spawnclient") or ((FolderPath endswith "\\Runner.Listener.exe" or ProcessVersionInfoOriginalFileName =~ "Runner.Listener.dll") and (ProcessCommandLine contains "run" or ProcessCommandLine contains "configure"))

@@ -1,0 +1,18 @@
+// New Github Organization Member Added | T1136.003 | https://github.com/SigmaHQ/sigma/blob/master/rules/application/github/audit/github_new_org_member.yml
+action:(org.add_member OR org.invite_member)
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "action:(org.add_member OR org.invite_member)",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

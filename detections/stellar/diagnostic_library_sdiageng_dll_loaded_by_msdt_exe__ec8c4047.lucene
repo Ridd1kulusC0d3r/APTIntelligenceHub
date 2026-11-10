@@ -1,0 +1,18 @@
+// Diagnostic Library Sdiageng.DLL Loaded By Msdt.EXE | T1202 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_dll_sdiageng_load_by_msdt.yml
+Image:*\\msdt.exe AND ImageLoaded:*\\sdiageng.dll
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "Image:*\\\\msdt.exe AND ImageLoaded:*\\\\sdiageng.dll",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

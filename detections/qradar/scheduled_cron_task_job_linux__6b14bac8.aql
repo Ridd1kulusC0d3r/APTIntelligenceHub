@@ -1,0 +1,2 @@
+-- Scheduled Cron Task/Job - Linux | T1053.003 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_schedule_task_job_cron.yml
+SELECT * FROM events WHERE devicetype=11 AND (LOWER("Process Path") LIKE '%crontab' OR LOWER("Process Name") LIKE '%crontab') AND LOWER(Command) LIKE '%/tmp/%'

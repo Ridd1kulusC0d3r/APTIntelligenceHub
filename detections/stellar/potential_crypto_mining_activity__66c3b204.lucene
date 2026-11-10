@@ -1,0 +1,18 @@
+// Potential Crypto Mining Activity | T1496 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_crypto_mining_monero.yml
+(CommandLine:(*\ \-\-cpu\-priority\=* OR *\-\-donate\-level\=0* OR *\ \-o\ pool.* OR *\ \-\-nicehash* OR *\ \-\-algo\=rx\/0\ * OR *stratum\+tcp\:\/\/* OR *stratum\+udp\:\/\/* OR *LS1kb25hdGUtbGV2ZWw9* OR *0tZG9uYXRlLWxldmVsP* OR *tLWRvbmF0ZS1sZXZlbD* OR *c3RyYXR1bSt0Y3A6Ly* OR *N0cmF0dW0rdGNwOi8v* OR *zdHJhdHVtK3RjcDovL* OR *c3RyYXR1bSt1ZHA6Ly* OR *N0cmF0dW0rdWRwOi8v* OR *zdHJhdHVtK3VkcDovL*)) AND (NOT (CommandLine:(*\ pool.c\ * OR *\ pool.o\ * OR *gcc\ \-*)))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(CommandLine:(*\\ \\-\\-cpu\\-priority\\=* OR *\\-\\-donate\\-level\\=0* OR *\\ \\-o\\ pool.* OR *\\ \\-\\-nicehash* OR *\\ \\-\\-algo\\=rx\\/0\\ * OR *stratum\\+tcp\\:\\/\\/* OR *stratum\\+udp\\:\\/\\/* OR *LS1kb25hdGUtbGV2ZWw9* OR *0tZG9uYXRlLWxldmVsP* OR *tLWRvbmF0ZS1sZXZlbD* OR *c3RyYXR1bSt0Y3A6Ly* OR *N0cmF0dW0rdGNwOi8v* OR *zdHJhdHVtK3RjcDovL* OR *c3RyYXR1bSt1ZHA6Ly* OR *N0cmF0dW0rdWRwOi8v* OR *zdHJhdHVtK3VkcDovL*)) AND (NOT (CommandLine:(*\\ pool.c\\ * OR *\\ pool.o\\ * OR *gcc\\ \\-*)))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

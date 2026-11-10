@@ -1,0 +1,18 @@
+// PUA - PingCastle Execution From Potentially Suspicious Parent | T1595 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_pingcastle_script_parent.yml
+((ParentCommandLine:(*.bat* OR *.chm* OR *.cmd* OR *.hta* OR *.htm* OR *.html* OR *.js* OR *.lnk* OR *.ps1* OR *.vbe* OR *.vbs* OR *.wsf*)) OR (ParentCommandLine:(*\:\\Perflogs\\* OR *\:\\Temp\\* OR *\:\\Users\\Public\\* OR *\:\\Windows\\Temp\\* OR *\\AppData\\Local\\Temp* OR *\\AppData\\Roaming\\* OR *\\Temporary\ Internet*)) OR ((ParentCommandLine:*\:\\Users\\* AND ParentCommandLine:*\\Favorites\\*) OR (ParentCommandLine:*\:\\Users\\* AND ParentCommandLine:*\\Favourites\\*) OR (ParentCommandLine:*\:\\Users\\* AND ParentCommandLine:*\\Contacts\\*))) AND (ParentCommandLine:(*.bat* OR *.chm* OR *.cmd* OR *.hta* OR *.htm* OR *.html* OR *.js* OR *.lnk* OR *.ps1* OR *.vbe* OR *.vbs* OR *.wsf*)) AND (Image:*\\PingCastle.exe OR OriginalFileName:PingCastle.exe OR Product:"Ping Castle" OR (CommandLine:(*\-\-scanner\ aclcheck* OR *\-\-scanner\ antivirus* OR *\-\-scanner\ computerversion* OR *\-\-scanner\ foreignusers* OR *\-\-scanner\ laps_bitlocker* OR *\-\-scanner\ localadmin* OR *\-\-scanner\ nullsession* OR *\-\-scanner\ nullsession\-trust* OR *\-\-scanner\ oxidbindings* OR *\-\-scanner\ remote* OR *\-\-scanner\ share* OR *\-\-scanner\ smb* OR *\-\-scanner\ smb3querynetwork* OR *\-\-scanner\ spooler* OR *\-\-scanner\ startup* OR *\-\-scanner\ zerologon*)) OR CommandLine:*\-\-no\-enum\-limit* OR (CommandLine:*\-\-healthcheck* AND CommandLine:*\-\-level\ Full*) OR (CommandLine:*\-\-healthcheck* AND CommandLine:*\-\-server\ *))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "((ParentCommandLine:(*.bat* OR *.chm* OR *.cmd* OR *.hta* OR *.htm* OR *.html* OR *.js* OR *.lnk* OR *.ps1* OR *.vbe* OR *.vbs* OR *.wsf*)) OR (ParentCommandLine:(*\\:\\\\Perflogs\\\\* OR *\\:\\\\Temp\\\\* OR *\\:\\\\Users\\\\Public\\\\* OR *\\:\\\\Windows\\\\Temp\\\\* OR *\\\\AppData\\\\Local\\\\Temp* OR *\\\\AppData\\\\Roaming\\\\* OR *\\\\Temporary\\ Internet*)) OR ((ParentCommandLine:*\\:\\\\Users\\\\* AND ParentCommandLine:*\\\\Favorites\\\\*) OR (ParentCommandLine:*\\:\\\\Users\\\\* AND ParentCommandLine:*\\\\Favourites\\\\*) OR (ParentCommandLine:*\\:\\\\Users\\\\* AND ParentCommandLine:*\\\\Contacts\\\\*))) AND (ParentCommandLine:(*.bat* OR *.chm* OR *.cmd* OR *.hta* OR *.htm* OR *.html* OR *.js* OR *.lnk* OR *.ps1* OR *.vbe* OR *.vbs* OR *.wsf*)) AND (Image:*\\\\PingCastle.exe OR OriginalFileName:PingCastle.exe OR Product:\"Ping Castle\" OR (CommandLine:(*\\-\\-scanner\\ aclcheck* OR *\\-\\-scanner\\ antivirus* OR *\\-\\-scanner\\ computerversion* OR *\\-\\-scanner\\ foreignusers* OR *\\-\\-scanner\\ laps_bitlocker* OR *\\-\\-scanner\\ localadmin* OR *\\-\\-scanner\\ nullsession* OR *\\-\\-scanner\\ nullsession\\-trust* OR *\\-\\-scanner\\ oxidbindings* OR *\\-\\-scanner\\ remote* OR *\\-\\-scanner\\ share* OR *\\-\\-scanner\\ smb* OR *\\-\\-scanner\\ smb3querynetwork* OR *\\-\\-scanner\\ spooler* OR *\\-\\-scanner\\ startup* OR *\\-\\-scanner\\ zerologon*)) OR CommandLine:*\\-\\-no\\-enum\\-limit* OR (CommandLine:*\\-\\-healthcheck* AND CommandLine:*\\-\\-level\\ Full*) OR (CommandLine:*\\-\\-healthcheck* AND CommandLine:*\\-\\-server\\ *))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

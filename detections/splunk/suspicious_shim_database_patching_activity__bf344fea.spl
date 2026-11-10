@@ -1,0 +1,2 @@
+# Suspicious Shim Database Patching Activity | T1546.011 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_persistence_shim_database_susp_application.yml
+source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=13 TargetObject="*\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\AppCompatFlags\\Custom\\*" (TargetObject IN ("*\\csrss.exe", "*\\dllhost.exe", "*\\explorer.exe", "*\\RuntimeBroker.exe", "*\\services.exe", "*\\sihost.exe", "*\\svchost.exe", "*\\taskhostw.exe", "*\\winlogon.exe", "*\\WmiPrvSe.exe"))

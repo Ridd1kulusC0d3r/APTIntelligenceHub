@@ -1,0 +1,2 @@
+// Suspicious SQL Query | T1190, T1505.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/category/database/db_anomalous_query.yml
+*drop* OR *truncate* OR *dump* OR *select\ \**

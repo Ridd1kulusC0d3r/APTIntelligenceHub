@@ -1,0 +1,2 @@
+# Remote Access Tool - Anydesk Execution From Suspicious Folder | T1219.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_remote_access_tools_anydesk_susp_exec.yml
+source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=1 (Image IN ("*\\AnyDesk.exe", "*\\AnyDeskMSI.exe") OR Description="AnyDesk" OR Product="AnyDesk" OR Company="AnyDesk Software GmbH") NOT (Image IN ("*\\AppData\\*", "*Program Files (x86)\\AnyDesk*", "*Program Files\\AnyDesk*"))

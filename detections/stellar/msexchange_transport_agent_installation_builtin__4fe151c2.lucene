@@ -1,0 +1,18 @@
+// MSExchange Transport Agent Installation - Builtin | T1505.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/msexchange/win_exchange_transportagent.yml
+*Install\-TransportAgent*
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "*Install\\-TransportAgent*",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

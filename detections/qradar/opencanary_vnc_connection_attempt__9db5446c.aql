@@ -1,0 +1,2 @@
+-- OpenCanary - VNC Connection Attempt | T1021 | https://github.com/SigmaHQ/sigma/blob/master/rules/application/opencanary/opencanary_vnc_connection_attempt.yml | NOTA: fallback QRadarAQL_payload_pipeline: campos sem propriedade DSM mapeada são buscados em UTF8(payload) – custo maior, crie custom properties
+SELECT * FROM events WHERE LOWER(UTF8(payload)) LIKE '%logtype%12001%'

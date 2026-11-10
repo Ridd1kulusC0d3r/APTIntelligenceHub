@@ -1,0 +1,18 @@
+// AD Object WriteDAC Access | T1222.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_ad_object_writedac_access.yml
+EventID:4662 AND ObjectServer:DS AND AccessMask:0x40000 AND (ObjectType:(19195a5b\-6da0\-11d0\-afd3\-00c04fd930c9 OR domainDNS))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "EventID:4662 AND ObjectServer:DS AND AccessMask:0x40000 AND (ObjectType:(19195a5b\\-6da0\\-11d0\\-afd3\\-00c04fd930c9 OR domainDNS))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

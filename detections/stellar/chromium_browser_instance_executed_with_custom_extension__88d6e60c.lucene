@@ -1,0 +1,18 @@
+// Chromium Browser Instance Executed With Custom Extension | T1176.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_browsers_chromium_load_extension.yml
+(Image:(*\\brave.exe OR *\\chrome.exe OR *\\msedge.exe OR *\\opera.exe OR *\\vivaldi.exe)) AND CommandLine:*\-\-load\-extension\=*
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(Image:(*\\\\brave.exe OR *\\\\chrome.exe OR *\\\\msedge.exe OR *\\\\opera.exe OR *\\\\vivaldi.exe)) AND CommandLine:*\\-\\-load\\-extension\\=*",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,18 @@
+// Disable Windows Firewall by Registry | T1686.003 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_disable_windows_firewall.yml
+(TargetObject:(*\\SOFTWARE\\Policies\\Microsoft\\WindowsFirewall\\StandardProfile\\EnableFirewall OR *\\SOFTWARE\\Policies\\Microsoft\\WindowsFirewall\\DomainProfile\\EnableFirewall)) AND Details:"DWORD \(0x00000000\)"
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(TargetObject:(*\\\\SOFTWARE\\\\Policies\\\\Microsoft\\\\WindowsFirewall\\\\StandardProfile\\\\EnableFirewall OR *\\\\SOFTWARE\\\\Policies\\\\Microsoft\\\\WindowsFirewall\\\\DomainProfile\\\\EnableFirewall)) AND Details:\"DWORD \\(0x00000000\\)\"",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

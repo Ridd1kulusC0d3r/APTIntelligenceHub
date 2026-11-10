@@ -1,0 +1,18 @@
+// Hiding User Account Via SpecialAccounts Registry Key - CommandLine | T1564.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_registry_special_accounts_hide_user.yml
+Image:*\\reg.exe AND (CommandLine:*\\SOFTWARE\\Microsoft\\Windows\ NT\\CurrentVersion\\Winlogon\\SpecialAccounts\\UserList* AND CommandLine:*add* AND CommandLine:*\/v* AND CommandLine:*\/d\ 0*)
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "Image:*\\\\reg.exe AND (CommandLine:*\\\\SOFTWARE\\\\Microsoft\\\\Windows\\ NT\\\\CurrentVersion\\\\Winlogon\\\\SpecialAccounts\\\\UserList* AND CommandLine:*add* AND CommandLine:*\\/v* AND CommandLine:*\\/d\\ 0*)",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

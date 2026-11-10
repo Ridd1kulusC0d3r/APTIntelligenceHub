@@ -1,0 +1,2 @@
+// User Added To Admin Group Via Dscl | T1078.003 | https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_dscl_add_user_to_admin_group.yml
+Image:*\/dscl AND (CommandLine:*\ \-append\ * AND CommandLine:*\ \/Groups\/admin\ * AND CommandLine:*\ GroupMembership\ *)

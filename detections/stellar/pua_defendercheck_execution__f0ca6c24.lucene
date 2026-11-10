@@ -1,0 +1,18 @@
+// PUA - DefenderCheck Execution | T1027.005 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_defendercheck.yml
+Image:*\\DefenderCheck.exe OR Description:DefenderCheck
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "Image:*\\\\DefenderCheck.exe OR Description:DefenderCheck",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

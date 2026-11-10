@@ -1,0 +1,18 @@
+// Renamed SysInternals DebugView Execution | T1588.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_renamed_sysinternals_debugview.yml
+Product:"Sysinternals DebugView" AND (NOT (OriginalFileName:Dbgview.exe AND Image:*\\Dbgview.exe))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "Product:\"Sysinternals DebugView\" AND (NOT (OriginalFileName:Dbgview.exe AND Image:*\\\\Dbgview.exe))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

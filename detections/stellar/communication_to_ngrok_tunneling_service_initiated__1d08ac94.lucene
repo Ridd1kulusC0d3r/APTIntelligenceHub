@@ -1,0 +1,18 @@
+// Communication To Ngrok Tunneling Service Initiated | T1090, T1102, T1567, T1568.002, T1572 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_domain_ngrok_tunnel.yml
+DestinationHostname:(*tunnel.us.ngrok.com* OR *tunnel.eu.ngrok.com* OR *tunnel.ap.ngrok.com* OR *tunnel.au.ngrok.com* OR *tunnel.sa.ngrok.com* OR *tunnel.jp.ngrok.com* OR *tunnel.in.ngrok.com*)
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "DestinationHostname:(*tunnel.us.ngrok.com* OR *tunnel.eu.ngrok.com* OR *tunnel.ap.ngrok.com* OR *tunnel.au.ngrok.com* OR *tunnel.sa.ngrok.com* OR *tunnel.jp.ngrok.com* OR *tunnel.in.ngrok.com*)",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

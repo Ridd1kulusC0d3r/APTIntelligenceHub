@@ -1,0 +1,2 @@
+// Suspicious Java Children Processes | T1059 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_susp_java_children.yml
+ParentImage:*\/java AND (CommandLine:(*\/bin\/sh* OR *bash* OR *dash* OR *ksh* OR *zsh* OR *csh* OR *fish* OR *curl* OR *wget* OR *python*))

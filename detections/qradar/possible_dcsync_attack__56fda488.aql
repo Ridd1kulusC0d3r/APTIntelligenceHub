@@ -1,0 +1,2 @@
+-- Possible DCSync Attack | T1033 | https://github.com/SigmaHQ/sigma/blob/master/rules/application/rpc_firewall/rpc_firewall_dcsync_attack.yml | NOTA: fallback QRadarAQL_payload_pipeline: campos sem propriedade DSM mapeada são buscados em UTF8(payload) – custo maior, crie custom properties
+SELECT * FROM events WHERE (LOWER(UTF8(payload)) LIKE '%rpcfw%' AND "Event ID"=3 AND "Source Interface UUID"='e3514235-4b06-11d1-ab04-00c04fc2dcd2') AND (NOT((LOWER(UTF8(payload)) LIKE '%opnum%0%' OR LOWER(UTF8(payload)) LIKE '%opnum%1%' OR LOWER(UTF8(payload)) LIKE '%opnum%12%')))

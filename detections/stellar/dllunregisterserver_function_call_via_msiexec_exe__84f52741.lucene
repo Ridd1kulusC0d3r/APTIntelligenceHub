@@ -1,0 +1,18 @@
+// DllUnregisterServer Function Call Via Msiexec.EXE | T1218.007 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_msiexec_dll.yml
+((Image:*\\msiexec.exe OR OriginalFileName:msiexec.exe) AND (CommandLine:(*\ \-z\ * OR *\ \/z\ * OR *\ –z\ * OR *\ —z\ * OR *\ ―z\ *) AND CommandLine:*.dll*)) AND (NOT CommandLine:*\\MsiExec.exe\"\ \/Z\ \"C\:\\Windows\\CCM\\MsiHandler.dll\")
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "((Image:*\\\\msiexec.exe OR OriginalFileName:msiexec.exe) AND (CommandLine:(*\\ \\-z\\ * OR *\\ \\/z\\ * OR *\\ \u2013z\\ * OR *\\ \u2014z\\ * OR *\\ \u2015z\\ *) AND CommandLine:*.dll*)) AND (NOT CommandLine:*\\\\MsiExec.exe\\\"\\ \\/Z\\ \\\"C\\:\\\\Windows\\\\CCM\\\\MsiHandler.dll\\\")",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

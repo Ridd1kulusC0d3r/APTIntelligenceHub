@@ -1,0 +1,18 @@
+// SQLite Chromium Profile Data DB Access | T1005, T1539, T1555.003 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sqlite_chromium_profile_data.yml
+(Product:SQLite OR (Image:(*\\sqlite.exe OR *\\sqlite3.exe))) AND (CommandLine:(*\\User\ Data\\* OR *\\Opera\ Software\\* OR *\\ChromiumViewer\\*)) AND (CommandLine:(*Login\ Data* OR *Cookies* OR *Web\ Data* OR *History* OR *Bookmarks*))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(Product:SQLite OR (Image:(*\\\\sqlite.exe OR *\\\\sqlite3.exe))) AND (CommandLine:(*\\\\User\\ Data\\\\* OR *\\\\Opera\\ Software\\\\* OR *\\\\ChromiumViewer\\\\*)) AND (CommandLine:(*Login\\ Data* OR *Cookies* OR *Web\\ Data* OR *History* OR *Bookmarks*))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,2 @@
+// Kubernetes Admission Controller Modification | T1078, T1552, T1552.007 | https://github.com/SigmaHQ/sigma/blob/master/rules/application/kubernetes/audit/kubernetes_audit_change_admission_controller.yml
+objectRef.apiGroup:admissionregistration.k8s.io AND (objectRef.resource:(mutatingwebhookconfigurations OR validatingwebhookconfigurations)) AND (verb:(create OR delete OR patch OR replace OR update))

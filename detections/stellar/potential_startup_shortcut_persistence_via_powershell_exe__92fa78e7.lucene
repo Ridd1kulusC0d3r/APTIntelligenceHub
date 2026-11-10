@@ -1,0 +1,18 @@
+// Potential Startup Shortcut Persistence Via PowerShell.EXE | T1547.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_powershell_startup_shortcuts.yml
+(Image:(*\\powershell.exe OR *\\pwsh.exe)) AND TargetFilename:*\\start\ menu\\programs\\startup\\* AND TargetFilename:*.lnk
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(Image:(*\\\\powershell.exe OR *\\\\pwsh.exe)) AND TargetFilename:*\\\\start\\ menu\\\\programs\\\\startup\\\\* AND TargetFilename:*.lnk",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

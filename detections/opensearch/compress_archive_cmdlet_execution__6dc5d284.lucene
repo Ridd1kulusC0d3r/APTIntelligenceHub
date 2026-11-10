@@ -1,0 +1,2 @@
+// Compress-Archive Cmdlet Execution | T1560 | https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/powershell/powershell_script/posh_ps_compress_archive_usage.yml
+powershell.file.script_block_text:*Compress\-Archive*

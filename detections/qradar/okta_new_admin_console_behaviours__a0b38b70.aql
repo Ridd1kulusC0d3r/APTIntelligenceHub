@@ -1,0 +1,2 @@
+-- Okta New Admin Console Behaviours | T1078.004 | https://github.com/SigmaHQ/sigma/blob/master/rules/identity/okta/okta_new_behaviours_admin_console.yml | NOTA: fallback QRadarAQL_payload_pipeline: campos sem propriedade DSM mapeada são buscados em UTF8(payload) – custo maior, crie custom properties
+SELECT * FROM events WHERE devicetype=382 AND (LOWER(UTF8(payload)) LIKE '%policy.evaluate_sign_on%' AND LOWER(UTF8(payload)) LIKE '%okta admin console%') AND (LOWER(UTF8(payload)) LIKE '%positive%' OR LOWER(UTF8(payload)) LIKE '%positive%')

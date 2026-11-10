@@ -1,0 +1,18 @@
+// WScript or CScript Dropper - File | T1059.005, T1059.007 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_cscript_wscript_dropper.yml
+(Image:(*\\wscript.exe OR *\\cscript.exe)) AND (TargetFilename:(*\:\\Perflogs\\* OR *\:\\ProgramData\\* OR *\:\\Temp\\* OR *\:\\Tmp\\* OR *\:\\Users\\* OR *\:\\Windows\\Temp\\* OR *\\AppData\\Local\\Temp* OR *\\AppData\\Roaming\\Temp* OR *\\Start\ Menu\\Programs\\Startup\\* OR *\\Temporary\ Internet*)) AND (TargetFilename:(*.js OR *.jse OR *.vba OR *.vbe OR *.vbs OR *.wsf OR *.wsh))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(Image:(*\\\\wscript.exe OR *\\\\cscript.exe)) AND (TargetFilename:(*\\:\\\\Perflogs\\\\* OR *\\:\\\\ProgramData\\\\* OR *\\:\\\\Temp\\\\* OR *\\:\\\\Tmp\\\\* OR *\\:\\\\Users\\\\* OR *\\:\\\\Windows\\\\Temp\\\\* OR *\\\\AppData\\\\Local\\\\Temp* OR *\\\\AppData\\\\Roaming\\\\Temp* OR *\\\\Start\\ Menu\\\\Programs\\\\Startup\\\\* OR *\\\\Temporary\\ Internet*)) AND (TargetFilename:(*.js OR *.jse OR *.vba OR *.vbe OR *.vbs OR *.wsf OR *.wsh))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

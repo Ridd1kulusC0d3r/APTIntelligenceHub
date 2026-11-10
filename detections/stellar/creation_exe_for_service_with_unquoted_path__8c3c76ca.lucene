@@ -1,0 +1,18 @@
+// Creation Exe for Service with Unquoted Path | T1547.009 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_creation_unquoted_service_path.yml
+TargetFilename:C\:\\program.exe
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "TargetFilename:C\\:\\\\program.exe",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

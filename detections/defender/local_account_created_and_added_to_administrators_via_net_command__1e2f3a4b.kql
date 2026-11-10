@@ -1,0 +1,3 @@
+// Local Account Created And Added To Administrators Via Net Command | T1136.001 | Hub
+DeviceProcessEvents
+| where (FolderPath endswith "\\net.exe" or FolderPath endswith "\\net1.exe") and (ProcessCommandLine contains "localgroup" and ProcessCommandLine contains "admin" and ProcessCommandLine contains "/add")

@@ -1,0 +1,3 @@
+// DLL Execution Via Register-cimprovider.exe | T1574 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_registry_cimprovider_dll_load.yml
+DeviceProcessEvents
+| where FolderPath endswith "\\register-cimprovider.exe" and (ProcessCommandLine contains "-path" and ProcessCommandLine contains "dll")

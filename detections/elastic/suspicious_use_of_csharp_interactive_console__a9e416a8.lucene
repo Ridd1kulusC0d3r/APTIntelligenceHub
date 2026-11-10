@@ -1,0 +1,2 @@
+// Suspicious Use of CSharp Interactive Console | T1127 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_csi_use_of_csharp_console.yml
+process.executable.caseless:*\\csi.exe AND (process.parent.executable.caseless:(*\\powershell.exe OR *\\pwsh.exe OR *\\powershell_ise.exe)) AND process.pe.original_file_name:csi.exe

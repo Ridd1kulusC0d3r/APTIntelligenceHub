@@ -1,0 +1,18 @@
+// Privileged Container Deployed | T1611 | https://github.com/SigmaHQ/sigma/blob/master/rules/application/kubernetes/audit/kubernetes_audit_privileged_pod_creation.yml
+verb:create AND objectRef.resource:pods AND capabilities:*
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "verb:create AND objectRef.resource:pods AND capabilities:*",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

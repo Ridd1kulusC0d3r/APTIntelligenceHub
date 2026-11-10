@@ -1,0 +1,2 @@
+# Operation Wocao Activity - Security | T1012, T1027, T1036.004, T1053.005, T1059.001 | https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2019/TA/Operation-Wocao/win_security_apt_wocao.yml
+source="WinEventLog:Security" EventCode=4799 TargetUserName="Administr*" CallerProcessName="*\\checkadmin.exe"

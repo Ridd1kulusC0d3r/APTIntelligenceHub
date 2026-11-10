@@ -1,0 +1,2 @@
+// Systemd Service Creation | T1543.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/path/lnx_auditd_systemd_service_creation.yml
+(type:PATH AND nametype:CREATE) AND ((name:(\/usr\/lib\/systemd\/system\/* OR \/etc\/systemd\/system\/*)) OR name:*\/.config\/systemd\/user\/*)

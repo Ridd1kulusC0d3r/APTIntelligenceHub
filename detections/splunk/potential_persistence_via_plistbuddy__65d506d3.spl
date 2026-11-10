@@ -1,0 +1,2 @@
+# Potential Persistence Via PlistBuddy | T1543.001, T1543.004 | https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_persistence_via_plistbuddy.yml
+Image="*/PlistBuddy" CommandLine="*RunAtLoad*" CommandLine="*true*" (CommandLine IN ("*LaunchAgents*", "*LaunchDaemons*"))

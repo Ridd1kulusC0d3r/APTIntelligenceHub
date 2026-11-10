@@ -1,0 +1,18 @@
+// Launch Agent/Daemon Execution Via Launchctl | T1543.001, T1543.004, T1569.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_launchctl_execution.yml
+Image:*\/launchctl AND (CommandLine:(*submit* OR *load* OR *start*))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "Image:*\\/launchctl AND (CommandLine:(*submit* OR *load* OR *start*))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

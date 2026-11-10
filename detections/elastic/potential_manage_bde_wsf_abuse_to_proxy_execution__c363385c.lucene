@@ -1,0 +1,2 @@
+// Potential Manage-bde.wsf Abuse To Proxy Execution | T1216 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_manage_bde.yml
+((process.executable.caseless:*\\wscript.exe OR process.pe.original_file_name:wscript.exe) AND process.command_line:*manage\-bde.wsf*) OR (((process.parent.executable.caseless:(*\\cscript.exe OR *\\wscript.exe)) AND process.parent.command_line:*manage\-bde.wsf*) AND (NOT process.executable.caseless:*\\cmd.exe))

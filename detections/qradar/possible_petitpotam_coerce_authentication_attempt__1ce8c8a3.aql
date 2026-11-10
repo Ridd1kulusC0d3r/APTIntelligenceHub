@@ -1,0 +1,2 @@
+-- Possible PetitPotam Coerce Authentication Attempt | T1187 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_petitpotam_network_share.yml | NOTA: fallback QRadarAQL_payload_pipeline: campos sem propriedade DSM mapeada são buscados em UTF8(payload) – custo maior, crie custom properties
+SELECT * FROM events WHERE devicetype=12 AND "Event ID"=5145 AND LOWER("Share Name") LIKE '\\%' AND LOWER("Share Name") LIKE '%\ipc$' AND LOWER(UTF8(payload)) LIKE '%lsarpc%' AND LOWER(UTF8(payload)) LIKE '%anonymous logon%'

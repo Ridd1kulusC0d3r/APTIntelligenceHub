@@ -1,0 +1,2 @@
+-- Compressed File Creation Via Tar.EXE | T1560, T1560.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_tar_compression.yml
+SELECT * FROM events WHERE devicetype=12 AND ((LOWER("Process Path") LIKE '%\tar.exe' OR LOWER("Process Name") LIKE '%\tar.exe') OR Filename='bsdtar') AND (LOWER(Command) LIKE '%-c%' OR LOWER(Command) LIKE '%-r%' OR LOWER(Command) LIKE '%-u%')

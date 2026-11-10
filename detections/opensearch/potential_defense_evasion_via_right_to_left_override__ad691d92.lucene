@@ -1,0 +1,2 @@
+// Potential Defense Evasion Via Right-to-Left Override | T1036.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_right_to_left_override.yml
+process.command_line:(*\\u202e* OR *\[U\+202E\]* OR *‮*)

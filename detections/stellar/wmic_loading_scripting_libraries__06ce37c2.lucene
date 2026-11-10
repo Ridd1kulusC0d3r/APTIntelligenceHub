@@ -1,0 +1,18 @@
+// WMIC Loading Scripting Libraries | T1220 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_wmic_remote_xsl_scripting_dlls.yml
+Image:*\\wmic.exe AND (ImageLoaded:(*\\jscript.dll OR *\\vbscript.dll))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "Image:*\\\\wmic.exe AND (ImageLoaded:(*\\\\jscript.dll OR *\\\\vbscript.dll))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

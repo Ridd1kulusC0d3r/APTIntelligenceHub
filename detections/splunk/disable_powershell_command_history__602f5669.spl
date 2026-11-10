@@ -1,0 +1,2 @@
+# Disable Powershell Command History | T1070.003 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/powershell/powershell_script/posh_ps_disable_psreadline_command_history.yml
+ScriptBlockText="*Remove-Module*" ScriptBlockText="*psreadline*"

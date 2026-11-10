@@ -1,0 +1,2 @@
+# OpenCanary - NTP Monlist Request | T1498 | https://github.com/SigmaHQ/sigma/blob/master/rules/application/opencanary/opencanary_ntp_monlist.yml
+logtype=11001

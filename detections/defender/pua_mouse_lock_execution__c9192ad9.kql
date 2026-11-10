@@ -1,0 +1,3 @@
+// PUA - Mouse Lock Execution | T1056.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_mouselock_execution.yml
+DeviceProcessEvents
+| where ProcessVersionInfoProductName contains "Mouse Lock" or ProcessVersionInfoCompanyName contains "Misc314" or ProcessCommandLine contains "Mouse Lock_"

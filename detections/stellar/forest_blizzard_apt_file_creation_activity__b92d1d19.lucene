@@ -1,0 +1,18 @@
+// Forest Blizzard APT - File Creation Activity | T1685.001 | https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2024/TA/Forest-Blizzard/file_event_win_apt_forest_blizzard_activity.yml
+((TargetFilename:(C\:\\ProgramData\\Microsoft\\v* OR C\:\\ProgramData\\Adobe\\v* OR C\:\\ProgramData\\Comms\\v* OR C\:\\ProgramData\\Intel\\v* OR C\:\\ProgramData\\Kaspersky\ Lab\\v* OR C\:\\ProgramData\\Bitdefender\\v* OR C\:\\ProgramData\\ESET\\v* OR C\:\\ProgramData\\NVIDIA\\v* OR C\:\\ProgramData\\UbiSoft\\v* OR C\:\\ProgramData\\Steam\\v*)) AND (TargetFilename:(*\\prnms003.inf_* OR *\\prnms009.inf_*))) OR (TargetFilename:C\:\\ProgramData\\* AND ((TargetFilename:(*.save OR *\\doit.bat OR *\\execute.bat OR *\\servtask.bat)) OR (TargetFilename:*\\wayzgoose* AND TargetFilename:*.dll)))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "((TargetFilename:(C\\:\\\\ProgramData\\\\Microsoft\\\\v* OR C\\:\\\\ProgramData\\\\Adobe\\\\v* OR C\\:\\\\ProgramData\\\\Comms\\\\v* OR C\\:\\\\ProgramData\\\\Intel\\\\v* OR C\\:\\\\ProgramData\\\\Kaspersky\\ Lab\\\\v* OR C\\:\\\\ProgramData\\\\Bitdefender\\\\v* OR C\\:\\\\ProgramData\\\\ESET\\\\v* OR C\\:\\\\ProgramData\\\\NVIDIA\\\\v* OR C\\:\\\\ProgramData\\\\UbiSoft\\\\v* OR C\\:\\\\ProgramData\\\\Steam\\\\v*)) AND (TargetFilename:(*\\\\prnms003.inf_* OR *\\\\prnms009.inf_*))) OR (TargetFilename:C\\:\\\\ProgramData\\\\* AND ((TargetFilename:(*.save OR *\\\\doit.bat OR *\\\\execute.bat OR *\\\\servtask.bat)) OR (TargetFilename:*\\\\wayzgoose* AND TargetFilename:*.dll)))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

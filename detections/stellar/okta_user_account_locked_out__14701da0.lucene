@@ -1,0 +1,18 @@
+// Okta User Account Locked Out | T1531 | https://github.com/SigmaHQ/sigma/blob/master/rules/identity/okta/okta_user_account_locked_out.yml
+displayMessage:"Max sign in attempts exceeded"
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "displayMessage:\"Max sign in attempts exceeded\"",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

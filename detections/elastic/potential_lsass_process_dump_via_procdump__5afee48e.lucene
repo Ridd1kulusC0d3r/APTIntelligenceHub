@@ -1,0 +1,2 @@
+// Potential LSASS Process Dump Via Procdump | T1003.001, T1036 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sysinternals_procdump_lsass.yml
+(process.command_line:(*\ \-ma\ * OR *\ \/ma\ * OR *\ –ma\ * OR *\ —ma\ * OR *\ ―ma\ *) OR process.command_line:(*\ \-mm\ * OR *\ \/mm\ * OR *\ –mm\ * OR *\ —mm\ * OR *\ ―mm\ *) OR process.command_line:(*\ \-mp\ * OR *\ \/mp\ * OR *\ –mp\ * OR *\ —mp\ * OR *\ ―mp\ *)) AND (process.command_line:(*\ ls* OR *\ keyiso* OR *\ samss*))

@@ -1,0 +1,2 @@
+// RemoteFXvGPUDisablement Abuse Via AtomicTestHarnesses | T1218 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_remotefxvgpudisablement_abuse.yml
+process.command_line:(*Invoke\-ATHRemoteFXvGPUDisablementCommand* OR *Invoke\-ATHRemoteFXvGPUDisableme*)

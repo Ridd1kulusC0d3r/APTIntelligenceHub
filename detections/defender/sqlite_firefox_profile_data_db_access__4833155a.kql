@@ -1,0 +1,3 @@
+// SQLite Firefox Profile Data DB Access | T1005, T1539 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sqlite_firefox_gecko_profile_data.yml
+DeviceProcessEvents
+| where (ProcessVersionInfoProductName =~ "SQLite" or (FolderPath endswith "\\sqlite.exe" or FolderPath endswith "\\sqlite3.exe")) and (ProcessCommandLine contains "cookies.sqlite" or ProcessCommandLine contains "places.sqlite")

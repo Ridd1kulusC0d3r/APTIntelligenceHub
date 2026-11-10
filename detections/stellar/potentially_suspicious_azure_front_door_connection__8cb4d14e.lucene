@@ -1,0 +1,18 @@
+// Potentially Suspicious Azure Front Door Connection | T1090.004, T1102.002 | https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/network_connection/net_connection_win_susp_azurefd_connection.yml
+DestinationHostname:*azurefd.net* AND (NOT ((Image:(*brave.exe OR *chrome.exe OR *chromium.exe OR *firefox.exe OR *msedge.exe OR *msedgewebview2.exe OR *opera.exe OR *vivaldi.exe)) OR Image:*searchapp.exe OR (DestinationHostname:(*afdxtest.z01.azurefd.net* OR *fp\-afd.azurefd.net* OR *fp\-afdx\-bpdee4gtg6frejfd.z01.azurefd.net* OR *roxy.azurefd.net* OR *powershellinfraartifacts\-gkhedzdeaghdezhr.z01.azurefd.net* OR *storage\-explorer\-publishing\-feapcgfgbzc2cjek.b01.azurefd.net* OR *graph.azurefd.net*))))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "DestinationHostname:*azurefd.net* AND (NOT ((Image:(*brave.exe OR *chrome.exe OR *chromium.exe OR *firefox.exe OR *msedge.exe OR *msedgewebview2.exe OR *opera.exe OR *vivaldi.exe)) OR Image:*searchapp.exe OR (DestinationHostname:(*afdxtest.z01.azurefd.net* OR *fp\\-afd.azurefd.net* OR *fp\\-afdx\\-bpdee4gtg6frejfd.z01.azurefd.net* OR *roxy.azurefd.net* OR *powershellinfraartifacts\\-gkhedzdeaghdezhr.z01.azurefd.net* OR *storage\\-explorer\\-publishing\\-feapcgfgbzc2cjek.b01.azurefd.net* OR *graph.azurefd.net*))))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

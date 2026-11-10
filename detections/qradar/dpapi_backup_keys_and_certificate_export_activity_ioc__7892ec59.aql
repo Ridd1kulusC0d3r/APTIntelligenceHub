@@ -1,0 +1,2 @@
+-- DPAPI Backup Keys And Certificate Export Activity IOC | T1552.004, T1555 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_susp_dpapi_backup_and_cert_export_ioc.yml
+SELECT * FROM events WHERE devicetype=12 AND (LOWER(Filename) LIKE '%ntds_capi_%' OR LOWER(Filename) LIKE '%ntds_legacy_%' OR LOWER(Filename) LIKE '%ntds_unknown_%') AND (LOWER(Filename) LIKE '%.cer' OR LOWER(Filename) LIKE '%.key' OR LOWER(Filename) LIKE '%.pfx' OR LOWER(Filename) LIKE '%.pvk')

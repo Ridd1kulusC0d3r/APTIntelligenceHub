@@ -1,0 +1,2 @@
+# DPAPI Backup Keys And Certificate Export Activity IOC | T1552.004, T1555 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_susp_dpapi_backup_and_cert_export_ioc.yml
+source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=11 (TargetFilename IN ("*ntds_capi_*", "*ntds_legacy_*", "*ntds_unknown_*")) (TargetFilename IN ("*.cer", "*.key", "*.pfx", "*.pvk"))

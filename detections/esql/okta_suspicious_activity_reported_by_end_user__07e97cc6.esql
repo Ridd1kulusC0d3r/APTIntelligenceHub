@@ -1,0 +1,2 @@
+// Okta Suspicious Activity Reported by End-user | T1586.003 | https://github.com/SigmaHQ/sigma/blob/master/rules/identity/okta/okta_suspicious_activity_enduser_report.yml
+from * metadata _id, _index, _version | where eventType=="user.account.report_suspicious_activity_by_enduser"

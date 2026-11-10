@@ -1,0 +1,2 @@
+-- Remove Immutable File Attribute | T1222.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_chattr_immutable_removal.yml
+SELECT * FROM events WHERE devicetype=11 AND (LOWER("Process Path") LIKE '%/chattr' OR LOWER("Process Name") LIKE '%/chattr') AND LOWER(Command) LIKE '% -i %'

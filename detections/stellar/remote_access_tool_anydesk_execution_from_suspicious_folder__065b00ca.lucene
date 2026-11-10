@@ -1,0 +1,18 @@
+// Remote Access Tool - Anydesk Execution From Suspicious Folder | T1219.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_remote_access_tools_anydesk_susp_exec.yml
+((Image:(*\\AnyDesk.exe OR *\\AnyDeskMSI.exe)) OR Description:AnyDesk OR Product:AnyDesk OR Company:"AnyDesk Software GmbH") AND (NOT (Image:(*\\AppData\\* OR *Program\ Files\ \(x86\)\\AnyDesk* OR *Program\ Files\\AnyDesk*)))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "((Image:(*\\\\AnyDesk.exe OR *\\\\AnyDeskMSI.exe)) OR Description:AnyDesk OR Product:AnyDesk OR Company:\"AnyDesk Software GmbH\") AND (NOT (Image:(*\\\\AppData\\\\* OR *Program\\ Files\\ \\(x86\\)\\\\AnyDesk* OR *Program\\ Files\\\\AnyDesk*)))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,2 @@
+# Browser Started with Remote Debugging | T1185 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_browsers_remote_debugging.yml
+source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=1 (CommandLine="* --remote-debugging-*" OR (Image="*\\firefox.exe" CommandLine="* -start-debugger-server*"))

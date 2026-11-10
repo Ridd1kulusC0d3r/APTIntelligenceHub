@@ -1,0 +1,3 @@
+// Suspicious File Created by ArcSOC.exe | T1105, T1127, T1133 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_arcsoc_susp_file_created.yml
+DeviceFileEvents
+| where InitiatingProcessFolderPath endswith "\\ArcSOC.exe" and (FolderPath endswith ".ahk" or FolderPath endswith ".aspx" or FolderPath endswith ".au3" or FolderPath endswith ".bat" or FolderPath endswith ".cmd" or FolderPath endswith ".dll" or FolderPath endswith ".exe" or FolderPath endswith ".hta" or FolderPath endswith ".js" or FolderPath endswith ".ps1" or FolderPath endswith ".py" or FolderPath endswith ".vbe" or FolderPath endswith ".vbs" or FolderPath endswith ".wsf")

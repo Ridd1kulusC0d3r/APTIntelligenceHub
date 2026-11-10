@@ -1,0 +1,18 @@
+// Suspicious Response File Execution Via Odbcconf.EXE | T1218.008 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_odbcconf_response_file_susp.yml
+((Image:*\\odbcconf.exe OR OriginalFileName:odbcconf.exe) AND CommandLine:(*\ \-f\ * OR *\ \/f\ * OR *\ –f\ * OR *\ —f\ * OR *\ ―f\ *)) AND (NOT (CommandLine:*.rsp* OR (ParentImage:C\:\\Windows\\System32\\runonce.exe AND Image:C\:\\Windows\\System32\\odbcconf.exe AND CommandLine:*.exe\ \/E\ \/F\ \"C\:\\WINDOWS\\system32\\odbcconf.tmp\"*)))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "((Image:*\\\\odbcconf.exe OR OriginalFileName:odbcconf.exe) AND CommandLine:(*\\ \\-f\\ * OR *\\ \\/f\\ * OR *\\ \u2013f\\ * OR *\\ \u2014f\\ * OR *\\ \u2015f\\ *)) AND (NOT (CommandLine:*.rsp* OR (ParentImage:C\\:\\\\Windows\\\\System32\\\\runonce.exe AND Image:C\\:\\\\Windows\\\\System32\\\\odbcconf.exe AND CommandLine:*.exe\\ \\/E\\ \\/F\\ \\\"C\\:\\\\WINDOWS\\\\system32\\\\odbcconf.tmp\\\"*)))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

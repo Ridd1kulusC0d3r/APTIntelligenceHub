@@ -1,0 +1,2 @@
+# Windows Pcap Drivers | T1040 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_pcap_drivers.yml
+source="WinEventLog:Security" EventCode=4697 (ServiceFileName IN ("*pcap*", "*npcap*", "*npf*", "*nm3*", "*ndiscap*", "*nmnt*", "*windivert*", "*USBPcap*", "*pktmon*"))

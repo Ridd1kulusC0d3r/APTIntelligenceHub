@@ -1,0 +1,18 @@
+// System Information Discovery Using System_Profiler | T1082, T1497.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_system_profiler_discovery.yml
+(Image:*\/system_profiler OR CommandLine:*system_profiler*) AND (CommandLine:(*SPApplicationsDataType* OR *SPHardwareDataType* OR *SPNetworkDataType* OR *SPUSBDataType*))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(Image:*\\/system_profiler OR CommandLine:*system_profiler*) AND (CommandLine:(*SPApplicationsDataType* OR *SPHardwareDataType* OR *SPNetworkDataType* OR *SPUSBDataType*))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

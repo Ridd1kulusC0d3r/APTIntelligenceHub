@@ -1,0 +1,18 @@
+// Non-DLL Extension File Renamed With DLL Extension | T1036.008 | https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/file/file_rename/file_rename_win_non_dll_to_dll_ext.yml
+TargetFilename:*.dll AND (NOT (SourceFilename:*.dll OR SourceFilename:*.tmp OR SourceFilename:"" OR (NOT _exists_:SourceFilename) OR (Image:*\:\\Windows\\WinSxS\\* AND Image:*\\TiWorker.exe) OR (Image:*\:\\Windows\\System32\\wuauclt.exe OR TargetFilename:*\:\\$WINDOWS.\~BT\\Sources\\*) OR (Image:(*\:\\Program\ Files\ \(x86\)\\* OR *\:\\Program\ Files\\*)))) AND (NOT SourceFilename:*\\SquirrelTemp\\temp*)
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "TargetFilename:*.dll AND (NOT (SourceFilename:*.dll OR SourceFilename:*.tmp OR SourceFilename:\"\" OR (NOT _exists_:SourceFilename) OR (Image:*\\:\\\\Windows\\\\WinSxS\\\\* AND Image:*\\\\TiWorker.exe) OR (Image:*\\:\\\\Windows\\\\System32\\\\wuauclt.exe OR TargetFilename:*\\:\\\\$WINDOWS.\\~BT\\\\Sources\\\\*) OR (Image:(*\\:\\\\Program\\ Files\\ \\(x86\\)\\\\* OR *\\:\\\\Program\\ Files\\\\*)))) AND (NOT SourceFilename:*\\\\SquirrelTemp\\\\temp*)",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

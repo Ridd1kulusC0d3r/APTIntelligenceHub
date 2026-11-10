@@ -1,0 +1,18 @@
+// Suspicious Invoke-WebRequest Execution | T1105 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_invoke_webrequest_download.yml
+((Image:(*\\powershell_ise.exe OR *\\powershell.exe OR *\\pwsh.exe)) OR (OriginalFileName:(powershell_ise.EXE OR PowerShell.EXE OR pwsh.dll))) AND (CommandLine:(*curl\ * OR *Invoke\-WebRequest* OR *iwr\ * OR *wget\ *)) AND (CommandLine:(*\ \-ur* OR *\ \-o*)) AND (CommandLine:(*\\AppData\\* OR *\\Desktop\\* OR *\\Temp\\* OR *\\Users\\Public\\* OR *%AppData%* OR *%Public%* OR *%Temp%* OR *%tmp%* OR *\:\\Windows\\*))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "((Image:(*\\\\powershell_ise.exe OR *\\\\powershell.exe OR *\\\\pwsh.exe)) OR (OriginalFileName:(powershell_ise.EXE OR PowerShell.EXE OR pwsh.dll))) AND (CommandLine:(*curl\\ * OR *Invoke\\-WebRequest* OR *iwr\\ * OR *wget\\ *)) AND (CommandLine:(*\\ \\-ur* OR *\\ \\-o*)) AND (CommandLine:(*\\\\AppData\\\\* OR *\\\\Desktop\\\\* OR *\\\\Temp\\\\* OR *\\\\Users\\\\Public\\\\* OR *%AppData%* OR *%Public%* OR *%Temp%* OR *%tmp%* OR *\\:\\\\Windows\\\\*))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

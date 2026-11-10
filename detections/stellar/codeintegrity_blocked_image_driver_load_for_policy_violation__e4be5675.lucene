@@ -1,0 +1,18 @@
+// CodeIntegrity - Blocked Image/Driver Load For Policy Violation | T1543 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/code_integrity/win_codeintegrity_enforced_policy_block.yml
+EventID:3077
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "EventID:3077",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

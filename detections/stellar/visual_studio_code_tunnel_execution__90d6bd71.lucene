@@ -1,0 +1,18 @@
+// Visual Studio Code Tunnel Execution | T1071.001, T1219 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_vscode_tunnel_execution.yml
+((NOT _exists_:OriginalFileName) AND CommandLine:*.exe\ tunnel) OR (CommandLine:*.exe\ tunnel* AND CommandLine:*\-\-accept\-server\-license\-terms*) OR (ParentCommandLine:*\ tunnel AND Image:*\\cmd.exe AND (CommandLine:*\/d\ \/c\ * AND CommandLine:*\\servers\\Stable\-* AND CommandLine:*code\-server.cmd*))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "((NOT _exists_:OriginalFileName) AND CommandLine:*.exe\\ tunnel) OR (CommandLine:*.exe\\ tunnel* AND CommandLine:*\\-\\-accept\\-server\\-license\\-terms*) OR (ParentCommandLine:*\\ tunnel AND Image:*\\\\cmd.exe AND (CommandLine:*\\/d\\ \\/c\\ * AND CommandLine:*\\\\servers\\\\Stable\\-* AND CommandLine:*code\\-server.cmd*))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

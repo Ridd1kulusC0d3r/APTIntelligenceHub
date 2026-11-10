@@ -1,0 +1,18 @@
+// HackTool - Bloodhound/Sharphound Execution | T1059.001, T1069.001, T1069.002, T1087.001, T1087.002, T1482 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_bloodhound_sharphound.yml
+(Product:*SharpHound* OR Description:*SharpHound* OR (Company:(*SpecterOps* OR *evil\ corp*)) OR (Image:(*\\Bloodhound.exe* OR *\\SharpHound.exe*))) OR (CommandLine:(*\ \-CollectionMethod\ All\ * OR *\ \-\-CollectionMethods\ Session\ * OR *\ \-\-Loop\ \-\-Loopduration\ * OR *\ \-\-PortScanTimeout\ * OR *.exe\ \-c\ All\ \-d\ * OR *Invoke\-Bloodhound* OR *Get\-BloodHoundData*)) OR (CommandLine:*\ \-JsonFolder\ * AND CommandLine:*\ \-ZipFileName\ *) OR (CommandLine:*\ DCOnly\ * AND CommandLine:*\ \-\-NoSaveCache\ *)
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(Product:*SharpHound* OR Description:*SharpHound* OR (Company:(*SpecterOps* OR *evil\\ corp*)) OR (Image:(*\\\\Bloodhound.exe* OR *\\\\SharpHound.exe*))) OR (CommandLine:(*\\ \\-CollectionMethod\\ All\\ * OR *\\ \\-\\-CollectionMethods\\ Session\\ * OR *\\ \\-\\-Loop\\ \\-\\-Loopduration\\ * OR *\\ \\-\\-PortScanTimeout\\ * OR *.exe\\ \\-c\\ All\\ \\-d\\ * OR *Invoke\\-Bloodhound* OR *Get\\-BloodHoundData*)) OR (CommandLine:*\\ \\-JsonFolder\\ * AND CommandLine:*\\ \\-ZipFileName\\ *) OR (CommandLine:*\\ DCOnly\\ * AND CommandLine:*\\ \\-\\-NoSaveCache\\ *)",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

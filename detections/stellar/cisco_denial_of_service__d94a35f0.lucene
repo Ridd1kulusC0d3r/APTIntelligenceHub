@@ -1,0 +1,18 @@
+// Cisco Denial of Service | T1495, T1529, T1565.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/network/cisco/aaa/cisco_cli_dos.yml
+*shutdown* OR *config\-register\ 0x2100* OR *config\-register\ 0x2142*
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "*shutdown* OR *config\\-register\\ 0x2100* OR *config\\-register\\ 0x2142*",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

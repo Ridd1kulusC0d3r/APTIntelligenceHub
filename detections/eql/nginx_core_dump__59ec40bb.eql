@@ -1,0 +1,2 @@
+// Nginx Core Dump | T1499.004 | https://github.com/SigmaHQ/sigma/blob/master/rules/web/product/nginx/web_nginx_core_dump.yml
+any where "exited on signal 6 (core dumped)"

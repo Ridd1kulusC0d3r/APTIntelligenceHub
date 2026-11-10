@@ -1,0 +1,3 @@
+// Potential Persistence Via Microsoft Office Add-In | T1137.006 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_office_addin_persistence.yml
+DeviceFileEvents
+| where (FolderPath contains "\\Microsoft\\Word\\Startup\\" and FolderPath endswith ".wll") or (FolderPath contains "\\Microsoft\\Excel\\Startup\\" and FolderPath endswith ".xll") or (FolderPath contains "Microsoft\\Excel\\XLSTART\\" and FolderPath endswith ".xlam") or (FolderPath contains "\\Microsoft\\Addins\\" and (FolderPath endswith ".xlam" or FolderPath endswith ".xla" or FolderPath endswith ".ppam"))

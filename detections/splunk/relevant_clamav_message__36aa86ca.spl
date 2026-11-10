@@ -1,0 +1,2 @@
+# Relevant ClamAV Message | T1588.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/builtin/clamav/lnx_clamav_relevant_message.yml
+"Trojan*FOUND" OR "VirTool*FOUND" OR "Webshell*FOUND" OR "Rootkit*FOUND" OR "Htran*FOUND"

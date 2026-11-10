@@ -1,0 +1,2 @@
+-- Replace Desktop Wallpaper by Powershell | T1491.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/powershell/powershell_script/posh_ps_susp_wallpaper.yml
+SELECT * FROM events WHERE devicetype=12 AND ((LOWER(Message) LIKE '%get-itemproperty%' AND LOWER(Message) LIKE '%registry::%' AND LOWER(Message) LIKE '%hkey_current_user\control panel\desktop\%' AND LOWER(Message) LIKE '%wallpaper%') OR LOWER(Message) LIKE '%systemparametersinfo(20,0,%,3)%')

@@ -1,0 +1,2 @@
+# Potential Manage-bde.wsf Abuse To Proxy Execution | T1216 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_manage_bde.yml
+source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=1 (((Image="*\\wscript.exe" OR OriginalFileName="wscript.exe") CommandLine="*manage-bde.wsf*") OR ((ParentImage IN ("*\\cscript.exe", "*\\wscript.exe")) ParentCommandLine="*manage-bde.wsf*" NOT Image="*\\cmd.exe"))

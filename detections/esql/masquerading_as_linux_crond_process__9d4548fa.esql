@@ -1,0 +1,2 @@
+// Masquerading as Linux Crond Process | T1036.003 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/execve/lnx_auditd_masquerading_crond.yml
+from * metadata _id, _index, _version | where type=="execve" and a0=="cp" and a1=="/bin/sh" and ends_with(a2, "/crond")

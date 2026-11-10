@@ -1,0 +1,2 @@
+// Remote CHM File Download/Execution Via HH.EXE | T1218.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hh_chm_remote_download_or_execution.yml
+(process.pe.original_file_name:HH.exe OR process.executable.caseless:*\\hh.exe) AND (process.command_line:(*http\:\/\/* OR *https\:\/\/* OR *\\\\*))

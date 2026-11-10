@@ -1,0 +1,2 @@
+# Disabling Multi Factor Authentication | T1556.006 | https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/m365/audit/microsoft365_disabling_mfa.yml
+Operation="*Disable Strong Authentication.*"

@@ -1,0 +1,18 @@
+// Suspicious Key Manager Access | T1555.004 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_keymgr.yml
+(Image:*\\rundll32.exe OR OriginalFileName:RUNDLL32.EXE) AND (CommandLine:*keymgr* AND CommandLine:*KRShowKeyMgr*)
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(Image:*\\\\rundll32.exe OR OriginalFileName:RUNDLL32.EXE) AND (CommandLine:*keymgr* AND CommandLine:*KRShowKeyMgr*)",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

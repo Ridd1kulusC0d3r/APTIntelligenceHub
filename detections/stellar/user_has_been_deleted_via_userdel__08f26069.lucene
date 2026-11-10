@@ -1,0 +1,18 @@
+// User Has Been Deleted Via Userdel | T1531 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_userdel.yml
+Image:*\/userdel
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "Image:*\\/userdel",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

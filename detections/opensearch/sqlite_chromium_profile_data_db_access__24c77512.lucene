@@ -1,0 +1,2 @@
+// SQLite Chromium Profile Data DB Access | T1005, T1539, T1555.003 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sqlite_chromium_profile_data.yml
+(process.pe.product:SQLite OR (process.executable.caseless:(*\\sqlite.exe OR *\\sqlite3.exe))) AND (process.command_line:(*\\User\ Data\\* OR *\\Opera\ Software\\* OR *\\ChromiumViewer\\*)) AND (process.command_line:(*Login\ Data* OR *Cookies* OR *Web\ Data* OR *History* OR *Bookmarks*))

@@ -1,0 +1,18 @@
+// Time Travel Debugging Utility Usage - Image | T1003.001, T1218 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_dll_tttracer_module_load.yml
+ImageLoaded:(*\\ttdrecord.dll OR *\\ttdwriter.dll OR *\\ttdloader.dll)
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "ImageLoaded:(*\\\\ttdrecord.dll OR *\\\\ttdwriter.dll OR *\\\\ttdloader.dll)",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

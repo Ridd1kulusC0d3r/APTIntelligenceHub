@@ -1,0 +1,2 @@
+// Scheduled Task Created With Executable In User-Writable Location | T1053.005 | Hub
+from * metadata _id, _index, _version | where ends_with(process.executable.caseless, "\\schtasks.exe") and process.command_line like "*/create*" and (process.command_line like "*\\AppData\\*" or process.command_line like "*\\ProgramData\\*" or process.command_line like "*\\Users\\Public\\*" or process.command_line like "*%APPDATA%*" or process.command_line like "*%PROGRAMDATA%*")

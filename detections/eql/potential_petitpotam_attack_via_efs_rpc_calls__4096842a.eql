@@ -1,0 +1,2 @@
+// Potential PetitPotam Attack Via EFS RPC Calls | T1187, T1557.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/network/zeek/zeek_dce_rpc_potential_petit_potam_efs_rpc_call.yml
+any where operation:"efs*"

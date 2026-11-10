@@ -1,0 +1,511 @@
+{
+ "name": "Volt Typhoon – APT Threat Map",
+ "versions": {
+  "layer": "4.5",
+  "navigator": "5.1.0"
+ },
+ "domain": "enterprise-attack",
+ "description": "Técnicas de Volt Typhoon com cobertura do catálogo (score 3=regra, 2=parcial, 1=lacuna)",
+ "techniques": [
+  {
+   "techniqueID": "T1003.001",
+   "score": 3,
+   "comment": "Volt Typhoon has attempted to access hashed credentials from the LSASS process memory space. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1003.003",
+   "score": 3,
+   "comment": "Volt Typhoon has used ntds.util to create domain controller installation media containing usernames and password hashes. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1005",
+   "score": 3,
+   "comment": "Volt Typhoon has stolen files from a sensitive file server and the Active Directory database from targeted environments, and used Wevtutil to extract event log information. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1006",
+   "score": 3,
+   "comment": "Volt Typhoon has executed the Windows-native `vssadmin` command to create volume shadow copies. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1007",
+   "score": 3,
+   "comment": "Volt Typhoon has used `net start` to list running services. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1010",
+   "score": 3,
+   "comment": "Volt Typhoon has collected window title information from compromised systems. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1012",
+   "score": 3,
+   "comment": "Volt Typhoon has queried the Registry on compromised systems, `reg query hklm\\software\\`, for information on installed software including PuTTY. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1016",
+   "score": 3,
+   "comment": "Volt Typhoon has executed multiple commands to enumerate network topology and settings including `ipconfig`, `netsh interface firewall show all`, and `netsh interface portproxy show all`. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1016.001",
+   "score": 3,
+   "comment": "Volt Typhoon has employed Ping to check network connectivity. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1018",
+   "score": 3,
+   "comment": "Volt Typhoon has used multiple methods, including Ping, to enumerate systems on compromised networks. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1021.001",
+   "score": 3,
+   "comment": "Volt Typhoon has moved laterally to the Domain Controller via RDP using a compromised account with domain administrator privileges. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1027.002",
+   "score": 3,
+   "comment": "Volt Typhoon has used the Ultimate Packer for Executables (UPX) to obfuscate the FRP client files BrightmetricAgent.exe and SMSvcService.ex) and the port scanning utility ScanLine. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1033",
+   "score": 3,
+   "comment": "Volt Typhoon has used public tools and executed the PowerShell command `Get-EventLog security -instanceid 4624` to identify associated user and computer account names. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1036.005",
+   "score": 3,
+   "comment": "Volt Typhoon has used legitimate looking filenames for compressed copies of the ntds.dit database and used names including cisco_up.exe, cl64.exe, vm3dservice.exe, watchdogd.exe, Win.exe, WmiPreSV.exe, and WmiPrvSE.exe for the Earthworm and Fast Reverse Proxy tools. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1036.008",
+   "score": 3,
+   "comment": "Volt Typhoon has appended copies of the ntds.dit database with a .gif file extension. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1046",
+   "score": 3,
+   "comment": "Volt Typhoon has used commercial tools, LOTL utilities, and appliances already present on the system for network service discovery. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1047",
+   "score": 3,
+   "comment": "Volt Typhoon has leveraged WMIC for execution, remote system discovery, and to create and use temporary directories. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1049",
+   "score": 3,
+   "comment": "Volt Typhoon has used `netstat -ano` on compromised hosts to enumerate network connections. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1056.001",
+   "score": 3,
+   "comment": "Volt Typhoon has created and accessed a file named rult3uil.log on compromised domain controllers to capture keypresses and command execution. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1057",
+   "score": 3,
+   "comment": "Volt Typhoon has enumerated running processes on targeted systems including through the use of Tasklist. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1059.001",
+   "score": 3,
+   "comment": "Volt Typhoon has used PowerShell including for remote system discovery. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1059.003",
+   "score": 3,
+   "comment": "Volt Typhoon has used the Windows command line to perform hands-on-keyboard activities in targeted environments including for discovery. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1059.004",
+   "score": 3,
+   "comment": "Volt Typhoon has used Brightmetricagent.exe which contains a command- line interface (CLI) library that can leverage command shells including Z Shell (zsh). | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1068",
+   "score": 3,
+   "comment": "Volt Typhoon has gained initial access by exploiting privilege escalation vulnerabilities in the operating system or network services. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1069",
+   "score": 3,
+   "comment": "Volt Typhoon has used commercial tools, LOTL utilities, and appliances already present on the system for group and user discovery. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1069.001",
+   "score": 3,
+   "comment": "Volt Typhoon has run `net localgroup administrators` in compromised environments to enumerate accounts. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1069.002",
+   "score": 3,
+   "comment": "Volt Typhoon has run `net group` in compromised environments to discover domain groups. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1070.004",
+   "score": 3,
+   "comment": "Volt Typhoon has run `rd /S` to delete their working directories and deleted systeminfo.dat from `C:\\Users\\Public\\Documentsfiles`. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1070.007",
+   "score": 3,
+   "comment": "Volt Typhoon has inspected server logs to remove their IPs. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1074",
+   "score": 3,
+   "comment": "Volt Typhoon has staged collected data in password-protected archives. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1074.001",
+   "score": 3,
+   "comment": "Volt Typhoon has saved stolen files including the `ntds.dit` database and the `SYSTEM` and `SECURITY` Registry hives locally to the `C:\\Windows\\Temp\\` directory. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1078",
+   "score": 3,
+   "comment": "Volt Typhoon relies primarily on valid credentials for persistence. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1078.002",
+   "score": 3,
+   "comment": "Volt Typhoon has used compromised domain accounts to authenticate to devices on compromised networks. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1083",
+   "score": 3,
+   "comment": "Volt Typhoon has enumerated directories containing vulnerability testing and cyber related content and facilities data such as construction drawings. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1087.001",
+   "score": 3,
+   "comment": "Volt Typhoon has executed `net user` and `quser` to enumerate local account information. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1087.002",
+   "score": 3,
+   "comment": "Volt Typhoon has run `net group /dom` and `net group \"Domain Admins\" /dom` in compromised environments for account discovery. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1090",
+   "score": 3,
+   "comment": "Volt Typhoon has used compromised devices and customized versions of open source tools such as FRP (Fast Reverse Proxy), Earthworm, and Impacket to proxy network traffic. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1090.001",
+   "score": 3,
+   "comment": "Volt Typhoon has used the built-in netsh `port proxy` command to create proxies on compromised systems to facilitate access. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1090.003",
+   "score": 3,
+   "comment": "Volt Typhoon has used multi-hop proxies for command-and-control infrastructure. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1105",
+   "score": 3,
+   "comment": "Volt Typhoon has downloaded an outdated version of comsvcs.dll to a compromised domain controller in a non-standard folder. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1112",
+   "score": 3,
+   "comment": "Volt Typhoon has used `netsh` to create a PortProxy Registry modification on a compromised server running the Paessler Router Traffic Grapher (PRTG). | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1113",
+   "score": 3,
+   "comment": "Volt Typhoon has obtained a screenshot of the victim's system using the gdi32.dll and gdiplus.dll libraries. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1120",
+   "score": 3,
+   "comment": "Volt Typhoon has obtained victim's screen dimension and display device information. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1124",
+   "score": 3,
+   "comment": "Volt Typhoon has obtained the victim's system timezone. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1133",
+   "score": 3,
+   "comment": "Volt Typhoon has used VPNs to connect to victim environments and enable post-exploitation actions. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1140",
+   "score": 3,
+   "comment": "Volt Typhoon has used Base64-encoded data to transfer payloads and commands, including deobfuscation via certutil. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1190",
+   "score": 3,
+   "comment": "Volt Typhoon has gained initial access through exploitation of multiple vulnerabilities in internet-facing software and appliances such as Fortinet, Ivanti (formerly Pulse Secure), NETGEAR, Citrix, and Cisco. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1217",
+   "score": 3,
+   "comment": "Volt Typhoon has targeted the browsing history of network administrators. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1218",
+   "score": 3,
+   "comment": "Volt Typhoon has used native tools and processes including living off the land binaries or “LOLBins\" to maintain and expand access to the victim networks. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1497.001",
+   "score": 3,
+   "comment": "Volt Typhoon has run system checks to determine if they were operating in a virtualized environment. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1505.003",
+   "score": 3,
+   "comment": "Volt Typhoon has used webshells, including ones named AuditReport.jspx and iisstart.aspx, in compromised environments. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1518",
+   "score": 3,
+   "comment": "Volt Typhoon has queried the Registry on compromised systems for information on installed software. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1552",
+   "score": 3,
+   "comment": "Volt Typhoon has obtained credentials insecurely stored on targeted network appliances. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1552.004",
+   "score": 3,
+   "comment": "Volt Typhoon has accessed a Local State file that contains the AES key used to encrypt passwords stored in the Chrome browser. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1555",
+   "score": 3,
+   "comment": "Volt Typhoon has attempted to obtain credentials from OpenSSH, realvnc, and PuTTY. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1555.003",
+   "score": 3,
+   "comment": "Volt Typhoon has targeted network administrator browser data including browsing history and stored credentials. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1560.001",
+   "score": 3,
+   "comment": "Volt Typhoon has archived the ntds.dit database as a multi-volume password-protected archive with 7-Zip. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1570",
+   "score": 3,
+   "comment": "Volt Typhoon has copied web shells between servers in targeted environments. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1573.001",
+   "score": 3,
+   "comment": "Volt Typhoon has used a version of the Awen web shell that employed AES encryption and decryption for C2 communications. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1584.003",
+   "score": 3,
+   "comment": "Volt Typhoon has compromised Virtual Private Servers (VPS) to proxy C2 traffic. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1584.004",
+   "score": 3,
+   "comment": "Volt Typhoon has used compromised Paessler Router Traffic Grapher (PRTG) servers from other organizations for C2. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1584.005",
+   "score": 3,
+   "comment": "Volt Typhoon has used compromised Cisco and NETGEAR end-of-life SOHO routers implanted with KV Botnet malware to support operations. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1584.008",
+   "score": 3,
+   "comment": "Volt Typhoon has compromised small office and home office (SOHO) network edge devices, many of which were located in the same geographic area as the victim, to proxy network traffic. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1587.004",
+   "score": 3,
+   "comment": "Volt Typhoon has exploited zero-day vulnerabilities for initial access. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1588.002",
+   "score": 3,
+   "comment": "Volt Typhoon has used legitimate network and forensic tools and customized versions of open-source tools for C2. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1588.006",
+   "score": 3,
+   "comment": "Volt Typhoon has used publicly available exploit code for initial access. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1589",
+   "score": 3,
+   "comment": "Volt Typhoon has gathered victim identify information during pre-compromise reconnaissance. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1589.002",
+   "score": 3,
+   "comment": "Volt Typhoon has targeted the personal emails of key network and IT staff at victim organizations. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1590",
+   "score": 3,
+   "comment": "Volt Typhoon has conducted extensive pre-compromise reconnaissance to learn about the target organization’s network. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1590.004",
+   "score": 3,
+   "comment": "Volt Typhoon has conducted extensive reconnaissance of victim networks including identifying network topologies. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1590.006",
+   "score": 3,
+   "comment": "Volt Typhoon has identified target network security measures as part of pre-compromise reconnaissance. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1591",
+   "score": 1,
+   "comment": "Volt Typhoon has conducted extensive reconnaissance pre-compromise to gain information about the targeted organization. | cobertura: lacuna",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1591.004",
+   "score": 3,
+   "comment": "Volt Typhoon has identified key network and IT staff members pre-compromise at targeted organizations. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1592",
+   "score": 1,
+   "comment": "Volt Typhoon has conducted pre-compromise reconnaissance for victim host information. | cobertura: lacuna",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1593",
+   "score": 1,
+   "comment": "Volt Typhoon has conducted pre-compromise web searches for victim information. | cobertura: lacuna",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1594",
+   "score": 1,
+   "comment": "Volt Typhoon has conducted pre-compromise reconnaissance on victim-owned sites. | cobertura: lacuna",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1596.005",
+   "score": 1,
+   "comment": "Volt Typhoon has used FOFA, Shodan, and Censys to search for exposed victim infrastructure. | cobertura: lacuna",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1614",
+   "score": 1,
+   "comment": "Volt Typhoon has obtained the victim's system current location. | cobertura: lacuna",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1654",
+   "score": 1,
+   "comment": "Volt Typhoon has used `wevtutil.exe` and the PowerShell command `Get-EventLog security` to enumerate Windows logs to search for successful logons. | cobertura: lacuna",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1680",
+   "score": 1,
+   "comment": "Volt Typhoon has discovered file system types, drive names, size, and free space on compromised systems. | cobertura: lacuna",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1685.005",
+   "score": 3,
+   "comment": "Volt Typhoon has selectively cleared Windows Event Logs, system logs, and other technical artifacts to remove evidence of intrusion activity. | cobertura: regra",
+   "enabled": true
+  }
+ ],
+ "gradient": {
+  "colors": [
+   "#ff5d6c",
+   "#ffb347",
+   "#2ecc8f"
+  ],
+  "minValue": 1,
+  "maxValue": 3
+ },
+ "layout": {
+  "layout": "side",
+  "showName": true,
+  "showID": true
+ }
+}

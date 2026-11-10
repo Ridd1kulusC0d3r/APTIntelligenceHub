@@ -1,0 +1,2 @@
+// Hidden User Creation | T1564.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_create_hidden_account.yml
+any where ((Image:"*/dscl" and CommandLine:"*create*") and (CommandLine:"*UniqueID*" and CommandLine regex~ "([0-9]|[1-9][0-9]|[1-4][0-9]{2})")) or ((Image:"*/dscl" and CommandLine:"*create*") and (CommandLine:"*IsHidden*" and (CommandLine like~ ("*true*", "*yes*", "*1*"))))

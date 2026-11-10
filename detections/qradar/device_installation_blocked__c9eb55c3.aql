@@ -1,0 +1,2 @@
+-- Device Installation Blocked | T1200 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_device_installation_blocked.yml
+SELECT * FROM events WHERE devicetype=12 AND "Event ID"=6423

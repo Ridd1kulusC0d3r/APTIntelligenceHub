@@ -1,0 +1,2 @@
+// Cisco Modify Configuration | T1053, T1490, T1505, T1565.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/network/cisco/aaa/cisco_cli_modify_config.yml
+any where "ip http server" or "ip https server" or "kron policy-list" or "kron occurrence" or "policy-list" or "access-list" or "ip access-group" or "archive maximum" or "ntp server"

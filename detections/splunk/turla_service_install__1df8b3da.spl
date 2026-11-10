@@ -1,0 +1,2 @@
+# Turla Service Install | T1543.003 | https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2017/TA/Turla/win_system_apt_carbonpaper_turla.yml
+source="WinEventLog:System" Provider_Name="Service Control Manager" EventCode=7045 (ServiceName IN ("srservice", "ipvpn", "hkmsvc"))

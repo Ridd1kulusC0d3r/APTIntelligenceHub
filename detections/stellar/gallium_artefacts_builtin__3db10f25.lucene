@@ -1,0 +1,18 @@
+// GALLIUM Artefacts - Builtin | T1071 | https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2020/TA/GALLIUM/win_dns_analytic_apt_gallium.yml
+EventID:257 AND (QNAME:(asyspy256.ddns.net OR hotkillmail9sddcc.ddns.net OR rosaf112.ddns.net OR cvdfhjh1231.myftp.biz OR sz2016rose.ddns.net OR dffwescwer4325.myftp.biz OR cvdfhjh1231.ddns.net))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "EventID:257 AND (QNAME:(asyspy256.ddns.net OR hotkillmail9sddcc.ddns.net OR rosaf112.ddns.net OR cvdfhjh1231.myftp.biz OR sz2016rose.ddns.net OR dffwescwer4325.myftp.biz OR cvdfhjh1231.ddns.net))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,2 @@
+// Fsutil Drive Enumeration | T1120 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_fsutil_drive_enumeration.yml
+(process.executable.caseless:*\\fsutil.exe OR process.pe.original_file_name:fsutil.exe) AND process.command_line:*drives*

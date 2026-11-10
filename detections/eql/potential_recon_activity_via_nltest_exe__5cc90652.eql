@@ -1,0 +1,2 @@
+// Potential Recon Activity Via Nltest.EXE | T1016, T1482 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_nltest_recon.yml
+any where (process.executable.caseless:"*\\nltest.exe" or process.pe.original_file_name:"nltestrk.exe") and ((process.command_line:"*server*" and process.command_line:"*query*") or (process.command_line like~ ("*/user*", "*all_trusts*", "*dclist:*", "*dnsgetdc:*", "*domain_trusts*", "*dsgetdc:*", "*parentdomain*", "*trusted_domains*")))

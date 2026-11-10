@@ -1,0 +1,18 @@
+// Suspicious GetTypeFromCLSID ShellExecute | T1546.015 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/powershell/powershell_script/posh_ps_susp_gettypefromclsid.yml
+ScriptBlockText:*\:\:GetTypeFromCLSID\(* AND ScriptBlockText:*.ShellExecute\(*
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "ScriptBlockText:*\\:\\:GetTypeFromCLSID\\(* AND ScriptBlockText:*.ShellExecute\\(*",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

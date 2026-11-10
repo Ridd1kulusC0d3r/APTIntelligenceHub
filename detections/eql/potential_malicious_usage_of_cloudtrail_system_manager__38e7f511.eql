@@ -1,0 +1,2 @@
+// Potential Malicious Usage of CloudTrail System Manager | T1566, T1566.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/aws/cloudtrail/aws_cloudtrail_ssm_malicious_usage.yml
+any where (eventName:"SendCommand" and eventSource:"ssm.amazonaws.com") and (errorCode:"Success" or (?errorCode == null))

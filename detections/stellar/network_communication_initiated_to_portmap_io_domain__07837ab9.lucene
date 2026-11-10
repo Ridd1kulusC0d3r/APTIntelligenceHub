@@ -1,0 +1,18 @@
+// Network Communication Initiated To Portmap.IO Domain | T1041, T1090.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_domain_portmap.yml
+Initiated:true AND DestinationHostname:*.portmap.io
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "Initiated:true AND DestinationHostname:*.portmap.io",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

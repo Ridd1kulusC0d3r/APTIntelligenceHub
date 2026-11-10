@@ -1,0 +1,2 @@
+# New Firewall Rule Added In Windows Firewall Exception List For Potential Suspicious Application | T1686.003 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/firewall_as/win_firewall_as_add_rule_susp_folder.yml
+source="WinEventLog:Microsoft-Windows-Windows Firewall With Advanced Security/Firewall" (EventCode IN (2004, 2071, 2097)) (ApplicationPath IN ("*:\\PerfLogs\\*", "*:\\Temp\\*", "*:\\Tmp\\*", "*:\\Users\\Public\\*", "*:\\Windows\\Tasks\\*", "*:\\Windows\\Temp\\*", "*\\AppData\\Local\\Temp\\*")) NOT Action=2

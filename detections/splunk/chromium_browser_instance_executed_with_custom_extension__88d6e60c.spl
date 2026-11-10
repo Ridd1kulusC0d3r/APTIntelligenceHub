@@ -1,0 +1,2 @@
+# Chromium Browser Instance Executed With Custom Extension | T1176.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_browsers_chromium_load_extension.yml
+source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=1 (Image IN ("*\\brave.exe", "*\\chrome.exe", "*\\msedge.exe", "*\\opera.exe", "*\\vivaldi.exe")) CommandLine="*--load-extension=*"

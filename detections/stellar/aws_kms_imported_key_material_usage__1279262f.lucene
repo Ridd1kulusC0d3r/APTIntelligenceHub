@@ -1,0 +1,18 @@
+// AWS KMS Imported Key Material Usage | T1486, T1608.003 | https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/aws/cloudtrail/aws_kms_import_key_material.yml
+eventSource:kms.amazonaws.com AND (eventName:(ImportKeyMaterial OR DeleteImportedKeyMaterial))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "eventSource:kms.amazonaws.com AND (eventName:(ImportKeyMaterial OR DeleteImportedKeyMaterial))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

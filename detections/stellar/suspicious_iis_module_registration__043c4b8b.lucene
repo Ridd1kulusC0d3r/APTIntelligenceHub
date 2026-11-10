@@ -1,0 +1,18 @@
+// Suspicious IIS Module Registration | T1505.004 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_iis_susp_module_registration.yml
+ParentImage:*\\w3wp.exe AND (CommandLine:*appcmd.exe\ add\ module* OR (CommandLine:*\ system.enterpriseservices.internal.publish* AND Image:*\\powershell.exe) OR (CommandLine:*gacutil* AND CommandLine:*\ \/I*))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "ParentImage:*\\\\w3wp.exe AND (CommandLine:*appcmd.exe\\ add\\ module* OR (CommandLine:*\\ system.enterpriseservices.internal.publish* AND Image:*\\\\powershell.exe) OR (CommandLine:*gacutil* AND CommandLine:*\\ \\/I*))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

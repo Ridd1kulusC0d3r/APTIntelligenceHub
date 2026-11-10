@@ -1,0 +1,2 @@
+# Renamed ZOHO Dctask64 Execution | T1036, T1055.001, T1202, T1218 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_renamed_dctask64.yml
+source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=1 (Hashes IN ("*IMPHASH=6834B1B94E49701D77CCB3C0895E1AFD*", "*IMPHASH=1BB6F93B129F398C7C4A76BB97450BBA*", "*IMPHASH=FAA2AC19875FADE461C8D89DCF2710A3*", "*IMPHASH=F1039CED4B91572AB7847D26032E6BBF*")) NOT Image="*\\dctask64.exe"

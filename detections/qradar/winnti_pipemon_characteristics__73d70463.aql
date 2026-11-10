@@ -1,0 +1,2 @@
+-- Winnti Pipemon Characteristics | T1574.001 | https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2020/TA/Winnti/proc_creation_win_apt_winnti_pipemon.yml
+SELECT * FROM events WHERE devicetype=12 AND (LOWER(Command) LIKE '%setup0.exe -p%' OR (LOWER(Command) LIKE '%setup.exe%' AND (LOWER(Command) LIKE '%-x:0' OR LOWER(Command) LIKE '%-x:1' OR LOWER(Command) LIKE '%-x:2')))

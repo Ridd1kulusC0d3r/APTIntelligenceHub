@@ -1,0 +1,2 @@
+// LockerGoga Ransomware Activity | T1486 | https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2019/Malware/LockerGoga/proc_creation_win_malware_lockergoga_ransomware.yml
+from * metadata _id, _index, _version | where process.command_line like "*-i SM-tgytutrc -s*"

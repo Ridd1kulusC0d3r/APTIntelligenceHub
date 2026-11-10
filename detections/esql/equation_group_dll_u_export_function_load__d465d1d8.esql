@@ -1,0 +1,2 @@
+// Equation Group DLL_U Export Function Load | T1218.011 | https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2019/TA/EquationGroup/proc_creation_win_apt_equationgroup_dll_u_load.yml
+from * metadata _id, _index, _version | where process.command_line like "*-export dll_u*" or ends_with(process.command_line, ",dll_u") or ends_with(process.command_line, " dll_u")

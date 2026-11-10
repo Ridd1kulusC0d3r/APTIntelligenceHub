@@ -1,0 +1,2 @@
+// Encoded PowerShell Spawned By Script Host | T1059.001, T1059.007 | Hub
+from * metadata _id, _index, _version | where (ends_with(process.parent.executable.caseless, "\\wscript.exe") or ends_with(process.parent.executable.caseless, "\\cscript.exe") or ends_with(process.parent.executable.caseless, "\\mshta.exe")) and ends_with(process.executable.caseless, "\\powershell.exe") and (process.command_line like "* -enc*" or process.command_line like "* -EncodedCommand*" or process.command_line like "* -e *")

@@ -1,0 +1,18 @@
+// Creation Of Pod In System Namespace | T1036.005 | https://github.com/SigmaHQ/sigma/blob/master/rules/application/kubernetes/audit/kubernetes_audit_pod_in_system_namespace.yml
+verb:create AND objectRef.resource:pods AND objectRef.namespace:kube\-system
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "verb:create AND objectRef.resource:pods AND objectRef.namespace:kube\\-system",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

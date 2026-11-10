@@ -1,0 +1,2 @@
+# DLL Load via LSASS | T1547.008 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/registry_event_susp_lsass_dll_load.yml
+source="WinEventLog:Microsoft-Windows-Sysmon/Operational" (EventCode IN (12, 13, 14)) (TargetObject IN ("*\\CurrentControlSet\\Services\\NTDS\\DirectoryServiceExtPt*", "*\\CurrentControlSet\\Services\\NTDS\\LsaDbExtPt*")) NOT (Image="C:\\Windows\\system32\\lsass.exe" (Details IN ("%%systemroot%%\\system32\\ntdsa.dll", "%%systemroot%%\\system32\\lsadb.dll")))

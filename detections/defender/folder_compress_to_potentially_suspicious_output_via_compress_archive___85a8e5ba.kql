@@ -1,0 +1,3 @@
+// Folder Compress To Potentially Suspicious Output Via Compress-Archive Cmdlet | T1074.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_zip_compress.yml
+DeviceProcessEvents
+| where (ProcessCommandLine contains "Compress-Archive -Path" and ProcessCommandLine contains "-DestinationPath $env:TEMP") or (ProcessCommandLine contains "Compress-Archive -Path" and ProcessCommandLine contains "-DestinationPath" and ProcessCommandLine contains "\\AppData\\Local\\Temp\\") or (ProcessCommandLine contains "Compress-Archive -Path" and ProcessCommandLine contains "-DestinationPath" and ProcessCommandLine contains ":\\Windows\\Temp\\")

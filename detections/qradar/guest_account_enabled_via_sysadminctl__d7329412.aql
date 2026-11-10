@@ -1,0 +1,2 @@
+-- Guest Account Enabled Via Sysadminctl | T1078, T1078.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_sysadminctl_enable_guest_account.yml
+SELECT * FROM events WHERE devicetype=102 AND (LOWER("Process Path") LIKE '%/sysadminctl' OR LOWER("Process Name") LIKE '%/sysadminctl') AND (LOWER(Command) LIKE '% -guestaccount%' AND LOWER(Command) LIKE '% on%')

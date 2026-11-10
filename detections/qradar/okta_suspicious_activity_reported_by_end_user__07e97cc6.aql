@@ -1,0 +1,2 @@
+-- Okta Suspicious Activity Reported by End-user | T1586.003 | https://github.com/SigmaHQ/sigma/blob/master/rules/identity/okta/okta_suspicious_activity_enduser_report.yml | NOTA: fallback QRadarAQL_payload_pipeline: campos sem propriedade DSM mapeada são buscados em UTF8(payload) – custo maior, crie custom properties
+SELECT * FROM events WHERE devicetype=382 AND LOWER(UTF8(payload)) LIKE '%user.account.report_suspicious_activity_by_enduser%'

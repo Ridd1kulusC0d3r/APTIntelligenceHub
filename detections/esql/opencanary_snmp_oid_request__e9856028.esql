@@ -1,0 +1,2 @@
+// OpenCanary - SNMP OID Request | T1016, T1021 | https://github.com/SigmaHQ/sigma/blob/master/rules/application/opencanary/opencanary_snmp_cmd.yml
+from * metadata _id, _index, _version | where logtype==13001

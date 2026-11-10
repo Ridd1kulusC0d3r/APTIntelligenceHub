@@ -1,0 +1,18 @@
+// Unmount Share Via Net.EXE | T1070.005 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_net_share_unmount.yml
+((Image:(*\\net.exe OR *\\net1.exe)) OR (OriginalFileName:(net.exe OR net1.exe))) AND (CommandLine:*share* AND CommandLine:*\/delete*)
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "((Image:(*\\\\net.exe OR *\\\\net1.exe)) OR (OriginalFileName:(net.exe OR net1.exe))) AND (CommandLine:*share* AND CommandLine:*\\/delete*)",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

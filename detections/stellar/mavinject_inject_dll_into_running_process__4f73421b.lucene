@@ -1,0 +1,18 @@
+// Mavinject Inject DLL Into Running Process | T1055.001, T1218.013 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_mavinject_process_injection.yml
+CommandLine:*\ \/INJECTRUNNING\ * AND (NOT ParentImage:C\:\\Windows\\System32\\AppVClient.exe)
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "CommandLine:*\\ \\/INJECTRUNNING\\ * AND (NOT ParentImage:C\\:\\\\Windows\\\\System32\\\\AppVClient.exe)",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

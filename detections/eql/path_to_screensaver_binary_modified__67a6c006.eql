@@ -1,0 +1,2 @@
+// Path To Screensaver Binary Modified | T1546.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/registry_event_modify_screensaver_binary_path.yml
+any where registry.path:"*\\Control Panel\\Desktop\\SCRNSAVE.EXE" and (not (process.executable.caseless like~ ("*\\rundll32.exe", "*\\explorer.exe")))

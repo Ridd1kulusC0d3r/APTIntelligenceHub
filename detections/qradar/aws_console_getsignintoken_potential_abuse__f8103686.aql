@@ -1,0 +1,2 @@
+-- AWS Console GetSigninToken Potential Abuse | T1021.007, T1550.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/aws/cloudtrail/aws_console_getsignintoken.yml
+SELECT * FROM events WHERE devicetype IN(516, 519, 456, 460, 501, 502, 507, 440, 347) AND QIDNAME(qid)='GetSigninToken' AND (NOT(LOWER("User Agent") LIKE '%jersey/${project.version}%'))

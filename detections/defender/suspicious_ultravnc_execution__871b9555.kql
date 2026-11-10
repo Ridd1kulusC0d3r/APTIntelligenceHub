@@ -1,0 +1,3 @@
+// Suspicious UltraVNC Execution | T1021.005 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_ultravnc_susp_execution.yml
+DeviceProcessEvents
+| where ProcessCommandLine contains "-autoreconnect " and ProcessCommandLine contains "-connect " and ProcessCommandLine contains "-id:"

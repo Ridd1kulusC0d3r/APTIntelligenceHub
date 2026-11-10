@@ -1,0 +1,18 @@
+// Webshell Remote Command Execution | T1505.003 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/syscall/lnx_auditd_web_rce.yml
+type:SYSCALL AND (SYSCALL:(execve OR execveat)) AND euid:33
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "type:SYSCALL AND (SYSCALL:(execve OR execveat)) AND euid:33",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

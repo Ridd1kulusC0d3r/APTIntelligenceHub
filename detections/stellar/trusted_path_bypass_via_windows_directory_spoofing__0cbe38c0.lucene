@@ -1,0 +1,18 @@
+// Trusted Path Bypass via Windows Directory Spoofing | T1548.002, T1574.007 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_win_trusted_path_bypass.yml
+ImageLoaded:(*\:\\Windows\ \\System32\\* OR *\:\\Windows\ \\SysWOW64\\*)
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "ImageLoaded:(*\\:\\\\Windows\\ \\\\System32\\\\* OR *\\:\\\\Windows\\ \\\\SysWOW64\\\\*)",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

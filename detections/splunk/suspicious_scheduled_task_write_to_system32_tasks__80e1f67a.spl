@@ -1,0 +1,2 @@
+# Suspicious Scheduled Task Write to System32 Tasks | T1053 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_susp_task_write.yml
+source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=11 TargetFilename="*\\Windows\\System32\\Tasks*" (Image IN ("*\\AppData\\*", "*C:\\PerfLogs*", "*\\Windows\\System32\\config\\systemprofile*"))

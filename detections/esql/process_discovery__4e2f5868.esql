@@ -1,0 +1,2 @@
+// Process Discovery | T1057 | https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/linux/process_creation/proc_creation_lnx_susp_running_process_discovery.yml
+from * metadata _id, _index, _version | where ends_with(Image, "/atop") or ends_with(Image, "/htop") or ends_with(Image, "/pgrep") or ends_with(Image, "/ps") or ends_with(Image, "/pstree") or ends_with(Image, "/top")

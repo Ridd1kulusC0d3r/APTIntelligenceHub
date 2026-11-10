@@ -1,0 +1,3 @@
+// Mask System Power Settings Via Systemctl | T1653 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_systemctl_mask_power_settings.yml
+DeviceProcessEvents
+| where (FolderPath endswith "/systemctl" and ProcessCommandLine contains " mask") and (ProcessCommandLine contains "suspend.target" or ProcessCommandLine contains "hibernate.target" or ProcessCommandLine contains "hybrid-sleep.target")

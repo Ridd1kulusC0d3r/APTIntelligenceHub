@@ -1,0 +1,18 @@
+// Root Certificate Installed From Susp Locations | T1553.004 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_import_cert_susp_locations.yml
+(CommandLine:*Import\-Certificate* AND CommandLine:*\ \-FilePath\ * AND CommandLine:*Cert\:\\LocalMachine\\Root*) AND (CommandLine:(*\\AppData\\Local\\Temp\\* OR *\:\\Windows\\TEMP\\* OR *\\Desktop\\* OR *\\Downloads\\* OR *\\Perflogs\\* OR *\:\\Users\\Public\\*))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(CommandLine:*Import\\-Certificate* AND CommandLine:*\\ \\-FilePath\\ * AND CommandLine:*Cert\\:\\\\LocalMachine\\\\Root*) AND (CommandLine:(*\\\\AppData\\\\Local\\\\Temp\\\\* OR *\\:\\\\Windows\\\\TEMP\\\\* OR *\\\\Desktop\\\\* OR *\\\\Downloads\\\\* OR *\\\\Perflogs\\\\* OR *\\:\\\\Users\\\\Public\\\\*))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

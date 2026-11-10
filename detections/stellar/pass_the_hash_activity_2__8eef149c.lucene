@@ -1,0 +1,18 @@
+// Pass the Hash Activity 2 | T1550.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/account_management/win_security_pass_the_hash_2.yml
+((EventID:4624 AND SubjectUserSid:S\-1\-0\-0 AND LogonType:3 AND LogonProcessName:NtLmSsp AND KeyLength:0) OR (EventID:4624 AND LogonType:9 AND LogonProcessName:seclogo)) AND (NOT TargetUserName:"ANONYMOUS LOGON")
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "((EventID:4624 AND SubjectUserSid:S\\-1\\-0\\-0 AND LogonType:3 AND LogonProcessName:NtLmSsp AND KeyLength:0) OR (EventID:4624 AND LogonType:9 AND LogonProcessName:seclogo)) AND (NOT TargetUserName:\"ANONYMOUS LOGON\")",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

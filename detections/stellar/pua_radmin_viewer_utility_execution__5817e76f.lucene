@@ -1,0 +1,18 @@
+// PUA - Radmin Viewer Utility Execution | T1072 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_radmin.yml
+Description:"Radmin Viewer" OR Product:"Radmin Viewer" OR OriginalFileName:Radmin.exe
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "Description:\"Radmin Viewer\" OR Product:\"Radmin Viewer\" OR OriginalFileName:Radmin.exe",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

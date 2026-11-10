@@ -1,0 +1,2 @@
+// Launch Agent/Daemon Execution Via Launchctl | T1543.001, T1543.004, T1569.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_launchctl_execution.yml
+from * metadata _id, _index, _version | where ends_with(Image, "/launchctl") and (CommandLine like "*submit*" or CommandLine like "*load*" or CommandLine like "*start*")

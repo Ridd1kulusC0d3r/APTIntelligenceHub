@@ -1,0 +1,2 @@
+-- System Network Connections Discovery - Linux | T1049 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_system_network_connections_discovery.yml
+SELECT * FROM events WHERE devicetype=11 AND ((LOWER("Process Path") LIKE '%/lsof' OR LOWER("Process Path") LIKE '%/netstat' OR LOWER("Process Path") LIKE '%/sockstat' OR LOWER("Process Path") LIKE '%/ss') OR (LOWER("Process Name") LIKE '%/lsof' OR LOWER("Process Name") LIKE '%/netstat' OR LOWER("Process Name") LIKE '%/sockstat' OR LOWER("Process Name") LIKE '%/ss'))

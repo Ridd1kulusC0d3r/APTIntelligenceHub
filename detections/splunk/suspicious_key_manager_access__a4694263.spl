@@ -1,0 +1,2 @@
+# Suspicious Key Manager Access | T1555.004 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_keymgr.yml
+source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=1 (Image="*\\rundll32.exe" OR OriginalFileName="RUNDLL32.EXE") CommandLine="*keymgr*" CommandLine="*KRShowKeyMgr*"

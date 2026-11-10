@@ -1,0 +1,2 @@
+// Discovery of a System Time | T1124 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_remote_time_discovery.yml
+((process.executable.caseless:(*\\net.exe OR *\\net1.exe)) AND process.command_line:*time*) OR (process.executable.caseless:*\\w32tm.exe AND process.command_line:*tz*)

@@ -1,0 +1,2 @@
+// Powershell Timestomp | T1070.006 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/powershell/powershell_script/posh_ps_timestomp.yml
+powershell.file.script_block_text:(*.CreationTime\ \=* OR *.LastWriteTime\ \=* OR *.LastAccessTime\ \=* OR *\[IO.File\]\:\:SetCreationTime* OR *\[IO.File\]\:\:SetLastAccessTime* OR *\[IO.File\]\:\:SetLastWriteTime*)

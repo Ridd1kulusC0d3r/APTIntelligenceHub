@@ -1,0 +1,2 @@
+// EvilNum APT Golden Chickens Deployment Via OCX Files | T1218.011 | https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2020/TA/Evilnum/proc_creation_win_apt_evilnum_jul20.yml
+from * metadata _id, _index, _version | where process.command_line like "*regsvr32*" and process.command_line like "*/s*" and process.command_line like "*/i*" and process.command_line like "*\\AppData\\Roaming\\*" and process.command_line like "*.ocx*"

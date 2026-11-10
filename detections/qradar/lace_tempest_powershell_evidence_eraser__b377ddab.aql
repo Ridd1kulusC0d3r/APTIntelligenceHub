@@ -1,0 +1,2 @@
+-- Lace Tempest PowerShell Evidence Eraser | T1059.001 | https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/Lace-Tempest/posh_ps_apt_lace_tempest_eraser_script.yml
+SELECT * FROM events WHERE devicetype=12 AND LOWER(Message) LIKE '%cleanll%' AND LOWER(Message) LIKE '%usersfiles.war%' AND LOWER(Message) LIKE '%remove-item -path "$tomcat_dir%' AND LOWER(Message) LIKE '%sysaidserver%' AND LOWER(Message) LIKE '%sleep %' AND LOWER(Message) LIKE '%while(1)%'

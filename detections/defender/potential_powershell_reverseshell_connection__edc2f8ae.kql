@@ -1,0 +1,3 @@
+// Potential Powershell ReverseShell Connection | T1059.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_reverse_shell_connection.yml
+DeviceProcessEvents
+| where ((ProcessVersionInfoOriginalFileName in~ ("PowerShell.EXE", "pwsh.dll")) or (FolderPath endswith "\\powershell.exe" or FolderPath endswith "\\pwsh.exe")) and (ProcessCommandLine contains " Net.Sockets.TCPClient" and ProcessCommandLine contains ".GetStream(" and ProcessCommandLine contains ".Write(")

@@ -1,0 +1,3 @@
+// Interactive AT Job | T1053.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_at_interactive_execution.yml
+DeviceProcessEvents
+| where FolderPath endswith "\\at.exe" and ProcessCommandLine contains "interactive"

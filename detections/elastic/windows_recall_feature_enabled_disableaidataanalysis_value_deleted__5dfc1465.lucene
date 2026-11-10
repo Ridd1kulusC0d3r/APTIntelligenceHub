@@ -1,0 +1,2 @@
+// Windows Recall Feature Enabled - DisableAIDataAnalysis Value Deleted | T1113 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_delete/registry_delete_enable_windows_recall.yml
+winlog.event_data.EventType:DeleteValue AND registry.path:*\\Microsoft\\Windows\\WindowsAI\\DisableAIDataAnalysis

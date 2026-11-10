@@ -1,0 +1,2 @@
+// Cobalt Strike DNS Beaconing | T1071.004 | https://github.com/SigmaHQ/sigma/blob/master/rules/network/dns/net_dns_mal_cobaltstrike.yml
+any where (query like~ ("aaa.stage.*", "post.1*")) or query:"*.stage.123456.*"

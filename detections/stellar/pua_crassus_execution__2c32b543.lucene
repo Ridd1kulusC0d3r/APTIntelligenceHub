@@ -1,0 +1,18 @@
+// PUA - Crassus Execution | T1590.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_crassus.yml
+Image:*\\Crassus.exe OR OriginalFileName:Crassus.exe OR Description:*Crassus*
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "Image:*\\\\Crassus.exe OR OriginalFileName:Crassus.exe OR Description:*Crassus*",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

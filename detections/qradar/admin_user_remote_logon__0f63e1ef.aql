@@ -1,0 +1,2 @@
+-- Admin User Remote Logon | T1078.001, T1078.002, T1078.003 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/account_management/win_security_admin_rdp_login.yml | NOTA: fallback QRadarAQL_payload_pipeline: campos sem propriedade DSM mapeada são buscados em UTF8(payload) – custo maior, crie custom properties
+SELECT * FROM events WHERE devicetype=12 AND "Event ID"=4624 AND "Logon Type"=10 AND LOWER(UTF8(payload)) LIKE '%negotiate%' AND LOWER("Target Username") LIKE 'admin%'

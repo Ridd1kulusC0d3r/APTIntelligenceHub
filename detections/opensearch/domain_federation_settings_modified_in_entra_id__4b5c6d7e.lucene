@@ -1,0 +1,2 @@
+// Domain Federation Settings Modified In Entra ID | T1484.002 | Hub
+OperationName:("Set domain authentication" OR "Set federation settings on domain" OR "Add unverified domain")

@@ -1,0 +1,2 @@
+// Raw Paste Service Access | T1071.001, T1102.001, T1102.003 | https://github.com/SigmaHQ/sigma/blob/master/rules/web/proxy_generic/proxy_raw_paste_service_access.yml
+any where c-uri like~ ("*.paste.ee/r/*", "*.pastebin.com/raw/*", "*.hastebin.com/raw/*", "*.ghostbin.co/paste/*/raw/*", "*pastetext.net/*", "*pastebin.pl/*", "*paste.ee/*")

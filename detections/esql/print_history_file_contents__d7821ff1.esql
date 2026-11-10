@@ -1,0 +1,2 @@
+// Print History File Contents | T1592.004 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_susp_history_recon.yml
+from * metadata _id, _index, _version | where (ends_with(Image, "/cat") or ends_with(Image, "/head") or ends_with(Image, "/tail") or ends_with(Image, "/more")) and (CommandLine like "*/.bash_history*" or CommandLine like "*/.zsh_history*" or ends_with(CommandLine, "_history") or ends_with(CommandLine, ".history") or ends_with(CommandLine, "zhistory"))

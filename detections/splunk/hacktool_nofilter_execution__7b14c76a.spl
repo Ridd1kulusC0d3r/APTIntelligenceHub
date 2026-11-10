@@ -1,0 +1,2 @@
+# HackTool - NoFilter Execution | T1134, T1134.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_hktl_nofilter.yml
+source="WinEventLog:Security" ((EventCode=5447 FilterName="*RonPolicy*") OR (EventCode=5449 ProviderContextName="*RonPolicy*"))

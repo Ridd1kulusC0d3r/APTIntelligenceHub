@@ -1,0 +1,18 @@
+// Remote Thread Created In KeePass.EXE | T1555.005 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/create_remote_thread/create_remote_thread_win_keepass.yml
+TargetImage:*\\KeePass.exe
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "TargetImage:*\\\\KeePass.exe",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,2 @@
+# Privileged Container Deployed | T1611 | https://github.com/SigmaHQ/sigma/blob/master/rules/application/kubernetes/audit/kubernetes_audit_privileged_pod_creation.yml
+verb="create" objectRef.resource="pods" capabilities="*"

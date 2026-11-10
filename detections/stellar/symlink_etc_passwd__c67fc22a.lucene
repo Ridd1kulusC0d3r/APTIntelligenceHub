@@ -1,0 +1,18 @@
+// Symlink Etc Passwd | T1204.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/builtin/lnx_symlink_etc_passwd.yml
+*ln\ \-s\ \-f\ \/etc\/passwd* OR *ln\ \-s\ \/etc\/passwd*
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "*ln\\ \\-s\\ \\-f\\ \\/etc\\/passwd* OR *ln\\ \\-s\\ \\/etc\\/passwd*",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

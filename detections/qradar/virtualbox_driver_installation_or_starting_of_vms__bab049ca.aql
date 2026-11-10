@@ -1,0 +1,2 @@
+-- Virtualbox Driver Installation or Starting of VMs | T1564, T1564.006 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_virtualbox_execution.yml
+SELECT * FROM events WHERE devicetype=12 AND ((LOWER(Command) LIKE '%vboxrt.dll,rtr3init%' OR LOWER(Command) LIKE '%vboxc.dll%' OR LOWER(Command) LIKE '%vboxdrv.sys%') OR (LOWER(Command) LIKE '%startvm%' OR LOWER(Command) LIKE '%controlvm%'))

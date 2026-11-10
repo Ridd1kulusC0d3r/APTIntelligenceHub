@@ -1,0 +1,18 @@
+// Exchange PowerShell Cmdlet History Deleted | T1070 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_delete/file_delete_win_delete_exchange_powershell_logs.yml
+TargetFilename:*\\Logging\\CmdletInfra\\LocalPowerShell\\Cmdlet\\* AND TargetFilename:*_Cmdlet_*
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "TargetFilename:*\\\\Logging\\\\CmdletInfra\\\\LocalPowerShell\\\\Cmdlet\\\\* AND TargetFilename:*_Cmdlet_*",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

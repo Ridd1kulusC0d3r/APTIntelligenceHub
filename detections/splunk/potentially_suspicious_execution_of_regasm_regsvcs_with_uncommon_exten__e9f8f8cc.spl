@@ -1,0 +1,2 @@
+# Potentially Suspicious Execution Of Regasm/Regsvcs With Uncommon Extension | T1218.009 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_regasm_regsvcs_uncommon_extension_execution.yml
+source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=1 (Image IN ("*\\Regsvcs.exe", "*\\Regasm.exe") OR OriginalFileName IN ("RegSvcs.exe", "RegAsm.exe")) (CommandLine IN ("*.dat*", "*.gif*", "*.jpeg*", "*.jpg*", "*.png*", "*.txt*"))

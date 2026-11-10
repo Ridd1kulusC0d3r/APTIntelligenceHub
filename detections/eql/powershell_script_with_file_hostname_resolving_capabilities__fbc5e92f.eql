@@ -1,0 +1,2 @@
+// PowerShell Script With File Hostname Resolving Capabilities | T1020 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/powershell/powershell_script/posh_ps_resolve_list_of_ip_from_file.yml
+any where powershell.file.script_block_text:"*Get-content *" and powershell.file.script_block_text:"*foreach*" and powershell.file.script_block_text:"*[System.Net.Dns]::GetHostEntry*" and powershell.file.script_block_text:"*Out-File*"

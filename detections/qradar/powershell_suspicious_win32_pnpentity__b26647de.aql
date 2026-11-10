@@ -1,0 +1,2 @@
+-- Powershell Suspicious Win32_PnPEntity | T1120 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/powershell/powershell_script/posh_ps_susp_win32_pnpentity.yml
+SELECT * FROM events WHERE devicetype=12 AND LOWER(Message) LIKE '%win32_pnpentity%'

@@ -1,0 +1,2 @@
+-- Suspicious PowerShell WindowStyle Option | T1564.003 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/powershell/powershell_script/posh_ps_susp_windowstyle.yml
+SELECT * FROM events WHERE devicetype=12 AND (LOWER(Message) LIKE '%powershell%' AND LOWER(Message) LIKE '%windowstyle%' AND LOWER(Message) LIKE '%hidden%') AND (NOT((LOWER(Message) LIKE '%:\program files\amazon\workspacesconfig\scripts*%' AND LOWER(Message) LIKE '%$psscriptroot\module\workspacescriptmodule\workspacescriptmodule%')))

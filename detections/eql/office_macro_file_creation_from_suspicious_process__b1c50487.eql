@@ -1,0 +1,2 @@
+// Office Macro File Creation From Suspicious Process | T1566.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_office_macro_files_from_susp_process.yml
+any where ((process.executable.caseless like~ ("*\\cscript.exe", "*\\mshta.exe", "*\\regsvr32.exe", "*\\rundll32.exe", "*\\wscript.exe")) or (process.parent.executable.caseless like~ ("*\\cscript.exe", "*\\mshta.exe", "*\\regsvr32.exe", "*\\rundll32.exe", "*\\wscript.exe"))) and (file.path like~ ("*.docm", "*.dotm", "*.xlsm", "*.xltm", "*.potm", "*.pptm"))

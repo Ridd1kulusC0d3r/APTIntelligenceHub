@@ -1,0 +1,2 @@
+# LockerGoga Ransomware Activity | T1486 | https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2019/Malware/LockerGoga/proc_creation_win_malware_lockergoga_ransomware.yml
+source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=1 CommandLine="*-i SM-tgytutrc -s*"

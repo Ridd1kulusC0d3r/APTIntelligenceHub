@@ -1,0 +1,2 @@
+// Forest Blizzard APT - JavaScript Constrained File Creation | T1685.001 | https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2024/TA/Forest-Blizzard/file_event_win_apt_forest_blizzard_constrained_js.yml
+from * metadata _id, _index, _version | where starts_with(file.path, "C:\\Windows\\System32\\DriverStore\\FileRepository\\") and ends_with(file.path, "\\.js")

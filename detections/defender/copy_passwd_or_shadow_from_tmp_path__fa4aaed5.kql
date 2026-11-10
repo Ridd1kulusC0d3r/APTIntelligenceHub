@@ -1,0 +1,3 @@
+// Copy Passwd Or Shadow From TMP Path | T1552.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_cp_passwd_or_shadow_tmp.yml
+DeviceProcessEvents
+| where FolderPath endswith "/cp" and ProcessCommandLine contains "/tmp/" and (ProcessCommandLine contains "passwd" or ProcessCommandLine contains "shadow")

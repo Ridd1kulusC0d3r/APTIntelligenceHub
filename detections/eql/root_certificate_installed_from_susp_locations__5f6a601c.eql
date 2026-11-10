@@ -1,0 +1,2 @@
+// Root Certificate Installed From Susp Locations | T1553.004 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_import_cert_susp_locations.yml
+any where (process.command_line:"*Import-Certificate*" and process.command_line:"* -FilePath *" and process.command_line:"*Cert:\\LocalMachine\\Root*") and (process.command_line like~ ("*\\AppData\\Local\\Temp\\*", "*:\\Windows\\TEMP\\*", "*\\Desktop\\*", "*\\Downloads\\*", "*\\Perflogs\\*", "*:\\Users\\Public\\*"))

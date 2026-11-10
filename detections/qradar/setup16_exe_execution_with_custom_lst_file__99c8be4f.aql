@@ -1,0 +1,2 @@
+-- Setup16.EXE Execution With Custom .Lst File | T1574.005 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_setup16_custom_lst_execution.yml
+SELECT * FROM events WHERE devicetype=12 AND ("Parent Process Path"='C:\Windows\SysWOW64\setup16.exe' AND LOWER("Parent Command") LIKE '% -m %') AND (NOT((LOWER("Process Path") LIKE 'c:\~mssetup.t\%' OR LOWER("Process Name") LIKE 'c:\~mssetup.t\%')))

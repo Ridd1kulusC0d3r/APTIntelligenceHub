@@ -1,0 +1,3 @@
+// Potentially Suspicious Execution Of Regasm/Regsvcs From Uncommon Location | T1218.009 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_regasm_regsvcs_uncommon_location_execution.yml
+DeviceProcessEvents
+| where ((FolderPath endswith "\\Regsvcs.exe" or FolderPath endswith "\\Regasm.exe") or (ProcessVersionInfoOriginalFileName in~ ("RegSvcs.exe", "RegAsm.exe"))) and (ProcessCommandLine contains "\\AppData\\Local\\Temp\\" or ProcessCommandLine contains "\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\" or ProcessCommandLine contains "\\PerfLogs\\" or ProcessCommandLine contains "\\Users\\Public\\" or ProcessCommandLine contains "\\Windows\\Temp\\")

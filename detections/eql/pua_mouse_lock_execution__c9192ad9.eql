@@ -1,0 +1,2 @@
+// PUA - Mouse Lock Execution | T1056.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_mouselock_execution.yml
+any where process.pe.product:"*Mouse Lock*" or process.pe.company:"*Misc314*" or process.command_line:"*Mouse Lock_*"

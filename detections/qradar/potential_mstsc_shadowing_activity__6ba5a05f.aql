@@ -1,0 +1,2 @@
+-- Potential MSTSC Shadowing Activity | T1563.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_mstsc_rdp_hijack_shadowing.yml
+SELECT * FROM events WHERE devicetype=12 AND LOWER(Command) LIKE '%noconsentprompt%' AND LOWER(Command) LIKE '%shadow:%'

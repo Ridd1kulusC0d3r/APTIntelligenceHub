@@ -1,0 +1,18 @@
+// Potentially Suspicious NTFS Symlink Behavior Modification | T1059, T1222.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_fsutil_symlinkevaluation.yml
+((Image:(*\\cmd.exe OR *\\powershell.exe OR *\\pwsh.exe)) OR (OriginalFileName:(Cmd.Exe OR PowerShell.EXE OR pwsh.dll))) AND (CommandLine:*fsutil* AND CommandLine:*behavior* AND CommandLine:*set* AND CommandLine:*SymlinkEvaluation*) AND (CommandLine:(*R2L\:1* OR *R2R\:1* OR *L2L\:1*))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "((Image:(*\\\\cmd.exe OR *\\\\powershell.exe OR *\\\\pwsh.exe)) OR (OriginalFileName:(Cmd.Exe OR PowerShell.EXE OR pwsh.dll))) AND (CommandLine:*fsutil* AND CommandLine:*behavior* AND CommandLine:*set* AND CommandLine:*SymlinkEvaluation*) AND (CommandLine:(*R2L\\:1* OR *R2R\\:1* OR *L2L\\:1*))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

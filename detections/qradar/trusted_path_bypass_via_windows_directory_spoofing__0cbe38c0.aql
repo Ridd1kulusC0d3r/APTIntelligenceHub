@@ -1,0 +1,2 @@
+-- Trusted Path Bypass via Windows Directory Spoofing | T1548.002, T1574.007 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_win_trusted_path_bypass.yml
+SELECT * FROM events WHERE devicetype=12 AND (LOWER(CONCAT('file directory', '/', filename)) LIKE '%:\windows \system32\%' OR LOWER(CONCAT('file directory', '/', filename)) LIKE '%:\windows \syswow64\%')

@@ -1,0 +1,18 @@
+// Outlook Initiating Outbound SMB/WebDAV to External Host (CVE-2023-23397 pattern) | T1187 | Hub
+(Image:*\\OUTLOOK.EXE AND (DestinationPort:(445 OR 139))) AND (NOT (DestinationIp:10.0.0.0\/8 OR DestinationIp:172.16.0.0\/12 OR DestinationIp:192.168.0.0\/16 OR DestinationIp:127.0.0.0\/8))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(Image:*\\\\OUTLOOK.EXE AND (DestinationPort:(445 OR 139))) AND (NOT (DestinationIp:10.0.0.0\\/8 OR DestinationIp:172.16.0.0\\/12 OR DestinationIp:192.168.0.0\\/16 OR DestinationIp:127.0.0.0\\/8))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

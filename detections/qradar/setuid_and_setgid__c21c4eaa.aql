@@ -1,0 +1,2 @@
+-- Setuid and Setgid | T1548.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_setgid_setuid.yml
+SELECT * FROM events WHERE devicetype=11 AND LOWER(Command) LIKE '%chown root%' AND (LOWER(Command) LIKE '% chmod u+s%' OR LOWER(Command) LIKE '% chmod g+s%')

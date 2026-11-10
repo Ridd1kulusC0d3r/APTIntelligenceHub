@@ -1,0 +1,2 @@
+// HackTool - SecurityXploded Execution | T1555 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_secutyxploded.yml
+from * metadata _id, _index, _version | where process.pe.company=="SecurityXploded" or ends_with(process.executable.caseless, "PasswordDump.exe") or ends_with(process.pe.original_file_name, "PasswordDump.exe")

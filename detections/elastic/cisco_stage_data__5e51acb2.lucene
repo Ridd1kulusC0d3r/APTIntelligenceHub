@@ -1,0 +1,2 @@
+// Cisco Stage Data | T1074, T1105, T1560.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/network/cisco/aaa/cisco_cli_moving_data.yml
+*tftp* OR *rcp* OR *puts* OR *copy* OR *configure\ replace* OR *archive\ tar*

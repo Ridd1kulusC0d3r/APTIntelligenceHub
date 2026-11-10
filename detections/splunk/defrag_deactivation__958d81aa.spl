@@ -1,0 +1,2 @@
+# Defrag Deactivation | T1053.005 | https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2018/TA/Slingshot/proc_creation_win_apt_slingshot.yml
+source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=1 Image="*\\schtasks.exe" (CommandLine IN ("*/delete*", "*/change*")) CommandLine="*/TN*" CommandLine="*\\Microsoft\\Windows\\Defrag\\ScheduledDefrag*"

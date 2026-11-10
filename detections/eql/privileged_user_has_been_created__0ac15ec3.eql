@@ -1,0 +1,2 @@
+// Privileged User Has Been Created | T1098, T1136.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/builtin/lnx_privileged_user_creation.yml
+any where "new user" and ("GID=0," or "UID=0," or "GID=10," or "GID=27,")

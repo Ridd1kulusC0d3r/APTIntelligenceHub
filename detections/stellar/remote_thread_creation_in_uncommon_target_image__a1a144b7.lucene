@@ -1,0 +1,18 @@
+// Remote Thread Creation In Uncommon Target Image | T1055.003 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/create_remote_thread/create_remote_thread_win_susp_uncommon_target_image.yml
+(TargetImage:(*\\calc.exe OR *\\calculator.exe OR *\\mspaint.exe OR *\\notepad.exe OR *\\ping.exe OR *\\sethc.exe OR *\\spoolsv.exe OR *\\wordpad.exe OR *\\write.exe)) AND (NOT (SourceImage:C\:\\Windows\\System32\\csrss.exe OR ((SourceImage:(C\:\\Windows\\System32\\explorer.exe OR C\:\\Windows\\System32\\OpenWith.exe)) AND TargetImage:C\:\\Windows\\System32\\notepad.exe) OR (SourceImage:C\:\\Windows\\System32\\AtBroker.exe AND TargetImage:C\:\\Windows\\System32\\Sethc.exe))) AND (NOT (StartFunction:EtwpNotificationThread OR SourceImage:*unknown\ process* OR (SourceImage:"C\:\\Program Files\\VMware\\VMware Tools\\vmtoolsd.exe" AND StartFunction:GetCommandLineW AND (TargetImage:(C\:\\Windows\\System32\\notepad.exe OR C\:\\Windows\\System32\\spoolsv.exe))) OR (SourceImage:"C\:\\Program Files\\Xerox\\XeroxPrintExperience\\CommonFiles\\XeroxPrintJobEventManagerService.exe" AND StartFunction:LoadLibraryW AND TargetImage:C\:\\Windows\\System32\\spoolsv.exe)))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(TargetImage:(*\\\\calc.exe OR *\\\\calculator.exe OR *\\\\mspaint.exe OR *\\\\notepad.exe OR *\\\\ping.exe OR *\\\\sethc.exe OR *\\\\spoolsv.exe OR *\\\\wordpad.exe OR *\\\\write.exe)) AND (NOT (SourceImage:C\\:\\\\Windows\\\\System32\\\\csrss.exe OR ((SourceImage:(C\\:\\\\Windows\\\\System32\\\\explorer.exe OR C\\:\\\\Windows\\\\System32\\\\OpenWith.exe)) AND TargetImage:C\\:\\\\Windows\\\\System32\\\\notepad.exe) OR (SourceImage:C\\:\\\\Windows\\\\System32\\\\AtBroker.exe AND TargetImage:C\\:\\\\Windows\\\\System32\\\\Sethc.exe))) AND (NOT (StartFunction:EtwpNotificationThread OR SourceImage:*unknown\\ process* OR (SourceImage:\"C\\:\\\\Program Files\\\\VMware\\\\VMware Tools\\\\vmtoolsd.exe\" AND StartFunction:GetCommandLineW AND (TargetImage:(C\\:\\\\Windows\\\\System32\\\\notepad.exe OR C\\:\\\\Windows\\\\System32\\\\spoolsv.exe))) OR (SourceImage:\"C\\:\\\\Program Files\\\\Xerox\\\\XeroxPrintExperience\\\\CommonFiles\\\\XeroxPrintJobEventManagerService.exe\" AND StartFunction:LoadLibraryW AND TargetImage:C\\:\\\\Windows\\\\System32\\\\spoolsv.exe)))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

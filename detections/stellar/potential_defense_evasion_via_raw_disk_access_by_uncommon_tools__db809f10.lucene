@@ -1,0 +1,18 @@
+// Potential Defense Evasion Via Raw Disk Access By Uncommon Tools | T1006 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/raw_access_thread/raw_access_thread_susp_disk_access_using_uncommon_tools.yml
+(NOT (Device:*floppy* OR (Image:(C\:\\$WINDOWS.\~BT\\* OR C\:\\Program\ Files\ \(x86\)\\* OR C\:\\Program\ Files\\* OR C\:\\Windows\\CCM\\* OR C\:\\Windows\\explorer.exe* OR C\:\\Windows\\servicing\\* OR C\:\\Windows\\SoftwareDistribution\\* OR C\:\\Windows\\System32\\* OR C\:\\Windows\\SystemApps\\* OR C\:\\Windows\\SysWOW64\\* OR C\:\\Windows\\uus\\* OR C\:\\Windows\\WinSxS\\*)) OR (Image:(Registry OR System)) OR (Image:C\:\\ProgramData\\Microsoft\\Windows\ Defender\\Platform\\* AND (Image:(*\\MsMpEng.exe OR *\\MpDefenderCoreService.exe))) OR (Image:C\:\\Users\\* AND (Image:*\\AppData\\* AND Image:*\\Microsoft\\*)) OR (Image:C\:\\Windows\\Temp\\* AND (Image:(*\\Executables\\SSDUpdate.exe OR *\\HostMetadata\\NVMEHostmetadata.exe))) OR (NOT _exists_:Image) OR Image:C\:\\Windows\\ImmersiveControlPanel\\SystemSettings.exe OR Image:C\:\\$WinREAgent\\Scratch\\*)) AND (NOT ((Image:C\:\\Users\\* AND Image:*\\AppData\\Local\\GitHubDesktop\\app\-* AND Image:*\\resources\\app\\git\\mingw64\\bin\\git.exe) OR (Image:C\:\\Windows\\Temp\\asgard2\-agent\\* AND Image:*\\thor.exe) OR (Image:C\:\\Users\\* AND Image:*\\AppData\\Local\\Keybase\\upd.exe*)))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(NOT (Device:*floppy* OR (Image:(C\\:\\\\$WINDOWS.\\~BT\\\\* OR C\\:\\\\Program\\ Files\\ \\(x86\\)\\\\* OR C\\:\\\\Program\\ Files\\\\* OR C\\:\\\\Windows\\\\CCM\\\\* OR C\\:\\\\Windows\\\\explorer.exe* OR C\\:\\\\Windows\\\\servicing\\\\* OR C\\:\\\\Windows\\\\SoftwareDistribution\\\\* OR C\\:\\\\Windows\\\\System32\\\\* OR C\\:\\\\Windows\\\\SystemApps\\\\* OR C\\:\\\\Windows\\\\SysWOW64\\\\* OR C\\:\\\\Windows\\\\uus\\\\* OR C\\:\\\\Windows\\\\WinSxS\\\\*)) OR (Image:(Registry OR System)) OR (Image:C\\:\\\\ProgramData\\\\Microsoft\\\\Windows\\ Defender\\\\Platform\\\\* AND (Image:(*\\\\MsMpEng.exe OR *\\\\MpDefenderCoreService.exe))) OR (Image:C\\:\\\\Users\\\\* AND (Image:*\\\\AppData\\\\* AND Image:*\\\\Microsoft\\\\*)) OR (Image:C\\:\\\\Windows\\\\Temp\\\\* AND (Image:(*\\\\Executables\\\\SSDUpdate.exe OR *\\\\HostMetadata\\\\NVMEHostmetadata.exe))) OR (NOT _exists_:Image) OR Image:C\\:\\\\Windows\\\\ImmersiveControlPanel\\\\SystemSettings.exe OR Image:C\\:\\\\$WinREAgent\\\\Scratch\\\\*)) AND (NOT ((Image:C\\:\\\\Users\\\\* AND Image:*\\\\AppData\\\\Local\\\\GitHubDesktop\\\\app\\-* AND Image:*\\\\resources\\\\app\\\\git\\\\mingw64\\\\bin\\\\git.exe) OR (Image:C\\:\\\\Windows\\\\Temp\\\\asgard2\\-agent\\\\* AND Image:*\\\\thor.exe) OR (Image:C\\:\\\\Users\\\\* AND Image:*\\\\AppData\\\\Local\\\\Keybase\\\\upd.exe*)))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

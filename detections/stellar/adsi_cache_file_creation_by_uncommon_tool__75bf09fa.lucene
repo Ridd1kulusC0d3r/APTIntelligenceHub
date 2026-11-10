@@ -1,0 +1,18 @@
+// ADSI-Cache File Creation By Uncommon Tool | T1001.003 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_adsi_cache_creation_by_uncommon_tool.yml
+(TargetFilename:*\\Local\\Microsoft\\Windows\\SchCache\\* AND TargetFilename:*.sch) AND (NOT (((Image:(*\:\\Program\ Files\\Cylance\\Desktop\\CylanceSvc.exe OR *\:\\Windows\\CCM\\CcmExec.exe OR *\:\\windows\\system32\\dllhost.exe OR *\:\\Windows\\system32\\dsac.exe OR *\:\\Windows\\system32\\efsui.exe OR *\:\\windows\\system32\\mmc.exe OR *\:\\windows\\system32\\svchost.exe OR *\:\\Windows\\System32\\wbem\\WmiPrvSE.exe OR *\:\\windows\\system32\\WindowsPowerShell\\v1.0\\powershell.exe)) OR (Image:(*\:\\Windows\\ccmsetup\\autoupgrade\\ccmsetup* OR *\:\\Program\ Files\\SentinelOne\\Sentinel\ Agent*))) OR ((Image:*\:\\Program\ Files\\* AND Image:*\\Microsoft\ Office*) AND Image:*\\OUTLOOK.EXE))) AND (NOT (Image:(*\\LANDesk\\LDCLient\\ldapwhoami.exe OR *\:\\Program\ Files\\Citrix\\Receiver\ StoreFront\\Services\\DefaultDomainServices\\Citrix.DeliveryServices.DomainServices.ServiceHost.exe)))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(TargetFilename:*\\\\Local\\\\Microsoft\\\\Windows\\\\SchCache\\\\* AND TargetFilename:*.sch) AND (NOT (((Image:(*\\:\\\\Program\\ Files\\\\Cylance\\\\Desktop\\\\CylanceSvc.exe OR *\\:\\\\Windows\\\\CCM\\\\CcmExec.exe OR *\\:\\\\windows\\\\system32\\\\dllhost.exe OR *\\:\\\\Windows\\\\system32\\\\dsac.exe OR *\\:\\\\Windows\\\\system32\\\\efsui.exe OR *\\:\\\\windows\\\\system32\\\\mmc.exe OR *\\:\\\\windows\\\\system32\\\\svchost.exe OR *\\:\\\\Windows\\\\System32\\\\wbem\\\\WmiPrvSE.exe OR *\\:\\\\windows\\\\system32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe)) OR (Image:(*\\:\\\\Windows\\\\ccmsetup\\\\autoupgrade\\\\ccmsetup* OR *\\:\\\\Program\\ Files\\\\SentinelOne\\\\Sentinel\\ Agent*))) OR ((Image:*\\:\\\\Program\\ Files\\\\* AND Image:*\\\\Microsoft\\ Office*) AND Image:*\\\\OUTLOOK.EXE))) AND (NOT (Image:(*\\\\LANDesk\\\\LDCLient\\\\ldapwhoami.exe OR *\\:\\\\Program\\ Files\\\\Citrix\\\\Receiver\\ StoreFront\\\\Services\\\\DefaultDomainServices\\\\Citrix.DeliveryServices.DomainServices.ServiceHost.exe)))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

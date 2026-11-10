@@ -1,0 +1,18 @@
+// PUA - Rclone Execution | T1567.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_rclone_execution.yml
+(CommandLine:*\-\-config\ * AND CommandLine:*\-\-no\-check\-certificate\ * AND CommandLine:*\ copy\ *) OR ((Image:*\\rclone.exe OR Description:"Rsync for cloud storage") AND (CommandLine:(*pass* OR *user* OR *copy* OR *sync* OR *config* OR *lsd* OR *remote* OR *ls* OR *mega* OR *pcloud* OR *ftp* OR *ignore\-existing* OR *auto\-confirm* OR *transfers* OR *multi\-thread\-streams* OR *no\-check\-certificate\ *)))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(CommandLine:*\\-\\-config\\ * AND CommandLine:*\\-\\-no\\-check\\-certificate\\ * AND CommandLine:*\\ copy\\ *) OR ((Image:*\\\\rclone.exe OR Description:\"Rsync for cloud storage\") AND (CommandLine:(*pass* OR *user* OR *copy* OR *sync* OR *config* OR *lsd* OR *remote* OR *ls* OR *mega* OR *pcloud* OR *ftp* OR *ignore\\-existing* OR *auto\\-confirm* OR *transfers* OR *multi\\-thread\\-streams* OR *no\\-check\\-certificate\\ *)))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

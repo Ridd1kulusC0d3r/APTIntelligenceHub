@@ -1,0 +1,18 @@
+// PowerShell WMI Win32_Product Install MSI | T1218.007 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/powershell/powershell_script/posh_ps_win32_product_install_msi.yml
+ScriptBlockText:*Invoke\-CimMethod\ * AND ScriptBlockText:*\-ClassName\ * AND ScriptBlockText:*Win32_Product\ * AND ScriptBlockText:*\-MethodName\ * AND ScriptBlockText:*.msi*
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "ScriptBlockText:*Invoke\\-CimMethod\\ * AND ScriptBlockText:*\\-ClassName\\ * AND ScriptBlockText:*Win32_Product\\ * AND ScriptBlockText:*\\-MethodName\\ * AND ScriptBlockText:*.msi*",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

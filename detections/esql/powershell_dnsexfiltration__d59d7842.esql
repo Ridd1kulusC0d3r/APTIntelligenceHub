@@ -1,0 +1,2 @@
+// Powershell DNSExfiltration | T1048 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/powershell/powershell_script/posh_ps_invoke_dnsexfiltration.yml
+from * metadata _id, _index, _version | where powershell.file.script_block_text like "*Invoke-DNSExfiltrator*" or powershell.file.script_block_text like "* -i *" and powershell.file.script_block_text like "* -d *" and powershell.file.script_block_text like "* -p *" and powershell.file.script_block_text like "* -doh *" and powershell.file.script_block_text like "* -t *"

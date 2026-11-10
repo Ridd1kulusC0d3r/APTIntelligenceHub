@@ -1,0 +1,2 @@
+# Device Installation Blocked | T1200 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_device_installation_blocked.yml
+source="WinEventLog:Security" EventCode=6423

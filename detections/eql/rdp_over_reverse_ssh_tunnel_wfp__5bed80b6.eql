@@ -1,0 +1,2 @@
+// RDP over Reverse SSH Tunnel WFP | T1021.001, T1090.001, T1090.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_rdp_reverse_tunnel.yml
+any where winlog.channel:"Security" and (event.code:"5156" and ((source.port:3389 and (destination.ip like~ ("127.*", "::1"))) or (destination.port:3389 and (source.ip like~ ("127.*", "::1")))) and (not (winlog.event_data.FilterOrigin:"AppContainer Loopback" or (process.executable.caseless like~ ("*\\thor.exe", "*\\thor64.exe")))))

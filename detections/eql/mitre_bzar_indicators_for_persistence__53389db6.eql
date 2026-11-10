@@ -1,0 +1,2 @@
+// MITRE BZAR Indicators for Persistence | T1547.004 | https://github.com/SigmaHQ/sigma/blob/master/rules/network/zeek/zeek_dce_rpc_mitre_bzar_persistence.yml
+any where (endpoint:"spoolss" and operation:"RpcAddMonitor") or (endpoint:"spoolss" and operation:"RpcAddPrintProcessor") or (endpoint:"IRemoteWinspool" and operation:"RpcAsyncAddMonitor") or (endpoint:"IRemoteWinspool" and operation:"RpcAsyncAddPrintProcessor") or (endpoint:"ISecLogon" and operation:"SeclCreateProcessWithLogonW") or (endpoint:"ISecLogon" and operation:"SeclCreateProcessWithLogonExW")

@@ -1,0 +1,2 @@
+// HH.EXE Initiated HTTP Network Connection | T1218.001 | https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/network_connection/net_connection_win_hh_http_connection.yml
+any where process.executable.caseless:"*\\hh.exe" and network.direction:"true" and (destination.port like~ (80, 443))

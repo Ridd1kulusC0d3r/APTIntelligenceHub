@@ -1,0 +1,3 @@
+// ESXi Network Configuration Discovery Via ESXCLI | T1007, T1033, T1059.012 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_esxcli_network_discovery.yml
+DeviceProcessEvents
+| where (FolderPath endswith "/esxcli" and ProcessCommandLine contains "network") and (ProcessCommandLine contains " get" or ProcessCommandLine contains " list")

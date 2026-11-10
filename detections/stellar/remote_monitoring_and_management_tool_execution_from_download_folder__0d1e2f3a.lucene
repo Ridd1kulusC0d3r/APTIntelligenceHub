@@ -1,0 +1,18 @@
+// Remote Monitoring And Management Tool Execution From Download Folder | T1219 | Hub
+((Image:(*AteraAgent* OR *ScreenConnect* OR *SimpleHelp* OR *AnyDesk* OR *Syncro* OR *netbird*)) OR (Product:(*Atera* OR *ScreenConnect* OR *SimpleHelp* OR *AnyDesk*))) AND (Image:(*\\Downloads\\* OR *\\AppData\\Local\\Temp\\*))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "((Image:(*AteraAgent* OR *ScreenConnect* OR *SimpleHelp* OR *AnyDesk* OR *Syncro* OR *netbird*)) OR (Product:(*Atera* OR *ScreenConnect* OR *SimpleHelp* OR *AnyDesk*))) AND (Image:(*\\\\Downloads\\\\* OR *\\\\AppData\\\\Local\\\\Temp\\\\*))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

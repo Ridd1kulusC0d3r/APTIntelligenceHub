@@ -1,0 +1,18 @@
+// Suspicious Access to Sensitive File Extensions | T1039 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_susp_raccess_sensitive_fext.yml
+EventID:5145 AND (RelativeTargetName:(*.bak OR *.dmp OR *.edb OR *.kirbi OR *.msg OR *.nsf OR *.nst OR *.oab OR *.ost OR *.pst OR *.rdp))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "EventID:5145 AND (RelativeTargetName:(*.bak OR *.dmp OR *.edb OR *.kirbi OR *.msg OR *.nsf OR *.nst OR *.oab OR *.ost OR *.pst OR *.rdp))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

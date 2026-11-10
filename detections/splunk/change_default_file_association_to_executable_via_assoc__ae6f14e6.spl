@@ -1,0 +1,2 @@
+# Change Default File Association To Executable Via Assoc | T1546.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_cmd_assoc_tamper_exe_file_association.yml
+source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=1 (Image="*\\cmd.exe" OR OriginalFileName="Cmd.Exe") CommandLine="*assoc *" CommandLine="*exefile*" NOT CommandLine="*.exe=exefile*"

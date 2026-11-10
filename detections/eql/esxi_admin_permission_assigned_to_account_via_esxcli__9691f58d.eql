@@ -1,0 +1,2 @@
+// ESXi Admin Permission Assigned To Account Via ESXCLI | T1059.012, T1098 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_esxcli_permission_change_admin.yml
+any where Image:"*/esxcli" and CommandLine:"*system*" and (CommandLine:"* permission *" and CommandLine:"* set*" and CommandLine:"*Admin*")

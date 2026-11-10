@@ -1,0 +1,18 @@
+// Office Application Spawning Script Interpreter Or LOLBin | T1204.002, T1221 | Hub
+(ParentImage:(*\\WINWORD.EXE OR *\\EXCEL.EXE OR *\\POWERPNT.EXE)) AND (Image:(*\\wscript.exe OR *\\cscript.exe OR *\\mshta.exe OR *\\powershell.exe OR *\\cmd.exe))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(ParentImage:(*\\\\WINWORD.EXE OR *\\\\EXCEL.EXE OR *\\\\POWERPNT.EXE)) AND (Image:(*\\\\wscript.exe OR *\\\\cscript.exe OR *\\\\mshta.exe OR *\\\\powershell.exe OR *\\\\cmd.exe))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

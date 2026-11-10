@@ -1,0 +1,18 @@
+// HackTool - Mimikatz Kirbi File Creation | T1558 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_hktl_mimikatz_files.yml
+TargetFilename:(*.kirbi OR *mimilsa.log)
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "TargetFilename:(*.kirbi OR *mimilsa.log)",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

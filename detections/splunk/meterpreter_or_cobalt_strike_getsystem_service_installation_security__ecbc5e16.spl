@@ -1,0 +1,2 @@
+# Meterpreter or Cobalt Strike Getsystem Service Installation - Security | T1134.001, T1134.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_meterpreter_or_cobaltstrike_getsystem_service_install.yml
+source="WinEventLog:Security" EventCode=4697 ((ServiceFileName="*/c*" ServiceFileName="*echo*" ServiceFileName="*\\pipe\\*" (ServiceFileName IN ("*cmd*", "*%COMSPEC%*"))) OR (ServiceFileName="*rundll32*" ServiceFileName="*.dll,a*" ServiceFileName="*/p:*") OR ServiceFileName="\\\\127.0.0.1\\ADMIN$\\*")

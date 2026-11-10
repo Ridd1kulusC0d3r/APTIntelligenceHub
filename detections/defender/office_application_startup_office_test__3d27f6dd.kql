@@ -1,0 +1,3 @@
+// Office Application Startup - Office Test | T1137.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/registry_event_office_test_regadd.yml
+DeviceRegistryEvents
+| where RegistryKey contains "\\Software\\Microsoft\\Office test\\Special\\Perf"

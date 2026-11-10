@@ -1,0 +1,2 @@
+-- Touch Suspicious Service File | T1070.006 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_touch_susp.yml
+SELECT * FROM events WHERE devicetype=11 AND (LOWER("Process Path") LIKE '%/touch' OR LOWER("Process Name") LIKE '%/touch') AND LOWER(Command) LIKE '% -t %' AND LOWER(Command) LIKE '%.service'

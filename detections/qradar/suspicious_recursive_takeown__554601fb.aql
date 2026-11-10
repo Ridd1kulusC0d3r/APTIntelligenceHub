@@ -1,0 +1,2 @@
+-- Suspicious Recursive Takeown | T1222.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_takeown_recursive_own.yml
+SELECT * FROM events WHERE devicetype=12 AND (LOWER("Process Path") LIKE '%\takeown.exe' OR LOWER("Process Name") LIKE '%\takeown.exe') AND (LOWER(Command) LIKE '%/f %' AND LOWER(Command) LIKE '%/r%')

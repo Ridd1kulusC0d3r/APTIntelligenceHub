@@ -1,0 +1,2 @@
+// Delete Volume Shadow Copies Via WMI With PowerShell | T1490 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/powershell/powershell_classic/posh_pc_delete_volume_shadow_copies.yml
+from * metadata _id, _index, _version | where winlog.event_data.Data like "*Get-WmiObject*" and winlog.event_data.Data like "*Win32_ShadowCopy*" and (winlog.event_data.Data like "*Delete()*" or winlog.event_data.Data like "*Remove-WmiObject*")

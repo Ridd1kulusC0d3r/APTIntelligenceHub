@@ -1,0 +1,3 @@
+// BloodHound Collection Files | T1059.001, T1069.001, T1069.002, T1087.001, T1087.002, T1482 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_bloodhound_collection.yml
+DeviceFileEvents
+| where (FolderPath endswith "BloodHound.zip" or FolderPath endswith "_computers.json" or FolderPath endswith "_containers.json" or FolderPath endswith "_gpos.json" or FolderPath endswith "_groups.json" or FolderPath endswith "_ous.json" or FolderPath endswith "_users.json") and (not((InitiatingProcessFolderPath endswith "\\svchost.exe" and FolderPath startswith "C:\\Program Files\\WindowsApps\\Microsoft." and FolderPath endswith "\\pocket_containers.json")))

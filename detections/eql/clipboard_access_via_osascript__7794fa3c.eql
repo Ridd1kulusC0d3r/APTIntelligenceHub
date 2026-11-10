@@ -1,0 +1,2 @@
+// Clipboard Access Via OSAScript | T1059.002, T1115 | https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_clipboard_access_via_osascript.yml
+any where (Image:"*/osascript" and (CommandLine:"* -e *" and CommandLine:"*clipboard*")) and (not (ParentImage:"*opencode" and (CommandLine:"*osascript*" and CommandLine:"* -e *" and CommandLine:"*set imageData to the clipboard*" and CommandLine:"*set fileRef*")))

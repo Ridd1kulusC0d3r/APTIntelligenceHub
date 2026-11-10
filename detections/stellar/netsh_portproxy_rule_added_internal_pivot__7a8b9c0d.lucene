@@ -1,0 +1,18 @@
+// Netsh PortProxy Rule Added (Internal Pivot) | T1090.001 | Hub
+Image:*\\netsh.exe AND (CommandLine:*portproxy* AND CommandLine:*add*)
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "Image:*\\\\netsh.exe AND (CommandLine:*portproxy* AND CommandLine:*add*)",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

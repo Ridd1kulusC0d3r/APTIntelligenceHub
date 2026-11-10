@@ -1,0 +1,2 @@
+// Cisco Crypto Commands | T1552.004, T1553.004 | https://github.com/SigmaHQ/sigma/blob/master/rules/network/cisco/aaa/cisco_cli_crypto_actions.yml
+any where "crypto pki export" or "crypto pki import" or "crypto pki trustpoint"

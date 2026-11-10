@@ -1,0 +1,2 @@
+# OpenCanary - GIT Clone Request | T1213 | https://github.com/SigmaHQ/sigma/blob/master/rules/application/opencanary/opencanary_git_clone_request.yml
+logtype=16001

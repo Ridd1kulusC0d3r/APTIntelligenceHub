@@ -1,0 +1,2 @@
+-- Scheduled Task Or Executable Dropped Into SYSVOL Policies | T1484.001, T1485 | Hub
+SELECT * FROM events WHERE devicetype=12 AND (LOWER(Filename) LIKE '%\sysvol\%' AND LOWER(Filename) LIKE '%\policies\%') AND (LOWER(Filename) LIKE '%.exe' OR LOWER(Filename) LIKE '%.dll' OR LOWER(Filename) LIKE '%.ps1' OR LOWER(Filename) LIKE '%.bat' OR LOWER(Filename) LIKE '%\scheduledtasks.xml')

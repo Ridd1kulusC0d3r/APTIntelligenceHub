@@ -1,0 +1,18 @@
+// HackTool - WinPwn Execution - ScriptBlock | T1046, T1082, T1106, T1518, T1548.002, T1552.001, T1555, T1555.003 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/powershell/powershell_script/posh_ps_hktl_winpwn.yml
+ScriptBlockText:(*Offline_Winpwn* OR *WinPwn\ * OR *WinPwn.exe* OR *WinPwn.ps1*)
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "ScriptBlockText:(*Offline_Winpwn* OR *WinPwn\\ * OR *WinPwn.exe* OR *WinPwn.ps1*)",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

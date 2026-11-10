@@ -1,0 +1,2 @@
+// Renamed Mavinject.EXE Execution | T1055.001, T1218.013 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_renamed_mavinject.yml
+any where (process.pe.original_file_name like~ ("mavinject32.exe", "mavinject64.exe")) and (not (process.executable.caseless like~ ("*\\mavinject32.exe", "*\\mavinject64.exe")))

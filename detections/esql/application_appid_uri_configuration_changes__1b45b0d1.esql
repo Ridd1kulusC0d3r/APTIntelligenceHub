@@ -1,0 +1,2 @@
+// Application AppID Uri Configuration Changes | T1078.004, T1552 | https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/azure/audit_logs/azure_app_appid_uri_changes.yml
+from * metadata _id, _index, _version | where properties.message in ("Update Application", "Update Service principal")

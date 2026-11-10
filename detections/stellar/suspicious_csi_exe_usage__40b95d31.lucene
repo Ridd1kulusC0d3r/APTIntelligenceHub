@@ -1,0 +1,18 @@
+// Suspicious Csi.exe Usage | T1072, T1218 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_csi_execution.yml
+((Image:(*\\csi.exe OR *\\rcsi.exe)) OR (OriginalFileName:(csi.exe OR rcsi.exe))) AND Company:"Microsoft Corporation"
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "((Image:(*\\\\csi.exe OR *\\\\rcsi.exe)) OR (OriginalFileName:(csi.exe OR rcsi.exe))) AND Company:\"Microsoft Corporation\"",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

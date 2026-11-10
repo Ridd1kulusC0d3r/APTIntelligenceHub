@@ -1,0 +1,18 @@
+// Suspicious Executable File Creation | T1564 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_susp_executable_creation.yml
+TargetFilename:(*\:\\$Recycle.Bin.exe OR *\:\\Documents\ and\ Settings.exe OR *\:\\MSOCache.exe OR *\:\\PerfLogs.exe OR *\:\\Recovery.exe OR *.bat.exe OR *.sys.exe)
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "TargetFilename:(*\\:\\\\$Recycle.Bin.exe OR *\\:\\\\Documents\\ and\\ Settings.exe OR *\\:\\\\MSOCache.exe OR *\\:\\\\PerfLogs.exe OR *\\:\\\\Recovery.exe OR *.bat.exe OR *.sys.exe)",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

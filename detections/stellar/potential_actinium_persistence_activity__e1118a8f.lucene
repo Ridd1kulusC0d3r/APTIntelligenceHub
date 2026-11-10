@@ -1,0 +1,18 @@
+// Potential ACTINIUM Persistence Activity | T1053, T1053.005 | https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2022/TA/ACTINIUM/proc_creation_win_apt_actinium_persistence.yml
+CommandLine:*schtasks* AND CommandLine:*create* AND CommandLine:*wscript* AND CommandLine:*\ \/e\:vbscript*
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "CommandLine:*schtasks* AND CommandLine:*create* AND CommandLine:*wscript* AND CommandLine:*\\ \\/e\\:vbscript*",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

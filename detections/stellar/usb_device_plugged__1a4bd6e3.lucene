@@ -1,0 +1,18 @@
+// USB Device Plugged | T1200 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/driverframeworks/win_usb_device_plugged.yml
+EventID:(2003 OR 2100 OR 2102)
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "EventID:(2003 OR 2100 OR 2102)",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

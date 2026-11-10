@@ -1,0 +1,2 @@
+# Flash Player Update from Suspicious Location | T1036.005, T1189, T1204.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/web/proxy_generic/proxy_susp_flash_download_loc.yml
+("c-uri" IN ("*/flash_install.php*", "*/install_flash_player.exe")) NOT "cs-host"="*.adobe.com"

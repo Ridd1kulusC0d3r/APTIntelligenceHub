@@ -1,0 +1,2 @@
+// New Federated Domain Added | T1484.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/m365/audit/microsoft365_new_federated_domain_added_audit.yml
+Operation:*domain* AND (Operation:(*add* OR *new*))

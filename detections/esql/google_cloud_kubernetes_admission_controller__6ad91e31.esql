@@ -1,0 +1,2 @@
+// Google Cloud Kubernetes Admission Controller | T1078, T1552, T1552.007 | https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/gcp/audit/gcp_kubernetes_admission_controller.yml
+from * metadata _id, _index, _version | where starts_with(gcp.audit.method_name, "admissionregistration.k8s.io.v") and (gcp.audit.method_name like "*.mutatingwebhookconfigurations.*" or gcp.audit.method_name like "*.validatingwebhookconfigurations.*") and (ends_with(gcp.audit.method_name, "create") or ends_with(gcp.audit.method_name, "patch") or ends_with(gcp.audit.method_name, "replace"))

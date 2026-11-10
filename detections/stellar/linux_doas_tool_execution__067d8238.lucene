@@ -1,0 +1,18 @@
+// Linux Doas Tool Execution | T1548 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_doas_execution.yml
+Image:*\/doas
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "Image:*\\/doas",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,2 @@
+// Potentially Suspicious DLL Registered Via Odbcconf.EXE | T1218.008 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_odbcconf_register_dll_regsvr_susp.yml
+from * metadata _id, _index, _version | where (ends_with(process.executable.caseless, "\\odbcconf.exe") or process.pe.original_file_name=="odbcconf.exe") and process.command_line like "*REGSVR *" and not process.command_line like "*.dll*"

@@ -1,0 +1,2 @@
+-- TeamPCP LiteLLM Supply Chain Attack Persistence Indicators | T1195.002, T1543.002 | https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2026/TA/TeamPCP/file_event_lnx_teampcp_litellm_supply_chain_attack_indicators.yml
+SELECT * FROM events WHERE devicetype=11 AND (LOWER("Process Path") LIKE '%/python3%' OR LOWER("Process Name") LIKE '%/python3%') AND (LOWER(Filename) LIKE '%/.config/sysmon/sysmon.py' OR LOWER(Filename) LIKE '%/.config/systemd/user/sysmon.service')

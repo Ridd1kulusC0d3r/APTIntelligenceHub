@@ -1,0 +1,18 @@
+// Service Installed With Binary In Unusual Path (svchost-hosted DLL) | T1543.003 | Hub
+(TargetObject:*\\Services\\* AND TargetObject:*\\Parameters\\ServiceDll) AND (NOT (Details:(C\:\\Windows\\System32\\* OR %SystemRoot%\\System32\\* OR %systemroot%\\system32\\*)))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(TargetObject:*\\\\Services\\\\* AND TargetObject:*\\\\Parameters\\\\ServiceDll) AND (NOT (Details:(C\\:\\\\Windows\\\\System32\\\\* OR %SystemRoot%\\\\System32\\\\* OR %systemroot%\\\\system32\\\\*)))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

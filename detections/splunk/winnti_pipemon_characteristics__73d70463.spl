@@ -1,0 +1,2 @@
+# Winnti Pipemon Characteristics | T1574.001 | https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2020/TA/Winnti/proc_creation_win_apt_winnti_pipemon.yml
+source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=1 (CommandLine="*setup0.exe -p*" OR (CommandLine="*setup.exe*" (CommandLine IN ("*-x:0", "*-x:1", "*-x:2"))))

@@ -1,0 +1,2 @@
+// Sudo Privilege Escalation CVE-2019-14287 | T1068, T1548.003 | https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2019/Exploits/CVE-2019-14287/proc_creation_lnx_exploit_cve_2019_14287.yml
+CommandLine:*\ \-u#*

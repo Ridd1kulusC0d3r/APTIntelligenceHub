@@ -1,0 +1,2 @@
+# Suspicious Desktopimgdownldr Target File | T1105 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_susp_desktopimgdownldr_file.yml
+source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=11 Image="*\\svchost.exe" TargetFilename="*\\Personalization\\LockScreenImage\\*" NOT TargetFilename="*C:\\Windows\\*" NOT (TargetFilename IN ("*.jpg*", "*.jpeg*", "*.png*"))

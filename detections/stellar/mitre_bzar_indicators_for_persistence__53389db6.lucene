@@ -1,0 +1,18 @@
+// MITRE BZAR Indicators for Persistence | T1547.004 | https://github.com/SigmaHQ/sigma/blob/master/rules/network/zeek/zeek_dce_rpc_mitre_bzar_persistence.yml
+(endpoint:spoolss AND operation:RpcAddMonitor) OR (endpoint:spoolss AND operation:RpcAddPrintProcessor) OR (endpoint:IRemoteWinspool AND operation:RpcAsyncAddMonitor) OR (endpoint:IRemoteWinspool AND operation:RpcAsyncAddPrintProcessor) OR (endpoint:ISecLogon AND operation:SeclCreateProcessWithLogonW) OR (endpoint:ISecLogon AND operation:SeclCreateProcessWithLogonExW)
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(endpoint:spoolss AND operation:RpcAddMonitor) OR (endpoint:spoolss AND operation:RpcAddPrintProcessor) OR (endpoint:IRemoteWinspool AND operation:RpcAsyncAddMonitor) OR (endpoint:IRemoteWinspool AND operation:RpcAsyncAddPrintProcessor) OR (endpoint:ISecLogon AND operation:SeclCreateProcessWithLogonW) OR (endpoint:ISecLogon AND operation:SeclCreateProcessWithLogonExW)",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

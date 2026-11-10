@@ -1,0 +1,2 @@
+// HackTool - NoFilter Execution | T1134, T1134.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_hktl_nofilter.yml
+from * metadata _id, _index, _version | where winlog.channel=="Security" and (event.code=="5447" and winlog.event_data.FilterName like "*RonPolicy*" or event.code=="5449" and winlog.event_data.ProviderContextName like "*RonPolicy*")

@@ -1,0 +1,2 @@
+// Time Travel Debugging Utility Usage - Image | T1003.001, T1218 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_dll_tttracer_module_load.yml
+from * metadata _id, _index, _version | where ends_with(file.path, "\\ttdrecord.dll") or ends_with(file.path, "\\ttdwriter.dll") or ends_with(file.path, "\\ttdloader.dll")

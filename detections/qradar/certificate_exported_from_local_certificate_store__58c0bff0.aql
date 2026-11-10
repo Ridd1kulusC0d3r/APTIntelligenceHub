@@ -1,0 +1,2 @@
+-- Certificate Exported From Local Certificate Store | T1649 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/certificate_services_client_lifecycle_system/win_certificateservicesclient_lifecycle_system_cert_exported.yml
+SELECT * FROM events WHERE devicetype=12 AND "Event ID"=1007

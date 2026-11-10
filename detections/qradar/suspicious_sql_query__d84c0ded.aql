@@ -1,0 +1,2 @@
+-- Suspicious SQL Query | T1190, T1505.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/category/database/db_anomalous_query.yml | NOTA: fallback QRadarAQL_payload_pipeline: campos sem propriedade DSM mapeada são buscados em UTF8(payload) – custo maior, crie custom properties
+SELECT * FROM events WHERE LOWER(UTF8(payload)) LIKE '%drop%' OR LOWER(UTF8(payload)) LIKE '%truncate%' OR LOWER(UTF8(payload)) LIKE '%dump%' OR LOWER(UTF8(payload)) LIKE '%select *%'

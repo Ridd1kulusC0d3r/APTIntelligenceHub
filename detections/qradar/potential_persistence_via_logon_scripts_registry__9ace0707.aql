@@ -1,0 +1,2 @@
+-- Potential Persistence Via Logon Scripts - Registry | T1037.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_persistence_logon_scripts_userinitmprlogonscript.yml
+SELECT * FROM events WHERE devicetype=12 AND (LOWER("Process Name") LIKE '%userinitmprlogonscript%' OR LOWER("Target Process Name") LIKE '%userinitmprlogonscript%' OR LOWER("Object Name") LIKE '%userinitmprlogonscript%')

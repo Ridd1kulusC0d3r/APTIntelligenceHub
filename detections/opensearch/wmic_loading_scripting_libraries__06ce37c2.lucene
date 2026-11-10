@@ -1,0 +1,2 @@
+// WMIC Loading Scripting Libraries | T1220 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_wmic_remote_xsl_scripting_dlls.yml
+process.executable.caseless:*\\wmic.exe AND (file.path:(*\\jscript.dll OR *\\vbscript.dll))

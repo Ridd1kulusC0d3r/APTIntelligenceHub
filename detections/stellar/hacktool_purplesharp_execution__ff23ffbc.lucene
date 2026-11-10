@@ -1,0 +1,18 @@
+// HackTool - PurpleSharp Execution | T1587 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_purplesharp_indicators.yml
+(Image:*\\purplesharp* OR OriginalFileName:PurpleSharp.exe) OR (CommandLine:(*xyz123456.exe* OR *PurpleSharp*))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(Image:*\\\\purplesharp* OR OriginalFileName:PurpleSharp.exe) OR (CommandLine:(*xyz123456.exe* OR *PurpleSharp*))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

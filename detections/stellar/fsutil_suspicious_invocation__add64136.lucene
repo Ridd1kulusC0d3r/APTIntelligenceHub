@@ -1,0 +1,18 @@
+// Fsutil Suspicious Invocation | T1070, T1485 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_fsutil_usage.yml
+(Image:*\\fsutil.exe OR OriginalFileName:fsutil.exe) AND (CommandLine:(*deletejournal* OR *createjournal* OR *setZeroData*))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(Image:*\\\\fsutil.exe OR OriginalFileName:fsutil.exe) AND (CommandLine:(*deletejournal* OR *createjournal* OR *setZeroData*))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,2 @@
+-- Delete Volume Shadow Copies Via WMI With PowerShell | T1490 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/powershell/powershell_classic/posh_pc_delete_volume_shadow_copies.yml | NOTA: fallback QRadarAQL_payload_pipeline: campos sem propriedade DSM mapeada são buscados em UTF8(payload) – custo maior, crie custom properties
+SELECT * FROM events WHERE devicetype=12 AND (LOWER(UTF8(payload)) LIKE '%get-wmiobject%' AND LOWER(UTF8(payload)) LIKE '%win32_shadowcopy%') AND (LOWER(UTF8(payload)) LIKE '%delete()%' OR LOWER(UTF8(payload)) LIKE '%remove-wmiobject%')

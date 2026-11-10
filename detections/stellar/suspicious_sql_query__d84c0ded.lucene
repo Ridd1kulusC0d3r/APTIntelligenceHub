@@ -1,0 +1,18 @@
+// Suspicious SQL Query | T1190, T1505.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/category/database/db_anomalous_query.yml
+*drop* OR *truncate* OR *dump* OR *select\ \**
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "*drop* OR *truncate* OR *dump* OR *select\\ \\**",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

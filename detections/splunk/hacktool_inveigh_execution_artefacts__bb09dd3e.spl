@@ -1,0 +1,2 @@
+# HackTool - Inveigh Execution Artefacts | T1219.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_hktl_inveigh_artefacts.yml
+source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=11 (TargetFilename IN ("*\\Inveigh-Log.txt", "*\\Inveigh-Cleartext.txt", "*\\Inveigh-NTLMv1Users.txt", "*\\Inveigh-NTLMv2Users.txt", "*\\Inveigh-NTLMv1.txt", "*\\Inveigh-NTLMv2.txt", "*\\Inveigh-FormInput.txt", "*\\Inveigh.dll", "*\\Inveigh.exe", "*\\Inveigh.ps1", "*\\Inveigh-Relay.ps1"))

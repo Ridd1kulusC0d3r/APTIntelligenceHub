@@ -1,0 +1,2 @@
+-- Interactive AT Job | T1053.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_at_interactive_execution.yml
+SELECT * FROM events WHERE devicetype=12 AND (LOWER("Process Path") LIKE '%\at.exe' OR LOWER("Process Name") LIKE '%\at.exe') AND LOWER(Command) LIKE '%interactive%'

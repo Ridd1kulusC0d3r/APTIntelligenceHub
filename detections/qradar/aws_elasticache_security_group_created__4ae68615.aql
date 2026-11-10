@@ -1,0 +1,2 @@
+-- AWS ElastiCache Security Group Created | T1136, T1136.003 | https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/aws/cloudtrail/aws_elasticache_security_group_created.yml
+SELECT * FROM events WHERE devicetype IN(516, 519, 456, 460, 501, 502, 507, 440, 347) AND QIDNAME(qid)='CreateCacheSecurityGroup'

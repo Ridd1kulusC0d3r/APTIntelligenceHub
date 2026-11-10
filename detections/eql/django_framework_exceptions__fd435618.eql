@@ -1,0 +1,2 @@
+// Django Framework Exceptions | T1190 | https://github.com/SigmaHQ/sigma/blob/master/rules/application/django/appframework_django_exceptions.yml
+any where "SuspiciousOperation" or "DisallowedHost" or "DisallowedModelAdminLookup" or "DisallowedModelAdminToField" or "DisallowedRedirect" or "InvalidSessionKey" or "RequestDataTooBig" or "SuspiciousFileOperation" or "SuspiciousMultipartForm" or "SuspiciousSession" or "TooManyFieldsSent" or "PermissionDenied"

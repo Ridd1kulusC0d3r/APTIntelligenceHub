@@ -1,0 +1,2 @@
+// UAC Bypass Using .NET Code Profiler on MMC | T1548.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_uac_bypass_dotnet_profiler.yml
+file.path:C\:\\Users\\* AND file.path:*\\AppData\\Local\\Temp\\pe386.dll

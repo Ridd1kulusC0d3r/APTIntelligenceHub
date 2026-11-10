@@ -1,0 +1,3 @@
+// Potential Manage-bde.wsf Abuse To Proxy Execution | T1216 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_manage_bde.yml
+DeviceProcessEvents
+| where ((FolderPath endswith "\\wscript.exe" or ProcessVersionInfoOriginalFileName =~ "wscript.exe") and ProcessCommandLine contains "manage-bde.wsf") or (((InitiatingProcessFolderPath endswith "\\cscript.exe" or InitiatingProcessFolderPath endswith "\\wscript.exe") and InitiatingProcessCommandLine contains "manage-bde.wsf") and (not(FolderPath endswith "\\cmd.exe")))

@@ -1,0 +1,3 @@
+// Suspicious Use of CSharp Interactive Console | T1127 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_csi_use_of_csharp_console.yml
+DeviceProcessEvents
+| where FolderPath endswith "\\csi.exe" and (InitiatingProcessFolderPath endswith "\\powershell.exe" or InitiatingProcessFolderPath endswith "\\pwsh.exe" or InitiatingProcessFolderPath endswith "\\powershell_ise.exe") and ProcessVersionInfoOriginalFileName =~ "csi.exe"

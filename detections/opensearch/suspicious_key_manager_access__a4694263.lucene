@@ -1,0 +1,2 @@
+// Suspicious Key Manager Access | T1555.004 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_keymgr.yml
+(process.executable.caseless:*\\rundll32.exe OR process.pe.original_file_name:RUNDLL32.EXE) AND (process.command_line:*keymgr* AND process.command_line:*KRShowKeyMgr*)

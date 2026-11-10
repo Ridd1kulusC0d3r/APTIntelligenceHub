@@ -1,0 +1,2 @@
+# System Information Discovery | T1082 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_system_info_discovery.yml
+Image IN ("*/uname", "*/hostname", "*/uptime", "*/lspci", "*/dmidecode", "*/lscpu", "*/lsmod")

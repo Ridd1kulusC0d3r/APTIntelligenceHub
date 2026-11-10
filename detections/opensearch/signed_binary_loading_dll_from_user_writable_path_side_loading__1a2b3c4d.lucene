@@ -1,0 +1,2 @@
+// Signed Binary Loading DLL From User-Writable Path (Side-Loading) | T1574.002 | Hub
+((process.executable.caseless:(*\\AppData\\* OR *\\ProgramData\\* OR *\\Users\\Public\\*)) AND (file.path:(*\\AppData\\* OR *\\ProgramData\\* OR *\\Users\\Public\\*))) AND file.code_signature.signed:false

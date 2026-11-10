@@ -1,0 +1,2 @@
+// Scheduled Task Or Executable Dropped Into SYSVOL Policies | T1484.001, T1485 | Hub
+from * metadata _id, _index, _version | where file.path like "*\\SYSVOL\\*" and file.path like "*\\Policies\\*" and (ends_with(file.path, ".exe") or ends_with(file.path, ".dll") or ends_with(file.path, ".ps1") or ends_with(file.path, ".bat") or ends_with(file.path, "\\ScheduledTasks.xml"))

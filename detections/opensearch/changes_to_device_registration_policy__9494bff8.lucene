@@ -1,0 +1,2 @@
+// Changes to Device Registration Policy | T1484 | https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/azure/audit_logs/azure_ad_device_registration_policy_changes.yml
+Category:Policy AND ActivityDisplayName:"Set device registration policies"

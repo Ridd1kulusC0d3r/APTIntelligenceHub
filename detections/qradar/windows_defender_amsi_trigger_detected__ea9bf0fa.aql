@@ -1,0 +1,2 @@
+-- Windows Defender AMSI Trigger Detected | T1059 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/windefend/win_defender_malware_detected_amsi_source.yml | NOTA: fallback QRadarAQL_payload_pipeline: campos sem propriedade DSM mapeada são buscados em UTF8(payload) – custo maior, crie custom properties
+SELECT * FROM events WHERE devicetype IN(433, 12) AND "Event ID"=1116 AND LOWER(UTF8(payload)) LIKE '%amsi%'

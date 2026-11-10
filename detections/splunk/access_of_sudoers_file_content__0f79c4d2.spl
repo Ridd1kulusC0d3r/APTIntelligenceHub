@@ -1,0 +1,2 @@
+# Access of Sudoers File Content | T1592.004 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_susp_process_reading_sudoers.yml
+(Image IN ("*/cat", "*/ed", "*/egrep", "*/emacs", "*/fgrep", "*/grep", "*/head", "*/less", "*/more", "*/nano", "*/tail")) CommandLine="* /etc/sudoers*"

@@ -1,0 +1,2 @@
+// User Added To Admin Group Via Sysadminctl | T1078.003 | https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_sysadminctl_add_user_to_admin_group.yml
+any where Image:"*/sysadminctl" and (CommandLine:"* -addUser *" and CommandLine:"* -admin *")

@@ -1,0 +1,2 @@
+# Azure Firewall Modified or Deleted | T1686.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/azure/activity_logs/azure_firewall_modified_or_deleted.yml
+operationName IN ("MICROSOFT.NETWORK/AZUREFIREWALLS/WRITE", "MICROSOFT.NETWORK/AZUREFIREWALLS/DELETE")

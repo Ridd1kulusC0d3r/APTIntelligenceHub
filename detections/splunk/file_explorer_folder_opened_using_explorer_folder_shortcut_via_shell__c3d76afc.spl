@@ -1,0 +1,2 @@
+# File Explorer Folder Opened Using Explorer Folder Shortcut Via Shell | T1135 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_explorer_folder_shortcut_via_shell_binary.yml
+source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=1 (ParentImage IN ("*\\cmd.exe", "*\\powershell.exe", "*\\pwsh.exe")) Image="*\\explorer.exe" CommandLine="*shell:mycomputerfolder*"

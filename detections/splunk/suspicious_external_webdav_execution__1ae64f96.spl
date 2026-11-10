@@ -1,0 +1,2 @@
+# Suspicious External WebDAV Execution | T1566, T1584 | https://github.com/SigmaHQ/sigma/blob/master/rules/web/proxy_generic/proxy_webdav_external_execution.yml
+"c-useragent"="Microsoft-WebDAV-MiniRedir/*" "cs-method"="GET" ("c-uri" IN ("*.7z", "*.bat", "*.dat", "*.cmd", "*.exe", "*.js", "*.lnk", "*.ps1", "*.rar", "*.url", "*.vbe", "*.vbs", "*.zip")) NOT (dst_ip="127.0.0.0/8" OR dst_ip="10.0.0.0/8" OR dst_ip="172.16.0.0/12" OR dst_ip="192.168.0.0/16" OR dst_ip="169.254.0.0/16" OR dst_ip="::1/128" OR dst_ip="fe80::/10" OR dst_ip="fc00::/7")

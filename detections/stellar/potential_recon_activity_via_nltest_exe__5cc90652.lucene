@@ -1,0 +1,18 @@
+// Potential Recon Activity Via Nltest.EXE | T1016, T1482 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_nltest_recon.yml
+(Image:*\\nltest.exe OR OriginalFileName:nltestrk.exe) AND ((CommandLine:*server* AND CommandLine:*query*) OR (CommandLine:(*\/user* OR *all_trusts* OR *dclist\:* OR *dnsgetdc\:* OR *domain_trusts* OR *dsgetdc\:* OR *parentdomain* OR *trusted_domains*)))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(Image:*\\\\nltest.exe OR OriginalFileName:nltestrk.exe) AND ((CommandLine:*server* AND CommandLine:*query*) OR (CommandLine:(*\\/user* OR *all_trusts* OR *dclist\\:* OR *dnsgetdc\\:* OR *domain_trusts* OR *dsgetdc\\:* OR *parentdomain* OR *trusted_domains*)))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

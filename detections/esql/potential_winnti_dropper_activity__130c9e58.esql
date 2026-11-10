@@ -1,0 +1,2 @@
+// Potential Winnti Dropper Activity | T1027 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_redmimicry_winnti_filedrop.yml
+from * metadata _id, _index, _version | where ends_with(file.path, "\\gthread-3.6.dll") or ends_with(file.path, "\\sigcmm-2.4.dll") or ends_with(file.path, "\\Windows\\Temp\\tmp.bat")

@@ -1,0 +1,18 @@
+// Network Connection Initiated By Regsvr32.EXE | T1218.010, T1559.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_regsvr32_network_activity.yml
+Initiated:true AND Image:*\\regsvr32.exe
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "Initiated:true AND Image:*\\\\regsvr32.exe",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

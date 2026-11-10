@@ -1,0 +1,2 @@
+// Okta User Account Locked Out | T1531 | https://github.com/SigmaHQ/sigma/blob/master/rules/identity/okta/okta_user_account_locked_out.yml
+displayMessage:"Max sign in attempts exceeded"

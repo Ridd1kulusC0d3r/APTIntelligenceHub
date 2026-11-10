@@ -1,0 +1,2 @@
+// Discovery of a System Time | T1124 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_remote_time_discovery.yml
+from * metadata _id, _index, _version | where (ends_with(process.executable.caseless, "\\net.exe") or ends_with(process.executable.caseless, "\\net1.exe")) and process.command_line like "*time*" or ends_with(process.executable.caseless, "\\w32tm.exe") and process.command_line like "*tz*"

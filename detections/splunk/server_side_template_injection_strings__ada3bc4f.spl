@@ -1,0 +1,2 @@
+# Server Side Template Injection Strings | T1221 | https://github.com/SigmaHQ/sigma/blob/master/rules/web/webserver_generic/web_ssti_in_access_logs.yml
+"cs-method"="GET" ("={{" OR "=%7B%7B" OR "=${" OR "=$%7B" OR "=<%=" OR "=%3C%25=" OR "=@(" OR "freemarker.template.utility.Execute" OR ".getClass().forName('javax.script.ScriptEngineManager')" OR "T(org.apache.commons.io.IOUtils)") NOT "sc-status"=404

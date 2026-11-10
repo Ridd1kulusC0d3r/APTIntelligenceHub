@@ -1,0 +1,2 @@
+-- Suspicious Cobalt Strike DNS Beaconing - Sysmon | T1071.004 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/dns_query/dns_query_win_mal_cobaltstrike.yml | NOTA: fallback QRadarAQL_payload_pipeline: campos sem propriedade DSM mapeada são buscados em UTF8(payload) – custo maior, crie custom properties
+SELECT * FROM events WHERE devicetype=12 AND ((LOWER(UTF8(payload)) LIKE '%aaa.stage.%' OR LOWER(UTF8(payload)) LIKE '%post.1%') OR LOWER(UTF8(payload)) LIKE '%.stage.123456.%')

@@ -1,0 +1,3 @@
+// Gzip Archive Decode Via PowerShell | T1132.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_decode_gzip.yml
+DeviceProcessEvents
+| where ProcessCommandLine contains "GZipStream" and ProcessCommandLine contains "::Decompress"

@@ -1,0 +1,18 @@
+// Github High Risk Configuration Disabled | T1556 | https://github.com/SigmaHQ/sigma/blob/master/rules/application/github/audit/github_disable_high_risk_configuration.yml
+action:(business_advanced_security.disabled_for_new_repos OR business_advanced_security.disabled_for_new_user_namespace_repos OR business_advanced_security.disabled OR business_advanced_security.user_namespace_repos_disabled OR org.advanced_security_disabled_for_new_repos OR org.advanced_security_disabled_on_all_repos OR org.advanced_security_policy_selected_member_disabled OR org.disable_oauth_app_restrictions OR org.disable_two_factor_requirement OR repo.advanced_security_disabled)
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "action:(business_advanced_security.disabled_for_new_repos OR business_advanced_security.disabled_for_new_user_namespace_repos OR business_advanced_security.disabled OR business_advanced_security.user_namespace_repos_disabled OR org.advanced_security_disabled_for_new_repos OR org.advanced_security_disabled_on_all_repos OR org.advanced_security_policy_selected_member_disabled OR org.disable_oauth_app_restrictions OR org.disable_two_factor_requirement OR repo.advanced_security_disabled)",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

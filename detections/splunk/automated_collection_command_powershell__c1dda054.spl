@@ -1,0 +1,2 @@
+# Automated Collection Command PowerShell | T1119 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/powershell/powershell_script/posh_ps_automated_collection.yml
+(ScriptBlockText IN ("*.doc*", "*.docx*", "*.xls*", "*.xlsx*", "*.ppt*", "*.pptx*", "*.rtf*", "*.pdf*", "*.txt*")) ScriptBlockText="*Get-ChildItem*" ScriptBlockText="* -Recurse *" ScriptBlockText="* -Include *"

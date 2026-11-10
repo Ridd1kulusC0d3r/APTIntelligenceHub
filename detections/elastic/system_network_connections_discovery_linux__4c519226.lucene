@@ -1,0 +1,2 @@
+// System Network Connections Discovery - Linux | T1049 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_system_network_connections_discovery.yml
+Image:(*\/lsof OR *\/netstat OR *\/sockstat OR *\/ss)

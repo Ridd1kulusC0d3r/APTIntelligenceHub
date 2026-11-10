@@ -1,0 +1,3 @@
+// Renamed SysInternals DebugView Execution | T1588.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_renamed_sysinternals_debugview.yml
+DeviceProcessEvents
+| where ProcessVersionInfoProductName =~ "Sysinternals DebugView" and (not((ProcessVersionInfoOriginalFileName =~ "Dbgview.exe" and FolderPath endswith "\\Dbgview.exe")))

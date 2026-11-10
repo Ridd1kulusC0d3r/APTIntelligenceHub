@@ -1,0 +1,2 @@
+// Potential Network Sniffing Activity Using Network Tools | T1040 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_network_sniffing.yml
+any where (process.executable.caseless:"*\\tshark.exe" and process.command_line:"*-i*") or process.executable.caseless:"*\\windump.exe"

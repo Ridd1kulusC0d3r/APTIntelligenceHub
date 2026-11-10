@@ -1,0 +1,18 @@
+// HackTool - CrackMapExec Execution | T1047, T1053, T1059.001, T1059.003, T1110, T1201 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_crackmapexec_execution.yml
+(Image:*\\crackmapexec.exe OR CommandLine:*\ \-M\ pe_inject\ * OR (CommandLine:*\ \-\-local\-auth* AND CommandLine:*\ \-u\ * AND CommandLine:*\ \-x\ *) OR (CommandLine:*\ \-\-local\-auth* AND CommandLine:*\ \-u\ * AND CommandLine:*\ \-p\ * AND CommandLine:*\ \-H\ 'NTHASH'*) OR (CommandLine:*\ mssql\ * AND CommandLine:*\ \-u\ * AND CommandLine:*\ \-p\ * AND CommandLine:*\ \-M\ * AND CommandLine:*\ \-d\ *) OR (CommandLine:*\ smb\ * AND CommandLine:*\ \-u\ * AND CommandLine:*\ \-H\ * AND CommandLine:*\ \-M\ * AND CommandLine:*\ \-o\ *) OR (CommandLine:*\ smb\ * AND CommandLine:*\ \-u\ * AND CommandLine:*\ \-p\ * AND CommandLine:*\ \-\-local\-auth*)) OR ((CommandLine:*\ \-\-local\-auth* AND CommandLine:*\ \-u\ * AND CommandLine:*\ \-p\ *) AND (CommandLine:*\ 10.* AND CommandLine:*\ 192.168.* AND CommandLine:*\/24\ *))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(Image:*\\\\crackmapexec.exe OR CommandLine:*\\ \\-M\\ pe_inject\\ * OR (CommandLine:*\\ \\-\\-local\\-auth* AND CommandLine:*\\ \\-u\\ * AND CommandLine:*\\ \\-x\\ *) OR (CommandLine:*\\ \\-\\-local\\-auth* AND CommandLine:*\\ \\-u\\ * AND CommandLine:*\\ \\-p\\ * AND CommandLine:*\\ \\-H\\ 'NTHASH'*) OR (CommandLine:*\\ mssql\\ * AND CommandLine:*\\ \\-u\\ * AND CommandLine:*\\ \\-p\\ * AND CommandLine:*\\ \\-M\\ * AND CommandLine:*\\ \\-d\\ *) OR (CommandLine:*\\ smb\\ * AND CommandLine:*\\ \\-u\\ * AND CommandLine:*\\ \\-H\\ * AND CommandLine:*\\ \\-M\\ * AND CommandLine:*\\ \\-o\\ *) OR (CommandLine:*\\ smb\\ * AND CommandLine:*\\ \\-u\\ * AND CommandLine:*\\ \\-p\\ * AND CommandLine:*\\ \\-\\-local\\-auth*)) OR ((CommandLine:*\\ \\-\\-local\\-auth* AND CommandLine:*\\ \\-u\\ * AND CommandLine:*\\ \\-p\\ *) AND (CommandLine:*\\ 10.* AND CommandLine:*\\ 192.168.* AND CommandLine:*\\/24\\ *))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

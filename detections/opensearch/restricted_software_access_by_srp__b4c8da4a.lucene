@@ -1,0 +1,2 @@
+// Restricted Software Access By SRP | T1072 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/application/microsoft_windows_software_restriction_policies/win_software_restriction_policies_block.yml
+winlog.channel:Application AND (winlog.provider_name:Microsoft\-Windows\-SoftwareRestrictionPolicies AND (event.code:(865 OR 866 OR 867 OR 868 OR 882)))

@@ -1,0 +1,2 @@
+// Powershell Keylogging | T1056.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/powershell/powershell_script/posh_ps_keylogging.yml
+any where powershell.file.script_block_text:"*Get-Keystrokes*" or (powershell.file.script_block_text:"*Get-ProcAddress user32.dll GetAsyncKeyState*" and powershell.file.script_block_text:"*Get-ProcAddress user32.dll GetForegroundWindow*")

@@ -1,0 +1,2 @@
+// Container With A hostPath Mount Created | T1611 | https://github.com/SigmaHQ/sigma/blob/master/rules/application/kubernetes/audit/kubernetes_audit_hostpath_mount.yml
+from * metadata _id, _index, _version | where verb=="create" and objectRef.resource=="pods" and starts_with(hostPath, "")

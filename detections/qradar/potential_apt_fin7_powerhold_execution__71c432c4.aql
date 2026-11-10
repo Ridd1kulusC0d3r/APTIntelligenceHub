@@ -1,0 +1,2 @@
+-- Potential APT FIN7 POWERHOLD Execution | T1059.001 | https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/FIN7/posh_ps_apt_fin7_powerhold.yml
+SELECT * FROM events WHERE devicetype=12 AND LOWER(Message) LIKE '%$env:appdata%' AND LOWER(Message) LIKE '%function mainpayload%' AND LOWER(Message) LIKE '%::writeallbytes%' AND LOWER(Message) LIKE '%wscript.exe%'

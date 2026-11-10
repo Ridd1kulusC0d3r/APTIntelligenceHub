@@ -1,0 +1,2 @@
+// Suspicious File Characteristics Due to Missing Fields | T1059.006 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_file_characteristics.yml
+any where ((process.pe.description:"\?" and process.pe.file_version:"\?") or (process.pe.description:"\?" and process.pe.product:"\?") or (process.pe.description:"\?" and process.pe.company:"\?")) and process.executable.caseless:"*\\Downloads\\*"

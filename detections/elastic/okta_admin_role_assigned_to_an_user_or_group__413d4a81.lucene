@@ -1,0 +1,2 @@
+// Okta Admin Role Assigned to an User or Group | T1098.003 | https://github.com/SigmaHQ/sigma/blob/master/rules/identity/okta/okta_admin_role_assigned_to_user_or_group.yml
+eventType:(group.privilege.grant OR user.account.privilege.grant)

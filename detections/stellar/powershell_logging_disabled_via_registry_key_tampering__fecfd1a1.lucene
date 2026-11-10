@@ -1,0 +1,18 @@
+// PowerShell Logging Disabled Via Registry Key Tampering | T1112, T1564.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_powershell_logging_disabled.yml
+(TargetObject:(*\\Microsoft\\Windows\\PowerShell\\* OR *\\Microsoft\\PowerShellCore\\*)) AND (TargetObject:(*\\ModuleLogging\\EnableModuleLogging OR *\\ScriptBlockLogging\\EnableScriptBlockLogging OR *\\ScriptBlockLogging\\EnableScriptBlockInvocationLogging OR *\\Transcription\\EnableTranscripting OR *\\Transcription\\EnableInvocationHeader OR *\\EnableScripts)) AND Details:"DWORD \(0x00000000\)"
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(TargetObject:(*\\\\Microsoft\\\\Windows\\\\PowerShell\\\\* OR *\\\\Microsoft\\\\PowerShellCore\\\\*)) AND (TargetObject:(*\\\\ModuleLogging\\\\EnableModuleLogging OR *\\\\ScriptBlockLogging\\\\EnableScriptBlockLogging OR *\\\\ScriptBlockLogging\\\\EnableScriptBlockInvocationLogging OR *\\\\Transcription\\\\EnableTranscripting OR *\\\\Transcription\\\\EnableInvocationHeader OR *\\\\EnableScripts)) AND Details:\"DWORD \\(0x00000000\\)\"",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

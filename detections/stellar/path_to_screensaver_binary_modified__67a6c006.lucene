@@ -1,0 +1,18 @@
+// Path To Screensaver Binary Modified | T1546.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/registry_event_modify_screensaver_binary_path.yml
+TargetObject:*\\Control\ Panel\\Desktop\\SCRNSAVE.EXE AND (NOT (Image:(*\\rundll32.exe OR *\\explorer.exe)))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "TargetObject:*\\\\Control\\ Panel\\\\Desktop\\\\SCRNSAVE.EXE AND (NOT (Image:(*\\\\rundll32.exe OR *\\\\explorer.exe)))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

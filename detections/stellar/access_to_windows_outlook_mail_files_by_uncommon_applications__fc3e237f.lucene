@@ -1,0 +1,18 @@
+// Access To Windows Outlook Mail Files By Uncommon Applications | T1070.008 | https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/file/file_access/file_access_win_office_outlook_mail_credential.yml
+(FileName:(*\\AppData\\Local\\Comms\\Unistore\\data* OR *\\AppData\\Local\\Comms\\UnistoreDB\\store.vol)) AND (NOT (Image:System OR (Image:(C\:\\Program\ Files\ \(x86\)\\* OR C\:\\Program\ Files\\* OR C\:\\Windows\\system32\\* OR C\:\\Windows\\SysWOW64\\*)))) AND (NOT ((Image:C\:\\ProgramData\\Microsoft\\Windows\ Defender\\* AND (Image:(*\\MpCopyAccelerator.exe OR *\\MsMpEng.exe))) OR (Image:(*\\thor64.exe OR *\\thor.exe))))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(FileName:(*\\\\AppData\\\\Local\\\\Comms\\\\Unistore\\\\data* OR *\\\\AppData\\\\Local\\\\Comms\\\\UnistoreDB\\\\store.vol)) AND (NOT (Image:System OR (Image:(C\\:\\\\Program\\ Files\\ \\(x86\\)\\\\* OR C\\:\\\\Program\\ Files\\\\* OR C\\:\\\\Windows\\\\system32\\\\* OR C\\:\\\\Windows\\\\SysWOW64\\\\*)))) AND (NOT ((Image:C\\:\\\\ProgramData\\\\Microsoft\\\\Windows\\ Defender\\\\* AND (Image:(*\\\\MpCopyAccelerator.exe OR *\\\\MsMpEng.exe))) OR (Image:(*\\\\thor64.exe OR *\\\\thor.exe))))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,18 @@
+// HackTool - SILENTTRINITY Stager Execution | T1071 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_silenttrinity_stager.yml
+Description:*st2stager*
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "Description:*st2stager*",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

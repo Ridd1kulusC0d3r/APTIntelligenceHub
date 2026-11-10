@@ -1,0 +1,2 @@
+-- PUA - Mouse Lock Execution | T1056.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_mouselock_execution.yml | NOTA: fallback QRadarAQL_payload_pipeline: campos sem propriedade DSM mapeada são buscados em UTF8(payload) – custo maior, crie custom properties
+SELECT * FROM events WHERE devicetype=12 AND (LOWER(UTF8(payload)) LIKE '%mouse lock%' OR LOWER(UTF8(payload)) LIKE '%misc314%' OR LOWER(Command) LIKE '%mouse lock_%')

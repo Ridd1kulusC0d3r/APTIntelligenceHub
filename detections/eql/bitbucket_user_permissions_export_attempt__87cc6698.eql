@@ -1,0 +1,2 @@
+// Bitbucket User Permissions Export Attempt | T1082, T1213, T1591.004 | https://github.com/SigmaHQ/sigma/blob/master/rules/application/bitbucket/audit/bitbucket_audit_user_permissions_export_attempt_detected.yml
+any where auditType.category:"Users and groups" and (auditType.action like~ ("User details export failed", "User details export started", "User details exported"))

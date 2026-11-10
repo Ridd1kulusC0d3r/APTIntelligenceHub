@@ -1,0 +1,18 @@
+// Tunneling Tool Execution | T1041, T1071.001, T1572 | https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_susp_exfil_and_tunneling_tool_execution.yml
+Image:(*\\httptunnel.exe OR *\\plink.exe OR *\\socat.exe OR *\\stunnel.exe)
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "Image:(*\\\\httptunnel.exe OR *\\\\plink.exe OR *\\\\socat.exe OR *\\\\stunnel.exe)",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

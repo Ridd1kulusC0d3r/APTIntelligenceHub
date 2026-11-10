@@ -1,0 +1,18 @@
+// Writing Of Malicious Files To The Fonts Folder | T1059, T1211 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_hiding_malware_in_fonts_folder.yml
+(CommandLine:(*echo* OR *copy* OR *type* OR *file\ createnew* OR *cacls*)) AND CommandLine:*C\:\\Windows\\Fonts\\* AND (CommandLine:(*.sh* OR *.exe* OR *.dll* OR *.bin* OR *.bat* OR *.cmd* OR *.js* OR *.msh* OR *.reg* OR *.scr* OR *.ps* OR *.vb* OR *.jar* OR *.pl* OR *.inf* OR *.cpl* OR *.hta* OR *.msi* OR *.vbs*))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(CommandLine:(*echo* OR *copy* OR *type* OR *file\\ createnew* OR *cacls*)) AND CommandLine:*C\\:\\\\Windows\\\\Fonts\\\\* AND (CommandLine:(*.sh* OR *.exe* OR *.dll* OR *.bin* OR *.bat* OR *.cmd* OR *.js* OR *.msh* OR *.reg* OR *.scr* OR *.ps* OR *.vb* OR *.jar* OR *.pl* OR *.inf* OR *.cpl* OR *.hta* OR *.msi* OR *.vbs*))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

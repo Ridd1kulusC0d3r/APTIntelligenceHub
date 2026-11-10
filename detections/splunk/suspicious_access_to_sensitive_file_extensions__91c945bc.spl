@@ -1,0 +1,2 @@
+# Suspicious Access to Sensitive File Extensions | T1039 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_susp_raccess_sensitive_fext.yml
+source="WinEventLog:Security" EventCode=5145 (RelativeTargetName IN ("*.bak", "*.dmp", "*.edb", "*.kirbi", "*.msg", "*.nsf", "*.nst", "*.oab", "*.ost", "*.pst", "*.rdp"))

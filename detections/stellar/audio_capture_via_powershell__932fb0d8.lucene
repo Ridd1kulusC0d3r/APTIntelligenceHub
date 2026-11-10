@@ -1,0 +1,18 @@
+// Audio Capture via PowerShell | T1123 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_audio_capture.yml
+CommandLine:(*WindowsAudioDevice\-Powershell\-Cmdlet* OR *Toggle\-AudioDevice* OR *Get\-AudioDevice\ * OR *Set\-AudioDevice\ * OR *Write\-AudioDevice\ *)
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "CommandLine:(*WindowsAudioDevice\\-Powershell\\-Cmdlet* OR *Toggle\\-AudioDevice* OR *Get\\-AudioDevice\\ * OR *Set\\-AudioDevice\\ * OR *Write\\-AudioDevice\\ *)",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

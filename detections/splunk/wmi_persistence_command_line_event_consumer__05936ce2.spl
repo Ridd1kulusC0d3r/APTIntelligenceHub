@@ -1,0 +1,2 @@
+# WMI Persistence - Command Line Event Consumer | T1546.003 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_wmi_persistence_commandline_event_consumer.yml
+source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=7 Image="C:\\Windows\\System32\\wbem\\WmiPrvSE.exe" ImageLoaded="*\\wbemcons.dll"

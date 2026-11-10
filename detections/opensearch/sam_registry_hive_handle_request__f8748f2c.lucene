@@ -1,0 +1,2 @@
+// SAM Registry Hive Handle Request | T1012, T1552.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_sam_registry_hive_handle_request.yml
+winlog.channel:Security AND (event.code:4656 AND winlog.event_data.ObjectType:Key AND winlog.event_data.ObjectName:*\\SAM)

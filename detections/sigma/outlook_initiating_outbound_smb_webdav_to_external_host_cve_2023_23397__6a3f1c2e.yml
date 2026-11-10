@@ -1,0 +1,30 @@
+title: Outlook Initiating Outbound SMB/WebDAV to External Host (CVE-2023-23397 pattern)
+id: 6a3f1c2e-8b1d-4f4a-9c55-7e2c0b9a1f01
+status: experimental
+description: Detects OUTLOOK.EXE connecting to external hosts over SMB (445) or WebDAV, consistent with NTLM hash leak abuse attributed to APT28.
+references:
+    - https://msrc.microsoft.com/blog/2023/03/microsoft-mitigates-outlook-elevation-of-privilege-vulnerability/
+author: CTI Consolidation
+date: 2025-01-01
+tags:
+    - attack.credential-access
+    - attack.t1187
+logsource:
+    category: network_connection
+    product: windows
+detection:
+    selection:
+        Image|endswith: '\OUTLOOK.EXE'
+        DestinationPort:
+            - 445
+            - 139
+    filter_private:
+        DestinationIp|cidr:
+            - '10.0.0.0/8'
+            - '172.16.0.0/12'
+            - '192.168.0.0/16'
+            - '127.0.0.0/8'
+    condition: selection and not filter_private
+falsepositives:
+    - Raras; mapeamentos legítimos de compartilhamentos externos via Outlook
+level: high

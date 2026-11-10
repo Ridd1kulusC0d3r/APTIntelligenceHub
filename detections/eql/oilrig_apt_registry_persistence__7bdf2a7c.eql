@@ -1,0 +1,2 @@
+// OilRig APT Registry Persistence | T1053.005, T1071.004, T1112, T1543.003 | https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2018/TA/OilRig/registry_event_apt_oilrig_mar18.yml
+any where registry.path like~ ("*SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\UMe", "*SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\UT")

@@ -1,0 +1,2 @@
+// Cisco LDP Authentication Failures | T1078, T1110, T1557 | https://github.com/SigmaHQ/sigma/blob/master/rules/network/cisco/ldp/cisco_ldp_md5_auth_failed.yml
+*LDP* AND (*SOCKET_TCP_PACKET_MD5_AUTHEN_FAIL* OR *TCPMD5AuthenFail*)

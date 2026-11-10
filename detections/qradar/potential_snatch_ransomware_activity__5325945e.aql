@@ -1,0 +1,2 @@
+-- Potential Snatch Ransomware Activity | T1204 | https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2019/Malware/Snatch/proc_creation_win_malware_snatch_ransomware.yml
+SELECT * FROM events WHERE devicetype=12 AND (Command MATCHES 'shutdown\s+/r /f /t 00' OR Command MATCHES 'net\s+stop SuperBackupMan')

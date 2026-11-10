@@ -1,0 +1,18 @@
+// Suspicious Git Clone - Linux | T1593.003 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_susp_git_clone.yml
+(Image:*\/git AND CommandLine:*\ clone\ *) AND (CommandLine:(*exploit* OR *Vulns* OR *vulnerability* OR *RCE* OR *RemoteCodeExecution* OR *Invoke\-* OR *CVE\-* OR *poc\-* OR *ProofOfConcept* OR *proxyshell* OR *log4shell* OR *eternalblue* OR *eternal\-blue* OR *MS17\-*))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(Image:*\\/git AND CommandLine:*\\ clone\\ *) AND (CommandLine:(*exploit* OR *Vulns* OR *vulnerability* OR *RCE* OR *RemoteCodeExecution* OR *Invoke\\-* OR *CVE\\-* OR *poc\\-* OR *ProofOfConcept* OR *proxyshell* OR *log4shell* OR *eternalblue* OR *eternal\\-blue* OR *MS17\\-*))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

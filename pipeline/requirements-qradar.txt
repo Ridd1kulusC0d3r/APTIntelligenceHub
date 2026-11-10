@@ -1,0 +1,4 @@
+pysigma==0.11.23
+pysigma-backend-qradar-aql==0.3.2
+pyparsing<3.1
+pyyaml

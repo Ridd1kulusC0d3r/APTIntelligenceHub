@@ -1,0 +1,2 @@
+-- User Added To Admin Group Via Sysadminctl | T1078.003 | https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_sysadminctl_add_user_to_admin_group.yml
+SELECT * FROM events WHERE devicetype=102 AND (LOWER("Process Path") LIKE '%/sysadminctl' OR LOWER("Process Name") LIKE '%/sysadminctl') AND (LOWER(Command) LIKE '% -adduser %' AND LOWER(Command) LIKE '% -admin %')

@@ -1,0 +1,18 @@
+// Remove Immutable File Attribute - Auditd | T1222.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/execve/lnx_auditd_chattr_immutable_removal.yml
+type:EXECVE AND a0:*chattr* AND a1:*\-i*
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "type:EXECVE AND a0:*chattr* AND a1:*\\-i*",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,18 @@
+// Suspicious GrpConv Execution | T1547 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_susp_grpconv.yml
+CommandLine:(*grpconv.exe\ \-o* OR *grpconv\ \-o*)
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "CommandLine:(*grpconv.exe\\ \\-o* OR *grpconv\\ \\-o*)",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

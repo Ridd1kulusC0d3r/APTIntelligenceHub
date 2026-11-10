@@ -1,0 +1,18 @@
+// Use of W32tm as Timer | T1124 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_w32tm.yml
+(Image:*\\w32tm.exe OR OriginalFileName:w32time.dll) AND (CommandLine:*\/stripchart* AND CommandLine:*\/computer\:* AND CommandLine:*\/period\:* AND CommandLine:*\/dataonly* AND CommandLine:*\/samples\:*)
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(Image:*\\\\w32tm.exe OR OriginalFileName:w32time.dll) AND (CommandLine:*\\/stripchart* AND CommandLine:*\\/computer\\:* AND CommandLine:*\\/period\\:* AND CommandLine:*\\/dataonly* AND CommandLine:*\\/samples\\:*)",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

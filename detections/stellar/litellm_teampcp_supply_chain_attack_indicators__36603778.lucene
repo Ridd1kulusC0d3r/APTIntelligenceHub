@@ -1,0 +1,18 @@
+// LiteLLM / TeamPCP Supply Chain Attack Indicators | T1195.002, T1543.002, T1560.001 | https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2026/TA/TeamPCP/proc_creation_lnx_teampcp_litellm_supply_chain_attack_indicators.yml
+(Image:*\/python3* AND (CommandLine:*exec\(base64.b64decode\('aW1wb3J0* AND CommandLine:*kI2NF9TQ1JJUFQgPSAiYV*)) OR (Image:*\/tar AND (CommandLine:*tpcp.tar.gz* AND CommandLine:*payload.enc* AND CommandLine:*session.key.enc*)) OR (Image:*\/curl AND (CommandLine:*models.litellm.cloud* AND CommandLine:*X\-Filename\:\ tpcp.tar.gz*)) OR (ParentImage:*\/python3* AND (CommandLine:*systemctl* AND CommandLine:*\-\-user* AND CommandLine:*sysmon*))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(Image:*\\/python3* AND (CommandLine:*exec\\(base64.b64decode\\('aW1wb3J0* AND CommandLine:*kI2NF9TQ1JJUFQgPSAiYV*)) OR (Image:*\\/tar AND (CommandLine:*tpcp.tar.gz* AND CommandLine:*payload.enc* AND CommandLine:*session.key.enc*)) OR (Image:*\\/curl AND (CommandLine:*models.litellm.cloud* AND CommandLine:*X\\-Filename\\:\\ tpcp.tar.gz*)) OR (ParentImage:*\\/python3* AND (CommandLine:*systemctl* AND CommandLine:*\\-\\-user* AND CommandLine:*sysmon*))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

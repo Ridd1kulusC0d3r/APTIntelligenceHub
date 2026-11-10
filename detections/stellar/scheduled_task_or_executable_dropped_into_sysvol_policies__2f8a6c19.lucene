@@ -1,0 +1,18 @@
+// Scheduled Task Or Executable Dropped Into SYSVOL Policies | T1484.001, T1485 | Hub
+(TargetFilename:*\\SYSVOL\\* AND TargetFilename:*\\Policies\\*) AND (TargetFilename:(*.exe OR *.dll OR *.ps1 OR *.bat OR *\\ScheduledTasks.xml))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(TargetFilename:*\\\\SYSVOL\\\\* AND TargetFilename:*\\\\Policies\\\\*) AND (TargetFilename:(*.exe OR *.dll OR *.ps1 OR *.bat OR *\\\\ScheduledTasks.xml))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

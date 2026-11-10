@@ -1,0 +1,2 @@
+# Pubprn.vbs Proxy Execution | T1216.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_pubprn.yml
+source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=1 CommandLine="*\\pubprn.vbs*" CommandLine="*script:*"

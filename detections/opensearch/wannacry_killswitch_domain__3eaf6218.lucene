@@ -1,0 +1,2 @@
+// Wannacry Killswitch Domain | T1071.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/network/dns/net_dns_wannacry_killswitch_domain.yml
+query:(ifferfsodp9ifjaposdfjhgosurijfaewrwergwea.testing OR ifferfsodp9ifjaposdfjhgosurijfaewrwergwea.test OR ifferfsodp9ifjaposdfjhgosurijfaewrwergwea.com OR ayylmaotjhsstasdfasdfasdfasdfasdfasdfasdf.com OR iuqssfsodp9ifjaposdfjhgosurijfaewrwergwea.com)

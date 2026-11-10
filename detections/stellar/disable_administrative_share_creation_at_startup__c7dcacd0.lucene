@@ -1,0 +1,18 @@
+// Disable Administrative Share Creation at Startup | T1070.005 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_disable_administrative_share.yml
+TargetObject:*\\Services\\LanmanServer\\Parameters\\* AND (TargetObject:(*\\AutoShareWks OR *\\AutoShareServer)) AND Details:"DWORD \(0x00000000\)"
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "TargetObject:*\\\\Services\\\\LanmanServer\\\\Parameters\\\\* AND (TargetObject:(*\\\\AutoShareWks OR *\\\\AutoShareServer)) AND Details:\"DWORD \\(0x00000000\\)\"",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

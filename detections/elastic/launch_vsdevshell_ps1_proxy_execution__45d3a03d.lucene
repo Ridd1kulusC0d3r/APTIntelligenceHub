@@ -1,0 +1,2 @@
+// Launch-VsDevShell.PS1 Proxy Execution | T1216.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_launch_vsdevshell.yml
+process.command_line:*Launch\-VsDevShell.ps1* AND (process.command_line:(*VsWherePath\ * OR *VsInstallationPath\ *))

@@ -1,0 +1,2 @@
+// Potential BlackByte Ransomware Activity | T1059.001, T1140, T1485, T1498 | https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2021/Malware/BlackByte/proc_creation_win_malware_blackbyte_ransomware.yml
+any where (process.executable.caseless:"C:\\Users\\Public\\*" and process.command_line:"* -single *") or (process.command_line like~ ("*del C:\\Windows\\System32\\Taskmgr.exe*", "*;Set-Service -StartupType Disabled $*", "*powershell -command \"$x =[System.Text.Encoding]::Unicode.GetString([System.Convert]::FromBase64String(*", "* do start wordpad.exe /p *"))

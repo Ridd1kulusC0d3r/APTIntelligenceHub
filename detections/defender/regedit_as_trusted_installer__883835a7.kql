@@ -1,0 +1,3 @@
+// Regedit as Trusted Installer | T1548 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_regedit_trustedinstaller.yml
+DeviceProcessEvents
+| where FolderPath endswith "\\regedit.exe" and (InitiatingProcessFolderPath endswith "\\TrustedInstaller.exe" or InitiatingProcessFolderPath endswith "\\ProcessHacker.exe")

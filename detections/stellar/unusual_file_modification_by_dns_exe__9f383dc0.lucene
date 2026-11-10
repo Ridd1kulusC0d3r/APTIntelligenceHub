@@ -1,0 +1,18 @@
+// Unusual File Modification by dns.exe | T1133 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_change/file_change_win_unusual_modification_by_dns_exe.yml
+Image:*\\dns.exe AND (NOT TargetFilename:*\\dns.log)
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "Image:*\\\\dns.exe AND (NOT TargetFilename:*\\\\dns.log)",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

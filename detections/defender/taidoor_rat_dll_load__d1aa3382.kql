@@ -1,0 +1,3 @@
+// TAIDOOR RAT DLL Load | T1055.001 | https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2020/TA/TAIDOOR-RAT/proc_creation_win_apt_taidoor.yml
+DeviceProcessEvents
+| where (ProcessCommandLine contains "dll,MyStart" or ProcessCommandLine contains "dll MyStart") or (ProcessCommandLine endswith " MyStart" and ProcessCommandLine contains "rundll32.exe")

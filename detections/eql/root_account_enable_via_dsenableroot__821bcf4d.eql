@@ -1,0 +1,2 @@
+// Root Account Enable Via Dsenableroot | T1078, T1078.001, T1078.003 | https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_dsenableroot_enable_root_account.yml
+any where Image:"*/dsenableroot" and (not CommandLine:"* -d *")

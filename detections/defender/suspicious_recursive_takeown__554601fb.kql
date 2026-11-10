@@ -1,0 +1,3 @@
+// Suspicious Recursive Takeown | T1222.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_takeown_recursive_own.yml
+DeviceProcessEvents
+| where FolderPath endswith "\\takeown.exe" and (ProcessCommandLine contains "/f " and ProcessCommandLine contains "/r")

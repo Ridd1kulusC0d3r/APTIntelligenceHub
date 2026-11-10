@@ -1,0 +1,18 @@
+// Screen Capture Activity Via Psr.EXE | T1113 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_psr_capture_screenshots.yml
+Image:*\\Psr.exe AND (CommandLine:(*\/start* OR *\-start*))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "Image:*\\\\Psr.exe AND (CommandLine:(*\\/start* OR *\\-start*))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

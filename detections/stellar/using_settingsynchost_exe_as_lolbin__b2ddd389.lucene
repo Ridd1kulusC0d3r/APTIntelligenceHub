@@ -1,0 +1,18 @@
+// Using SettingSyncHost.exe as LOLBin | T1574.008 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_settingsynchost.yml
+(NOT (Image:(C\:\\Windows\\System32\\* OR C\:\\Windows\\SysWOW64\\*))) AND (ParentCommandLine:*cmd.exe\ \/c* AND ParentCommandLine:*RoamDiag.cmd* AND ParentCommandLine:*\-outputpath*)
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(NOT (Image:(C\\:\\\\Windows\\\\System32\\\\* OR C\\:\\\\Windows\\\\SysWOW64\\\\*))) AND (ParentCommandLine:*cmd.exe\\ \\/c* AND ParentCommandLine:*RoamDiag.cmd* AND ParentCommandLine:*\\-outputpath*)",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

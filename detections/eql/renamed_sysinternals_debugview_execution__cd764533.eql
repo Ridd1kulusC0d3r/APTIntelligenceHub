@@ -1,0 +1,2 @@
+// Renamed SysInternals DebugView Execution | T1588.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_renamed_sysinternals_debugview.yml
+any where process.pe.product:"Sysinternals DebugView" and (not (process.pe.original_file_name:"Dbgview.exe" and process.executable.caseless:"*\\Dbgview.exe"))

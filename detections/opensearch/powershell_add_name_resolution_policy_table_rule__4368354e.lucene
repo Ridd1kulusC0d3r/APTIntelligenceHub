@@ -1,0 +1,2 @@
+// Powershell Add Name Resolution Policy Table Rule | T1565 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/powershell/powershell_script/posh_ps_add_dnsclient_rule.yml
+powershell.file.script_block_text:*Add\-DnsClientNrptRule* AND powershell.file.script_block_text:*\-Namesp* AND powershell.file.script_block_text:*\-NameSe*

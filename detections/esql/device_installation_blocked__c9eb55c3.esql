@@ -1,0 +1,2 @@
+// Device Installation Blocked | T1200 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_device_installation_blocked.yml
+from * metadata _id, _index, _version | where winlog.channel=="Security" and event.code=="6423"

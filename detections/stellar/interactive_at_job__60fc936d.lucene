@@ -1,0 +1,18 @@
+// Interactive AT Job | T1053.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_at_interactive_execution.yml
+Image:*\\at.exe AND CommandLine:*interactive*
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "Image:*\\\\at.exe AND CommandLine:*interactive*",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

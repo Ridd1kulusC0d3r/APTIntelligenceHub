@@ -1,0 +1,18 @@
+// Activity from Suspicious IP Addresses | T1573 | https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/m365/threat_detection/microsoft365_from_susp_ip_addresses.yml
+eventSource:SecurityComplianceCenter AND eventName:"Activity from suspicious IP addresses" AND status:success
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "eventSource:SecurityComplianceCenter AND eventName:\"Activity from suspicious IP addresses\" AND status:success",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

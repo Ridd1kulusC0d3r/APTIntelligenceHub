@@ -1,0 +1,18 @@
+// TAIDOOR RAT DLL Load | T1055.001 | https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2020/TA/TAIDOOR-RAT/proc_creation_win_apt_taidoor.yml
+(CommandLine:(*dll,MyStart* OR *dll\ MyStart*)) OR (CommandLine:*\ MyStart AND CommandLine:*rundll32.exe*)
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(CommandLine:(*dll,MyStart* OR *dll\\ MyStart*)) OR (CommandLine:*\\ MyStart AND CommandLine:*rundll32.exe*)",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

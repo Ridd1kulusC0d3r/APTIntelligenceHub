@@ -1,0 +1,2 @@
+// Netsh PortProxy Rule Added (Internal Pivot) | T1090.001 | Hub
+from * metadata _id, _index, _version | where ends_with(process.executable.caseless, "\\netsh.exe") and process.command_line like "*portproxy*" and process.command_line like "*add*"

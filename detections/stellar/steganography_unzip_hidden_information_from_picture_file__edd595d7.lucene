@@ -1,0 +1,18 @@
+// Steganography Unzip Hidden Information From Picture File | T1027.003 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/execve/lnx_auditd_unzip_hidden_zip_files_steganography.yml
+(type:EXECVE AND a0:unzip) AND (a1:(*.jpg OR *.png))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(type:EXECVE AND a0:unzip) AND (a1:(*.jpg OR *.png))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

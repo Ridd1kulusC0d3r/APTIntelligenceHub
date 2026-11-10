@@ -1,0 +1,2 @@
+// Suspicious SSL Connection | T1573 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/powershell/powershell_script/posh_ps_susp_ssl_keyword.yml
+powershell.file.script_block_text:*System.Net.Security.SslStream* AND powershell.file.script_block_text:*Net.Security.RemoteCertificateValidationCallback* AND powershell.file.script_block_text:*.AuthenticateAsClient*

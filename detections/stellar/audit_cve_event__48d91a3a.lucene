@@ -1,0 +1,18 @@
+// Audit CVE Event | T1068, T1203, T1210, T1211, T1212, T1499.004 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/application/microsoft-windows_audit_cve/win_audit_cve.yml
+(Provider_Name:(Microsoft\-Windows\-Audit\-CVE OR Audit\-CVE)) AND EventID:1
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(Provider_Name:(Microsoft\\-Windows\\-Audit\\-CVE OR Audit\\-CVE)) AND EventID:1",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,2 @@
+// Using SettingSyncHost.exe as LOLBin | T1574.008 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_settingsynchost.yml
+any where (not (process.executable.caseless like~ ("C:\\Windows\\System32\\*", "C:\\Windows\\SysWOW64\\*"))) and (process.parent.command_line:"*cmd.exe /c*" and process.parent.command_line:"*RoamDiag.cmd*" and process.parent.command_line:"*-outputpath*")

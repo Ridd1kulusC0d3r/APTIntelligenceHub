@@ -1,0 +1,18 @@
+// Potential Bucket Enumeration on AWS | T1580, T1619 | https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/aws/cloudtrail/aws_enum_buckets.yml
+(eventSource:s3.amazonaws.com AND eventName:ListBuckets) AND (NOT userIdentity.type:AssumedRole)
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(eventSource:s3.amazonaws.com AND eventName:ListBuckets) AND (NOT userIdentity.type:AssumedRole)",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

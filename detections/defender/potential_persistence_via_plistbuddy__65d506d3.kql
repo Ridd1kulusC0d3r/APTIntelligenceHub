@@ -1,0 +1,3 @@
+// Potential Persistence Via PlistBuddy | T1543.001, T1543.004 | https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_persistence_via_plistbuddy.yml
+DeviceProcessEvents
+| where FolderPath endswith "/PlistBuddy" and (ProcessCommandLine contains "RunAtLoad" and ProcessCommandLine contains "true") and (ProcessCommandLine contains "LaunchAgents" or ProcessCommandLine contains "LaunchDaemons")

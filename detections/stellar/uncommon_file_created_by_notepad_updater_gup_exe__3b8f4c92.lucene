@@ -1,0 +1,18 @@
+// Uncommon File Created by Notepad++ Updater Gup.EXE | T1195.002, T1557 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_gup_uncommon_file_creation.yml
+Image:*\\gup.exe AND (NOT ((TargetFilename:(C\:\\Program\ Files\\Notepad\+\+\\* OR C\:\\Program\ Files\ \(x86\)\\Notepad\+\+\\*)) OR (TargetFilename:C\:\\Users\\* AND (TargetFilename:*\\AppData\\Local\\Temp\\* AND TargetFilename:*npp.* AND TargetFilename:*.Installer.* AND TargetFilename:*.exe*)) OR (TargetFilename:C\:\\Users\\* AND (TargetFilename:*\\AppData\\Local\\Temp\\* AND TargetFilename:*.zip*)) OR TargetFilename:C\:\\$Recycle.Bin\\S\-1\-5\-21* OR ((TargetFilename:(*\\plugins\\JsonTools\\testfiles\\* OR *\\Notepad\+\+\\plugins\\ComparePlugin\\*)) OR (TargetFilename:*npp.* AND TargetFilename:*.portable.* AND TargetFilename:*\\plugins\\*))))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "Image:*\\\\gup.exe AND (NOT ((TargetFilename:(C\\:\\\\Program\\ Files\\\\Notepad\\+\\+\\\\* OR C\\:\\\\Program\\ Files\\ \\(x86\\)\\\\Notepad\\+\\+\\\\*)) OR (TargetFilename:C\\:\\\\Users\\\\* AND (TargetFilename:*\\\\AppData\\\\Local\\\\Temp\\\\* AND TargetFilename:*npp.* AND TargetFilename:*.Installer.* AND TargetFilename:*.exe*)) OR (TargetFilename:C\\:\\\\Users\\\\* AND (TargetFilename:*\\\\AppData\\\\Local\\\\Temp\\\\* AND TargetFilename:*.zip*)) OR TargetFilename:C\\:\\\\$Recycle.Bin\\\\S\\-1\\-5\\-21* OR ((TargetFilename:(*\\\\plugins\\\\JsonTools\\\\testfiles\\\\* OR *\\\\Notepad\\+\\+\\\\plugins\\\\ComparePlugin\\\\*)) OR (TargetFilename:*npp.* AND TargetFilename:*.portable.* AND TargetFilename:*\\\\plugins\\\\*))))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,2 @@
+-- Telegram API Access | T1071.001, T1102.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/web/proxy_generic/proxy_telegram_api.yml | NOTA: fallback QRadarAQL_payload_pipeline: campos sem propriedade DSM mapeada são buscados em UTF8(payload) – custo maior, crie custom properties
+SELECT * FROM events WHERE LOWER(UTF8(payload)) LIKE '%api.telegram.org%' AND (NOT((LOWER("User Agent") LIKE '%telegram%' OR LOWER("User Agent") LIKE '%bot%')))

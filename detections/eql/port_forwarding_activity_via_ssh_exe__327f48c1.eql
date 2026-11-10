@@ -1,0 +1,2 @@
+// Port Forwarding Activity Via SSH.EXE | T1021.001, T1021.004, T1572 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_ssh_port_forward.yml
+any where process.executable.caseless:"*\\ssh.exe" and process.command_line like~ ("* -R *", "* /R *", "* –R *", "* —R *", "* ―R *")

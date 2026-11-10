@@ -1,0 +1,2 @@
+# Local Account Created And Added To Administrators Via Net Command | T1136.001 | Hub
+source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=1 (Image IN ("*\\net.exe", "*\\net1.exe")) CommandLine="*localgroup*" CommandLine="*admin*" CommandLine="*/add*"

@@ -1,0 +1,2 @@
+// PSEXEC Remote Execution File Artefact | T1136.002, T1543.003, T1570 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_sysinternals_psexec_service_key.yml
+from * metadata _id, _index, _version | where starts_with(file.path, "C:\\Windows\\PSEXEC-") and ends_with(file.path, ".key")

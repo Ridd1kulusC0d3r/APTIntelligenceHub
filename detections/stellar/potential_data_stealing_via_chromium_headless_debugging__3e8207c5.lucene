@@ -1,0 +1,18 @@
+// Potential Data Stealing Via Chromium Headless Debugging | T1185, T1564.003 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_browsers_chromium_headless_debugging.yml
+CommandLine:*\-\-remote\-debugging\-* AND CommandLine:*\-\-user\-data\-dir* AND CommandLine:*\-\-headless*
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "CommandLine:*\\-\\-remote\\-debugging\\-* AND CommandLine:*\\-\\-user\\-data\\-dir* AND CommandLine:*\\-\\-headless*",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

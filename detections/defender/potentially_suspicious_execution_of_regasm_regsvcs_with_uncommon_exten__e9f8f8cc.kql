@@ -1,0 +1,3 @@
+// Potentially Suspicious Execution Of Regasm/Regsvcs With Uncommon Extension | T1218.009 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_regasm_regsvcs_uncommon_extension_execution.yml
+DeviceProcessEvents
+| where ((FolderPath endswith "\\Regsvcs.exe" or FolderPath endswith "\\Regasm.exe") or (ProcessVersionInfoOriginalFileName in~ ("RegSvcs.exe", "RegAsm.exe"))) and (ProcessCommandLine contains ".dat" or ProcessCommandLine contains ".gif" or ProcessCommandLine contains ".jpeg" or ProcessCommandLine contains ".jpg" or ProcessCommandLine contains ".png" or ProcessCommandLine contains ".txt")

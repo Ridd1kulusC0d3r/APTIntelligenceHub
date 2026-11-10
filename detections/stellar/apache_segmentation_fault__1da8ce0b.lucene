@@ -1,0 +1,18 @@
+// Apache Segmentation Fault | T1499.004 | https://github.com/SigmaHQ/sigma/blob/master/rules/web/product/apache/web_apache_segfault.yml
+*exit\ signal\ Segmentation\ Fault*
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "*exit\\ signal\\ Segmentation\\ Fault*",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

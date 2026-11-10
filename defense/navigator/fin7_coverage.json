@@ -1,0 +1,427 @@
+{
+ "name": "FIN7 – APT Threat Map",
+ "versions": {
+  "layer": "4.5",
+  "navigator": "5.1.0"
+ },
+ "domain": "enterprise-attack",
+ "description": "Técnicas de FIN7 com cobertura do catálogo (score 3=regra, 2=parcial, 1=lacuna)",
+ "techniques": [
+  {
+   "techniqueID": "T1005",
+   "score": 3,
+   "comment": "FIN7 has collected files and other sensitive information from a compromised network. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1008",
+   "score": 3,
+   "comment": "FIN7's Harpy backdoor malware can use DNS as a backup channel for C2 if HTTP fails. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1021.001",
+   "score": 3,
+   "comment": "FIN7 has used RDP to move laterally in victim environments. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1021.004",
+   "score": 3,
+   "comment": "FIN7 has used SSH to move laterally through victim environments. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1021.005",
+   "score": 3,
+   "comment": "FIN7 has used TightVNC to control compromised hosts. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1027.010",
+   "score": 3,
+   "comment": "FIN7 has used fragmented strings, environment variables, standard input (stdin), and native character-replacement functionalities to obfuscate commands. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1027.016",
+   "score": 3,
+   "comment": "FIN7 has used random junk code to obfuscate malware code. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1033",
+   "score": 3,
+   "comment": "FIN7 has used the command `cmd.exe /C quser` to collect user session information. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1036.004",
+   "score": 3,
+   "comment": "FIN7 has created a scheduled task named “AdobeFlashSync” to establish persistence. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1036.005",
+   "score": 3,
+   "comment": "FIN7 has attempted to run Darkside ransomware with the filename sleep.exe. Additionally, FIN7 has mimicked WsTaskLoad.exe, which is associated with the Wondershare software suite, by using a malicious executable under the same name. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1047",
+   "score": 3,
+   "comment": "FIN7 has used WMI to install malware on targeted systems. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1053.005",
+   "score": 3,
+   "comment": "FIN7 malware has created scheduled tasks to establish persistence. Specifically, FIN7 has used OpenSSH to establish persistence. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1057",
+   "score": 3,
+   "comment": "FIN7 has used the PowerShell script 3CF9.ps1 to perform process discovery by executing `tasklist /v`. Additionally, WsTaskLoad.exe executes `tasklist /v` to perform process discovery. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1059",
+   "score": 3,
+   "comment": "FIN7 used SQL scripts to help perform tasks on the victim's machine. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1059.001",
+   "score": 3,
+   "comment": "FIN7 used a PowerShell script to launch shellcode that retrieved an additional payload. Additionally, FIN7 has executed a custom obfuscation of the shellcode invoker in PowerSploit called POWERTRASH. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1059.003",
+   "score": 3,
+   "comment": "FIN7 used the command prompt to launch commands on the victim’s machine. Additionally, FIN7 has used cmd.exe to open the Run dialog by sending the “Windows + R” keys through malicious USBs acting as virtual keyboards. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1059.005",
+   "score": 3,
+   "comment": "FIN7 used VBS scripts to help perform tasks on the victim's machine. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1059.007",
+   "score": 3,
+   "comment": "FIN7 used JavaScript scripts to help perform tasks on the victim's machine. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1069.002",
+   "score": 3,
+   "comment": "FIN7 has used the command `net group \"domain admins\" /domain` to enumerate domain groups. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1071.004",
+   "score": 3,
+   "comment": "FIN7 has performed C2 using DNS via A, OPT, and TXT records. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1078",
+   "score": 3,
+   "comment": "FIN7 has harvested valid administrative credentials for lateral movement. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1078.003",
+   "score": 3,
+   "comment": "FIN7 has used compromised credentials for access as SYSTEM on Exchange servers. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1082",
+   "score": 3,
+   "comment": "FIN7 has used csvde.exe, which is a built-in Windows command line tool, to export system information. Additionally, WsTaskLoad has gathered system information, such as operating system and hostname. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1087.002",
+   "score": 3,
+   "comment": "FIN7 has used the PowerShell script 3CF9.ps1 and the executable WsTaskLoad to enumerate domain administrations by executing `net group “Domain Admins” /domain`. FIN7 has also used csvde.exe, which is a built-in Windows command line tool, to export Active Directory information. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1091",
+   "score": 3,
+   "comment": "FIN7 actors have mailed USB drives to potential victims containing malware that downloads and installs various backdoors, including in some cases for ransomware operations. Additionally, FIN7 has used malicious USBs that acted as virtual keyboards to install malware and txt files that decode to PowerShell commands. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1102.002",
+   "score": 3,
+   "comment": "FIN7 used legitimate services like Google Docs, Google Scripts, and Pastebin for C2. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1105",
+   "score": 3,
+   "comment": "FIN7 has downloaded additional malware to execute on the victim's machine, including by using a PowerShell script to launch shellcode that retrieves an additional payload. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1113",
+   "score": 3,
+   "comment": "FIN7 captured screenshots and desktop video recordings. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1124",
+   "score": 3,
+   "comment": "FIN7 has used the PowerShell script 3CF9.ps1 to execute `net time`. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1125",
+   "score": 3,
+   "comment": "FIN7 created a custom video recording capability that could be used to monitor operations in the victim's environment. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1140",
+   "score": 3,
+   "comment": "FIN7 has decoded a malicious PowerShell script using `certutil -decode hex` and has decoded an XOR-obfuscated block of data with the key `qawsed1q2w3e`, which led to the installation of Lizar. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1190",
+   "score": 3,
+   "comment": "FIN7 has compromised targeted organizations through exploitation of CVE-2021-31207 in Exchange. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1195.002",
+   "score": 3,
+   "comment": "FIN7 has gained initial access by compromising a victim's software supply chain. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1204.001",
+   "score": 3,
+   "comment": "FIN7 has used malicious links to lure victims into downloading malware. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1204.002",
+   "score": 3,
+   "comment": "FIN7 lured victims to double-click on images in the attachments they sent which would then execute the hidden LNK file. Additionally, FIN7 has used malicious Microsoft Word and Excel files and Leo VBS to distribute an updated version of JSS Loader and to distribute the Harpy backdoor. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1210",
+   "score": 3,
+   "comment": "FIN7 has exploited ZeroLogon (CVE-2020-1472) against vulnerable domain controllers. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1218.005",
+   "score": 3,
+   "comment": "FIN7 has used mshta.exe to execute VBScript to execute malicious code on victim systems. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1218.011",
+   "score": 3,
+   "comment": "FIN7 has used `rundll32.exe` to execute malware on a compromised network. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1219",
+   "score": 3,
+   "comment": "FIN7 has utilized the remote management tool Atera to download malware to a compromised system. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1486",
+   "score": 3,
+   "comment": "FIN7 has encrypted virtual disk volumes on ESXi servers using a version of Darkside ransomware. Additionally, FIN7 has deployed ransomware as the end payload during big game hunting. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1497.002",
+   "score": 2,
+   "comment": "FIN7 used images embedded into document lures that only activate the payload when a user double clicks to avoid sandboxes. | cobertura: parcial (ASR/D3FEND)",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1543.003",
+   "score": 3,
+   "comment": "FIN7 created new Windows services and added them to the startup directories for persistence. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1546.011",
+   "score": 3,
+   "comment": "FIN7 has used application shim databases for persistence. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1547.001",
+   "score": 3,
+   "comment": "FIN7 malware has created Registry Run and RunOnce keys to establish persistence, and has also added items to the Startup folder. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1553.002",
+   "score": 3,
+   "comment": "FIN7 has signed Carbanak payloads with legally purchased code signing certificates. FIN7 has also digitally signed their phishing documents, backdoors and other staging tools to bypass security controls. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1558.003",
+   "score": 3,
+   "comment": "FIN7 has used Kerberoasting PowerShell commands such as, `Invoke-Kerberoast` for credential access and to enable lateral movement. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1559.002",
+   "score": 3,
+   "comment": "FIN7 spear phishing campaigns have included malicious Word documents with DDE execution. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1564.001",
+   "score": 3,
+   "comment": "FIN7 has used `attrib +h “C:\\ProgramData\\ssh”` to make the SSH folder hidden. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1564.003",
+   "score": 3,
+   "comment": "FIN7 has used .txt files to conceal PowerShell commands. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1566.001",
+   "score": 3,
+   "comment": "FIN7 sent spearphishing emails with either malicious Microsoft Documents or RTF files attached. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1566.002",
+   "score": 3,
+   "comment": "FIN7 has conducted broad phishing campaigns using malicious links. Additionally, FIN7 has sent spearphishing emails containing a typosquatted link to “ip-sccanner[.]com.” | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1567.002",
+   "score": 3,
+   "comment": "FIN7 has exfiltrated stolen data to the MEGA file sharing site. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1569.002",
+   "score": 3,
+   "comment": "FIN7 has started the SSH service by executing `sc start sshd`. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1571",
+   "score": 3,
+   "comment": "FIN7 has used port-protocol mismatches on ports such as 53, 80, 443, and 8080 during C2. FIN7 has used TCP ports 59999 and 9898 for firewall rules. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1572",
+   "score": 3,
+   "comment": "FIN7 has tunneled C2 traffic via OpenSSH. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1583.001",
+   "score": 1,
+   "comment": "FIN7 has registered look-alike domains for use in phishing campaigns. Additionally, FIN7 has registered a malicious domain as `advanced-ip-sccanner[.]com` that redirected to an adversary-controlled Dropbox which contained the malicious executable. | cobertura: lacuna",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1583.006",
+   "score": 1,
+   "comment": "FIN7 has set up Amazon S3 buckets to host trojanized digital products. | cobertura: lacuna",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1587.001",
+   "score": 3,
+   "comment": "FIN7 has developed malware for use in operations, including the creation of infected removable media. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1588.002",
+   "score": 3,
+   "comment": "FIN7 has utilized a variety of tools such as Cobalt Strike, PowerSploit, and the remote management tool, Atera for targeting efforts. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1591",
+   "score": 1,
+   "comment": "FIN7 has compiled a list of victims by filtering companies by revenue using Zoominfo, which is a service that provides business information. | cobertura: lacuna",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1591.004",
+   "score": 3,
+   "comment": "FIN7 has identified IT staff and employees who had higher levels of administrative rights. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1608.001",
+   "score": 3,
+   "comment": "FIN7 has staged legitimate software, that was trojanized to contain an Atera agent installer, on Amazon S3. FIN7 has also used an open directory web server as a staging server for payloads and other tools, such as OpenSSH and 7zip. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1608.004",
+   "score": 3,
+   "comment": "FIN7 has compromised a digital product website and modified multiple download links to point to trojanized versions of offered digital products. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1608.005",
+   "score": 3,
+   "comment": "FIN7 has created a fake link that redirected to an adversary-controlled Dropbox that downloaded the malicious executable. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1620",
+   "score": 3,
+   "comment": "FIN7 has loaded a .NET assembly into the currect execution context via `Reflection.Assembly::Load`. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1674",
+   "score": 1,
+   "comment": "FIN7 has used malicious USBs to emulate keystrokes to launch PowerShell to download and execute malware from the adversary's server. | cobertura: lacuna",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1686",
+   "score": 3,
+   "comment": "FIN7 has added a firewall rule to allow TCP port 59999 inbound and a rule to allow sshd.exe on TCP port 9898. | cobertura: regra",
+   "enabled": true
+  }
+ ],
+ "gradient": {
+  "colors": [
+   "#ff5d6c",
+   "#ffb347",
+   "#2ecc8f"
+  ],
+  "minValue": 1,
+  "maxValue": 3
+ },
+ "layout": {
+  "layout": "side",
+  "showName": true,
+  "showID": true
+ }
+}

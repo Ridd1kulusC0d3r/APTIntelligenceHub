@@ -1,0 +1,18 @@
+// PowerShell Get Clipboard | T1115 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/powershell/powershell_module/posh_pm_get_clipboard.yml
+Payload:*Get\-Clipboard*
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "Payload:*Get\\-Clipboard*",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

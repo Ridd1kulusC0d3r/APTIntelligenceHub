@@ -1,0 +1,18 @@
+// PSEXEC Remote Execution File Artefact | T1136.002, T1543.003, T1570 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_sysinternals_psexec_service_key.yml
+TargetFilename:C\:\\Windows\\PSEXEC\-* AND TargetFilename:*.key
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "TargetFilename:C\\:\\\\Windows\\\\PSEXEC\\-* AND TargetFilename:*.key",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

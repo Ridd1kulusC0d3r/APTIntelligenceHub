@@ -1,0 +1,2 @@
+# Potential Persistence Via Shim Database In Uncommon Location | T1546.011 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_persistence_shim_database_uncommon_location.yml
+source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=13 TargetObject="*\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\AppCompatFlags\\InstalledSDB\\*" TargetObject="*\\DatabasePath*" NOT Details="*:\\Windows\\AppPatch\\Custom*"

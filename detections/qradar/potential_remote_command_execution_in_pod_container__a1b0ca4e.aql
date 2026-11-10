@@ -1,0 +1,2 @@
+-- Potential Remote Command Execution In Pod Container | T1609 | https://github.com/SigmaHQ/sigma/blob/master/rules/application/kubernetes/audit/kubernetes_audit_exec_into_container.yml | NOTA: fallback QRadarAQL_payload_pipeline: campos sem propriedade DSM mapeada são buscados em UTF8(payload) – custo maior, crie custom properties
+SELECT * FROM events WHERE LOWER(UTF8(payload)) LIKE '%create%' AND LOWER(UTF8(payload)) LIKE '%pods%' AND LOWER(UTF8(payload)) LIKE '%exec%'

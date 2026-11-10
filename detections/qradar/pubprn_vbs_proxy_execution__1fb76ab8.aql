@@ -1,0 +1,2 @@
+-- Pubprn.vbs Proxy Execution | T1216.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_pubprn.yml
+SELECT * FROM events WHERE devicetype=12 AND LOWER(Command) LIKE '%\pubprn.vbs%' AND LOWER(Command) LIKE '%script:%'

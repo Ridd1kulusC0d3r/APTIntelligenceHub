@@ -1,0 +1,18 @@
+// Tor Client/Browser Execution | T1090.003 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_browsers_tor_execution.yml
+Description:"Tor Browser" OR Product:"Tor Browser" OR (Image:(*\\tor.exe OR *\\Tor\ Browser\\Browser\\firefox.exe))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "Description:\"Tor Browser\" OR Product:\"Tor Browser\" OR (Image:(*\\\\tor.exe OR *\\\\Tor\\ Browser\\\\Browser\\\\firefox.exe))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,2 @@
+# SAM Registry Hive Handle Request | T1012, T1552.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_sam_registry_hive_handle_request.yml
+source="WinEventLog:Security" EventCode=4656 ObjectType="Key" ObjectName="*\\SAM"

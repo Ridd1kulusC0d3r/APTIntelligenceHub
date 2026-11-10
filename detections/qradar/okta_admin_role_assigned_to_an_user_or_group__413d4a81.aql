@@ -1,0 +1,2 @@
+-- Okta Admin Role Assigned to an User or Group | T1098.003 | https://github.com/SigmaHQ/sigma/blob/master/rules/identity/okta/okta_admin_role_assigned_to_user_or_group.yml | NOTA: fallback QRadarAQL_payload_pipeline: campos sem propriedade DSM mapeada são buscados em UTF8(payload) – custo maior, crie custom properties
+SELECT * FROM events WHERE devicetype=382 AND (LOWER(UTF8(payload)) LIKE '%group.privilege.grant%' OR LOWER(UTF8(payload)) LIKE '%user.account.privilege.grant%')

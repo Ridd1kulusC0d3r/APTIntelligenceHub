@@ -1,0 +1,2 @@
+# Print History File Contents | T1592.004 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_susp_history_recon.yml
+(Image IN ("*/cat", "*/head", "*/tail", "*/more")) (CommandLine IN ("*/.bash_history*", "*/.zsh_history*") OR CommandLine IN ("*_history", "*.history", "*zhistory"))

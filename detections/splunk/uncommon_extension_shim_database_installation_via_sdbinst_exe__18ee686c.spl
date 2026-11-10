@@ -1,0 +1,2 @@
+# Uncommon Extension Shim Database Installation Via Sdbinst.EXE | T1546.011 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sdbinst_susp_extension.yml
+source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=1 (Image="*\\sdbinst.exe" OR OriginalFileName="sdbinst.exe") NOT (CommandLine="*.sdb*" OR CommandLine IN ("* -c", "* -f", "* -mm", "* -t") OR CommandLine="* -m -bg*" OR NOT CommandLine=* OR CommandLine="")

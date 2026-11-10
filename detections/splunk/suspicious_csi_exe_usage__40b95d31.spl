@@ -1,0 +1,2 @@
+# Suspicious Csi.exe Usage | T1072, T1218 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_csi_execution.yml
+source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=1 (Image IN ("*\\csi.exe", "*\\rcsi.exe") OR OriginalFileName IN ("csi.exe", "rcsi.exe")) Company="Microsoft Corporation"

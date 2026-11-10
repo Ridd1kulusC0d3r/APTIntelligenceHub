@@ -1,0 +1,2 @@
+# Boot Configuration Tampering Via Bcdedit.EXE | T1490 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_bcdedit_boot_conf_tamper.yml
+source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=1 (Image="*\\bcdedit.exe" OR OriginalFileName="bcdedit.exe") CommandLine="*set*" ((CommandLine="*bootstatuspolicy*" CommandLine="*ignoreallfailures*") OR (CommandLine="*recoveryenabled*" CommandLine="*no*"))

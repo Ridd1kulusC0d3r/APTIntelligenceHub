@@ -1,0 +1,4 @@
+# Metasploit Or Impacket Service Installation Via SMB PsExec | T1021.002, T1569.002, T1570 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_metasploit_or_impacket_smb_psexec_service_install.yml
+source="WinEventLog:Security" EventCode=4697 ServiceStartType=3 ServiceType="0x10" NOT ServiceName="PSEXESVC"
+| regex ServiceFileName="^%systemroot%\\\\[a-zA-Z]{8}\\.exe$"
+| regex ServiceName="(^[a-zA-Z]{4}$)|(^[a-zA-Z]{8}$)|(^[a-zA-Z]{16}$)"

@@ -1,0 +1,2 @@
+// AWS GuardDuty Detector Deleted Or Updated | T1685, T1685.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/aws/cloudtrail/aws_cloudtrail_guardduty_detector_deleted_or_updated.yml
+from * metadata _id, _index, _version | where eventSource=="guardduty.amazonaws.com" and (eventName=="DeleteDetector" or eventName=="UpdateDetector" and requestParameters.enable=="false") and (errorCode=="Success" or errorCode is null)

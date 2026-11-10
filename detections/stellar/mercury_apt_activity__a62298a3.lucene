@@ -1,0 +1,18 @@
+// MERCURY APT Activity | T1059.001 | https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2022/TA/MERCURY/proc_creation_win_apt_mercury.yml
+CommandLine:*\-exec\ bypass\ \-w\ 1\ \-enc* AND CommandLine:*UwB0AGEAcgB0AC0ASgBvAGIAIAAtAFMAYwByAGkAcAB0AEIAbABvAGMAawAgAHsAKABzAGEAcABzACAAKAAiAHAA*
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "CommandLine:*\\-exec\\ bypass\\ \\-w\\ 1\\ \\-enc* AND CommandLine:*UwB0AGEAcgB0AC0ASgBvAGIAIAAtAFMAYwByAGkAcAB0AEIAbABvAGMAawAgAHsAKABzAGEAcABzACAAKAAiAHAA*",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

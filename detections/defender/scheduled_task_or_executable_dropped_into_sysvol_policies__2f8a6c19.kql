@@ -1,0 +1,3 @@
+// Scheduled Task Or Executable Dropped Into SYSVOL Policies | T1484.001, T1485 | Hub
+DeviceFileEvents
+| where (FolderPath contains "\\SYSVOL\\" and FolderPath contains "\\Policies\\") and (FolderPath endswith ".exe" or FolderPath endswith ".dll" or FolderPath endswith ".ps1" or FolderPath endswith ".bat" or FolderPath endswith "\\ScheduledTasks.xml")

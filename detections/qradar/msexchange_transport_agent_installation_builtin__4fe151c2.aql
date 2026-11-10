@@ -1,0 +1,2 @@
+-- MSExchange Transport Agent Installation - Builtin | T1505.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/msexchange/win_exchange_transportagent.yml | NOTA: fallback QRadarAQL_payload_pipeline: campos sem propriedade DSM mapeada são buscados em UTF8(payload) – custo maior, crie custom properties
+SELECT * FROM events WHERE devicetype=12 AND LOWER(UTF8(payload)) LIKE '%install-transportagent%'

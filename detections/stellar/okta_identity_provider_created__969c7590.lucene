@@ -1,0 +1,18 @@
+// Okta Identity Provider Created | T1098.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/identity/okta/okta_identity_provider_created.yml
+eventType:system.idp.lifecycle.create
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "eventType:system.idp.lifecycle.create",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

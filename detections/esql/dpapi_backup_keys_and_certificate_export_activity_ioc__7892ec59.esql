@@ -1,0 +1,2 @@
+// DPAPI Backup Keys And Certificate Export Activity IOC | T1552.004, T1555 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_susp_dpapi_backup_and_cert_export_ioc.yml
+from * metadata _id, _index, _version | where (file.path like "*ntds_capi_*" or file.path like "*ntds_legacy_*" or file.path like "*ntds_unknown_*") and (ends_with(file.path, ".cer") or ends_with(file.path, ".key") or ends_with(file.path, ".pfx") or ends_with(file.path, ".pvk"))

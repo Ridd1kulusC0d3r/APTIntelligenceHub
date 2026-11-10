@@ -1,0 +1,2 @@
+-- Guacamole Two Users Sharing Session Anomaly | T1212 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/builtin/guacamole/lnx_guacamole_susp_guacamole.yml | NOTA: fallback QRadarAQL_payload_pipeline: campos sem propriedade DSM mapeada são buscados em UTF8(payload) – custo maior, crie custom properties
+SELECT * FROM events WHERE devicetype=11 AND LOWER(UTF8(payload)) LIKE '%(2 users now present)%'

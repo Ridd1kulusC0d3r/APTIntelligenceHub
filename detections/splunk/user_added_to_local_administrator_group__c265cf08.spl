@@ -1,0 +1,2 @@
+# User Added to Local Administrator Group | T1078, T1098 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_user_added_to_local_administrators.yml
+source="WinEventLog:Security" EventCode=4732 (TargetUserName="Administr*" OR TargetSid="S-1-5-32-544") NOT SubjectUserName="*$"

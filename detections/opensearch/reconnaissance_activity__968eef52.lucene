@@ -1,0 +1,2 @@
+// Reconnaissance Activity | T1069.002, T1087.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_susp_net_recon_activity.yml
+winlog.channel:Security AND (event.code:4661 AND winlog.event_data.AccessMask:0x2d AND (winlog.event_data.ObjectType:(SAM_USER OR SAM_GROUP)) AND winlog.event_data.ObjectName:S\-1\-5\-21\-* AND (winlog.event_data.ObjectName:(*\-500 OR *\-512)))

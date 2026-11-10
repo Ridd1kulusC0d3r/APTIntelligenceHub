@@ -1,0 +1,2 @@
+// Microsoft 365 - User Restricted from Sending Email | T1199 | https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/m365/threat_management/microsoft365_user_restricted_from_sending_email.yml
+any where eventSource:"SecurityComplianceCenter" and eventName:"User restricted from sending email" and status:"success"

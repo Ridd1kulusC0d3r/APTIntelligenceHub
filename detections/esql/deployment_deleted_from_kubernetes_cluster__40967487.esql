@@ -1,0 +1,2 @@
+// Deployment Deleted From Kubernetes Cluster | T1498 | https://github.com/SigmaHQ/sigma/blob/master/rules/application/kubernetes/audit/kubernetes_audit_deployment_deleted.yml
+from * metadata _id, _index, _version | where verb=="delete" and objectRef.resource=="deployments"

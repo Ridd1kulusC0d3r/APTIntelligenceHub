@@ -1,0 +1,18 @@
+// Django Framework Exceptions | T1190 | https://github.com/SigmaHQ/sigma/blob/master/rules/application/django/appframework_django_exceptions.yml
+*SuspiciousOperation* OR *DisallowedHost* OR *DisallowedModelAdminLookup* OR *DisallowedModelAdminToField* OR *DisallowedRedirect* OR *InvalidSessionKey* OR *RequestDataTooBig* OR *SuspiciousFileOperation* OR *SuspiciousMultipartForm* OR *SuspiciousSession* OR *TooManyFieldsSent* OR *PermissionDenied*
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "*SuspiciousOperation* OR *DisallowedHost* OR *DisallowedModelAdminLookup* OR *DisallowedModelAdminToField* OR *DisallowedRedirect* OR *InvalidSessionKey* OR *RequestDataTooBig* OR *SuspiciousFileOperation* OR *SuspiciousMultipartForm* OR *SuspiciousSession* OR *TooManyFieldsSent* OR *PermissionDenied*",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

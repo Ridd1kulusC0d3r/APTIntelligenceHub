@@ -1,0 +1,2 @@
+// Failed MSExchange Transport Agent Installation | T1505.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/msexchange/win_exchange_transportagent_failed.yml
+winlog.channel:"MSExchange Management" AND (event.code:6 AND winlog.event_data.Data:*Install\-TransportAgent*)

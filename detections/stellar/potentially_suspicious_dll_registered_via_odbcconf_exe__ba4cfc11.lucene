@@ -1,0 +1,18 @@
+// Potentially Suspicious DLL Registered Via Odbcconf.EXE | T1218.008 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_odbcconf_register_dll_regsvr_susp.yml
+((Image:*\\odbcconf.exe OR OriginalFileName:odbcconf.exe) AND CommandLine:*REGSVR\ *) AND (NOT CommandLine:*.dll*)
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "((Image:*\\\\odbcconf.exe OR OriginalFileName:odbcconf.exe) AND CommandLine:*REGSVR\\ *) AND (NOT CommandLine:*.dll*)",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

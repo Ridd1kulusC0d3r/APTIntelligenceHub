@@ -1,0 +1,3 @@
+# Potential Rundll32 Execution With DLL Stored In ADS | T1564.004 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_ads_stored_dll_execution.yml
+source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=1 (Image="*\\rundll32.exe" OR OriginalFileName="RUNDLL32.EXE")
+| regex CommandLine="[Rr][Uu][Nn][Dd][Ll][Ll]32(?:\\.[Ee][Xx][Ee])? \\S+?\\w:\\S+?:"

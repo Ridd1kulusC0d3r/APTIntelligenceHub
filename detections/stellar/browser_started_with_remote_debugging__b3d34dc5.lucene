@@ -1,0 +1,18 @@
+// Browser Started with Remote Debugging | T1185 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_browsers_remote_debugging.yml
+CommandLine:*\ \-\-remote\-debugging\-* OR (Image:*\\firefox.exe AND CommandLine:*\ \-start\-debugger\-server*)
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "CommandLine:*\\ \\-\\-remote\\-debugging\\-* OR (Image:*\\\\firefox.exe AND CommandLine:*\\ \\-start\\-debugger\\-server*)",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

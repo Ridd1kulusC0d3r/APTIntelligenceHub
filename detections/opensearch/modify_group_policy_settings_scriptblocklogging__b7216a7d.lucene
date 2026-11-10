@@ -1,0 +1,2 @@
+// Modify Group Policy Settings - ScriptBlockLogging | T1484.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/powershell/powershell_script/posh_ps_modify_group_policy_settings.yml
+powershell.file.script_block_text:*\\SOFTWARE\\Policies\\Microsoft\\Windows\\System* AND (powershell.file.script_block_text:(*GroupPolicyRefreshTimeDC* OR *GroupPolicyRefreshTimeOffsetDC* OR *GroupPolicyRefreshTime* OR *GroupPolicyRefreshTimeOffset* OR *EnableSmartScreen* OR *ShellSmartScreenLevel*))

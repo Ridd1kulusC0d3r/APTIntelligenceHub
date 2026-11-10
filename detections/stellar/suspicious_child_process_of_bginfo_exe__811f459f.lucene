@@ -1,0 +1,18 @@
+// Suspicious Child Process Of BgInfo.EXE | T1059.005, T1202, T1218 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_bginfo_suspicious_child_process.yml
+(ParentImage:(*\\bginfo.exe OR *\\bginfo64.exe)) AND ((Image:(*\\calc.exe OR *\\cmd.exe OR *\\cscript.exe OR *\\mshta.exe OR *\\notepad.exe OR *\\powershell.exe OR *\\pwsh.exe OR *\\wscript.exe)) OR (Image:(*\\AppData\\Local\\* OR *\\AppData\\Roaming\\* OR *\:\\Users\\Public\\* OR *\:\\Temp\\* OR *\:\\Windows\\Temp\\* OR *\:\\PerfLogs\\*)))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(ParentImage:(*\\\\bginfo.exe OR *\\\\bginfo64.exe)) AND ((Image:(*\\\\calc.exe OR *\\\\cmd.exe OR *\\\\cscript.exe OR *\\\\mshta.exe OR *\\\\notepad.exe OR *\\\\powershell.exe OR *\\\\pwsh.exe OR *\\\\wscript.exe)) OR (Image:(*\\\\AppData\\\\Local\\\\* OR *\\\\AppData\\\\Roaming\\\\* OR *\\:\\\\Users\\\\Public\\\\* OR *\\:\\\\Temp\\\\* OR *\\:\\\\Windows\\\\Temp\\\\* OR *\\:\\\\PerfLogs\\\\*)))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,2 @@
+-- HackTool - SecurityXploded Execution | T1555 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_secutyxploded.yml | NOTA: fallback QRadarAQL_payload_pipeline: campos sem propriedade DSM mapeada são buscados em UTF8(payload) – custo maior, crie custom properties
+SELECT * FROM events WHERE devicetype=12 AND (LOWER(UTF8(payload)) LIKE '%securityxploded%' OR (LOWER("Process Path") LIKE '%passworddump.exe' OR LOWER("Process Name") LIKE '%passworddump.exe') OR LOWER(Filename) LIKE '%passworddump.exe')

@@ -1,0 +1,2 @@
+// Suspicious Chromium Browser Instance Executed With Custom Extension | T1176.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_browsers_chromium_susp_load_extension.yml
+(process.parent.executable.caseless:(*\\cmd.exe OR *\\cscript.exe OR *\\mshta.exe OR *\\powershell.exe OR *\\pwsh.exe OR *\\regsvr32.exe OR *\\rundll32.exe OR *\\wscript.exe)) AND (process.executable.caseless:(*\\brave.exe OR *\\chrome.exe OR *\\msedge.exe OR *\\opera.exe OR *\\vivaldi.exe)) AND process.command_line:*\-\-load\-extension\=*

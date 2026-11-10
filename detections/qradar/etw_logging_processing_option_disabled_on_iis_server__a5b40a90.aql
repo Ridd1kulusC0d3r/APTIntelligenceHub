@@ -1,0 +1,2 @@
+-- ETW Logging/Processing Option Disabled On IIS Server | T1505.004, T1685.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/iis-configuration/win_iis_logging_etw_disabled.yml | NOTA: fallback QRadarAQL_payload_pipeline: campos sem propriedade DSM mapeada são buscados em UTF8(payload) – custo maior, crie custom properties
+SELECT * FROM events WHERE devicetype=12 AND ("Event ID"=29 AND LOWER(UTF8(payload)) LIKE '%@logtargetw3c%' AND LOWER(UTF8(payload)) LIKE '%etw%') AND (NOT(LOWER(UTF8(payload)) LIKE '%etw%'))

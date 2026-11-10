@@ -1,0 +1,2 @@
+// Hacktool Ruler | T1059, T1087, T1114, T1550.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_alert_ruler.yml
+any where winlog.channel:"Security" and ((event.code:"4776" and winlog.event_data.Workstation:"RULER") or ((event.code like~ ("4624", "4625")) and source.domain:"RULER"))

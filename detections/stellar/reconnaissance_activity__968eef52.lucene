@@ -1,0 +1,18 @@
+// Reconnaissance Activity | T1069.002, T1087.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_susp_net_recon_activity.yml
+EventID:4661 AND AccessMask:0x2d AND (ObjectType:(SAM_USER OR SAM_GROUP)) AND ObjectName:S\-1\-5\-21\-* AND (ObjectName:(*\-500 OR *\-512))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "EventID:4661 AND AccessMask:0x2d AND (ObjectType:(SAM_USER OR SAM_GROUP)) AND ObjectName:S\\-1\\-5\\-21\\-* AND (ObjectName:(*\\-500 OR *\\-512))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

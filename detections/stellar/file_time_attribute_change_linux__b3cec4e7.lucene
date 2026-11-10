@@ -1,0 +1,18 @@
+// File Time Attribute Change - Linux | T1070.006 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/execve/lnx_auditd_change_file_time_attr.yml
+type:EXECVE AND *touch* AND (*\-t* OR *\-acmr* OR *\-d* OR *\-r*)
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "type:EXECVE AND *touch* AND (*\\-t* OR *\\-acmr* OR *\\-d* OR *\\-r*)",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,18 @@
+// Rundll32 Execution Without Parameters | T1021.002, T1569.002, T1570 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_without_parameters.yml
+CommandLine:(rundll32.exe OR rundll32)
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "CommandLine:(rundll32.exe OR rundll32)",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,2 @@
+// Fsutil Suspicious Invocation | T1070, T1485 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_fsutil_usage.yml
+(process.executable.caseless:*\\fsutil.exe OR process.pe.original_file_name:fsutil.exe) AND (process.command_line:(*deletejournal* OR *createjournal* OR *setZeroData*))

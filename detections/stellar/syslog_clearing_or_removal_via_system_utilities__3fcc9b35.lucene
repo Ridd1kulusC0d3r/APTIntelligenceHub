@@ -1,0 +1,18 @@
+// Syslog Clearing or Removal Via System Utilities | T1685.006 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_clear_syslog.yml
+(CommandLine:*\/var\/log\/syslog* AND ((Image:*\/rm AND (CommandLine:(*\ \-r\ * OR *\ \-f\ * OR *\ \-rf\ * OR *\/var\/log\/syslog*))) OR Image:*\/unlink OR Image:*\/mv OR (Image:*\/truncate AND (CommandLine:*0\ * AND CommandLine:*\/var\/log\/syslog*) AND (CommandLine:(*\-s\ * OR *\-c\ * OR *\-\-size*))) OR (Image:*\/ln AND (CommandLine:*\/dev\/null\ * AND CommandLine:*\/var\/log\/syslog*) AND (CommandLine:(*\-sf\ * OR *\-sfn\ * OR *\-sfT\ *))) OR (Image:*\/cp AND CommandLine:*\/dev\/null*) OR (Image:*\/shred AND CommandLine:*\-u\ *))) OR ((CommandLine:(*\ \>\ \/var\/log\/syslog* OR *\ \>\/var\/log\/syslog* OR *\ \>\|\ \/var\/log\/syslog* OR *\:\ \>\ \/var\/log\/syslog* OR *\:\>\ \/var\/log\/syslog* OR *\:\>\/var\/log\/syslog* OR *\>\|\/var\/log\/syslog*)) OR (CommandLine:(*journalctl\ \-\-vacuum* OR *journalctl\ \-\-rotate*)))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(CommandLine:*\\/var\\/log\\/syslog* AND ((Image:*\\/rm AND (CommandLine:(*\\ \\-r\\ * OR *\\ \\-f\\ * OR *\\ \\-rf\\ * OR *\\/var\\/log\\/syslog*))) OR Image:*\\/unlink OR Image:*\\/mv OR (Image:*\\/truncate AND (CommandLine:*0\\ * AND CommandLine:*\\/var\\/log\\/syslog*) AND (CommandLine:(*\\-s\\ * OR *\\-c\\ * OR *\\-\\-size*))) OR (Image:*\\/ln AND (CommandLine:*\\/dev\\/null\\ * AND CommandLine:*\\/var\\/log\\/syslog*) AND (CommandLine:(*\\-sf\\ * OR *\\-sfn\\ * OR *\\-sfT\\ *))) OR (Image:*\\/cp AND CommandLine:*\\/dev\\/null*) OR (Image:*\\/shred AND CommandLine:*\\-u\\ *))) OR ((CommandLine:(*\\ \\>\\ \\/var\\/log\\/syslog* OR *\\ \\>\\/var\\/log\\/syslog* OR *\\ \\>\\|\\ \\/var\\/log\\/syslog* OR *\\:\\ \\>\\ \\/var\\/log\\/syslog* OR *\\:\\>\\ \\/var\\/log\\/syslog* OR *\\:\\>\\/var\\/log\\/syslog* OR *\\>\\|\\/var\\/log\\/syslog*)) OR (CommandLine:(*journalctl\\ \\-\\-vacuum* OR *journalctl\\ \\-\\-rotate*)))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

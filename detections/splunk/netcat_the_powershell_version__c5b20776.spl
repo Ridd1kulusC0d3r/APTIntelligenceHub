@@ -1,0 +1,2 @@
+# Netcat The Powershell Version | T1059.001, T1095 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/powershell/powershell_classic/posh_pc_powercat.yml
+Data IN ("*powercat *", "*powercat.ps1*")

@@ -1,0 +1,2 @@
+# Suspicious Use of CSharp Interactive Console | T1127 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_csi_use_of_csharp_console.yml
+source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=1 Image="*\\csi.exe" (ParentImage IN ("*\\powershell.exe", "*\\pwsh.exe", "*\\powershell_ise.exe")) OriginalFileName="csi.exe"

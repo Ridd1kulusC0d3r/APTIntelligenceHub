@@ -1,0 +1,2 @@
+// Encoded PowerShell Spawned By Script Host | T1059.001, T1059.007 | Hub
+(process.parent.executable.caseless:(*\\wscript.exe OR *\\cscript.exe OR *\\mshta.exe)) AND (process.executable.caseless:*\\powershell.exe AND (process.command_line:(*\ \-enc* OR *\ \-EncodedCommand* OR *\ \-e\ *)))

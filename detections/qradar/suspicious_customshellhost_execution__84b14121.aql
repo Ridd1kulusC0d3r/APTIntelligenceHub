@@ -1,0 +1,2 @@
+-- Suspicious CustomShellHost Execution | T1216 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_customshellhost_susp_exec.yml
+SELECT * FROM events WHERE devicetype=12 AND LOWER("Parent Process Path") LIKE '%\customshellhost.exe' AND (NOT(("Process Path"='C:\Windows\explorer.exe' OR "Process Name"='C:\Windows\explorer.exe')))

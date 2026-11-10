@@ -1,0 +1,18 @@
+// Suspicious Recursive Takeown | T1222.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_takeown_recursive_own.yml
+Image:*\\takeown.exe AND (CommandLine:*\/f\ * AND CommandLine:*\/r*)
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "Image:*\\\\takeown.exe AND (CommandLine:*\\/f\\ * AND CommandLine:*\\/r*)",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

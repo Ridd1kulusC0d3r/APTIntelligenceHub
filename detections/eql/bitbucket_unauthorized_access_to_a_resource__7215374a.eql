@@ -1,0 +1,2 @@
+// Bitbucket Unauthorized Access To A Resource | T1586 | https://github.com/SigmaHQ/sigma/blob/master/rules/application/bitbucket/audit/bitbucket_audit_unauthorized_access_detected.yml
+any where auditType.category:"Security" and auditType.action:"Unauthorized access to a resource"

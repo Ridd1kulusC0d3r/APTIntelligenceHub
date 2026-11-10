@@ -1,0 +1,2 @@
+# Steganography Hide Files with Steghide | T1027.003 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/execve/lnx_auditd_steghide_embed_steganography.yml
+type="EXECVE" a0="steghide" a1="embed" (a2 IN ("-cf", "-ef")) (a4 IN ("-cf", "-ef"))

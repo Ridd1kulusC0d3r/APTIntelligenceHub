@@ -1,0 +1,2 @@
+// AWS Config Disabling Channel/Recorder | T1685.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/aws/cloudtrail/aws_config_disable_recording.yml
+from * metadata _id, _index, _version | where eventSource=="config.amazonaws.com" and (eventName in ("DeleteDeliveryChannel", "StopConfigurationRecorder"))

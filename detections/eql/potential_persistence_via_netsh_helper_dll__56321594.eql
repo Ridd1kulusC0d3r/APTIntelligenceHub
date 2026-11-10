@@ -1,0 +1,2 @@
+// Potential Persistence Via Netsh Helper DLL | T1546.007 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_netsh_helper_dll_persistence.yml
+any where (process.pe.original_file_name:"netsh.exe" or process.executable.caseless:"*\\netsh.exe") and (process.command_line:"*add*" and process.command_line:"*helper*")

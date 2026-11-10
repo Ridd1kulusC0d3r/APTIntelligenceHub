@@ -1,0 +1,2 @@
+// TeamPCP LiteLLM Supply Chain Attack Persistence Indicators | T1195.002, T1543.002 | https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2026/TA/TeamPCP/file_event_lnx_teampcp_litellm_supply_chain_attack_indicators.yml
+from * metadata _id, _index, _version | where Image like "*/python3*" and (ends_with(TargetFilename, "/.config/sysmon/sysmon.py") or ends_with(TargetFilename, "/.config/systemd/user/sysmon.service"))

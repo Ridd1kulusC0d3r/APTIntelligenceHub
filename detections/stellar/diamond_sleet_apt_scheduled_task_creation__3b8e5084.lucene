@@ -1,0 +1,18 @@
+// Diamond Sleet APT Scheduled Task Creation | T1053.005 | https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/Diamond-Sleet/win_security_apt_diamond_sleet_scheduled_task.yml
+EventID:4698 AND TaskName:"\\Windows TeamCity Settings User Interface" AND TaskContent:*uTYNkfKxHiZrx3KJ*
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "EventID:4698 AND TaskName:\"\\\\Windows TeamCity Settings User Interface\" AND TaskContent:*uTYNkfKxHiZrx3KJ*",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,2 @@
+-- PowerShell Script Change Permission Via Set-Acl - PsScript | T1222 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/powershell/powershell_script/posh_ps_set_acl.yml
+SELECT * FROM events WHERE devicetype=12 AND LOWER(Message) LIKE '%set-acl %' AND LOWER(Message) LIKE '%-aclobject %' AND LOWER(Message) LIKE '%-path %'

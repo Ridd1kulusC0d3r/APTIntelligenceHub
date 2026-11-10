@@ -1,0 +1,2 @@
+// Suspicious Download from Office Domain | T1105, T1608 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_download_office_domain.yml
+any where ((process.executable.caseless like~ ("*\\curl.exe", "*\\wget.exe")) or (process.command_line like~ ("*Invoke-WebRequest*", "*iwr *", "*curl *", "*wget *", "*Start-BitsTransfer*", "*.DownloadFile(*", "*.DownloadString(*"))) and (process.command_line like~ ("*https://attachment.outlook.live.net/owa/*", "*https://onenoteonlinesync.onenote.com/onenoteonlinesync/*"))

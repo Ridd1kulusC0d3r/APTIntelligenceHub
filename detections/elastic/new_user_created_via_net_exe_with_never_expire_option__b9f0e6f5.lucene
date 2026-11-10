@@ -1,0 +1,2 @@
+// New User Created Via Net.EXE With Never Expire Option | T1136.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_net_user_add_never_expire.yml
+((process.executable.caseless:(*\\net.exe OR *\\net1.exe)) OR (process.pe.original_file_name:(net.exe OR net1.exe))) AND (process.command_line:*user* AND process.command_line:*add* AND process.command_line:*expires\:never*)

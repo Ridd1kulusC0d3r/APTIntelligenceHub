@@ -1,0 +1,2 @@
+// Activity from Infrequent Country | T1573 | https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/m365/threat_management/microsoft365_activity_from_infrequent_country.yml
+eventSource:SecurityComplianceCenter AND eventName:"Activity from infrequent country" AND status:success

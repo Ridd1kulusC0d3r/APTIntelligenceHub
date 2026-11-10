@@ -1,0 +1,18 @@
+// HackTool - winPEAS Execution | T1046, T1082, T1087 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_winpeas.yml
+(OriginalFileName:winPEAS.exe OR (Image:(*\\winPEASany_ofs.exe OR *\\winPEASany.exe OR *\\winPEASx64_ofs.exe OR *\\winPEASx64.exe OR *\\winPEASx86_ofs.exe OR *\\winPEASx86.exe))) OR (CommandLine:(*\ applicationsinfo* OR *\ browserinfo* OR *\ eventsinfo* OR *\ fileanalysis* OR *\ filesinfo* OR *\ processinfo* OR *\ servicesinfo* OR *\ windowscreds*)) OR CommandLine:*https\:\/\/github.com\/carlospolop\/PEASS\-ng\/releases\/latest\/download\/* OR (ParentCommandLine:*\ \-linpeas OR CommandLine:*\ \-linpeas)
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(OriginalFileName:winPEAS.exe OR (Image:(*\\\\winPEASany_ofs.exe OR *\\\\winPEASany.exe OR *\\\\winPEASx64_ofs.exe OR *\\\\winPEASx64.exe OR *\\\\winPEASx86_ofs.exe OR *\\\\winPEASx86.exe))) OR (CommandLine:(*\\ applicationsinfo* OR *\\ browserinfo* OR *\\ eventsinfo* OR *\\ fileanalysis* OR *\\ filesinfo* OR *\\ processinfo* OR *\\ servicesinfo* OR *\\ windowscreds*)) OR CommandLine:*https\\:\\/\\/github.com\\/carlospolop\\/PEASS\\-ng\\/releases\\/latest\\/download\\/* OR (ParentCommandLine:*\\ \\-linpeas OR CommandLine:*\\ \\-linpeas)",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

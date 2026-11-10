@@ -1,0 +1,2 @@
+# KrbRelayUp Service Installation | T1543 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/system/service_control_manager/win_system_krbrelayup_service_installation.yml
+source="WinEventLog:System" EventCode=7045 ServiceName="KrbSCM"

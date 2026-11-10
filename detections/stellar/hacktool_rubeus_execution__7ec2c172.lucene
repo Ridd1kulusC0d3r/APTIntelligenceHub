@@ -1,0 +1,18 @@
+// HackTool - Rubeus Execution | T1003, T1550.003, T1558.003 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_rubeus.yml
+Image:*\\Rubeus.exe OR OriginalFileName:Rubeus.exe OR Description:Rubeus OR (CommandLine:(*asreproast\ * OR *dump\ \/service\:krbtgt\ * OR *dump\ \/luid\:0x* OR *kerberoast\ * OR *createnetonly\ \/program\:* OR *ptt\ \/ticket\:* OR *\/impersonateuser\:* OR *renew\ \/ticket\:* OR *asktgt\ \/user\:* OR *harvest\ \/interval\:* OR *s4u\ \/user\:* OR *s4u\ \/ticket\:* OR *hash\ \/password\:* OR *golden\ \/aes256\:* OR *silver\ \/user\:*))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "Image:*\\\\Rubeus.exe OR OriginalFileName:Rubeus.exe OR Description:Rubeus OR (CommandLine:(*asreproast\\ * OR *dump\\ \\/service\\:krbtgt\\ * OR *dump\\ \\/luid\\:0x* OR *kerberoast\\ * OR *createnetonly\\ \\/program\\:* OR *ptt\\ \\/ticket\\:* OR *\\/impersonateuser\\:* OR *renew\\ \\/ticket\\:* OR *asktgt\\ \\/user\\:* OR *harvest\\ \\/interval\\:* OR *s4u\\ \\/user\\:* OR *s4u\\ \\/ticket\\:* OR *hash\\ \\/password\\:* OR *golden\\ \\/aes256\\:* OR *silver\\ \\/user\\:*))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

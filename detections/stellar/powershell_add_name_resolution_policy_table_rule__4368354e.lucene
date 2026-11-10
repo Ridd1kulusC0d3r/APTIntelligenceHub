@@ -1,0 +1,18 @@
+// Powershell Add Name Resolution Policy Table Rule | T1565 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/powershell/powershell_script/posh_ps_add_dnsclient_rule.yml
+ScriptBlockText:*Add\-DnsClientNrptRule* AND ScriptBlockText:*\-Namesp* AND ScriptBlockText:*\-NameSe*
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "ScriptBlockText:*Add\\-DnsClientNrptRule* AND ScriptBlockText:*\\-Namesp* AND ScriptBlockText:*\\-NameSe*",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

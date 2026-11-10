@@ -1,0 +1,18 @@
+// Suspicious RazerInstaller Explorer Subprocess | T1553 | https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2021/Exploits/RazerInstaller-LPE-Exploit/proc_creation_win_exploit_other_razorinstaller_lpe.yml
+(ParentImage:*\\RazerInstaller.exe AND (IntegrityLevel:(System OR S\-1\-16\-16384))) AND (NOT Image:C\:\\Windows\\Installer\\Razer\\Installer\\*)
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(ParentImage:*\\\\RazerInstaller.exe AND (IntegrityLevel:(System OR S\\-1\\-16\\-16384))) AND (NOT Image:C\\:\\\\Windows\\\\Installer\\\\Razer\\\\Installer\\\\*)",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,3 @@
+// Potential Network Sniffing Activity Using Network Tools | T1040 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_network_sniffing.yml
+DeviceProcessEvents
+| where (FolderPath endswith "\\tshark.exe" and ProcessCommandLine contains "-i") or FolderPath endswith "\\windump.exe"

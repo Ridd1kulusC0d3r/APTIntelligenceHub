@@ -1,0 +1,2 @@
+-- Powershell Keylogging | T1056.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/powershell/powershell_script/posh_ps_keylogging.yml
+SELECT * FROM events WHERE devicetype=12 AND (LOWER(Message) LIKE '%get-keystrokes%' OR (LOWER(Message) LIKE '%get-procaddress user32.dll getasynckeystate%' AND LOWER(Message) LIKE '%get-procaddress user32.dll getforegroundwindow%'))

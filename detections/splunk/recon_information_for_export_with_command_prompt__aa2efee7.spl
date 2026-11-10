@@ -1,0 +1,2 @@
+# Recon Information for Export with Command Prompt | T1119 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_recon.yml
+source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=1 (Image IN ("*\\tree.com", "*\\WMIC.exe", "*\\doskey.exe", "*\\sc.exe") OR OriginalFileName IN ("wmic.exe", "DOSKEY.EXE", "sc.exe")) (ParentCommandLine IN ("* > %TEMP%\\*", "* > %TMP%\\*"))

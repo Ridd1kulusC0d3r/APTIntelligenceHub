@@ -1,0 +1,2 @@
+// Potential PSFactoryBuffer COM Hijacking | T1546.015 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_persistence_comhijack_psfactorybuffer.yml
+any where registry.path:"*\\CLSID\\{c90250f3-4d7d-4991-9b69-a5c5bc1c2ae6}\\InProcServer32\\(Default)" and (not (winlog.event_data.Details like~ ("%windir%\\System32\\ActXPrxy.dll", "C:\\Windows\\System32\\ActXPrxy.dll")))

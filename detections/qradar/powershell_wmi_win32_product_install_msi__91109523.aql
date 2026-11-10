@@ -1,0 +1,2 @@
+-- PowerShell WMI Win32_Product Install MSI | T1218.007 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/powershell/powershell_script/posh_ps_win32_product_install_msi.yml
+SELECT * FROM events WHERE devicetype=12 AND LOWER(Message) LIKE '%invoke-cimmethod %' AND LOWER(Message) LIKE '%-classname %' AND LOWER(Message) LIKE '%win32_product %' AND LOWER(Message) LIKE '%-methodname %' AND LOWER(Message) LIKE '%.msi%'

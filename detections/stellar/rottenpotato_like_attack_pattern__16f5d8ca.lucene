@@ -1,0 +1,18 @@
+// RottenPotato Like Attack Pattern | T1557.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/account_management/win_security_susp_rottenpotato.yml
+EventID:4624 AND LogonType:3 AND TargetUserName:"ANONYMOUS LOGON" AND WorkstationName:\- AND (IpAddress:(127.0.0.1 OR \:\:1))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "EventID:4624 AND LogonType:3 AND TargetUserName:\"ANONYMOUS LOGON\" AND WorkstationName:\\- AND (IpAddress:(127.0.0.1 OR \\:\\:1))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

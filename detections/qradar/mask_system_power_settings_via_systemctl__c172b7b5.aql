@@ -1,0 +1,2 @@
+-- Mask System Power Settings Via Systemctl | T1653 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_systemctl_mask_power_settings.yml
+SELECT * FROM events WHERE devicetype=11 AND ((LOWER("Process Path") LIKE '%/systemctl' OR LOWER("Process Name") LIKE '%/systemctl') AND LOWER(Command) LIKE '% mask%') AND (LOWER(Command) LIKE '%suspend.target%' OR LOWER(Command) LIKE '%hibernate.target%' OR LOWER(Command) LIKE '%hybrid-sleep.target%')

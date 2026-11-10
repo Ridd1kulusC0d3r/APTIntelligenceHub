@@ -1,0 +1,2 @@
+-- WMI Persistence - Command Line Event Consumer | T1546.003 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_wmi_persistence_commandline_event_consumer.yml
+SELECT * FROM events WHERE devicetype=12 AND ("Process Path"='C:\Windows\System32\wbem\WmiPrvSE.exe' OR "Process Name"='C:\Windows\System32\wbem\WmiPrvSE.exe') AND LOWER(CONCAT('file directory', '/', filename)) LIKE '%\wbemcons.dll'

@@ -1,0 +1,18 @@
+// HackTool - Mimikatz Execution | T1003.001, T1003.002, T1003.004, T1003.005, T1003.006 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_mimikatz_command_line.yml
+(CommandLine:(*DumpCreds* OR *mimikatz*)) OR (CommandLine:(*\:\:aadcookie* OR *\:\:detours* OR *\:\:memssp* OR *\:\:mflt* OR *\:\:ncroutemon* OR *\:\:ngcsign* OR *\:\:printnightmare* OR *\:\:skeleton* OR *\:\:preshutdown* OR *\:\:mstsc* OR *\:\:multirdp*)) OR (CommandLine:(*rpc\:\:* OR *token\:\:* OR *crypto\:\:* OR *dpapi\:\:* OR *sekurlsa\:\:* OR *kerberos\:\:* OR *lsadump\:\:* OR *privilege\:\:* OR *process\:\:* OR *vault\:\:*))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(CommandLine:(*DumpCreds* OR *mimikatz*)) OR (CommandLine:(*\\:\\:aadcookie* OR *\\:\\:detours* OR *\\:\\:memssp* OR *\\:\\:mflt* OR *\\:\\:ncroutemon* OR *\\:\\:ngcsign* OR *\\:\\:printnightmare* OR *\\:\\:skeleton* OR *\\:\\:preshutdown* OR *\\:\\:mstsc* OR *\\:\\:multirdp*)) OR (CommandLine:(*rpc\\:\\:* OR *token\\:\\:* OR *crypto\\:\\:* OR *dpapi\\:\\:* OR *sekurlsa\\:\\:* OR *kerberos\\:\\:* OR *lsadump\\:\\:* OR *privilege\\:\\:* OR *process\\:\\:* OR *vault\\:\\:*))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

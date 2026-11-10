@@ -1,0 +1,2 @@
+-- Automated Collection Bookmarks Using Get-ChildItem PowerShell | T1217 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/powershell/powershell_script/posh_ps_get_childitem_bookmarks.yml
+SELECT * FROM events WHERE devicetype=12 AND LOWER(Message) LIKE '%get-childitem%' AND LOWER(Message) LIKE '% -recurse %' AND LOWER(Message) LIKE '% -path %' AND LOWER(Message) LIKE '% -filter bookmarks%' AND LOWER(Message) LIKE '% -erroraction silentlycontinue%' AND LOWER(Message) LIKE '% -force%'

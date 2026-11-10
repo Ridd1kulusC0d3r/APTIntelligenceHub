@@ -1,0 +1,3 @@
+// Suspicious File Characteristics Due to Missing Fields | T1059.006 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_file_characteristics.yml
+DeviceProcessEvents
+| where ((ProcessVersionInfoFileDescription =~ "?" and ProcessVersionInfoProductVersion =~ "?") or (ProcessVersionInfoFileDescription =~ "?" and ProcessVersionInfoProductName =~ "?") or (ProcessVersionInfoFileDescription =~ "?" and ProcessVersionInfoCompanyName =~ "?")) and FolderPath contains "\\Downloads\\"

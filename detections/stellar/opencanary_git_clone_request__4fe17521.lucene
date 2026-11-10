@@ -1,0 +1,18 @@
+// OpenCanary - GIT Clone Request | T1213 | https://github.com/SigmaHQ/sigma/blob/master/rules/application/opencanary/opencanary_git_clone_request.yml
+logtype:16001
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "logtype:16001",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

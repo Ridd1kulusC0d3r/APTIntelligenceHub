@@ -1,0 +1,3 @@
+// RDP Port Forwarding Rule Added Via Netsh.EXE | T1090 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_netsh_port_forwarding_3389.yml
+DeviceProcessEvents
+| where (FolderPath endswith "\\netsh.exe" or ProcessVersionInfoOriginalFileName =~ "netsh.exe") and (ProcessCommandLine contains " i" and ProcessCommandLine contains " p" and ProcessCommandLine contains "=3389" and ProcessCommandLine contains " c")

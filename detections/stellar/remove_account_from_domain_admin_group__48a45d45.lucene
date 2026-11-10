@@ -1,0 +1,18 @@
+// Remove Account From Domain Admin Group | T1531 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/powershell/powershell_script/posh_ps_susp_remove_adgroupmember.yml
+ScriptBlockText:*Remove\-ADGroupMember* AND ScriptBlockText:*\-Identity\ * AND ScriptBlockText:*\-Members\ *
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "ScriptBlockText:*Remove\\-ADGroupMember* AND ScriptBlockText:*\\-Identity\\ * AND ScriptBlockText:*\\-Members\\ *",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

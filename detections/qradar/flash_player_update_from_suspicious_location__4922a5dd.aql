@@ -1,0 +1,2 @@
+-- Flash Player Update from Suspicious Location | T1036.005, T1189, T1204.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/web/proxy_generic/proxy_susp_flash_download_loc.yml | NOTA: fallback QRadarAQL_payload_pipeline: campos sem propriedade DSM mapeada são buscados em UTF8(payload) – custo maior, crie custom properties
+SELECT * FROM events WHERE (LOWER(URL) LIKE '%/flash_install.php%' OR LOWER(URL) LIKE '%/install_flash_player.exe%') AND (NOT(LOWER(UTF8(payload)) LIKE '%.adobe.com%'))

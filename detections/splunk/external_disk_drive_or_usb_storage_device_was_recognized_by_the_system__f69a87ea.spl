@@ -1,0 +1,2 @@
+# External Disk Drive Or USB Storage Device Was Recognized By The System | T1091, T1200 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_external_device.yml
+source="WinEventLog:Security" EventCode=6416 (ClassName="DiskDrive" OR DeviceDescription="USB Mass Storage Device")

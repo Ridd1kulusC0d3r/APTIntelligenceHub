@@ -1,0 +1,2 @@
+// Psexec Execution | T1021, T1569 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sysinternals_psexec_execution.yml
+process.executable.caseless:*\\psexec.exe OR process.pe.original_file_name:psexec.c

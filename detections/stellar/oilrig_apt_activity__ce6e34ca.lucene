@@ -1,0 +1,18 @@
+// OilRig APT Activity | T1053.005, T1071.004, T1112, T1543.003 | https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2018/TA/OilRig/proc_creation_win_apt_oilrig_mar18.yml
+(CommandLine:*SC\ Scheduled\ Scan* AND CommandLine:*\\microsoft\\Taskbar\\autoit3.exe*) OR (Image:*\\Windows\\Temp\\DB\\* AND Image:*.exe) OR (Image:C\:\\Windows\\system32\\Service.exe AND (CommandLine:(*i* OR *u*))) OR (ParentImage:*\\local\\microsoft\\Taskbar\\autoit3.exe AND (CommandLine:*nslookup.exe* AND CommandLine:*\-q\=TXT*))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(CommandLine:*SC\\ Scheduled\\ Scan* AND CommandLine:*\\\\microsoft\\\\Taskbar\\\\autoit3.exe*) OR (Image:*\\\\Windows\\\\Temp\\\\DB\\\\* AND Image:*.exe) OR (Image:C\\:\\\\Windows\\\\system32\\\\Service.exe AND (CommandLine:(*i* OR *u*))) OR (ParentImage:*\\\\local\\\\microsoft\\\\Taskbar\\\\autoit3.exe AND (CommandLine:*nslookup.exe* AND CommandLine:*\\-q\\=TXT*))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

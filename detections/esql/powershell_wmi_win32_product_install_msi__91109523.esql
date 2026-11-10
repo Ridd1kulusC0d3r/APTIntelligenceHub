@@ -1,0 +1,2 @@
+// PowerShell WMI Win32_Product Install MSI | T1218.007 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/powershell/powershell_script/posh_ps_win32_product_install_msi.yml
+from * metadata _id, _index, _version | where powershell.file.script_block_text like "*Invoke-CimMethod *" and powershell.file.script_block_text like "*-ClassName *" and powershell.file.script_block_text like "*Win32_Product *" and powershell.file.script_block_text like "*-MethodName *" and powershell.file.script_block_text like "*.msi*"

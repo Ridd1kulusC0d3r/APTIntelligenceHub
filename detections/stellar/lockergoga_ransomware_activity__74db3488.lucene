@@ -1,0 +1,18 @@
+// LockerGoga Ransomware Activity | T1486 | https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2019/Malware/LockerGoga/proc_creation_win_malware_lockergoga_ransomware.yml
+CommandLine:*\-i\ SM\-tgytutrc\ \-s*
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "CommandLine:*\\-i\\ SM\\-tgytutrc\\ \\-s*",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

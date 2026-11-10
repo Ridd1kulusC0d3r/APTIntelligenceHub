@@ -1,0 +1,2 @@
+// OpenCanary - VNC Connection Attempt | T1021 | https://github.com/SigmaHQ/sigma/blob/master/rules/application/opencanary/opencanary_vnc_connection_attempt.yml
+any where logtype:12001

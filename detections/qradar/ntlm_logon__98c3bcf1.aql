@@ -1,0 +1,2 @@
+-- NTLM Logon | T1550.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/ntlm/win_susp_ntlm_auth.yml
+SELECT * FROM events WHERE devicetype=12 AND "Event ID"=8002

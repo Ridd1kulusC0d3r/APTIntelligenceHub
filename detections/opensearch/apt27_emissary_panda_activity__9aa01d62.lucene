@@ -1,0 +1,2 @@
+// APT27 - Emissary Panda Activity | T1574.001 | https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2018/TA/APT27/proc_creation_win_apt_apt27_emissary_panda.yml
+(process.parent.executable.caseless:*\\sllauncher.exe AND process.executable.caseless:*\\svchost.exe) OR (process.parent.executable.caseless:*\\AppData\\Roaming\\* AND process.executable.caseless:*\\svchost.exe AND process.command_line:*\-k*)

@@ -1,0 +1,2 @@
+// Diamond Sleet APT Scheduled Task Creation | T1053.005 | https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/Diamond-Sleet/win_security_apt_diamond_sleet_scheduled_task.yml
+from * metadata _id, _index, _version | where winlog.channel=="Security" and event.code=="4698" and winlog.event_data.TaskName=="\\Windows TeamCity Settings User Interface" and winlog.event_data.TaskContent like "*uTYNkfKxHiZrx3KJ*"

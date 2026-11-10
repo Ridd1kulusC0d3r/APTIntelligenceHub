@@ -1,0 +1,2 @@
+// Change Default File Association To Executable Via Assoc | T1546.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_cmd_assoc_tamper_exe_file_association.yml
+from * metadata _id, _index, _version | where (ends_with(process.executable.caseless, "\\cmd.exe") or process.pe.original_file_name=="Cmd.Exe") and process.command_line like "*assoc *" and process.command_line like "*exefile*" and not process.command_line like "*.exe=exefile*"

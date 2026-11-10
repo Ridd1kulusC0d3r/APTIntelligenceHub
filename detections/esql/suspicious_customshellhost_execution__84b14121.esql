@@ -1,0 +1,2 @@
+// Suspicious CustomShellHost Execution | T1216 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_customshellhost_susp_exec.yml
+from * metadata _id, _index, _version | where ends_with(process.parent.executable.caseless, "\\CustomShellHost.exe") and not process.executable.caseless=="C:\\Windows\\explorer.exe"

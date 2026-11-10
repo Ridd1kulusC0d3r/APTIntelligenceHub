@@ -1,0 +1,18 @@
+// NTLM Logon | T1550.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/ntlm/win_susp_ntlm_auth.yml
+EventID:8002
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "EventID:8002",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

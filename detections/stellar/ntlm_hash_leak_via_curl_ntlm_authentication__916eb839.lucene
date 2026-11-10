@@ -1,0 +1,18 @@
+// NTLM Hash Leak Via Curl NTLM Authentication | T1187 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_curl_ntlm_hash_leak_attempt.yml
+(Image:*\\curl.exe OR OriginalFileName:curl.exe) AND CommandLine:*\-\-ntlm* AND CommandLine:/(?i)\s(-u|--user)\s*:/
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(Image:*\\\\curl.exe OR OriginalFileName:curl.exe) AND CommandLine:*\\-\\-ntlm* AND CommandLine:/(?i)\\s(-u|--user)\\s*:/",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

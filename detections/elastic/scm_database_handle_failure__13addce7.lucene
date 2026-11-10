@@ -1,0 +1,2 @@
+// SCM Database Handle Failure | T1010 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_scm_database_handle_failure.yml
+winlog.channel:Security AND ((event.code:4656 AND winlog.event_data.ObjectType:"SC_MANAGER OBJECT" AND winlog.event_data.ObjectName:ServicesActive AND winlog.event_data.AccessMask:0xf003f) AND (NOT winlog.logon.id:0x3e4))

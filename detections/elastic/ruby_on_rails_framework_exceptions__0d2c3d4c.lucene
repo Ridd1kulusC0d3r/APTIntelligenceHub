@@ -1,0 +1,2 @@
+// Ruby on Rails Framework Exceptions | T1190 | https://github.com/SigmaHQ/sigma/blob/master/rules/application/ruby/appframework_ruby_on_rails_exceptions.yml
+*ActionController\:\:InvalidAuthenticityToken* OR *ActionController\:\:InvalidCrossOriginRequest* OR *ActionController\:\:MethodNotAllowed* OR *ActionController\:\:BadRequest* OR *ActionController\:\:ParameterMissing*

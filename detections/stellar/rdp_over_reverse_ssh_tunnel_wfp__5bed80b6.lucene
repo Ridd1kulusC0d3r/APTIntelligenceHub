@@ -1,0 +1,18 @@
+// RDP over Reverse SSH Tunnel WFP | T1021.001, T1090.001, T1090.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_rdp_reverse_tunnel.yml
+EventID:5156 AND ((SourcePort:3389 AND (DestAddress:(127.* OR \:\:1))) OR (DestPort:3389 AND (SourceAddress:(127.* OR \:\:1)))) AND (NOT (FilterOrigin:"AppContainer Loopback" OR (Application:(*\\thor.exe OR *\\thor64.exe))))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "EventID:5156 AND ((SourcePort:3389 AND (DestAddress:(127.* OR \\:\\:1))) OR (DestPort:3389 AND (SourceAddress:(127.* OR \\:\\:1)))) AND (NOT (FilterOrigin:\"AppContainer Loopback\" OR (Application:(*\\\\thor.exe OR *\\\\thor64.exe))))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

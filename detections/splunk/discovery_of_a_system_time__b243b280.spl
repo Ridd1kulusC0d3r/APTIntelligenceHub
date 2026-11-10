@@ -1,0 +1,2 @@
+# Discovery of a System Time | T1124 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_remote_time_discovery.yml
+source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=1 (((Image IN ("*\\net.exe", "*\\net1.exe")) CommandLine="*time*") OR (Image="*\\w32tm.exe" CommandLine="*tz*"))

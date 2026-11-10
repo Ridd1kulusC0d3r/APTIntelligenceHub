@@ -1,0 +1,2 @@
+# Potentially Suspicious NTFS Symlink Behavior Modification | T1059, T1222.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_fsutil_symlinkevaluation.yml
+source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=1 (Image IN ("*\\cmd.exe", "*\\powershell.exe", "*\\pwsh.exe") OR OriginalFileName IN ("Cmd.Exe", "PowerShell.EXE", "pwsh.dll")) CommandLine="*fsutil*" CommandLine="*behavior*" CommandLine="*set*" CommandLine="*SymlinkEvaluation*" (CommandLine IN ("*R2L:1*", "*R2R:1*", "*L2L:1*"))

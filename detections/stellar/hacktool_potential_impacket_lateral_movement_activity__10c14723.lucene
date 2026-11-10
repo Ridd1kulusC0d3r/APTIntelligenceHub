@@ -1,0 +1,18 @@
+// HackTool - Potential Impacket Lateral Movement Activity | T1021.003, T1047 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_impacket_lateral_movement.yml
+((ParentImage:(*\\wmiprvse.exe OR *\\mmc.exe OR *\\explorer.exe OR *\\services.exe)) AND (CommandLine:*cmd.exe* AND CommandLine:*\/Q* AND CommandLine:*\/c* AND CommandLine:*\\\\127.0.0.1\\* AND CommandLine:*\&1*)) OR ((ParentCommandLine:(*svchost.exe\ \-k\ netsvcs* OR *taskeng.exe*)) AND (CommandLine:*cmd.exe* AND CommandLine:*\/C* AND CommandLine:*Windows\\Temp\\* AND CommandLine:*\&1*))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "((ParentImage:(*\\\\wmiprvse.exe OR *\\\\mmc.exe OR *\\\\explorer.exe OR *\\\\services.exe)) AND (CommandLine:*cmd.exe* AND CommandLine:*\\/Q* AND CommandLine:*\\/c* AND CommandLine:*\\\\\\\\127.0.0.1\\\\* AND CommandLine:*\\&1*)) OR ((ParentCommandLine:(*svchost.exe\\ \\-k\\ netsvcs* OR *taskeng.exe*)) AND (CommandLine:*cmd.exe* AND CommandLine:*\\/C* AND CommandLine:*Windows\\\\Temp\\\\* AND CommandLine:*\\&1*))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

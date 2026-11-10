@@ -1,0 +1,18 @@
+// LSASS Process Reconnaissance Via Findstr.EXE | T1552.006 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_findstr_lsass.yml
+(((Image:(*\\find.exe OR *\\findstr.exe)) OR (OriginalFileName:(FIND.EXE OR FINDSTR.EXE))) AND CommandLine:*lsass*) OR (CommandLine:(*\ \-i\ \"lsass* OR *\ \/i\ \"lsass* OR *\ –i\ \"lsass* OR *\ —i\ \"lsass* OR *\ ―i\ \"lsass*) OR CommandLine:(*\ \-i\ lsass.exe* OR *\ \/i\ lsass.exe* OR *\ –i\ lsass.exe* OR *\ —i\ lsass.exe* OR *\ ―i\ lsass.exe*) OR CommandLine:(*findstr\ \"lsass*) OR CommandLine:(*findstr\ lsass*) OR CommandLine:(*findstr.exe\ \"lsass*) OR CommandLine:(*findstr.exe\ lsass*))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(((Image:(*\\\\find.exe OR *\\\\findstr.exe)) OR (OriginalFileName:(FIND.EXE OR FINDSTR.EXE))) AND CommandLine:*lsass*) OR (CommandLine:(*\\ \\-i\\ \\\"lsass* OR *\\ \\/i\\ \\\"lsass* OR *\\ \u2013i\\ \\\"lsass* OR *\\ \u2014i\\ \\\"lsass* OR *\\ \u2015i\\ \\\"lsass*) OR CommandLine:(*\\ \\-i\\ lsass.exe* OR *\\ \\/i\\ lsass.exe* OR *\\ \u2013i\\ lsass.exe* OR *\\ \u2014i\\ lsass.exe* OR *\\ \u2015i\\ lsass.exe*) OR CommandLine:(*findstr\\ \\\"lsass*) OR CommandLine:(*findstr\\ lsass*) OR CommandLine:(*findstr.exe\\ \\\"lsass*) OR CommandLine:(*findstr.exe\\ lsass*))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

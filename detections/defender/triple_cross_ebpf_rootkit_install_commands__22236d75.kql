@@ -1,0 +1,3 @@
+// Triple Cross eBPF Rootkit Install Commands | T1014 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_triple_cross_rootkit_install.yml
+DeviceProcessEvents
+| where FolderPath endswith "/sudo" and (ProcessCommandLine contains " tc " and ProcessCommandLine contains " enp0s3 ") and (ProcessCommandLine contains " qdisc " or ProcessCommandLine contains " filter ")

@@ -1,0 +1,18 @@
+// AWS Config Disabling Channel/Recorder | T1685.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/aws/cloudtrail/aws_config_disable_recording.yml
+eventSource:config.amazonaws.com AND (eventName:(DeleteDeliveryChannel OR StopConfigurationRecorder))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "eventSource:config.amazonaws.com AND (eventName:(DeleteDeliveryChannel OR StopConfigurationRecorder))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

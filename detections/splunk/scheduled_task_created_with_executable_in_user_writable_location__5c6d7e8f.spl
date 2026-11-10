@@ -1,0 +1,2 @@
+# Scheduled Task Created With Executable In User-Writable Location | T1053.005 | Hub
+source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=1 Image="*\\schtasks.exe" CommandLine="*/create*" (CommandLine IN ("*\\AppData\\*", "*\\ProgramData\\*", "*\\Users\\Public\\*", "*%APPDATA%*", "*%PROGRAMDATA%*"))

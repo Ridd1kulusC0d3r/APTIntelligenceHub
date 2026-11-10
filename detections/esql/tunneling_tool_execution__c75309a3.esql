@@ -1,0 +1,2 @@
+// Tunneling Tool Execution | T1041, T1071.001, T1572 | https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_susp_exfil_and_tunneling_tool_execution.yml
+from * metadata _id, _index, _version | where ends_with(process.executable.caseless, "\\httptunnel.exe") or ends_with(process.executable.caseless, "\\plink.exe") or ends_with(process.executable.caseless, "\\socat.exe") or ends_with(process.executable.caseless, "\\stunnel.exe")

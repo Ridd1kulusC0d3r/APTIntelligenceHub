@@ -1,0 +1,2 @@
+# BloodHound Collection Files | T1059.001, T1069.001, T1069.002, T1087.001, T1087.002, T1482 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_bloodhound_collection.yml
+source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=11 (TargetFilename IN ("*BloodHound.zip", "*_computers.json", "*_containers.json", "*_gpos.json", "*_groups.json", "*_ous.json", "*_users.json")) NOT (Image="*\\svchost.exe" TargetFilename="C:\\Program Files\\WindowsApps\\Microsoft.*" TargetFilename="*\\pocket_containers.json")

@@ -1,0 +1,3 @@
+// Scheduled Task Created With Executable In User-Writable Location | T1053.005 | Hub
+DeviceProcessEvents
+| where (FolderPath endswith "\\schtasks.exe" and ProcessCommandLine contains "/create") and (ProcessCommandLine contains "\\AppData\\" or ProcessCommandLine contains "\\ProgramData\\" or ProcessCommandLine contains "\\Users\\Public\\" or ProcessCommandLine contains "%APPDATA%" or ProcessCommandLine contains "%PROGRAMDATA%")

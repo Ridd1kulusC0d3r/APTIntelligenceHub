@@ -1,0 +1,2 @@
+# Mustang Panda Dropper | T1587.001 | https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2019/TA/MustangPanda/proc_creation_win_apt_mustangpanda.yml
+source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=1 (CommandLine IN ("*Temp\\wtask.exe /create*", "*%windir:~-3,1%%PUBLIC:~-9,1%*", "*/tn \"Security Script *", "*%windir:~-1,1%*") OR (CommandLine="*/E:vbscript*" CommandLine="*C:\\Users\\*" CommandLine="*.txt*" CommandLine="*/F*") OR Image="*Temp\\winwsh.exe")

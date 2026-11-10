@@ -1,0 +1,18 @@
+// Renamed BrowserCore.EXE Execution | T1036.003, T1528 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_renamed_browsercore.yml
+OriginalFileName:BrowserCore.exe AND (NOT Image:*\\BrowserCore.exe)
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "OriginalFileName:BrowserCore.exe AND (NOT Image:*\\\\BrowserCore.exe)",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

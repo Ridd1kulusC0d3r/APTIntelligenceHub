@@ -1,0 +1,18 @@
+// Console CodePage Lookup Via CHCP | T1614.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_chcp_codepage_lookup.yml
+ParentImage:*\\cmd.exe AND (ParentCommandLine:(*\ \-c\ * OR *\ \/c\ * OR *\ –c\ * OR *\ —c\ * OR *\ ―c\ *) OR ParentCommandLine:(*\ \-r\ * OR *\ \/r\ * OR *\ –r\ * OR *\ —r\ * OR *\ ―r\ *) OR ParentCommandLine:(*\ \-k\ * OR *\ \/k\ * OR *\ –k\ * OR *\ —k\ * OR *\ ―k\ *)) AND Image:*\\chcp.com AND (CommandLine:(*chcp OR *chcp\  OR *chcp\ \ ))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "ParentImage:*\\\\cmd.exe AND (ParentCommandLine:(*\\ \\-c\\ * OR *\\ \\/c\\ * OR *\\ \u2013c\\ * OR *\\ \u2014c\\ * OR *\\ \u2015c\\ *) OR ParentCommandLine:(*\\ \\-r\\ * OR *\\ \\/r\\ * OR *\\ \u2013r\\ * OR *\\ \u2014r\\ * OR *\\ \u2015r\\ *) OR ParentCommandLine:(*\\ \\-k\\ * OR *\\ \\/k\\ * OR *\\ \u2013k\\ * OR *\\ \u2014k\\ * OR *\\ \u2015k\\ *)) AND Image:*\\\\chcp.com AND (CommandLine:(*chcp OR *chcp\\  OR *chcp\\ \\ ))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

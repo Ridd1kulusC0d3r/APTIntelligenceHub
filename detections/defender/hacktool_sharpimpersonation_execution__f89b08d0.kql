@@ -1,0 +1,3 @@
+// HackTool - SharpImpersonation Execution | T1134.001, T1134.003 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_sharp_impersonation.yml
+DeviceProcessEvents
+| where (FolderPath endswith "\\SharpImpersonation.exe" or ProcessVersionInfoOriginalFileName =~ "SharpImpersonation.exe") or ((ProcessCommandLine contains " user:" and ProcessCommandLine contains " binary:") or (ProcessCommandLine contains " user:" and ProcessCommandLine contains " shellcode:") or (ProcessCommandLine contains " technique:CreateProcessAsUserW" or ProcessCommandLine contains " technique:ImpersonateLoggedOnuser"))

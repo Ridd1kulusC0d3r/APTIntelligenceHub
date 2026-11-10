@@ -1,0 +1,18 @@
+// Persistence Via Sudoers Files | T1548.003 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/file_event/file_event_lnx_persistence_sudoers_files.yml
+(TargetFilename:(\/etc\/sudoers OR \/etc\/sudoers.d\/*)) AND (NOT (Image:*\/usr\/bin\/dpkg AND TargetFilename:\/etc\/sudoers.d\/README.dpkg\-new))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(TargetFilename:(\\/etc\\/sudoers OR \\/etc\\/sudoers.d\\/*)) AND (NOT (Image:*\\/usr\\/bin\\/dpkg AND TargetFilename:\\/etc\\/sudoers.d\\/README.dpkg\\-new))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

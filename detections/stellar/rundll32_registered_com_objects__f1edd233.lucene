@@ -1,0 +1,18 @@
+// Rundll32 Registered COM Objects | T1546.015 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_registered_com_objects.yml
+(Image:*\\rundll32.exe OR OriginalFileName:RUNDLL32.EXE) AND ((CommandLine:(*\-sta\ * OR *\-localserver\ *)) AND (CommandLine:*\{* AND CommandLine:*\}*))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(Image:*\\\\rundll32.exe OR OriginalFileName:RUNDLL32.EXE) AND ((CommandLine:(*\\-sta\\ * OR *\\-localserver\\ *)) AND (CommandLine:*\\{* AND CommandLine:*\\}*))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

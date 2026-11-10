@@ -1,0 +1,18 @@
+// Powershell Token Obfuscation - Powershell | T1027.009 | https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/powershell/powershell_script/posh_ps_token_obfuscation.yml
+(ScriptBlockText:/\w+`(\w+|-|.)`[\w+|\s]/ OR ScriptBlockText:/"(\{\d\}){2,}"\s*-f/ OR ScriptBlockText:/(?i)\$\{`?e`?n`?v`?:`?p`?a`?t`?h`?\}/) AND (NOT (ScriptBlockText:*$\{env\:path\}* OR (ScriptBlockText:(*it\ will\ return\ true\ or\ false\ instead* OR *The\ function\ also\ prevents\ `Get\-ItemProperty`\ from\ failing*)) OR (Path:C\:\\Program\ Files\\Microsoft\\Exchange\ Server\\* AND Path:*\\bin\\servicecontrol.ps1 AND ScriptBlockText:*`r`n*)))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(ScriptBlockText:/\\w+`(\\w+|-|.)`[\\w+|\\s]/ OR ScriptBlockText:/\"(\\{\\d\\}){2,}\"\\s*-f/ OR ScriptBlockText:/(?i)\\$\\{`?e`?n`?v`?:`?p`?a`?t`?h`?\\}/) AND (NOT (ScriptBlockText:*$\\{env\\:path\\}* OR (ScriptBlockText:(*it\\ will\\ return\\ true\\ or\\ false\\ instead* OR *The\\ function\\ also\\ prevents\\ `Get\\-ItemProperty`\\ from\\ failing*)) OR (Path:C\\:\\\\Program\\ Files\\\\Microsoft\\\\Exchange\\ Server\\\\* AND Path:*\\\\bin\\\\servicecontrol.ps1 AND ScriptBlockText:*`r`n*)))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

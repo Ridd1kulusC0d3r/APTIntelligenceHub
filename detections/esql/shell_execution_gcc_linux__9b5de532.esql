@@ -1,0 +1,2 @@
+// Shell Execution GCC  - Linux | T1083 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_gcc_shell_execution.yml
+from * metadata _id, _index, _version | where (ends_with(Image, "/c89") or ends_with(Image, "/c99") or ends_with(Image, "/gcc")) and CommandLine like "*-wrapper*" and (CommandLine like "*/bin/bash,-s*" or CommandLine like "*/bin/dash,-s*" or CommandLine like "*/bin/fish,-s*" or CommandLine like "*/bin/sh,-s*" or CommandLine like "*/bin/zsh,-s*")

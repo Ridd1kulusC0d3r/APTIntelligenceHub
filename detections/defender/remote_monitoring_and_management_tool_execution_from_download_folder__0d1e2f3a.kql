@@ -1,0 +1,3 @@
+// Remote Monitoring And Management Tool Execution From Download Folder | T1219 | Hub
+DeviceProcessEvents
+| where ((FolderPath contains "AteraAgent" or FolderPath contains "ScreenConnect" or FolderPath contains "SimpleHelp" or FolderPath contains "AnyDesk" or FolderPath contains "Syncro" or FolderPath contains "netbird") or (ProcessVersionInfoProductName contains "Atera" or ProcessVersionInfoProductName contains "ScreenConnect" or ProcessVersionInfoProductName contains "SimpleHelp" or ProcessVersionInfoProductName contains "AnyDesk")) and (FolderPath contains "\\Downloads\\" or FolderPath contains "\\AppData\\Local\\Temp\\")

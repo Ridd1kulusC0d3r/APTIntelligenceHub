@@ -1,0 +1,2 @@
+// Suspicious Use of CSharp Interactive Console | T1127 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_csi_use_of_csharp_console.yml
+from * metadata _id, _index, _version | where ends_with(process.executable.caseless, "\\csi.exe") and (ends_with(process.parent.executable.caseless, "\\powershell.exe") or ends_with(process.parent.executable.caseless, "\\pwsh.exe") or ends_with(process.parent.executable.caseless, "\\powershell_ise.exe")) and process.pe.original_file_name=="csi.exe"

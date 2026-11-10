@@ -1,0 +1,18 @@
+// Prefetch File Deleted | T1070.004 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_delete/file_delete_win_delete_prefetch.yml
+(TargetFilename:*\:\\Windows\\Prefetch\\* AND TargetFilename:*.pf) AND (NOT (Image:*\:\\windows\\system32\\svchost.exe AND (User:(*AUTHORI* OR *AUTORI*))))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(TargetFilename:*\\:\\\\Windows\\\\Prefetch\\\\* AND TargetFilename:*.pf) AND (NOT (Image:*\\:\\\\windows\\\\system32\\\\svchost.exe AND (User:(*AUTHORI* OR *AUTORI*))))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

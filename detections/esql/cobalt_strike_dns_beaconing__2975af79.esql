@@ -1,0 +1,2 @@
+// Cobalt Strike DNS Beaconing | T1071.004 | https://github.com/SigmaHQ/sigma/blob/master/rules/network/dns/net_dns_mal_cobaltstrike.yml
+from * metadata _id, _index, _version | where starts_with(query, "aaa.stage.") or starts_with(query, "post.1") or query like "*.stage.123456.*"

@@ -1,0 +1,2 @@
+// Suspicious Installer Package Child Process | T1059, T1059.007, T1071, T1071.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_installer_susp_child_process.yml
+any where (ParentImage like~ ("*/package_script_service", "*/installer")) and (Image like~ ("*/sh", "*/bash", "*/dash", "*/python", "*/ruby", "*/perl", "*/php", "*/javascript", "*/osascript", "*/tclsh", "*/curl", "*/wget")) and (CommandLine like~ ("*preinstall*", "*postinstall*"))

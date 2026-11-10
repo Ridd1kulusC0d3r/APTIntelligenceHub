@@ -1,0 +1,2 @@
+// Browser Started with Remote Debugging | T1185 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_browsers_remote_debugging.yml
+any where process.command_line:"* --remote-debugging-*" or (process.executable.caseless:"*\\firefox.exe" and process.command_line:"* -start-debugger-server*")

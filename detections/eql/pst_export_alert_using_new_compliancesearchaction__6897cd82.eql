@@ -1,0 +1,2 @@
+// PST Export Alert Using New-ComplianceSearchAction | T1114 | https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/m365/threat_management/microsoft365_pst_export_alert_using_new_compliancesearchaction.yml
+any where eventSource:"SecurityComplianceCenter" and (Payload:"*New-ComplianceSearchAction*" and Payload:"*Export*" and Payload:"*pst*")

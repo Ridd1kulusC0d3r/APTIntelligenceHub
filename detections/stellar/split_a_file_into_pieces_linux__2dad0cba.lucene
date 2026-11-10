@@ -1,0 +1,18 @@
+// Split A File Into Pieces - Linux | T1030 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/syscall/lnx_auditd_split_file_into_pieces.yml
+type:SYSCALL AND comm:split
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "type:SYSCALL AND comm:split",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

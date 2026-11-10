@@ -1,0 +1,3 @@
+// PUA - Crassus Execution | T1590.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_crassus.yml
+DeviceProcessEvents
+| where FolderPath endswith "\\Crassus.exe" or ProcessVersionInfoOriginalFileName =~ "Crassus.exe" or ProcessVersionInfoFileDescription contains "Crassus"

@@ -1,0 +1,18 @@
+// SharpHound Recon Account Discovery | T1087 | https://github.com/SigmaHQ/sigma/blob/master/rules/application/rpc_firewall/rpc_firewall_sharphound_recon_account.yml
+EventLog:RPCFW AND EventID:3 AND InterfaceUuid:6bffd098\-a112\-3610\-9833\-46c3f87e345a AND OpNum:2
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "EventLog:RPCFW AND EventID:3 AND InterfaceUuid:6bffd098\\-a112\\-3610\\-9833\\-46c3f87e345a AND OpNum:2",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

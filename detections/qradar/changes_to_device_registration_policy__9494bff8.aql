@@ -1,0 +1,2 @@
+-- Changes to Device Registration Policy | T1484 | https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/azure/audit_logs/azure_ad_device_registration_policy_changes.yml | NOTA: fallback QRadarAQL_payload_pipeline: campos sem propriedade DSM mapeada são buscados em UTF8(payload) – custo maior, crie custom properties
+SELECT * FROM events WHERE LOWER(UTF8(payload)) LIKE '%policy%' AND LOWER(UTF8(payload)) LIKE '%set device registration policies%'

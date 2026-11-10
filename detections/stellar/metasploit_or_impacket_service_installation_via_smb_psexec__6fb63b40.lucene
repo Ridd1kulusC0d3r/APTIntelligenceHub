@@ -1,0 +1,18 @@
+// Metasploit Or Impacket Service Installation Via SMB PsExec | T1021.002, T1569.002, T1570 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_metasploit_or_impacket_smb_psexec_service_install.yml
+(EventID:4697 AND ServiceFileName:/^%systemroot%\\[a-zA-Z]{8}\.exe$/ AND ServiceName:/(^[a-zA-Z]{4}$)|(^[a-zA-Z]{8}$)|(^[a-zA-Z]{16}$)/ AND ServiceStartType:3 AND ServiceType:0x10) AND (NOT ServiceName:PSEXESVC)
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(EventID:4697 AND ServiceFileName:/^%systemroot%\\\\[a-zA-Z]{8}\\.exe$/ AND ServiceName:/(^[a-zA-Z]{4}$)|(^[a-zA-Z]{8}$)|(^[a-zA-Z]{16}$)/ AND ServiceStartType:3 AND ServiceType:0x10) AND (NOT ServiceName:PSEXESVC)",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

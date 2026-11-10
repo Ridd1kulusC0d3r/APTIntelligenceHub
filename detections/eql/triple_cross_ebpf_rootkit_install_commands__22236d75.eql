@@ -1,0 +1,2 @@
+// Triple Cross eBPF Rootkit Install Commands | T1014 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_triple_cross_rootkit_install.yml
+any where Image:"*/sudo" and (CommandLine:"* tc *" and CommandLine:"* enp0s3 *") and (CommandLine like~ ("* qdisc *", "* filter *"))

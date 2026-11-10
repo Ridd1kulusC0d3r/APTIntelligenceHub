@@ -1,0 +1,2 @@
+// Uncommon Extension Shim Database Installation Via Sdbinst.EXE | T1546.011 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sdbinst_susp_extension.yml
+(process.executable.caseless:*\\sdbinst.exe OR process.pe.original_file_name:sdbinst.exe) AND (NOT (process.command_line:*.sdb* OR ((process.command_line:(*\ \-c OR *\ \-f OR *\ \-mm OR *\ \-t)) OR process.command_line:*\ \-m\ \-bg*) OR (NOT _exists_:process.command_line) OR process.command_line:""))

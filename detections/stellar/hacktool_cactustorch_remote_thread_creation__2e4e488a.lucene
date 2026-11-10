@@ -1,0 +1,18 @@
+// HackTool - CACTUSTORCH Remote Thread Creation | T1055.012, T1059.005, T1059.007, T1218.005 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/create_remote_thread/create_remote_thread_win_hktl_cactustorch.yml
+(SourceImage:(*\\System32\\cscript.exe OR *\\System32\\wscript.exe OR *\\System32\\mshta.exe OR *\\winword.exe OR *\\excel.exe)) AND TargetImage:*\\SysWOW64\\* AND (NOT _exists_:StartModule)
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(SourceImage:(*\\\\System32\\\\cscript.exe OR *\\\\System32\\\\wscript.exe OR *\\\\System32\\\\mshta.exe OR *\\\\winword.exe OR *\\\\excel.exe)) AND TargetImage:*\\\\SysWOW64\\\\* AND (NOT _exists_:StartModule)",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

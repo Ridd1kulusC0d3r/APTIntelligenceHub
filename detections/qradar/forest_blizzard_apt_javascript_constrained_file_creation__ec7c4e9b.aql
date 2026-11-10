@@ -1,0 +1,2 @@
+-- Forest Blizzard APT - JavaScript Constrained File Creation | T1685.001 | https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2024/TA/Forest-Blizzard/file_event_win_apt_forest_blizzard_constrained_js.yml
+SELECT * FROM events WHERE devicetype=12 AND LOWER(Filename) LIKE 'c:\windows\system32\driverstore\filerepository\%' AND LOWER(Filename) LIKE '%\.js'

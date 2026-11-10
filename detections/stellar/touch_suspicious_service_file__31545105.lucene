@@ -1,0 +1,18 @@
+// Touch Suspicious Service File | T1070.006 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_touch_susp.yml
+Image:*\/touch AND CommandLine:*\ \-t\ * AND CommandLine:*.service
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "Image:*\\/touch AND CommandLine:*\\ \\-t\\ * AND CommandLine:*.service",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

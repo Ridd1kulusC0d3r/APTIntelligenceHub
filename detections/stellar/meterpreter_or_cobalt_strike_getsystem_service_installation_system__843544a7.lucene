@@ -1,0 +1,18 @@
+// Meterpreter or Cobalt Strike Getsystem Service Installation - System | T1134.001, T1134.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/system/service_control_manager/win_system_meterpreter_or_cobaltstrike_getsystem_service_installation.yml
+(Provider_Name:"Service Control Manager" AND EventID:7045) AND (((ImagePath:*\/c* AND ImagePath:*echo* AND ImagePath:*\\pipe\\*) AND (ImagePath:(*cmd* OR *%COMSPEC%*))) OR (ImagePath:*rundll32* AND ImagePath:*.dll,a* AND ImagePath:*\/p\:*) OR ImagePath:\\\\127.0.0.1\\ADMIN$\\*)
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(Provider_Name:\"Service Control Manager\" AND EventID:7045) AND (((ImagePath:*\\/c* AND ImagePath:*echo* AND ImagePath:*\\\\pipe\\\\*) AND (ImagePath:(*cmd* OR *%COMSPEC%*))) OR (ImagePath:*rundll32* AND ImagePath:*.dll,a* AND ImagePath:*\\/p\\:*) OR ImagePath:\\\\\\\\127.0.0.1\\\\ADMIN$\\\\*)",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,18 @@
+// APT29 2018 Phishing Campaign File Indicators | T1218.011 | https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2018/TA/APT29-CozyBear/file_event_win_apt_cozy_bear_phishing_campaign_indicators.yml
+TargetFilename:(*ds7002.lnk* OR *ds7002.pdf* OR *ds7002.zip*)
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "TargetFilename:(*ds7002.lnk* OR *ds7002.pdf* OR *ds7002.zip*)",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

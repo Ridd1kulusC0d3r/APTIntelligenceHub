@@ -1,0 +1,2 @@
+// Directory Service Restore Mode(DSRM) Registry Value Tampering | T1556 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_dsrm_tampering.yml
+from * metadata _id, _index, _version | where ends_with(registry.path, "\\Control\\Lsa\\DsrmAdminLogonBehavior") and not winlog.event_data.Details=="DWORD (0x00000000)"

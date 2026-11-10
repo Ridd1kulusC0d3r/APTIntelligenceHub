@@ -1,0 +1,2 @@
+-- Bitbucket Unauthorized Access To A Resource | T1586 | https://github.com/SigmaHQ/sigma/blob/master/rules/application/bitbucket/audit/bitbucket_audit_unauthorized_access_detected.yml | NOTA: fallback QRadarAQL_payload_pipeline: campos sem propriedade DSM mapeada são buscados em UTF8(payload) – custo maior, crie custom properties
+SELECT * FROM events WHERE LOWER(UTF8(payload)) LIKE '%security%' AND LOWER(UTF8(payload)) LIKE '%unauthorized access to a resource%'

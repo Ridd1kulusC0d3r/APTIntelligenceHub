@@ -1,0 +1,2 @@
+# DLL Execution Via Register-cimprovider.exe | T1574 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_registry_cimprovider_dll_load.yml
+source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=1 Image="*\\register-cimprovider.exe" CommandLine="*-path*" CommandLine="*dll*"

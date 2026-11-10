@@ -1,0 +1,18 @@
+// PUA - Chisel Tunneling Tool Execution | T1090.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_chisel.yml
+Image:*\\chisel.exe OR ((CommandLine:(*exe\ client\ * OR *exe\ server\ *)) AND (CommandLine:(*\-socks5* OR *\-reverse* OR *\ r\:* OR *\:127.0.0.1\:* OR *\-tls\-skip\-verify\ * OR *\:socks*)))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "Image:*\\\\chisel.exe OR ((CommandLine:(*exe\\ client\\ * OR *exe\\ server\\ *)) AND (CommandLine:(*\\-socks5* OR *\\-reverse* OR *\\ r\\:* OR *\\:127.0.0.1\\:* OR *\\-tls\\-skip\\-verify\\ * OR *\\:socks*)))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

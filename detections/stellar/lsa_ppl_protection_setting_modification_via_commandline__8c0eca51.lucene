@@ -1,0 +1,18 @@
+// LSA PPL Protection Setting Modification via CommandLine | T1689 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lsa_ppl_protection_setting_modification_via_cli.yml
+((Image:(*\\reg.exe OR *\\powershell.exe OR *\\pwsh.exe)) OR (OriginalFileName:(reg.exe OR powershell.exe OR pwsh.dll))) AND ((CommandLine:*ControlSet* AND CommandLine:*\\Control\\Lsa*) AND (CommandLine:(*Set\-ItemProperty* OR *New\-ItemProperty* OR *\ add\ *))) AND (CommandLine:(*IsPplAutoEnabled* OR *RunAsPPL* OR *RunAsPPLBoot*))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "((Image:(*\\\\reg.exe OR *\\\\powershell.exe OR *\\\\pwsh.exe)) OR (OriginalFileName:(reg.exe OR powershell.exe OR pwsh.dll))) AND ((CommandLine:*ControlSet* AND CommandLine:*\\\\Control\\\\Lsa*) AND (CommandLine:(*Set\\-ItemProperty* OR *New\\-ItemProperty* OR *\\ add\\ *))) AND (CommandLine:(*IsPplAutoEnabled* OR *RunAsPPL* OR *RunAsPPLBoot*))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,18 @@
+// Potential Persistence Via GlobalFlags | T1546.012 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_persistence_globalflags.yml
+(TargetObject:*\\Microsoft\\Windows\ NT\\CurrentVersion\\* AND TargetObject:*\\Image\ File\ Execution\ Options\\* AND TargetObject:*\\GlobalFlag*) OR ((TargetObject:*\\Microsoft\\Windows\ NT\\CurrentVersion\\* AND TargetObject:*\\SilentProcessExit\\*) AND (TargetObject:(*\\ReportingMode* OR *\\MonitorProcess*)))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(TargetObject:*\\\\Microsoft\\\\Windows\\ NT\\\\CurrentVersion\\\\* AND TargetObject:*\\\\Image\\ File\\ Execution\\ Options\\\\* AND TargetObject:*\\\\GlobalFlag*) OR ((TargetObject:*\\\\Microsoft\\\\Windows\\ NT\\\\CurrentVersion\\\\* AND TargetObject:*\\\\SilentProcessExit\\\\*) AND (TargetObject:(*\\\\ReportingMode* OR *\\\\MonitorProcess*)))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

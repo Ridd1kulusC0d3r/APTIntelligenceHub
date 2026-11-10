@@ -1,0 +1,18 @@
+// Raw Paste Service Access | T1071.001, T1102.001, T1102.003 | https://github.com/SigmaHQ/sigma/blob/master/rules/web/proxy_generic/proxy_raw_paste_service_access.yml
+c-uri:(*.paste.ee\/r\/* OR *.pastebin.com\/raw\/* OR *.hastebin.com\/raw\/* OR *.ghostbin.co\/paste\/*\/raw\/* OR *pastetext.net\/* OR *pastebin.pl\/* OR *paste.ee\/*)
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "c-uri:(*.paste.ee\\/r\\/* OR *.pastebin.com\\/raw\\/* OR *.hastebin.com\\/raw\\/* OR *.ghostbin.co\\/paste\\/*\\/raw\\/* OR *pastetext.net\\/* OR *pastebin.pl\\/* OR *paste.ee\\/*)",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

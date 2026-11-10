@@ -1,0 +1,2 @@
+# Uncommon Process Access Rights For Target Image | T1055.011 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_access/proc_access_win_susp_all_access_uncommon_target.yml
+source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=10 (TargetImage IN ("*\\calc.exe", "*\\calculator.exe", "*\\mspaint.exe", "*\\notepad.exe", "*\\ping.exe", "*\\wordpad.exe", "*\\write.exe")) GrantedAccess="0x1FFFFF"

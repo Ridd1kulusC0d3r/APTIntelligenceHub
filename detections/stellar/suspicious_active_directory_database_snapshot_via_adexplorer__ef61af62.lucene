@@ -1,0 +1,18 @@
+// Suspicious Active Directory Database Snapshot Via ADExplorer | T1069.002, T1087.002, T1482 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sysinternals_adexplorer_susp_execution.yml
+((Image:(*\\ADExp.exe OR *\\ADExplorer.exe OR *\\ADExplorer64.exe OR *\\ADExplorer64a.exe)) OR OriginalFileName:AdExp OR Description:"Active Directory Editor" OR Product:"Sysinternals ADExplorer") AND CommandLine:*snapshot* AND (CommandLine:(*\\Downloads\\* OR *\\Users\\Public\\* OR *\\AppData\\* OR *\\Windows\\Temp\\*))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "((Image:(*\\\\ADExp.exe OR *\\\\ADExplorer.exe OR *\\\\ADExplorer64.exe OR *\\\\ADExplorer64a.exe)) OR OriginalFileName:AdExp OR Description:\"Active Directory Editor\" OR Product:\"Sysinternals ADExplorer\") AND CommandLine:*snapshot* AND (CommandLine:(*\\\\Downloads\\\\* OR *\\\\Users\\\\Public\\\\* OR *\\\\AppData\\\\* OR *\\\\Windows\\\\Temp\\\\*))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

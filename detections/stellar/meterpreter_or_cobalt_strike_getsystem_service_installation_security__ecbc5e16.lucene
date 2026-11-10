@@ -1,0 +1,18 @@
+// Meterpreter or Cobalt Strike Getsystem Service Installation - Security | T1134.001, T1134.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_meterpreter_or_cobaltstrike_getsystem_service_install.yml
+EventID:4697 AND (((ServiceFileName:*\/c* AND ServiceFileName:*echo* AND ServiceFileName:*\\pipe\\*) AND (ServiceFileName:(*cmd* OR *%COMSPEC%*))) OR (ServiceFileName:*rundll32* AND ServiceFileName:*.dll,a* AND ServiceFileName:*\/p\:*) OR ServiceFileName:\\\\127.0.0.1\\ADMIN$\\*)
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "EventID:4697 AND (((ServiceFileName:*\\/c* AND ServiceFileName:*echo* AND ServiceFileName:*\\\\pipe\\\\*) AND (ServiceFileName:(*cmd* OR *%COMSPEC%*))) OR (ServiceFileName:*rundll32* AND ServiceFileName:*.dll,a* AND ServiceFileName:*\\/p\\:*) OR ServiceFileName:\\\\\\\\127.0.0.1\\\\ADMIN$\\\\*)",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

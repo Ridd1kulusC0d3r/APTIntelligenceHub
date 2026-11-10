@@ -1,0 +1,2 @@
+// Copy Passwd Or Shadow From TMP Path | T1552.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_cp_passwd_or_shadow_tmp.yml
+from * metadata _id, _index, _version | where ends_with(Image, "/cp") and CommandLine like "*/tmp/*" and (CommandLine like "*passwd*" or CommandLine like "*shadow*")

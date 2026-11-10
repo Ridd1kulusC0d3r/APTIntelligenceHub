@@ -1,0 +1,2 @@
+-- AWL Bypass with Winrm.vbs and Malicious WsmPty.xsl/WsmTxt.xsl - File | T1216 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_winrm_awl_bypass.yml
+SELECT * FROM events WHERE devicetype=12 AND (LOWER(Filename) LIKE '%wsmpty.xsl' OR LOWER(Filename) LIKE '%wsmtxt.xsl') AND (NOT((LOWER(Filename) LIKE 'c:\windows\system32\%' OR LOWER(Filename) LIKE 'c:\windows\syswow64\%')))

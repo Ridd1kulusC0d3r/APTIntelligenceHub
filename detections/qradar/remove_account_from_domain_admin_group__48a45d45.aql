@@ -1,0 +1,2 @@
+-- Remove Account From Domain Admin Group | T1531 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/powershell/powershell_script/posh_ps_susp_remove_adgroupmember.yml
+SELECT * FROM events WHERE devicetype=12 AND LOWER(Message) LIKE '%remove-adgroupmember%' AND LOWER(Message) LIKE '%-identity %' AND LOWER(Message) LIKE '%-members %'

@@ -1,0 +1,2 @@
+// Webshell Remote Command Execution | T1505.003 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/syscall/lnx_auditd_web_rce.yml
+from * metadata _id, _index, _version | where type=="SYSCALL" and (SYSCALL in ("execve", "execveat")) and euid==33

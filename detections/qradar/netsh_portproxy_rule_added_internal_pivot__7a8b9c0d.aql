@@ -1,0 +1,2 @@
+-- Netsh PortProxy Rule Added (Internal Pivot) | T1090.001 | Hub
+SELECT * FROM events WHERE devicetype=12 AND (LOWER("Process Path") LIKE '%\netsh.exe' OR LOWER("Process Name") LIKE '%\netsh.exe') AND (LOWER(Command) LIKE '%portproxy%' AND LOWER(Command) LIKE '%add%')

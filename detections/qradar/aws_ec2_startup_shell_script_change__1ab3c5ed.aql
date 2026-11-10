@@ -1,0 +1,2 @@
+-- AWS EC2 Startup Shell Script Change | T1059.001, T1059.003, T1059.004 | https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/aws/cloudtrail/aws_ec2_startup_script_change.yml | NOTA: fallback QRadarAQL_payload_pipeline: campos sem propriedade DSM mapeada são buscados em UTF8(payload) – custo maior, crie custom properties
+SELECT * FROM events WHERE devicetype IN(516, 519, 456, 460, 501, 502, 507, 440, 347) AND LOWER(UTF8(payload)) LIKE '%userdata%' AND QIDNAME(qid)='ModifyInstanceAttribute'

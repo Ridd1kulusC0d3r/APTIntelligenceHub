@@ -1,0 +1,2 @@
+// Local Account Created And Added To Administrators Via Net Command | T1136.001 | Hub
+any where (process.executable.caseless like~ ("*\\net.exe", "*\\net1.exe")) and (process.command_line:"*localgroup*" and process.command_line:"*admin*" and process.command_line:"*/add*")

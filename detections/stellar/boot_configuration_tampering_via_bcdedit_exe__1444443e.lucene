@@ -1,0 +1,18 @@
+// Boot Configuration Tampering Via Bcdedit.EXE | T1490 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_bcdedit_boot_conf_tamper.yml
+(Image:*\\bcdedit.exe OR OriginalFileName:bcdedit.exe) AND CommandLine:*set* AND ((CommandLine:*bootstatuspolicy* AND CommandLine:*ignoreallfailures*) OR (CommandLine:*recoveryenabled* AND CommandLine:*no*))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(Image:*\\\\bcdedit.exe OR OriginalFileName:bcdedit.exe) AND CommandLine:*set* AND ((CommandLine:*bootstatuspolicy* AND CommandLine:*ignoreallfailures*) OR (CommandLine:*recoveryenabled* AND CommandLine:*no*))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

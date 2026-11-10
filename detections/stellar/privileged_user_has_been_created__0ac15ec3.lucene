@@ -1,0 +1,18 @@
+// Privileged User Has Been Created | T1098, T1136.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/builtin/lnx_privileged_user_creation.yml
+*new\ user* AND (*GID\=0,* OR *UID\=0,* OR *GID\=10,* OR *GID\=27,*)
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "*new\\ user* AND (*GID\\=0,* OR *UID\\=0,* OR *GID\\=10,* OR *GID\\=27,*)",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

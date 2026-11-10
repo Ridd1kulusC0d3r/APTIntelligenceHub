@@ -1,0 +1,2 @@
+# Important Scheduled Task Deleted/Disabled | T1053.005 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_susp_scheduled_task_delete_or_disable.yml
+source="WinEventLog:Security" (EventCode IN (4699, 4701)) (TaskName IN ("*\\Windows\\SystemRestore\\SR*", "*\\Windows\\Windows Defender\\*", "*\\Windows\\BitLocker*", "*\\Windows\\WindowsBackup\\*", "*\\Windows\\WindowsUpdate\\*", "*\\Windows\\UpdateOrchestrator\\Schedule*", "*\\Windows\\ExploitGuard*")) NOT (EventCode=4699 SubjectUserName="*$" TaskName="*\\Windows\\Windows Defender\\*")

@@ -1,0 +1,3 @@
+// Suspicious Response File Execution Via Odbcconf.EXE | T1218.008 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_odbcconf_response_file_susp.yml
+DeviceProcessEvents
+| where ((FolderPath endswith "\\odbcconf.exe" or ProcessVersionInfoOriginalFileName =~ "odbcconf.exe") and (ProcessCommandLine contains " -f " or ProcessCommandLine contains " /f " or ProcessCommandLine contains " –f " or ProcessCommandLine contains " —f " or ProcessCommandLine contains " ―f ")) and (not((ProcessCommandLine contains ".rsp" or (InitiatingProcessFolderPath =~ "C:\\Windows\\System32\\runonce.exe" and FolderPath =~ "C:\\Windows\\System32\\odbcconf.exe" and ProcessCommandLine contains ".exe /E /F \"C:\\WINDOWS\\system32\\odbcconf.tmp\""))))

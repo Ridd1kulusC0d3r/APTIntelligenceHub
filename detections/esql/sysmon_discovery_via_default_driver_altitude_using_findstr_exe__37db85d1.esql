@@ -1,0 +1,2 @@
+// Sysmon Discovery Via Default Driver Altitude Using Findstr.EXE | T1518.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_findstr_sysmon_discovery_via_default_altitude.yml
+from * metadata _id, _index, _version | where (ends_with(process.executable.caseless, "\\find.exe") or ends_with(process.executable.caseless, "\\findstr.exe") or process.pe.original_file_name in ("FIND.EXE", "FINDSTR.EXE")) and process.command_line like "* 385201*"

@@ -1,0 +1,2 @@
+// Suspicious GrpConv Execution | T1547 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_susp_grpconv.yml
+from * metadata _id, _index, _version | where process.command_line like "*grpconv.exe -o*" or process.command_line like "*grpconv -o*"

@@ -1,0 +1,2 @@
+# Screen Capture Activity Via Psr.EXE | T1113 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_psr_capture_screenshots.yml
+source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=1 Image="*\\Psr.exe" (CommandLine IN ("*/start*", "*-start*"))

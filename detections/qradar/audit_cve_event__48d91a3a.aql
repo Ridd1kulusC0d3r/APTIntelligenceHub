@@ -1,0 +1,2 @@
+-- Audit CVE Event | T1068, T1203, T1210, T1211, T1212, T1499.004 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/application/microsoft-windows_audit_cve/win_audit_cve.yml | NOTA: fallback QRadarAQL_payload_pipeline: campos sem propriedade DSM mapeada são buscados em UTF8(payload) – custo maior, crie custom properties
+SELECT * FROM events WHERE devicetype=12 AND (LOWER(UTF8(payload)) LIKE '%microsoft-windows-audit-cve%' OR LOWER(UTF8(payload)) LIKE '%audit-cve%') AND "Event ID"=1

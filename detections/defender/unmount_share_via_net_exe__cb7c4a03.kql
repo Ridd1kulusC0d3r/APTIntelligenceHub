@@ -1,0 +1,3 @@
+// Unmount Share Via Net.EXE | T1070.005 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_net_share_unmount.yml
+DeviceProcessEvents
+| where ((FolderPath endswith "\\net.exe" or FolderPath endswith "\\net1.exe") or (ProcessVersionInfoOriginalFileName in~ ("net.exe", "net1.exe"))) and (ProcessCommandLine contains "share" and ProcessCommandLine contains "/delete")

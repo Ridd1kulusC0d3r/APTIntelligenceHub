@@ -1,0 +1,18 @@
+// New DLL Added to AppInit_DLLs Registry Key | T1546.010 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/registry_event_new_dll_added_to_appinit_dlls_registry_key.yml
+((TargetObject:(*\\SOFTWARE\\Microsoft\\Windows\ NT\\CurrentVersion\\Windows\\AppInit_Dlls OR *\\SOFTWARE\\Wow6432Node\\Microsoft\\Windows\ NT\\CurrentVersion\\Windows\\AppInit_Dlls)) OR (NewName:(*\\SOFTWARE\\Microsoft\\Windows\ NT\\CurrentVersion\\Windows\\AppInit_Dlls OR *\\SOFTWARE\\Wow6432Node\\Microsoft\\Windows\ NT\\CurrentVersion\\Windows\\AppInit_Dlls))) AND (NOT Details:\(Empty\))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "((TargetObject:(*\\\\SOFTWARE\\\\Microsoft\\\\Windows\\ NT\\\\CurrentVersion\\\\Windows\\\\AppInit_Dlls OR *\\\\SOFTWARE\\\\Wow6432Node\\\\Microsoft\\\\Windows\\ NT\\\\CurrentVersion\\\\Windows\\\\AppInit_Dlls)) OR (NewName:(*\\\\SOFTWARE\\\\Microsoft\\\\Windows\\ NT\\\\CurrentVersion\\\\Windows\\\\AppInit_Dlls OR *\\\\SOFTWARE\\\\Wow6432Node\\\\Microsoft\\\\Windows\\ NT\\\\CurrentVersion\\\\Windows\\\\AppInit_Dlls))) AND (NOT Details:\\(Empty\\))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

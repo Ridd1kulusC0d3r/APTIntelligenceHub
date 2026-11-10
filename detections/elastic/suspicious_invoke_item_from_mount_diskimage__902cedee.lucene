@@ -1,0 +1,2 @@
+// Suspicious Invoke-Item From Mount-DiskImage | T1553.005 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/powershell/powershell_script/posh_ps_run_from_mount_diskimage.yml
+powershell.file.script_block_text:*Mount\-DiskImage\ * AND powershell.file.script_block_text:*\-ImagePath\ * AND powershell.file.script_block_text:*Get\-Volume* AND powershell.file.script_block_text:*.DriveLetter* AND powershell.file.script_block_text:*invoke\-item\ * AND powershell.file.script_block_text:*\)\:\\*

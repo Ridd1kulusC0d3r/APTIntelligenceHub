@@ -1,0 +1,2 @@
+// Potential MFA Bypass Using Legacy Client Authentication | T1078.004, T1110 | https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/azure/signin_logs/azure_ad_suspicious_signin_bypassing_mfa.yml
+Status:Success AND (userAgent:(*BAV2ROPC* OR *CBAinPROD* OR *CBAinTAR*))

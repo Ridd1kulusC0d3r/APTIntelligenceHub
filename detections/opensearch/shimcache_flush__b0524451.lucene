@@ -1,0 +1,2 @@
+// ShimCache Flush | T1112 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_susp_shimcache_flush.yml
+((process.command_line:*rundll32* AND process.command_line:*apphelp.dll*) AND (process.command_line:(*ShimFlushCache* OR *#250*))) OR ((process.command_line:*rundll32* AND process.command_line:*kernel32.dll*) AND (process.command_line:(*BaseFlushAppcompatCache* OR *#46*)))

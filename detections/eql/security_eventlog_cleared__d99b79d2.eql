@@ -1,0 +1,2 @@
+// Security Eventlog Cleared | T1685.005 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_audit_log_cleared.yml
+any where winlog.channel:"Security" and ((event.code:"517" and winlog.provider_name:"Security") or (event.code:"1102" and winlog.provider_name:"Microsoft-Windows-Eventlog"))

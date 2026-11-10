@@ -1,0 +1,2 @@
+// Payload Decoded and Decrypted via Built-in Utilities | T1059, T1140, T1204 | https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_payload_decoded_and_decrypted.yml
+any where Image:"*/openssl" and (CommandLine:"*/Volumes/*" and CommandLine:"*enc*" and CommandLine:"*-base64*" and CommandLine:"* -d *")

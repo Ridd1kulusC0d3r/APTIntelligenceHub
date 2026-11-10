@@ -1,0 +1,2 @@
+# Pass the Hash Activity 2 | T1550.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/account_management/win_security_pass_the_hash_2.yml
+source="WinEventLog:Security" ((EventCode=4624 SubjectUserSid="S-1-0-0" LogonType=3 LogonProcessName="NtLmSsp" KeyLength=0) OR (EventCode=4624 LogonType=9 LogonProcessName="seclogo")) NOT TargetUserName="ANONYMOUS LOGON"

@@ -1,0 +1,2 @@
+# Remote XSL Execution Via Msxsl.EXE | T1220 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_msxsl_remote_execution.yml
+source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=1 Image="*\\msxsl.exe" CommandLine="*http*"

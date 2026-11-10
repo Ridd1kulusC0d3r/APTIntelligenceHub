@@ -1,0 +1,18 @@
+// Powershell DNSExfiltration | T1048 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/powershell/powershell_script/posh_ps_invoke_dnsexfiltration.yml
+ScriptBlockText:*Invoke\-DNSExfiltrator* OR (ScriptBlockText:*\ \-i\ * AND ScriptBlockText:*\ \-d\ * AND ScriptBlockText:*\ \-p\ * AND ScriptBlockText:*\ \-doh\ * AND ScriptBlockText:*\ \-t\ *)
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "ScriptBlockText:*Invoke\\-DNSExfiltrator* OR (ScriptBlockText:*\\ \\-i\\ * AND ScriptBlockText:*\\ \\-d\\ * AND ScriptBlockText:*\\ \\-p\\ * AND ScriptBlockText:*\\ \\-doh\\ * AND ScriptBlockText:*\\ \\-t\\ *)",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

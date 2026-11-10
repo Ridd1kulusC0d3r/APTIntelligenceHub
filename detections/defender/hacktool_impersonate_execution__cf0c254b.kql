@@ -1,0 +1,3 @@
+// HackTool - Impersonate Execution | T1134.001, T1134.003 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_impersonate.yml
+DeviceProcessEvents
+| where (ProcessCommandLine contains "impersonate.exe" and (ProcessCommandLine contains " list " or ProcessCommandLine contains " exec " or ProcessCommandLine contains " adduser ")) or (MD5 startswith "9520714AB576B0ED01D1513691377D01" or SHA256 startswith "E81CC96E2118DC4FBFE5BAD1604E0AC7681960143E2101E1A024D52264BB0A8A")

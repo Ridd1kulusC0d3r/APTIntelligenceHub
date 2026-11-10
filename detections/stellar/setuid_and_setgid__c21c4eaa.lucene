@@ -1,0 +1,18 @@
+// Setuid and Setgid | T1548.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_setgid_setuid.yml
+CommandLine:*chown\ root* AND (CommandLine:(*\ chmod\ u\+s* OR *\ chmod\ g\+s*))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "CommandLine:*chown\\ root* AND (CommandLine:(*\\ chmod\\ u\\+s* OR *\\ chmod\\ g\\+s*))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

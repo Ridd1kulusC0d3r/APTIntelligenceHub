@@ -1,0 +1,18 @@
+// Turla Service Install | T1543.003 | https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2017/TA/Turla/win_system_apt_carbonpaper_turla.yml
+Provider_Name:"Service Control Manager" AND EventID:7045 AND (ServiceName:(srservice OR ipvpn OR hkmsvc))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "Provider_Name:\"Service Control Manager\" AND EventID:7045 AND (ServiceName:(srservice OR ipvpn OR hkmsvc))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

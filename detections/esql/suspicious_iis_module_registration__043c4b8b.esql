@@ -1,0 +1,2 @@
+// Suspicious IIS Module Registration | T1505.004 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_iis_susp_module_registration.yml
+from * metadata _id, _index, _version | where ends_with(process.parent.executable.caseless, "\\w3wp.exe") and (process.command_line like "*appcmd.exe add module*" or process.command_line like "* system.enterpriseservices.internal.publish*" and ends_with(process.executable.caseless, "\\powershell.exe") or process.command_line like "*gacutil*" and process.command_line like "* /I*")

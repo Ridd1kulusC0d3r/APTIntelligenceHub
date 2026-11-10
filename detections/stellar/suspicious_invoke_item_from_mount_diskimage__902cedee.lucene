@@ -1,0 +1,18 @@
+// Suspicious Invoke-Item From Mount-DiskImage | T1553.005 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/powershell/powershell_script/posh_ps_run_from_mount_diskimage.yml
+ScriptBlockText:*Mount\-DiskImage\ * AND ScriptBlockText:*\-ImagePath\ * AND ScriptBlockText:*Get\-Volume* AND ScriptBlockText:*.DriveLetter* AND ScriptBlockText:*invoke\-item\ * AND ScriptBlockText:*\)\:\\*
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "ScriptBlockText:*Mount\\-DiskImage\\ * AND ScriptBlockText:*\\-ImagePath\\ * AND ScriptBlockText:*Get\\-Volume* AND ScriptBlockText:*.DriveLetter* AND ScriptBlockText:*invoke\\-item\\ * AND ScriptBlockText:*\\)\\:\\\\*",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

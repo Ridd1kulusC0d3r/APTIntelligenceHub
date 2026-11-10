@@ -1,0 +1,2 @@
+// File Deletion | T1070.004 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_file_deletion.yml
+Image:(*\/rm OR *\/shred OR *\/unlink)

@@ -1,0 +1,2 @@
+// Remote Monitoring And Management Tool Execution From Download Folder | T1219 | Hub
+((process.executable.caseless:(*AteraAgent* OR *ScreenConnect* OR *SimpleHelp* OR *AnyDesk* OR *Syncro* OR *netbird*)) OR (process.pe.product:(*Atera* OR *ScreenConnect* OR *SimpleHelp* OR *AnyDesk*))) AND (process.executable.caseless:(*\\Downloads\\* OR *\\AppData\\Local\\Temp\\*))

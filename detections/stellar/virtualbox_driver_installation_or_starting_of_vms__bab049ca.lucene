@@ -1,0 +1,18 @@
+// Virtualbox Driver Installation or Starting of VMs | T1564, T1564.006 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_virtualbox_execution.yml
+(CommandLine:(*VBoxRT.dll,RTR3Init* OR *VBoxC.dll* OR *VBoxDrv.sys*)) OR (CommandLine:(*startvm* OR *controlvm*))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(CommandLine:(*VBoxRT.dll,RTR3Init* OR *VBoxC.dll* OR *VBoxDrv.sys*)) OR (CommandLine:(*startvm* OR *controlvm*))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

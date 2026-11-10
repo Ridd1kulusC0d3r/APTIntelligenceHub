@@ -1,0 +1,2 @@
+# Failed Code Integrity Checks | T1027.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_codeintegrity_check_failure.yml
+source="WinEventLog:Security" (EventCode IN (5038, 6281)) NOT (param1 IN ("*\\CSFalconServiceUninstallTool_*", "*\\Program Files\\CrowdStrike\\*", "*\\System32\\drivers\\CrowdStrike\\*", "*\\Windows\\System32\\ScriptControl64_*") OR param1="*\\Program Files\\Sophos\\*")

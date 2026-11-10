@@ -1,0 +1,2 @@
+# Potential Persistence Via Powershell Search Order Hijacking - Task | T1053.005, T1059.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_schtasks_powershell_persistence.yml
+source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=1 ParentImage="C:\\WINDOWS\\System32\\svchost.exe" ParentCommandLine="*-k netsvcs*" ParentCommandLine="*-s Schedule*" (CommandLine IN ("* -windowstyle hidden", "* -w hidden", "* -ep bypass", "* -noni"))

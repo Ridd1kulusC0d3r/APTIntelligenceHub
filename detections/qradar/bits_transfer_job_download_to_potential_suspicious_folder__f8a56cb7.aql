@@ -1,0 +1,2 @@
+-- BITS Transfer Job Download To Potential Suspicious Folder | T1197 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/bits_client/win_bits_client_new_trasnfer_susp_local_folder.yml | NOTA: fallback QRadarAQL_payload_pipeline: campos sem propriedade DSM mapeada são buscados em UTF8(payload) – custo maior, crie custom properties
+SELECT * FROM events WHERE devicetype=12 AND "Event ID"=16403 AND (LOWER(UTF8(payload)) LIKE '%\desktop*%' OR LOWER(UTF8(payload)) LIKE '%c:\users\public\%' OR LOWER(UTF8(payload)) LIKE '%c:\perflogs\%')

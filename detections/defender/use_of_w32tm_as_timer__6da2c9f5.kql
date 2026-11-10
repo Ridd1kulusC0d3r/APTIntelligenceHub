@@ -1,0 +1,3 @@
+// Use of W32tm as Timer | T1124 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_w32tm.yml
+DeviceProcessEvents
+| where (FolderPath endswith "\\w32tm.exe" or ProcessVersionInfoOriginalFileName =~ "w32time.dll") and (ProcessCommandLine contains "/stripchart" and ProcessCommandLine contains "/computer:" and ProcessCommandLine contains "/period:" and ProcessCommandLine contains "/dataonly" and ProcessCommandLine contains "/samples:")

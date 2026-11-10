@@ -1,0 +1,18 @@
+// Windows Network Access Suspicious desktop.ini Action | T1547.009 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_net_share_obj_susp_desktop_ini.yml
+EventID:5145 AND ObjectType:File AND RelativeTargetName:*\\desktop.ini AND (AccessList:(*WriteData* OR *DELETE* OR *WriteDAC* OR *AppendData* OR *AddSubdirectory*))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "EventID:5145 AND ObjectType:File AND RelativeTargetName:*\\\\desktop.ini AND (AccessList:(*WriteData* OR *DELETE* OR *WriteDAC* OR *AppendData* OR *AddSubdirectory*))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

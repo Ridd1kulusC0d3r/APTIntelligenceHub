@@ -1,0 +1,18 @@
+// Remote LSASS Process Access Through Windows Remote Management | T1003.001, T1021.006, T1059.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_access/proc_access_win_lsass_remote_access_trough_winrm.yml
+(TargetImage:*\\lsass.exe AND SourceImage:*\:\\Windows\\system32\\wsmprovhost.exe) AND (NOT GrantedAccess:0x80000000)
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(TargetImage:*\\\\lsass.exe AND SourceImage:*\\:\\\\Windows\\\\system32\\\\wsmprovhost.exe) AND (NOT GrantedAccess:0x80000000)",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

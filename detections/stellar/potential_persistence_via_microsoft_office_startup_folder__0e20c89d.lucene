@@ -1,0 +1,18 @@
+// Potential Persistence Via Microsoft Office Startup Folder | T1137 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_office_startup_persistence.yml
+(((TargetFilename:*\\Microsoft\\Word\\STARTUP* OR (TargetFilename:*\\Office* AND TargetFilename:*\\Program\ Files* AND TargetFilename:*\\STARTUP*)) AND (TargetFilename:(*.doc OR *.docm OR *.docx OR *.dot OR *.dotm OR *.rtf))) OR ((TargetFilename:*\\Microsoft\\Excel\\XLSTART* OR (TargetFilename:*\\Office* AND TargetFilename:*\\Program\ Files* AND TargetFilename:*\\XLSTART*)) AND (TargetFilename:(*.xls OR *.xlsm OR *.xlsx OR *.xlt OR *.xltm)))) AND (NOT (Image:(*\\WINWORD.exe OR *\\EXCEL.exe)))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(((TargetFilename:*\\\\Microsoft\\\\Word\\\\STARTUP* OR (TargetFilename:*\\\\Office* AND TargetFilename:*\\\\Program\\ Files* AND TargetFilename:*\\\\STARTUP*)) AND (TargetFilename:(*.doc OR *.docm OR *.docx OR *.dot OR *.dotm OR *.rtf))) OR ((TargetFilename:*\\\\Microsoft\\\\Excel\\\\XLSTART* OR (TargetFilename:*\\\\Office* AND TargetFilename:*\\\\Program\\ Files* AND TargetFilename:*\\\\XLSTART*)) AND (TargetFilename:(*.xls OR *.xlsm OR *.xlsx OR *.xlt OR *.xltm)))) AND (NOT (Image:(*\\\\WINWORD.exe OR *\\\\EXCEL.exe)))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

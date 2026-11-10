@@ -1,0 +1,2 @@
+// Suspicious Reconnaissance Activity Via GatherNetworkInfo.VBS | T1059.005, T1615 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_gather_network_info_execution.yml
+process.command_line:*gatherNetworkInfo.vbs* AND (NOT (process.executable.caseless:(*\\cscript.exe OR *\\wscript.exe)))

@@ -1,0 +1,2 @@
+// Windows Defender Threat Detection Service Disabled | T1685 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/system/service_control_manager/win_system_defender_disabled.yml
+winlog.channel:System AND (event.code:7036 AND winlog.provider_name:"Service Control Manager" AND (winlog.event_data.param1:("Windows Defender Antivirus Service" OR "Service antivirus Microsoft Defender")) AND (winlog.event_data.param2:(stopped OR arrêté)))

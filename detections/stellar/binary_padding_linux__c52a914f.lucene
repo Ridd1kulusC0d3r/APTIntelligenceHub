@@ -1,0 +1,18 @@
+// Binary Padding - Linux | T1027.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/execve/lnx_auditd_binary_padding.yml
+type:EXECVE AND ((*truncate* AND *\-s*) OR ((*dd* AND *if\=*) AND (NOT *of\=*)))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "type:EXECVE AND ((*truncate* AND *\\-s*) OR ((*dd* AND *if\\=*) AND (NOT *of\\=*)))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,2 @@
+# Suspicious Download from Office Domain | T1105, T1608 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_download_office_domain.yml
+source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=1 (Image IN ("*\\curl.exe", "*\\wget.exe") OR CommandLine IN ("*Invoke-WebRequest*", "*iwr *", "*curl *", "*wget *", "*Start-BitsTransfer*", "*.DownloadFile(*", "*.DownloadString(*")) (CommandLine IN ("*https://attachment.outlook.live.net/owa/*", "*https://onenoteonlinesync.onenote.com/onenoteonlinesync/*"))

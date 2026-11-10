@@ -1,0 +1,18 @@
+// Outlook Macro Execution Without Warning Setting Enabled | T1008, T1137, T1546 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_office_outlook_enable_macro_execution.yml
+TargetObject:*\\Outlook\\Security\\Level AND Details:*0x00000001*
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "TargetObject:*\\\\Outlook\\\\Security\\\\Level AND Details:*0x00000001*",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

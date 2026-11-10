@@ -1,0 +1,2 @@
+// Winlogon Helper DLL | T1547.004 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/powershell/powershell_script/posh_ps_winlogon_helper_dll.yml
+powershell.file.script_block_text:*CurrentVersion\\Winlogon* AND (powershell.file.script_block_text:(*Set\-ItemProperty* OR *New\-Item*))

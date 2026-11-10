@@ -1,0 +1,2 @@
+-- New User Created Via Net.EXE With Never Expire Option | T1136.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_net_user_add_never_expire.yml
+SELECT * FROM events WHERE devicetype=12 AND (((LOWER("Process Path") LIKE '%\net.exe' OR LOWER("Process Path") LIKE '%\net1.exe') OR (LOWER("Process Name") LIKE '%\net.exe' OR LOWER("Process Name") LIKE '%\net1.exe')) OR (Filename IN('net.exe', 'net1.exe'))) AND (LOWER(Command) LIKE '%user%' AND LOWER(Command) LIKE '%add%' AND LOWER(Command) LIKE '%expires:never%')

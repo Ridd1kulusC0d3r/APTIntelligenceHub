@@ -1,0 +1,2 @@
+// Suspicious LDAP-Attributes Used | T1001.003 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_susp_ldap_dataexchange.yml
+any where winlog.channel:"Security" and (event.code:"5136" and winlog.event_data.AttributeValue:"*" and (winlog.event_data.AttributeLDAPDisplayName like~ ("primaryInternationalISDNNumber", "otherFacsimileTelephoneNumber", "primaryTelexNumber")))

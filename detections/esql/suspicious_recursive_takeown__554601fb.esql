@@ -1,0 +1,2 @@
+// Suspicious Recursive Takeown | T1222.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_takeown_recursive_own.yml
+from * metadata _id, _index, _version | where ends_with(process.executable.caseless, "\\takeown.exe") and process.command_line like "*/f *" and process.command_line like "*/r*"

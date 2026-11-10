@@ -1,0 +1,2 @@
+# Suspicious Git Clone | T1593.003 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_git_susp_clone.yml
+source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=1 (Image IN ("*\\git.exe", "*\\git-remote-https.exe") OR OriginalFileName="git.exe") (CommandLine IN ("* clone *", "*git-remote-https *")) (CommandLine IN ("*exploit*", "*Vulns*", "*vulnerability*", "*RemoteCodeExecution*", "*Invoke-*", "*CVE-*", "*poc-*", "*ProofOfConcept*", "*proxyshell*", "*log4shell*", "*eternalblue*", "*eternal-blue*", "*MS17-*"))

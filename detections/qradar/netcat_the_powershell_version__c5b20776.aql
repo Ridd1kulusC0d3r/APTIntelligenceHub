@@ -1,0 +1,2 @@
+-- Netcat The Powershell Version | T1059.001, T1095 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/powershell/powershell_classic/posh_pc_powercat.yml | NOTA: fallback QRadarAQL_payload_pipeline: campos sem propriedade DSM mapeada são buscados em UTF8(payload) – custo maior, crie custom properties
+SELECT * FROM events WHERE devicetype=12 AND (LOWER(UTF8(payload)) LIKE '%powercat %' OR LOWER(UTF8(payload)) LIKE '%powercat.ps1%')

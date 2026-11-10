@@ -1,0 +1,2 @@
+// ShimCache Flush | T1112 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_susp_shimcache_flush.yml
+from * metadata _id, _index, _version | where process.command_line like "*rundll32*" and process.command_line like "*apphelp.dll*" and (process.command_line like "*ShimFlushCache*" or process.command_line like "*#250*") or process.command_line like "*rundll32*" and process.command_line like "*kernel32.dll*" and (process.command_line like "*BaseFlushAppcompatCache*" or process.command_line like "*#46*")

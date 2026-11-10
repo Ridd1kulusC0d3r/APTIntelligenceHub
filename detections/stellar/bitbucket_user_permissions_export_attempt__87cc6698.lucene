@@ -1,0 +1,18 @@
+// Bitbucket User Permissions Export Attempt | T1082, T1213, T1591.004 | https://github.com/SigmaHQ/sigma/blob/master/rules/application/bitbucket/audit/bitbucket_audit_user_permissions_export_attempt_detected.yml
+auditType.category:"Users and groups" AND (auditType.action:("User details export failed" OR "User details export started" OR "User details exported"))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "auditType.category:\"Users and groups\" AND (auditType.action:(\"User details export failed\" OR \"User details export started\" OR \"User details exported\"))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

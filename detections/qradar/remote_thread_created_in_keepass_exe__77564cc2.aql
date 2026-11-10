@@ -1,0 +1,2 @@
+-- Remote Thread Created In KeePass.EXE | T1555.005 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/create_remote_thread/create_remote_thread_win_keepass.yml
+SELECT * FROM events WHERE devicetype=12 AND LOWER("Target Process Path") LIKE '%\keepass.exe'

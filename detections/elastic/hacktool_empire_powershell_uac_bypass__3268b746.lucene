@@ -1,0 +1,2 @@
+// HackTool - Empire PowerShell UAC Bypass | T1548.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_empire_powershell_uac_bypass.yml
+process.command_line:(*\ \-NoP\ \-NonI\ \-w\ Hidden\ \-c\ $x\=$\(\(gp\ HKCU\:Software\\Microsoft\\Windows\ Update\).Update\)* OR *\ \-NoP\ \-NonI\ \-c\ $x\=$\(\(gp\ HKCU\:Software\\Microsoft\\Windows\ Update\).Update\);*)

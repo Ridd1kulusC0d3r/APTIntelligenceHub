@@ -1,0 +1,2 @@
+# Invoke-Obfuscation Via Use Rundll32 - System | T1027, T1059.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/system/service_control_manager/win_system_invoke_obfuscation_via_use_rundll32_services.yml
+source="WinEventLog:System" Provider_Name="Service Control Manager" EventCode=7045 ImagePath="*&&*" ImagePath="*rundll32*" ImagePath="*shell32.dll*" ImagePath="*shellexec_rundll*" (ImagePath IN ("*value*", "*invoke*", "*comspec*", "*iex*"))

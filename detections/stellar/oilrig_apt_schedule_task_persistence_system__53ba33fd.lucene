@@ -1,0 +1,18 @@
+// OilRig APT Schedule Task Persistence - System | T1053.005, T1071.004, T1112, T1543.003 | https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2018/TA/OilRig/win_system_apt_oilrig_mar18.yml
+Provider_Name:"Service Control Manager" AND EventID:7045 AND (ServiceName:("SC Scheduled Scan" OR UpdatMachine))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "Provider_Name:\"Service Control Manager\" AND EventID:7045 AND (ServiceName:(\"SC Scheduled Scan\" OR UpdatMachine))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

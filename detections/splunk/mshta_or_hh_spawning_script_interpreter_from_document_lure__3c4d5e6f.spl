@@ -1,0 +1,2 @@
+# MSHTA Or HH Spawning Script Interpreter From Document Lure | T1218.001, T1218.005 | Hub
+source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=1 (ParentImage IN ("*\\mshta.exe", "*\\hh.exe")) (Image IN ("*\\powershell.exe", "*\\cmd.exe", "*\\wscript.exe", "*\\cscript.exe", "*\\curl.exe"))

@@ -1,0 +1,2 @@
+// PUA - Chisel Tunneling Tool Execution | T1090.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_chisel.yml
+process.executable.caseless:*\\chisel.exe OR ((process.command_line:(*exe\ client\ * OR *exe\ server\ *)) AND (process.command_line:(*\-socks5* OR *\-reverse* OR *\ r\:* OR *\:127.0.0.1\:* OR *\-tls\-skip\-verify\ * OR *\:socks*)))

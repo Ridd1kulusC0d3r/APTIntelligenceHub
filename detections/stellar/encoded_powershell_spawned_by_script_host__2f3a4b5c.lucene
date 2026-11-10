@@ -1,0 +1,18 @@
+// Encoded PowerShell Spawned By Script Host | T1059.001, T1059.007 | Hub
+(ParentImage:(*\\wscript.exe OR *\\cscript.exe OR *\\mshta.exe)) AND (Image:*\\powershell.exe AND (CommandLine:(*\ \-enc* OR *\ \-EncodedCommand* OR *\ \-e\ *)))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(ParentImage:(*\\\\wscript.exe OR *\\\\cscript.exe OR *\\\\mshta.exe)) AND (Image:*\\\\powershell.exe AND (CommandLine:(*\\ \\-enc* OR *\\ \\-EncodedCommand* OR *\\ \\-e\\ *)))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

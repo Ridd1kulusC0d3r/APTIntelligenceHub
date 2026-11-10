@@ -1,0 +1,18 @@
+// Potential Powershell ReverseShell Connection | T1059.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_reverse_shell_connection.yml
+((OriginalFileName:(PowerShell.EXE OR pwsh.dll)) OR (Image:(*\\powershell.exe OR *\\pwsh.exe))) AND (CommandLine:*\ Net.Sockets.TCPClient* AND CommandLine:*.GetStream\(* AND CommandLine:*.Write\(*)
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "((OriginalFileName:(PowerShell.EXE OR pwsh.dll)) OR (Image:(*\\\\powershell.exe OR *\\\\pwsh.exe))) AND (CommandLine:*\\ Net.Sockets.TCPClient* AND CommandLine:*.GetStream\\(* AND CommandLine:*.Write\\(*)",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

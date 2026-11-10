@@ -1,0 +1,18 @@
+// OpenCanary - SNMP OID Request | T1016, T1021 | https://github.com/SigmaHQ/sigma/blob/master/rules/application/opencanary/opencanary_snmp_cmd.yml
+logtype:13001
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "logtype:13001",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

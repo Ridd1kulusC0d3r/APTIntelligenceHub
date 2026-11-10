@@ -1,0 +1,3 @@
+// Potential APT10 Cloud Hopper Activity | T1059.005 | https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2017/TA/APT10/proc_creation_win_apt_apt10_cloud_hopper.yml
+DeviceProcessEvents
+| where (FolderPath endswith "\\cscript.exe" and ProcessCommandLine contains ".vbs /shell ") or (ProcessCommandLine contains "csvde -f C:\\windows\\web\\" and ProcessCommandLine contains ".log")

@@ -1,0 +1,2 @@
+-- Okta FastPass Phishing Detection | T1566 | https://github.com/SigmaHQ/sigma/blob/master/rules/identity/okta/okta_fastpass_phishing_detection.yml | NOTA: fallback QRadarAQL_payload_pipeline: campos sem propriedade DSM mapeada são buscados em UTF8(payload) – custo maior, crie custom properties
+SELECT * FROM events WHERE devicetype=382 AND LOWER(UTF8(payload)) LIKE '%fastpass declined phishing attempt%' AND LOWER(UTF8(payload)) LIKE '%failure%' AND LOWER(UTF8(payload)) LIKE '%user.authentication.auth_via_mfa%'

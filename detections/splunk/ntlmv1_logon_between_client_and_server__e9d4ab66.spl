@@ -1,0 +1,2 @@
+# NTLMv1 Logon Between Client and Server | T1550.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/system/lsasrv/win_system_lsasrv_ntlmv1.yml
+source="WinEventLog:System" Provider_Name="LsaSrv" (EventCode IN (6038, 6039))

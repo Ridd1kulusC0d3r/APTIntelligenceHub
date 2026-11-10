@@ -1,0 +1,2 @@
+# SQLite Chromium Profile Data DB Access | T1005, T1539, T1555.003 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sqlite_chromium_profile_data.yml
+source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=1 (Product="SQLite" OR Image IN ("*\\sqlite.exe", "*\\sqlite3.exe")) (CommandLine IN ("*\\User Data\\*", "*\\Opera Software\\*", "*\\ChromiumViewer\\*")) (CommandLine IN ("*Login Data*", "*Cookies*", "*Web Data*", "*History*", "*Bookmarks*"))

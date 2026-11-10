@@ -1,0 +1,18 @@
+// Suspicious File Characteristics Due to Missing Fields | T1059.006 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_file_characteristics.yml
+((Description:\? AND FileVersion:\?) OR (Description:\? AND Product:\?) OR (Description:\? AND Company:\?)) AND Image:*\\Downloads\\*
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "((Description:\\? AND FileVersion:\\?) OR (Description:\\? AND Product:\\?) OR (Description:\\? AND Company:\\?)) AND Image:*\\\\Downloads\\\\*",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

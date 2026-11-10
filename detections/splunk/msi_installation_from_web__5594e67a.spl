@@ -1,0 +1,2 @@
+# MSI Installation From Web | T1218, T1218.007 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/application/msiinstaller/win_msi_install_from_web.yml
+source="WinEventLog:Application" Provider_Name="MsiInstaller" (EventCode IN (1040, 1042)) Data="*://*"

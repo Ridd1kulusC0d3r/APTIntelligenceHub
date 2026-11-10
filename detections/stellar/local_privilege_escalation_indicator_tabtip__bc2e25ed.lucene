@@ -1,0 +1,18 @@
+// Local Privilege Escalation Indicator TabTip | T1557.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/system/microsoft_windows_distributed_com/win_system_lpe_indicators_tabtip.yml
+Provider_Name:Microsoft\-Windows\-DistributedCOM AND EventID:10001 AND param1:"C\:\\Program Files\\Common Files\\microsoft shared\\ink\\TabTip.exe" AND param2:2147943140 AND param3:\{054AAE20\-4BEA\-4347\-8A35\-64A533254A9D\}
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "Provider_Name:Microsoft\\-Windows\\-DistributedCOM AND EventID:10001 AND param1:\"C\\:\\\\Program Files\\\\Common Files\\\\microsoft shared\\\\ink\\\\TabTip.exe\" AND param2:2147943140 AND param3:\\{054AAE20\\-4BEA\\-4347\\-8A35\\-64A533254A9D\\}",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

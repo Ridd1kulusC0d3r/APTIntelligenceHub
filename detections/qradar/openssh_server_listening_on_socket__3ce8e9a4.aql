@@ -1,0 +1,2 @@
+-- OpenSSH Server Listening On Socket | T1021.004 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/openssh/win_sshd_openssh_server_listening_on_socket.yml | NOTA: fallback QRadarAQL_payload_pipeline: campos sem propriedade DSM mapeada são buscados em UTF8(payload) – custo maior, crie custom properties
+SELECT * FROM events WHERE devicetype=12 AND "Event ID"=4 AND LOWER(UTF8(payload)) LIKE '%sshd%' AND LOWER(UTF8(payload)) LIKE 'server listening on %'

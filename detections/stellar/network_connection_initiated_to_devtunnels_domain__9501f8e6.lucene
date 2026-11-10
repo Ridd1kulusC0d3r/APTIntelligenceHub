@@ -1,0 +1,18 @@
+// Network Connection Initiated To DevTunnels Domain | T1567.001, T1572 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_domain_devtunnels.yml
+Initiated:true AND DestinationHostname:*.devtunnels.ms
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "Initiated:true AND DestinationHostname:*.devtunnels.ms",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

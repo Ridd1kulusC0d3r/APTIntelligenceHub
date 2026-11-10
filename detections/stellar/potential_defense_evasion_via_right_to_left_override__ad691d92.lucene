@@ -1,0 +1,18 @@
+// Potential Defense Evasion Via Right-to-Left Override | T1036.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_right_to_left_override.yml
+CommandLine:(*\\u202e* OR *\[U\+202E\]* OR *‮*)
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "CommandLine:(*\\\\u202e* OR *\\[U\\+202E\\]* OR *\u202e*)",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

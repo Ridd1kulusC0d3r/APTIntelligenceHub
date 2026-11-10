@@ -1,0 +1,18 @@
+// Potential Remote SquiblyTwo Technique Execution | T1047, T1059.005, T1059.007, T1220 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wmic_squiblytwo_bypass.yml
+(Image:*\\wmic.exe OR OriginalFileName:wmic.exe OR (Hashes:(*IMPHASH\=1B1A3F43BF37B5BFE60751F2EE2F326E* OR *IMPHASH\=37777A96245A3C74EB217308F3546F4C* OR *IMPHASH\=9D87C9D67CE724033C0B40CC4CA1B206* OR *IMPHASH\=B12619881D79C3ACADF45E752A58554A* OR *IMPHASH\=16A48C3CABF98A9DC1BF02C07FE1EA00*))) AND (CommandLine:(*\-format\:* OR *\/format\:* OR *–format\:* OR *—format\:* OR *―format\:*) AND (CommandLine:(*\:\/\/* OR *\\\\*)))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(Image:*\\\\wmic.exe OR OriginalFileName:wmic.exe OR (Hashes:(*IMPHASH\\=1B1A3F43BF37B5BFE60751F2EE2F326E* OR *IMPHASH\\=37777A96245A3C74EB217308F3546F4C* OR *IMPHASH\\=9D87C9D67CE724033C0B40CC4CA1B206* OR *IMPHASH\\=B12619881D79C3ACADF45E752A58554A* OR *IMPHASH\\=16A48C3CABF98A9DC1BF02C07FE1EA00*))) AND (CommandLine:(*\\-format\\:* OR *\\/format\\:* OR *\u2013format\\:* OR *\u2014format\\:* OR *\u2015format\\:*) AND (CommandLine:(*\\:\\/\\/* OR *\\\\\\\\*)))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

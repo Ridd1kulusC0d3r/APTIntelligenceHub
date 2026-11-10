@@ -1,0 +1,2 @@
+# Potential POWERTRASH Script Execution | T1059.001 | https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/FIN7/posh_ps_apt_fin7_powertrash_execution.yml
+ScriptBlockText="*IO.Compression.DeflateStream*" ScriptBlockText="*IO.MemoryStream*" ScriptBlockText="*::FromBase64String*" ScriptBlockText="*GetDelegateForFunctionPointer*" ScriptBlockText="*.Invoke()*" ScriptBlockText="*GlobalAssemblyCache*"

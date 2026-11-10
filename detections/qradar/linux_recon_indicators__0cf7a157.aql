@@ -1,0 +1,2 @@
+-- Linux Recon Indicators | T1552.001, T1592.004 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_susp_recon_indicators.yml
+SELECT * FROM events WHERE devicetype=11 AND (LOWER(Command) LIKE '% -name .htpasswd%' OR LOWER(Command) LIKE '% -perm -4000 %')

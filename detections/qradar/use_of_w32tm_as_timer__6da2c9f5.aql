@@ -1,0 +1,2 @@
+-- Use of W32tm as Timer | T1124 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_w32tm.yml
+SELECT * FROM events WHERE devicetype=12 AND ((LOWER("Process Path") LIKE '%\w32tm.exe' OR LOWER("Process Name") LIKE '%\w32tm.exe') OR Filename='w32time.dll') AND (LOWER(Command) LIKE '%/stripchart%' AND LOWER(Command) LIKE '%/computer:%' AND LOWER(Command) LIKE '%/period:%' AND LOWER(Command) LIKE '%/dataonly%' AND LOWER(Command) LIKE '%/samples:%')

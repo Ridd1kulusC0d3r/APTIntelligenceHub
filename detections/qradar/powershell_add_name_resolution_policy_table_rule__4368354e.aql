@@ -1,0 +1,2 @@
+-- Powershell Add Name Resolution Policy Table Rule | T1565 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/powershell/powershell_script/posh_ps_add_dnsclient_rule.yml
+SELECT * FROM events WHERE devicetype=12 AND LOWER(Message) LIKE '%add-dnsclientnrptrule%' AND LOWER(Message) LIKE '%-namesp%' AND LOWER(Message) LIKE '%-namese%'

@@ -1,0 +1,2 @@
+# PUA - Radmin Viewer Utility Execution | T1072 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_radmin.yml
+source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=1 (Description="Radmin Viewer" OR Product="Radmin Viewer" OR OriginalFileName="Radmin.exe")

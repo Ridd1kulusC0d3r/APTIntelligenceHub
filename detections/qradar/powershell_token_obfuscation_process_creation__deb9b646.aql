@@ -1,0 +1,2 @@
+-- Powershell Token Obfuscation - Process Creation | T1027.009 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_token_obfuscation.yml
+SELECT * FROM events WHERE devicetype=12 AND (Command MATCHES '\w+`(?:\w+|-|.)`[\w+|\s]' OR Command MATCHES '"(?:\{\d\})+"\s*-f' OR Command MATCHES '(?i)\$\{`?e`?n`?v`?:`?p`?a`?t`?h`?\}') AND (NOT(LOWER(Command) LIKE '%${env:path}%'))

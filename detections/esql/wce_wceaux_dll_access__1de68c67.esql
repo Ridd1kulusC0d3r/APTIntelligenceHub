@@ -1,0 +1,2 @@
+// WCE wceaux.dll Access | T1003 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_mal_wceaux_dll.yml
+from * metadata _id, _index, _version | where winlog.channel=="Security" and (event.code in ("4656", "4663")) and ends_with(winlog.event_data.ObjectName, "\\wceaux.dll")

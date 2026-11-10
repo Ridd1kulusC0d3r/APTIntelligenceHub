@@ -1,0 +1,2 @@
+// Potential Pikabot Hollowing Activity | T1055.012 | https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/Malware/Pikabot/proc_creation_win_malware_pikabot_rundll32_hollowing.yml
+(process.parent.executable.caseless:*\\rundll32.exe AND (process.executable.caseless:(*\\SearchFilterHost.exe OR *\\SearchProtocolHost.exe OR *\\sndvol.exe OR *\\wermgr.exe OR *\\wwahost.exe))) AND (NOT (process.executable.caseless:*\\sndvol.exe AND process.parent.command_line:*mmsys.cpl*))

@@ -1,0 +1,2 @@
+// Mustang Panda Dropper | T1587.001 | https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2019/TA/MustangPanda/proc_creation_win_apt_mustangpanda.yml
+((process.command_line:(*Temp\\wtask.exe\ \/create* OR *%windir\:\~\-3,1%%PUBLIC\:\~\-9,1%* OR *\/tn\ \"Security\ Script\ * OR *%windir\:\~\-1,1%*)) OR (process.command_line:*\/E\:vbscript* AND process.command_line:*C\:\\Users\\* AND process.command_line:*.txt* AND process.command_line:*\/F*)) OR process.executable.caseless:*Temp\\winwsh.exe

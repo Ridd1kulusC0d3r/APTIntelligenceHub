@@ -1,0 +1,2 @@
+// Automated Collection Command PowerShell | T1119 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/powershell/powershell_script/posh_ps_automated_collection.yml
+any where (powershell.file.script_block_text like~ ("*.doc*", "*.docx*", "*.xls*", "*.xlsx*", "*.ppt*", "*.pptx*", "*.rtf*", "*.pdf*", "*.txt*")) and (powershell.file.script_block_text:"*Get-ChildItem*" and powershell.file.script_block_text:"* -Recurse *" and powershell.file.script_block_text:"* -Include *")

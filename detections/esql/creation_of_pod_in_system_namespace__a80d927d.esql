@@ -1,0 +1,2 @@
+// Creation Of Pod In System Namespace | T1036.005 | https://github.com/SigmaHQ/sigma/blob/master/rules/application/kubernetes/audit/kubernetes_audit_pod_in_system_namespace.yml
+from * metadata _id, _index, _version | where verb=="create" and objectRef.resource=="pods" and objectRef.namespace=="kube-system"

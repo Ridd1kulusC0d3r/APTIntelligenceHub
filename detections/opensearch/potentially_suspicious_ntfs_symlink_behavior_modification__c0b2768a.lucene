@@ -1,0 +1,2 @@
+// Potentially Suspicious NTFS Symlink Behavior Modification | T1059, T1222.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_fsutil_symlinkevaluation.yml
+((process.executable.caseless:(*\\cmd.exe OR *\\powershell.exe OR *\\pwsh.exe)) OR (process.pe.original_file_name:(Cmd.Exe OR PowerShell.EXE OR pwsh.dll))) AND (process.command_line:*fsutil* AND process.command_line:*behavior* AND process.command_line:*set* AND process.command_line:*SymlinkEvaluation*) AND (process.command_line:(*R2L\:1* OR *R2R\:1* OR *L2L\:1*))

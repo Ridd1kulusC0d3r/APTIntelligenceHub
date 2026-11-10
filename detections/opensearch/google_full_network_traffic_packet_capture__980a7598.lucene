@@ -1,0 +1,2 @@
+// Google Full Network Traffic Packet Capture | T1074 | https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/gcp/audit/gcp_full_network_traffic_packet_capture.yml
+gcp.audit.method_name:(v*.Compute.PacketMirrorings.Get OR v*.Compute.PacketMirrorings.Delete OR v*.Compute.PacketMirrorings.Insert OR v*.Compute.PacketMirrorings.Patch OR v*.Compute.PacketMirrorings.List OR v*.Compute.PacketMirrorings.aggregatedList)

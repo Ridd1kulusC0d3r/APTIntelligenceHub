@@ -1,0 +1,2 @@
+-- SCM Database Handle Failure | T1010 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_scm_database_handle_failure.yml | NOTA: fallback QRadarAQL_payload_pipeline: campos sem propriedade DSM mapeada são buscados em UTF8(payload) – custo maior, crie custom properties
+SELECT * FROM events WHERE devicetype=12 AND ("Event ID"=4656 AND "Object Type"='SC_MANAGER OBJECT' AND "Object Name"='ServicesActive' AND "Access Mask"='0xf003f') AND (NOT(LOWER(UTF8(payload)) LIKE '%0x3e4%'))

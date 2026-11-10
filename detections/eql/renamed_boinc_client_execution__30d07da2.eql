@@ -1,0 +1,2 @@
+// Renamed BOINC Client Execution | T1553 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_renamed_boinc.yml
+any where process.pe.original_file_name:"BOINC.exe" and (not process.executable.caseless:"*\\BOINC.exe")

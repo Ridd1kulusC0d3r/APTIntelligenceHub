@@ -1,0 +1,18 @@
+// Uncommon Userinit Child Process | T1037.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_userinit_uncommon_child_processes.yml
+ParentImage:*\\userinit.exe AND (NOT Image:*\:\\WINDOWS\\explorer.exe) AND (NOT ((CommandLine:(*netlogon.bat* OR *UsrLogon.cmd*)) OR CommandLine:PowerShell.exe OR (Image:(*\:\\Windows\\System32\\proquota.exe OR *\:\\Windows\\SysWOW64\\proquota.exe)) OR (Image:(*\:\\Program\ Files\ \(x86\)\\Citrix\\HDX\\bin\\cmstart.exe OR *\:\\Program\ Files\ \(x86\)\\Citrix\\HDX\\bin\\icast.exe OR *\:\\Program\ Files\ \(x86\)\\Citrix\\System32\\icast.exe OR *\:\\Program\ Files\\Citrix\\HDX\\bin\\cmstart.exe OR *\:\\Program\ Files\\Citrix\\HDX\\bin\\icast.exe OR *\:\\Program\ Files\\Citrix\\System32\\icast.exe)) OR (NOT _exists_:Image)))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "ParentImage:*\\\\userinit.exe AND (NOT Image:*\\:\\\\WINDOWS\\\\explorer.exe) AND (NOT ((CommandLine:(*netlogon.bat* OR *UsrLogon.cmd*)) OR CommandLine:PowerShell.exe OR (Image:(*\\:\\\\Windows\\\\System32\\\\proquota.exe OR *\\:\\\\Windows\\\\SysWOW64\\\\proquota.exe)) OR (Image:(*\\:\\\\Program\\ Files\\ \\(x86\\)\\\\Citrix\\\\HDX\\\\bin\\\\cmstart.exe OR *\\:\\\\Program\\ Files\\ \\(x86\\)\\\\Citrix\\\\HDX\\\\bin\\\\icast.exe OR *\\:\\\\Program\\ Files\\ \\(x86\\)\\\\Citrix\\\\System32\\\\icast.exe OR *\\:\\\\Program\\ Files\\\\Citrix\\\\HDX\\\\bin\\\\cmstart.exe OR *\\:\\\\Program\\ Files\\\\Citrix\\\\HDX\\\\bin\\\\icast.exe OR *\\:\\\\Program\\ Files\\\\Citrix\\\\System32\\\\icast.exe)) OR (NOT _exists_:Image)))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

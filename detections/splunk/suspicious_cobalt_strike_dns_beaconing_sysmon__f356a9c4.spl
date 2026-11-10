@@ -1,0 +1,2 @@
+# Suspicious Cobalt Strike DNS Beaconing - Sysmon | T1071.004 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/dns_query/dns_query_win_mal_cobaltstrike.yml
+source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=22 (QueryName IN ("aaa.stage.*", "post.1*") OR QueryName="*.stage.123456.*")

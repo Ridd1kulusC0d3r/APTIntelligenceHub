@@ -1,0 +1,18 @@
+// Cross Site Scripting Strings | T1189 | https://github.com/SigmaHQ/sigma/blob/master/rules/web/webserver_generic/web_xss_in_access_logs.yml
+cs-method:GET AND (*\=\<script\>* OR *\=%3Cscript%3E* OR *\=%253Cscript%253E* OR *\<iframe\ * OR *%3Ciframe\ * OR *\<svg\ * OR *%3Csvg\ * OR *document.cookie* OR *document.domain* OR *\ onerror\=* OR *\ onresize\=* OR *\ onload\=\"* OR *onmouseover\=* OR *$\{alert* OR *javascript\:alert* OR *javascript%3Aalert*) AND (NOT sc-status:404)
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "cs-method:GET AND (*\\=\\<script\\>* OR *\\=%3Cscript%3E* OR *\\=%253Cscript%253E* OR *\\<iframe\\ * OR *%3Ciframe\\ * OR *\\<svg\\ * OR *%3Csvg\\ * OR *document.cookie* OR *document.domain* OR *\\ onerror\\=* OR *\\ onresize\\=* OR *\\ onload\\=\\\"* OR *onmouseover\\=* OR *$\\{alert* OR *javascript\\:alert* OR *javascript%3Aalert*) AND (NOT sc-status:404)",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

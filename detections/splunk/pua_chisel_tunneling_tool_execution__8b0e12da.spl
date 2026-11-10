@@ -1,0 +1,2 @@
+# PUA - Chisel Tunneling Tool Execution | T1090.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_chisel.yml
+source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=1 (Image="*\\chisel.exe" OR ((CommandLine IN ("*exe client *", "*exe server *")) (CommandLine IN ("*-socks5*", "*-reverse*", "* r:*", "*:127.0.0.1:*", "*-tls-skip-verify *", "*:socks*"))))

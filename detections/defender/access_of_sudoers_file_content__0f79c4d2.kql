@@ -1,0 +1,3 @@
+// Access of Sudoers File Content | T1592.004 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_susp_process_reading_sudoers.yml
+DeviceProcessEvents
+| where (FolderPath endswith "/cat" or FolderPath endswith "/ed" or FolderPath endswith "/egrep" or FolderPath endswith "/emacs" or FolderPath endswith "/fgrep" or FolderPath endswith "/grep" or FolderPath endswith "/head" or FolderPath endswith "/less" or FolderPath endswith "/more" or FolderPath endswith "/nano" or FolderPath endswith "/tail") and ProcessCommandLine contains " /etc/sudoers"

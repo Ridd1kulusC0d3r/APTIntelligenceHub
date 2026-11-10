@@ -1,0 +1,3 @@
+// Remote XSL Execution Via Msxsl.EXE | T1220 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_msxsl_remote_execution.yml
+DeviceProcessEvents
+| where FolderPath endswith "\\msxsl.exe" and ProcessCommandLine contains "http"

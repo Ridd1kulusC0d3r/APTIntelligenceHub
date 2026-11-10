@@ -1,0 +1,18 @@
+// Linux Logs Clearing Attempts | T1685.006 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_clear_logs.yml
+((Image:(*\/rm OR *\/rmdir OR *\/shred OR *\/unlink)) AND (CommandLine:(*\/var\/log* OR *\/var\/spool\/mail*))) AND (NOT ((Image:*\/rm AND CommandLine:rm\ \-f\ \/var\/log\/sysstat\/*) OR (Image:*\/rm AND CommandLine:rm\ \-f\ \-\-\ \/var\/log\/\/dmesg*)))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "((Image:(*\\/rm OR *\\/rmdir OR *\\/shred OR *\\/unlink)) AND (CommandLine:(*\\/var\\/log* OR *\\/var\\/spool\\/mail*))) AND (NOT ((Image:*\\/rm AND CommandLine:rm\\ \\-f\\ \\/var\\/log\\/sysstat\\/*) OR (Image:*\\/rm AND CommandLine:rm\\ \\-f\\ \\-\\-\\ \\/var\\/log\\/\\/dmesg*)))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

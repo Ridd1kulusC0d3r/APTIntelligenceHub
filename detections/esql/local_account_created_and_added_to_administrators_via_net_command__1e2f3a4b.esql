@@ -1,0 +1,2 @@
+// Local Account Created And Added To Administrators Via Net Command | T1136.001 | Hub
+from * metadata _id, _index, _version | where (ends_with(process.executable.caseless, "\\net.exe") or ends_with(process.executable.caseless, "\\net1.exe")) and process.command_line like "*localgroup*" and process.command_line like "*admin*" and process.command_line like "*/add*"

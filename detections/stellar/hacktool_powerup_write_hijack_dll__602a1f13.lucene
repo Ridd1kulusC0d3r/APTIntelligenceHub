@@ -1,0 +1,18 @@
+// HackTool - Powerup Write Hijack DLL | T1574.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_hktl_powerup_dllhijacking.yml
+(Image:(*\\powershell.exe OR *\\pwsh.exe)) AND TargetFilename:*.bat
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(Image:(*\\\\powershell.exe OR *\\\\pwsh.exe)) AND TargetFilename:*.bat",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,18 @@
+// Microsoft 365 - User Restricted from Sending Email | T1199 | https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/m365/threat_management/microsoft365_user_restricted_from_sending_email.yml
+eventSource:SecurityComplianceCenter AND eventName:"User restricted from sending email" AND status:success
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "eventSource:SecurityComplianceCenter AND eventName:\"User restricted from sending email\" AND status:success",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

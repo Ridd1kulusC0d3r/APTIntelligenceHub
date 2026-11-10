@@ -1,0 +1,2 @@
+# Suspicious DNS Z Flag Bit Set | T1095, T1571 | https://github.com/SigmaHQ/sigma/blob/master/rules/network/zeek/zeek_dns_susp_zbit_flag.yml
+NOT Z=0 query="*.*" NOT (query IN ("*.arpa", "*.local", "*.ultradns.net", "*.twtrdns.net", "*.azuredns-prd.info", "*.azure-dns.com", "*.azuredns-ff.info", "*.azuredns-ff.org", "*.azuregov-dns.org") OR qtype_name IN ("ns", "mx") OR answers="*\\x00" OR id.resp_p IN (137, 138, 139))

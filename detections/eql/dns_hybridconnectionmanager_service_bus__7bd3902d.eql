@@ -1,0 +1,2 @@
+// DNS HybridConnectionManager Service Bus | T1554 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/dns_query/dns_query_win_hybridconnectionmgr_servicebus.yml
+any where dns.question.name:"*servicebus.windows.net*" and process.executable.caseless:"*HybridConnectionManager*"

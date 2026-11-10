@@ -1,0 +1,2 @@
+// Winnti Pipemon Characteristics | T1574.001 | https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2020/TA/Winnti/proc_creation_win_apt_winnti_pipemon.yml
+from * metadata _id, _index, _version | where process.command_line like "*setup0.exe -p*" or process.command_line like "*setup.exe*" and (ends_with(process.command_line, "-x:0") or ends_with(process.command_line, "-x:1") or ends_with(process.command_line, "-x:2"))

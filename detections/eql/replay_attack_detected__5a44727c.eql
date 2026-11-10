@@ -1,0 +1,2 @@
+// Replay Attack Detected | T1558 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_replay_attack_detected.yml
+any where winlog.channel:"Security" and event.code:"4649"

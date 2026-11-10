@@ -1,0 +1,2 @@
+// Suspicious ClickFix/FileFix Execution Pattern | T1204.001, T1204.004 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_clickfix_filefix_execution.yml
+(process.parent.executable.caseless:*\\explorer.exe AND process.command_line:*#*) AND (process.command_line:(*account* OR *anti\-bot* OR *botcheck* OR *captcha* OR *challenge* OR *confirmation* OR *fraud* OR *human* OR *identification* OR *identificator* OR *identity* OR *robot* OR *validation* OR *verification* OR *verify*))

@@ -1,0 +1,3 @@
+// COM Hijack via Sdclt | T1546, T1548 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_comhijack_sdclt.yml
+DeviceRegistryEvents
+| where RegistryKey contains "\\Software\\Classes\\Folder\\shell\\open\\command\\DelegateExecute"

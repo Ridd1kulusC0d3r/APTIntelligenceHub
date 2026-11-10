@@ -1,0 +1,2 @@
+// PwnKit Local Privilege Escalation | T1548.001 | https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2021/Exploits/CVE-2021-4034/lnx_auth_exploit_cve_2021_4034_pwnkit_lpe.yml
+any where "pkexec" and "The value for environment variable XAUTHORITY contains suspicious content" and "[USER=root] [TTY=/dev/pts/0]"

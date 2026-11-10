@@ -1,0 +1,18 @@
+// WCE wceaux.dll Access | T1003 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_mal_wceaux_dll.yml
+(EventID:(4656 OR 4663)) AND ObjectName:*\\wceaux.dll
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(EventID:(4656 OR 4663)) AND ObjectName:*\\\\wceaux.dll",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

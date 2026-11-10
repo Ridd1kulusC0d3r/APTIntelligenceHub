@@ -1,0 +1,18 @@
+// Service Installed By Unusual Client - Security | T1543 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_service_installation_by_unusal_client.yml
+EventID:4697 AND (ClientProcessId:0 OR ParentProcessId:0)
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "EventID:4697 AND (ClientProcessId:0 OR ParentProcessId:0)",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

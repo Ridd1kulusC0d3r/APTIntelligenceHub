@@ -1,0 +1,18 @@
+// Potential Process Hollowing Activity | T1055.012 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_tampering/proc_tampering_susp_process_hollowing.yml
+Type:"Image is replaced" AND (NOT (Image:(*\:\\Program\ Files\ \(x86\)* OR *\:\\Program\ Files\\* OR *\:\\Windows\\System32\\wbem\\WMIADAP.exe* OR *\:\\Windows\\SysWOW64\\wbem\\WMIADAP.exe*))) AND (NOT ((Image:*\\AppData\\Local\\Programs\\Opera\\* AND Image:*\\opera.exe) OR Image:*\\WindowsApps\\MicrosoftEdge.exe))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "Type:\"Image is replaced\" AND (NOT (Image:(*\\:\\\\Program\\ Files\\ \\(x86\\)* OR *\\:\\\\Program\\ Files\\\\* OR *\\:\\\\Windows\\\\System32\\\\wbem\\\\WMIADAP.exe* OR *\\:\\\\Windows\\\\SysWOW64\\\\wbem\\\\WMIADAP.exe*))) AND (NOT ((Image:*\\\\AppData\\\\Local\\\\Programs\\\\Opera\\\\* AND Image:*\\\\opera.exe) OR Image:*\\\\WindowsApps\\\\MicrosoftEdge.exe))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

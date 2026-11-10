@@ -1,0 +1,18 @@
+// Suspicious PowerShell WindowStyle Option | T1564.003 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/powershell/powershell_script/posh_ps_susp_windowstyle.yml
+(ScriptBlockText:*powershell* AND ScriptBlockText:*WindowStyle* AND ScriptBlockText:*Hidden*) AND (NOT (ScriptBlockText:*\:\\Program\ Files\\Amazon\\WorkSpacesConfig\\Scripts\\* AND ScriptBlockText:*$PSScriptRoot\\Module\\WorkspaceScriptModule\\WorkspaceScriptModule*))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(ScriptBlockText:*powershell* AND ScriptBlockText:*WindowStyle* AND ScriptBlockText:*Hidden*) AND (NOT (ScriptBlockText:*\\:\\\\Program\\ Files\\\\Amazon\\\\WorkSpacesConfig\\\\Scripts\\\\* AND ScriptBlockText:*$PSScriptRoot\\\\Module\\\\WorkspaceScriptModule\\\\WorkspaceScriptModule*))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

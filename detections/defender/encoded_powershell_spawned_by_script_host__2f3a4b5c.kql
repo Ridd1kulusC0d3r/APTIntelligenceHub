@@ -1,0 +1,3 @@
+// Encoded PowerShell Spawned By Script Host | T1059.001, T1059.007 | Hub
+DeviceProcessEvents
+| where (InitiatingProcessFolderPath endswith "\\wscript.exe" or InitiatingProcessFolderPath endswith "\\cscript.exe" or InitiatingProcessFolderPath endswith "\\mshta.exe") and (FolderPath endswith "\\powershell.exe" and (ProcessCommandLine contains " -enc" or ProcessCommandLine contains " -EncodedCommand" or ProcessCommandLine contains " -e "))

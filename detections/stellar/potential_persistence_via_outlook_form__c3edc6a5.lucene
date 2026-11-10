@@ -1,0 +1,18 @@
+// Potential Persistence Via Outlook Form | T1137.003 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_office_outlook_newform.yml
+Image:*\\outlook.exe AND (TargetFilename:(*\\AppData\\Local\\Microsoft\\FORMS\\IPM* OR *\\Local\ Settings\\Application\ Data\\Microsoft\\Forms*))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "Image:*\\\\outlook.exe AND (TargetFilename:(*\\\\AppData\\\\Local\\\\Microsoft\\\\FORMS\\\\IPM* OR *\\\\Local\\ Settings\\\\Application\\ Data\\\\Microsoft\\\\Forms*))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

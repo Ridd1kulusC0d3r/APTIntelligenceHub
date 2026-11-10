@@ -1,0 +1,2 @@
+// Audit Rules Deleted Via Auditctl | T1685.004 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_auditctl_clear_rules.yml
+any where Image:"*/auditctl" and CommandLine regex~ "-D"

@@ -1,0 +1,2 @@
+# New Github Organization Member Added | T1136.003 | https://github.com/SigmaHQ/sigma/blob/master/rules/application/github/audit/github_new_org_member.yml
+action IN ("org.add_member", "org.invite_member")

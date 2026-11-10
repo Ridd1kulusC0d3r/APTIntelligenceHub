@@ -1,0 +1,2 @@
+// Indicator Removal on Host - Clear Mac System Logs | T1685.006 | https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_clear_system_logs.yml
+any where (Image like~ ("*/rm", "*/unlink", "*/shred")) and (CommandLine:"*/var/log*" or (CommandLine:"*/Users/*" and CommandLine:"*/Library/Logs/*"))

@@ -1,0 +1,2 @@
+// Suspicious Csi.exe Usage | T1072, T1218 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_csi_execution.yml
+any where ((process.executable.caseless like~ ("*\\csi.exe", "*\\rcsi.exe")) or (process.pe.original_file_name like~ ("csi.exe", "rcsi.exe"))) and process.pe.company:"Microsoft Corporation"

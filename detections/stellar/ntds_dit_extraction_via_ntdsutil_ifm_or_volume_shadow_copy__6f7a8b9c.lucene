@@ -1,0 +1,18 @@
+// NTDS.dit Extraction Via Ntdsutil IFM Or Volume Shadow Copy | T1003.003 | Hub
+(Image:*\\ntdsutil.exe AND CommandLine:*ifm*) OR (Image:*\\vssadmin.exe AND (CommandLine:*create* AND CommandLine:*shadow*))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(Image:*\\\\ntdsutil.exe AND CommandLine:*ifm*) OR (Image:*\\\\vssadmin.exe AND (CommandLine:*create* AND CommandLine:*shadow*))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

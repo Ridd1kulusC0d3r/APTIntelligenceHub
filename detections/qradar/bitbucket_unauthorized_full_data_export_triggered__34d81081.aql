@@ -1,0 +1,2 @@
+-- Bitbucket Unauthorized Full Data Export Triggered | T1213.003, T1586 | https://github.com/SigmaHQ/sigma/blob/master/rules/application/bitbucket/audit/bitbucket_audit_unauthorized_full_data_export_triggered.yml | NOTA: fallback QRadarAQL_payload_pipeline: campos sem propriedade DSM mapeada são buscados em UTF8(payload) – custo maior, crie custom properties
+SELECT * FROM events WHERE LOWER(UTF8(payload)) LIKE '%data pipeline%' AND LOWER(UTF8(payload)) LIKE '%unauthorized full data export triggered%'

@@ -1,0 +1,18 @@
+// Domain Federation Settings Modified In Entra ID | T1484.002 | Hub
+OperationName:("Set domain authentication" OR "Set federation settings on domain" OR "Add unverified domain")
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "OperationName:(\"Set domain authentication\" OR \"Set federation settings on domain\" OR \"Add unverified domain\")",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

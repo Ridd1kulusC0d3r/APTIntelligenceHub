@@ -1,0 +1,2 @@
+// NTLM Logon | T1550.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/ntlm/win_susp_ntlm_auth.yml
+from * metadata _id, _index, _version | where winlog.channel=="Microsoft-Windows-NTLM/Operational" and event.code=="8002"

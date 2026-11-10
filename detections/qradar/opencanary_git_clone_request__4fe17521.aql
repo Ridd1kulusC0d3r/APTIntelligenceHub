@@ -1,0 +1,2 @@
+-- OpenCanary - GIT Clone Request | T1213 | https://github.com/SigmaHQ/sigma/blob/master/rules/application/opencanary/opencanary_git_clone_request.yml | NOTA: fallback QRadarAQL_payload_pipeline: campos sem propriedade DSM mapeada são buscados em UTF8(payload) – custo maior, crie custom properties
+SELECT * FROM events WHERE LOWER(UTF8(payload)) LIKE '%logtype%16001%'

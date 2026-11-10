@@ -1,0 +1,2 @@
+// Scheduled Task Or Executable Dropped Into SYSVOL Policies | T1484.001, T1485 | Hub
+any where (file.path:"*\\SYSVOL\\*" and file.path:"*\\Policies\\*") and (file.path like~ ("*.exe", "*.dll", "*.ps1", "*.bat", "*\\ScheduledTasks.xml"))

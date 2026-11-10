@@ -1,0 +1,18 @@
+// Deployment Deleted From Kubernetes Cluster | T1498 | https://github.com/SigmaHQ/sigma/blob/master/rules/application/kubernetes/audit/kubernetes_audit_deployment_deleted.yml
+verb:delete AND objectRef.resource:deployments
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "verb:delete AND objectRef.resource:deployments",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

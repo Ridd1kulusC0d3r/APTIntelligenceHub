@@ -1,0 +1,2 @@
+// Registry Persistence Mechanisms in Recycle Bin | T1547 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/registry_event_persistence_recycle_bin.yml
+from * metadata _id, _index, _version | where winlog.event_data.EventType=="RenameKey" and winlog.event_data.NewName like "*\\CLSID\\{645FF040-5081-101B-9F08-00AA002F954E}\\shell\\open*" or winlog.event_data.EventType=="SetValue" and registry.path like "*\\CLSID\\{645FF040-5081-101B-9F08-00AA002F954E}\\shell\\open\\command\\(Default)*"

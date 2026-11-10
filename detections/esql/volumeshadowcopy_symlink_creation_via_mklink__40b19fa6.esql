@@ -1,0 +1,2 @@
+// VolumeShadowCopy Symlink Creation Via Mklink | T1003.002, T1003.003 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_cmd_mklink_shadow_copies_access_symlink.yml
+from * metadata _id, _index, _version | where process.command_line like "*mklink*" and process.command_line like "*HarddiskVolumeShadowCopy*"

@@ -1,0 +1,2 @@
+// Windows Terminal Profile Settings Modification By Uncommon Process | T1547.015 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_susp_windows_terminal_profile.yml
+any where (process.executable.caseless like~ ("*\\cmd.exe", "*\\cscript.exe", "*\\mshta.exe", "*\\powershell.exe", "*\\pwsh.exe", "*\\wscript.exe")) and file.path:"*\\AppData\\Local\\Packages\\Microsoft.WindowsTerminal_8wekyb3d8bbwe\\LocalState\\settings.json"

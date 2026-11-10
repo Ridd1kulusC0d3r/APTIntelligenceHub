@@ -1,0 +1,18 @@
+// Pubprn.vbs Proxy Execution | T1216.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_pubprn.yml
+CommandLine:*\\pubprn.vbs* AND CommandLine:*script\:*
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "CommandLine:*\\\\pubprn.vbs* AND CommandLine:*script\\:*",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

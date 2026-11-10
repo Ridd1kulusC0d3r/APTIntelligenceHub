@@ -1,0 +1,2 @@
+// Windows Pcap Drivers | T1040 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_pcap_drivers.yml
+winlog.channel:Security AND (event.code:4697 AND (winlog.event_data.ServiceFileName:(*pcap* OR *npcap* OR *npf* OR *nm3* OR *ndiscap* OR *nmnt* OR *windivert* OR *USBPcap* OR *pktmon*)))

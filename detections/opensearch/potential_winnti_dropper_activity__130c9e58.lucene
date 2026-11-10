@@ -1,0 +1,2 @@
+// Potential Winnti Dropper Activity | T1027 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_redmimicry_winnti_filedrop.yml
+file.path:(*\\gthread\-3.6.dll OR *\\sigcmm\-2.4.dll OR *\\Windows\\Temp\\tmp.bat)

@@ -1,0 +1,18 @@
+// Potential Registry Persistence Attempt Via Windows Telemetry | T1053.005 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_telemetry_persistence.yml
+(TargetObject:*\\SOFTWARE\\Microsoft\\Windows\ NT\\CurrentVersion\\AppCompatFlags\\TelemetryController\\* AND TargetObject:*\\Command AND (Details:(*.bat* OR *.bin* OR *.cmd* OR *.dat* OR *.dll* OR *.exe* OR *.hta* OR *.jar* OR *.js* OR *.msi* OR *.ps* OR *.sh* OR *.vb*))) AND (NOT (Details:(*\\system32\\CompatTelRunner.exe* OR *\\system32\\DeviceCensus.exe*)))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(TargetObject:*\\\\SOFTWARE\\\\Microsoft\\\\Windows\\ NT\\\\CurrentVersion\\\\AppCompatFlags\\\\TelemetryController\\\\* AND TargetObject:*\\\\Command AND (Details:(*.bat* OR *.bin* OR *.cmd* OR *.dat* OR *.dll* OR *.exe* OR *.hta* OR *.jar* OR *.js* OR *.msi* OR *.ps* OR *.sh* OR *.vb*))) AND (NOT (Details:(*\\\\system32\\\\CompatTelRunner.exe* OR *\\\\system32\\\\DeviceCensus.exe*)))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

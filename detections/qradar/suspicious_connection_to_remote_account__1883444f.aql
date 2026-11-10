@@ -1,0 +1,2 @@
+-- Suspicious Connection to Remote Account | T1110.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/powershell/powershell_script/posh_ps_susp_networkcredential.yml
+SELECT * FROM events WHERE devicetype=12 AND (LOWER(Message) LIKE '%system.directoryservices.protocols.ldapdirectoryidentifier%' OR LOWER(Message) LIKE '%system.net.networkcredential%' OR LOWER(Message) LIKE '%system.directoryservices.protocols.ldapconnection%')

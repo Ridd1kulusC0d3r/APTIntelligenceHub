@@ -1,0 +1,2 @@
+// PUA - Netcat Suspicious Execution | T1095 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_netcat.yml
+(process.executable.caseless:(*\\nc.exe OR *\\ncat.exe OR *\\netcat.exe)) OR (process.command_line:(*\ \-lvp\ * OR *\ \-lvnp* OR *\ \-l\ \-v\ \-p\ * OR *\ \-lv\ \-p\ * OR *\ \-l\ \-\-proxy\-type\ http\ * OR *\ \-vnl\ \-\-exec\ * OR *\ \-vnl\ \-e\ * OR *\ \-\-lua\-exec\ * OR *\ \-\-sh\-exec\ *))

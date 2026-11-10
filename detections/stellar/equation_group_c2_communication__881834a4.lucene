@@ -1,0 +1,18 @@
+// Equation Group C2 Communication | T1041 | https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2017/TA/Equation-Group/net_firewall_apt_equationgroup_c2.yml
+(dst_ip:(69.42.98.86 OR 89.185.234.145)) OR (src_ip:(69.42.98.86 OR 89.185.234.145))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(dst_ip:(69.42.98.86 OR 89.185.234.145)) OR (src_ip:(69.42.98.86 OR 89.185.234.145))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

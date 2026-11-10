@@ -1,0 +1,18 @@
+// Suspicious NTLM Authentication on the Printer Spooler Service | T1212 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_ntlmrelay.yml
+(Image:*\\rundll32.exe OR OriginalFileName:RUNDLL32.EXE) AND ((CommandLine:*C\:\\windows\\system32\\davclnt.dll,DavSetCookie* AND CommandLine:*http*) AND (CommandLine:(*spoolss* OR *srvsvc* OR *\/print\/pipe\/*)))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(Image:*\\\\rundll32.exe OR OriginalFileName:RUNDLL32.EXE) AND ((CommandLine:*C\\:\\\\windows\\\\system32\\\\davclnt.dll,DavSetCookie* AND CommandLine:*http*) AND (CommandLine:(*spoolss* OR *srvsvc* OR *\\/print\\/pipe\\/*)))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

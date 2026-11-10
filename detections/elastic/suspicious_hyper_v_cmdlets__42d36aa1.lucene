@@ -1,0 +1,2 @@
+// Suspicious Hyper-V Cmdlets | T1564.006 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/powershell/powershell_script/posh_ps_susp_hyper_v_condlet.yml
+powershell.file.script_block_text:(*New\-VM* OR *Set\-VMFirmware* OR *Start\-VM*)

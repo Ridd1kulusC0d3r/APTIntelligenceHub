@@ -1,0 +1,3 @@
+# Powershell Install a DLL in System Directory | T1556.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/powershell/powershell_script/posh_ps_copy_item_system_directory.yml
+*
+| regex ScriptBlockText="(Copy-Item|cpi) .{2,128} -Destination .{1,32}\\\\Windows\\\\(System32|SysWOW64)"

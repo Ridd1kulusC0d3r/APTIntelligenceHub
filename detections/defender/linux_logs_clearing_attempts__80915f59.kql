@@ -1,0 +1,3 @@
+// Linux Logs Clearing Attempts | T1685.006 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_clear_logs.yml
+DeviceProcessEvents
+| where ((FolderPath endswith "/rm" or FolderPath endswith "/rmdir" or FolderPath endswith "/shred" or FolderPath endswith "/unlink") and (ProcessCommandLine contains "/var/log" or ProcessCommandLine contains "/var/spool/mail")) and (not(((FolderPath endswith "/rm" and ProcessCommandLine startswith "rm -f /var/log/sysstat/") or (FolderPath endswith "/rm" and ProcessCommandLine startswith "rm -f -- /var/log//dmesg"))))

@@ -1,0 +1,2 @@
+// Unmount Share Via Net.EXE | T1070.005 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_net_share_unmount.yml
+((process.executable.caseless:(*\\net.exe OR *\\net1.exe)) OR (process.pe.original_file_name:(net.exe OR net1.exe))) AND (process.command_line:*share* AND process.command_line:*\/delete*)

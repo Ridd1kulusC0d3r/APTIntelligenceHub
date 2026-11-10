@@ -1,0 +1,18 @@
+// Potential Persistence Via Shim Database In Uncommon Location | T1546.011 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_persistence_shim_database_uncommon_location.yml
+(TargetObject:*\\SOFTWARE\\Microsoft\\Windows\ NT\\CurrentVersion\\AppCompatFlags\\InstalledSDB\\* AND TargetObject:*\\DatabasePath*) AND (NOT Details:*\:\\Windows\\AppPatch\\Custom*)
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(TargetObject:*\\\\SOFTWARE\\\\Microsoft\\\\Windows\\ NT\\\\CurrentVersion\\\\AppCompatFlags\\\\InstalledSDB\\\\* AND TargetObject:*\\\\DatabasePath*) AND (NOT Details:*\\:\\\\Windows\\\\AppPatch\\\\Custom*)",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

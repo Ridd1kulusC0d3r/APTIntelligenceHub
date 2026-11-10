@@ -1,0 +1,18 @@
+// COM Hijack via Sdclt | T1546, T1548 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_comhijack_sdclt.yml
+TargetObject:*\\Software\\Classes\\Folder\\shell\\open\\command\\DelegateExecute*
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "TargetObject:*\\\\Software\\\\Classes\\\\Folder\\\\shell\\\\open\\\\command\\\\DelegateExecute*",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

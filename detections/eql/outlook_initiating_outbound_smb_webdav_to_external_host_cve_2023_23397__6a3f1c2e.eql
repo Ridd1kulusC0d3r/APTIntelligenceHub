@@ -1,0 +1,2 @@
+// Outlook Initiating Outbound SMB/WebDAV to External Host (CVE-2023-23397 pattern) | T1187 | Hub
+any where (process.executable.caseless:"*\\OUTLOOK.EXE" and (destination.port like~ (445, 139))) and (not (cidrMatch(destination.ip, "10.0.0.0/8") or cidrMatch(destination.ip, "172.16.0.0/12") or cidrMatch(destination.ip, "192.168.0.0/16") or cidrMatch(destination.ip, "127.0.0.0/8")))

@@ -1,0 +1,2 @@
+// HybridConnectionManager Service Installation | T1554 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_hybridconnectionmgr_svc_installation.yml
+winlog.channel:Security AND (event.code:4697 AND service.name:HybridConnectionManager AND winlog.event_data.ServiceFileName:*HybridConnectionManager*)

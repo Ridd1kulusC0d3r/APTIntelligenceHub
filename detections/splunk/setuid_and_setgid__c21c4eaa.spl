@@ -1,0 +1,2 @@
+# Setuid and Setgid | T1548.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_setgid_setuid.yml
+CommandLine="*chown root*" (CommandLine IN ("* chmod u+s*", "* chmod g+s*"))

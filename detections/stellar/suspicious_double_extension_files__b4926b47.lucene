@@ -1,0 +1,18 @@
+// Suspicious Double Extension Files | T1036.007 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_susp_double_extension.yml
+(TargetFilename:/(?i)\.(docx?|gif|jpe?g|mp3|mp4|pdf|png|pptx?|rtf|svg|txt|xlsx?)\.(bat|exe|iso|rar|svg|vbe|vbs|zip)$/ OR (TargetFilename:(*.rar.exe OR *.zip.exe))) AND (NOT (TargetFilename:(*.svg.svg OR *.png.svg OR *.jpg.svg OR *.jpeg.svg))) AND (NOT TargetFilename:\/usr\/share\/icons\/*)
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(TargetFilename:/(?i)\\.(docx?|gif|jpe?g|mp3|mp4|pdf|png|pptx?|rtf|svg|txt|xlsx?)\\.(bat|exe|iso|rar|svg|vbe|vbs|zip)$/ OR (TargetFilename:(*.rar.exe OR *.zip.exe))) AND (NOT (TargetFilename:(*.svg.svg OR *.png.svg OR *.jpg.svg OR *.jpeg.svg))) AND (NOT TargetFilename:\\/usr\\/share\\/icons\\/*)",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

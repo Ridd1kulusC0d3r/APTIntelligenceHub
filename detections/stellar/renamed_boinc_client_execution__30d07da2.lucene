@@ -1,0 +1,18 @@
+// Renamed BOINC Client Execution | T1553 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_renamed_boinc.yml
+OriginalFileName:BOINC.exe AND (NOT Image:*\\BOINC.exe)
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "OriginalFileName:BOINC.exe AND (NOT Image:*\\\\BOINC.exe)",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

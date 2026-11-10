@@ -1,0 +1,2 @@
+// Turla Group Commands May 2020 | T1027, T1053.005, T1059.001 | https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2014/TA/Turla/proc_creation_win_apt_turla_comrat_may20.yml
+any where (process.command_line like~ ("*tracert -h 10 yahoo.com*", "*.WSqmCons))|iex;*", "*Fr`omBa`se6`4Str`ing*")) or (process.command_line regex~ "net\\s+use\\s+https:\/\/docs.live.net" and process.command_line:"*@aol.co.uk*")

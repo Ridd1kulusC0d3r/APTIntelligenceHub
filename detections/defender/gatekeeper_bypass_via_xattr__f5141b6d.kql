@@ -1,0 +1,3 @@
+// Gatekeeper Bypass via Xattr | T1553.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_xattr_gatekeeper_bypass.yml
+DeviceProcessEvents
+| where FolderPath endswith "/xattr" and (ProcessCommandLine contains "-d" and ProcessCommandLine contains "com.apple.quarantine")

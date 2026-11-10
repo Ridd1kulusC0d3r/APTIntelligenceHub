@@ -1,0 +1,2 @@
+# Mavinject Inject DLL Into Running Process | T1055.001, T1218.013 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_mavinject_process_injection.yml
+source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=1 CommandLine="* /INJECTRUNNING *" NOT ParentImage="C:\\Windows\\System32\\AppVClient.exe"

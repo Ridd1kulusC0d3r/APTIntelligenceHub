@@ -1,0 +1,18 @@
+// Registry Persistence Mechanisms in Recycle Bin | T1547 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/registry_event_persistence_recycle_bin.yml
+(EventType:RenameKey AND NewName:*\\CLSID\\\{645FF040\-5081\-101B\-9F08\-00AA002F954E\}\\shell\\open*) OR (EventType:SetValue AND TargetObject:*\\CLSID\\\{645FF040\-5081\-101B\-9F08\-00AA002F954E\}\\shell\\open\\command\\\(Default\)*)
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(EventType:RenameKey AND NewName:*\\\\CLSID\\\\\\{645FF040\\-5081\\-101B\\-9F08\\-00AA002F954E\\}\\\\shell\\\\open*) OR (EventType:SetValue AND TargetObject:*\\\\CLSID\\\\\\{645FF040\\-5081\\-101B\\-9F08\\-00AA002F954E\\}\\\\shell\\\\open\\\\command\\\\\\(Default\\)*)",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

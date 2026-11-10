@@ -1,0 +1,2 @@
+-- Suspicious Plink Port Forwarding | T1021.001, T1572 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_plink_port_forwarding.yml | NOTA: fallback QRadarAQL_payload_pipeline: campos sem propriedade DSM mapeada são buscados em UTF8(payload) – custo maior, crie custom properties
+SELECT * FROM events WHERE devicetype=12 AND LOWER(UTF8(payload)) LIKE '%command-line ssh, telnet, and rlogin client%' AND LOWER(Command) LIKE '% -r %'

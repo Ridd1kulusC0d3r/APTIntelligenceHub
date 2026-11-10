@@ -1,0 +1,18 @@
+// Enable Microsoft Dynamic Data Exchange | T1559.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_office_enable_dde.yml
+(TargetObject:*\\Word\\Security\\AllowDDE AND (Details:("DWORD \(0x00000001\)" OR "DWORD \(0x00000002\)"))) OR ((TargetObject:(*\\Excel\\Security\\DisableDDEServerLaunch OR *\\Excel\\Security\\DisableDDEServerLookup)) AND Details:"DWORD \(0x00000000\)")
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(TargetObject:*\\\\Word\\\\Security\\\\AllowDDE AND (Details:(\"DWORD \\(0x00000001\\)\" OR \"DWORD \\(0x00000002\\)\"))) OR ((TargetObject:(*\\\\Excel\\\\Security\\\\DisableDDEServerLaunch OR *\\\\Excel\\\\Security\\\\DisableDDEServerLookup)) AND Details:\"DWORD \\(0x00000000\\)\")",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

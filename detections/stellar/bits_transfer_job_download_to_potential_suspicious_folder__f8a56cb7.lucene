@@ -1,0 +1,18 @@
+// BITS Transfer Job Download To Potential Suspicious Folder | T1197 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/bits_client/win_bits_client_new_trasnfer_susp_local_folder.yml
+EventID:16403 AND (LocalName:(*\\Desktop\\* OR *C\:\\Users\\Public\\* OR *C\:\\PerfLogs\\*))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "EventID:16403 AND (LocalName:(*\\\\Desktop\\\\* OR *C\\:\\\\Users\\\\Public\\\\* OR *C\\:\\\\PerfLogs\\\\*))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

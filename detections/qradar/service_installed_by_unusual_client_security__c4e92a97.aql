@@ -1,0 +1,2 @@
+-- Service Installed By Unusual Client - Security | T1543 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_service_installation_by_unusal_client.yml | NOTA: fallback QRadarAQL_payload_pipeline: campos sem propriedade DSM mapeada são buscados em UTF8(payload) – custo maior, crie custom properties
+SELECT * FROM events WHERE devicetype=12 AND "Event ID"=4697 AND (LOWER(UTF8(payload)) LIKE '%clientprocessid%0%' OR "Parent Process ID"=0)

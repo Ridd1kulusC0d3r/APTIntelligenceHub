@@ -1,0 +1,2 @@
+# PUA - Mouse Lock Execution | T1056.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_mouselock_execution.yml
+source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=1 (Product="*Mouse Lock*" OR Company="*Misc314*" OR CommandLine="*Mouse Lock_*")

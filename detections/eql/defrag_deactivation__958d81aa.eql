@@ -1,0 +1,2 @@
+// Defrag Deactivation | T1053.005 | https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2018/TA/Slingshot/proc_creation_win_apt_slingshot.yml
+any where process.executable.caseless:"*\\schtasks.exe" and (process.command_line like~ ("*/delete*", "*/change*")) and (process.command_line:"*/TN*" and process.command_line:"*\\Microsoft\\Windows\\Defrag\\ScheduledDefrag*")

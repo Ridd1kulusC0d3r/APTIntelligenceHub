@@ -1,0 +1,18 @@
+// Suspicious CustomShellHost Execution | T1216 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_customshellhost_susp_exec.yml
+ParentImage:*\\CustomShellHost.exe AND (NOT Image:C\:\\Windows\\explorer.exe)
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "ParentImage:*\\\\CustomShellHost.exe AND (NOT Image:C\\:\\\\Windows\\\\explorer.exe)",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

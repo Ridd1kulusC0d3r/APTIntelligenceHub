@@ -1,0 +1,2 @@
+# Netsh PortProxy Rule Added (Internal Pivot) | T1090.001 | Hub
+source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=1 Image="*\\netsh.exe" CommandLine="*portproxy*" CommandLine="*add*"

@@ -1,0 +1,2 @@
+// User Couldn't Call a Privileged Service 'LsaRegisterLogonProcess' | T1558.003 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_user_couldnt_call_priv_service_lsaregisterlogonprocess.yml
+from * metadata _id, _index, _version | where winlog.channel=="Security" and event.code=="4673" and winlog.event_data.Service=="LsaRegisterLogonProcess()" and winlog.event_data.Keywords=="0x8010000000000000"

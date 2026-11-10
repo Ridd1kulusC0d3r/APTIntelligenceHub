@@ -1,0 +1,18 @@
+// Suspicious Dropbox API Usage | T1105, T1567.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_domain_dropbox_api.yml
+(Initiated:true AND (DestinationHostname:(*api.dropboxapi.com OR *content.dropboxapi.com))) AND (NOT Image:*\\Dropbox*)
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(Initiated:true AND (DestinationHostname:(*api.dropboxapi.com OR *content.dropboxapi.com))) AND (NOT Image:*\\\\Dropbox*)",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

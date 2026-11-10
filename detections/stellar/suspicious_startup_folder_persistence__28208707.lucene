@@ -1,0 +1,18 @@
+// Suspicious Startup Folder Persistence | T1204.002, T1547.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_susp_startup_folder_persistence.yml
+TargetFilename:*\\Windows\\Start\ Menu\\Programs\\Startup\\* AND (TargetFilename:(*.bat OR *.cmd OR *.dll OR *.hta OR *.jar OR *.js OR *.jse OR *.msi OR *.ps1 OR *.psd1 OR *.psm1 OR *.scr OR *.url OR *.vba OR *.vbe OR *.vbs OR *.wsf))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "TargetFilename:*\\\\Windows\\\\Start\\ Menu\\\\Programs\\\\Startup\\\\* AND (TargetFilename:(*.bat OR *.cmd OR *.dll OR *.hta OR *.jar OR *.js OR *.jse OR *.msi OR *.ps1 OR *.psd1 OR *.psm1 OR *.scr OR *.url OR *.vba OR *.vbe OR *.vbs OR *.wsf))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

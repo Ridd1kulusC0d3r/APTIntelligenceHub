@@ -1,0 +1,3 @@
+// Potential Persistence Via Logon Scripts - CommandLine | T1037.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_registry_logon_script.yml
+DeviceProcessEvents
+| where ProcessCommandLine contains "UserInitMprLogonScript"

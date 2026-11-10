@@ -1,0 +1,2 @@
+// Lace Tempest PowerShell Launcher | T1059.001 | https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/Lace-Tempest/posh_ps_apt_lace_tempest_malware_launcher.yml
+powershell.file.script_block_text:*\\SysAidServer\\tomcat\\webapps* AND powershell.file.script_block_text:*Starting\ user.exe* AND powershell.file.script_block_text:*\\usersfiles\\user.exe* AND powershell.file.script_block_text:*Remove\-Item\ \-Force\ \"$wapps* AND powershell.file.script_block_text:*\(Sophos\).*

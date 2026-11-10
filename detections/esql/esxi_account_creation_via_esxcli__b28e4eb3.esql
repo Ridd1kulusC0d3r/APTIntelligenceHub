@@ -1,0 +1,2 @@
+// ESXi Account Creation Via ESXCLI | T1059.012, T1136 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_esxcli_user_account_creation.yml
+from * metadata _id, _index, _version | where ends_with(Image, "/esxcli") and CommandLine like "*system *" and CommandLine like "*account *" and CommandLine like "*add *"

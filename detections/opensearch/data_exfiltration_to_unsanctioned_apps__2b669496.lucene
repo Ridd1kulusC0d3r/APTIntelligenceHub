@@ -1,0 +1,2 @@
+// Data Exfiltration to Unsanctioned Apps | T1537 | https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/m365/threat_management/microsoft365_data_exfiltration_to_unsanctioned_app.yml
+eventSource:SecurityComplianceCenter AND eventName:"Data exfiltration to unsanctioned apps" AND status:success

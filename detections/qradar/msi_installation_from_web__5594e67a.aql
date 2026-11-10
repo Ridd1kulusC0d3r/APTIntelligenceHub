@@ -1,0 +1,2 @@
+-- MSI Installation From Web | T1218, T1218.007 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/application/msiinstaller/win_msi_install_from_web.yml | NOTA: fallback QRadarAQL_payload_pipeline: campos sem propriedade DSM mapeada são buscados em UTF8(payload) – custo maior, crie custom properties
+SELECT * FROM events WHERE devicetype=12 AND LOWER(UTF8(payload)) LIKE '%msiinstaller%' AND ("Event ID" IN('1040', '1042')) AND LOWER(UTF8(payload)) LIKE '%://%'

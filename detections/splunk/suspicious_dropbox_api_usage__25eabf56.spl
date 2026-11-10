@@ -1,0 +1,2 @@
+# Suspicious Dropbox API Usage | T1105, T1567.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_domain_dropbox_api.yml
+source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=3 Initiated="true" (DestinationHostname IN ("*api.dropboxapi.com", "*content.dropboxapi.com")) NOT Image="*\\Dropbox*"

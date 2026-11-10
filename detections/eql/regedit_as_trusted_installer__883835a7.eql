@@ -1,0 +1,2 @@
+// Regedit as Trusted Installer | T1548 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_regedit_trustedinstaller.yml
+any where process.executable.caseless:"*\\regedit.exe" and (process.parent.executable.caseless like~ ("*\\TrustedInstaller.exe", "*\\ProcessHacker.exe"))

@@ -1,0 +1,2 @@
+// OilRig APT Schedule Task Persistence - Security | T1053.005, T1071.004, T1112, T1543.003 | https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2018/TA/OilRig/win_security_apt_oilrig_mar18.yml
+from * metadata _id, _index, _version | where winlog.channel=="Security" and event.code=="4698" and (winlog.event_data.TaskName in ("SC Scheduled Scan", "UpdatMachine"))

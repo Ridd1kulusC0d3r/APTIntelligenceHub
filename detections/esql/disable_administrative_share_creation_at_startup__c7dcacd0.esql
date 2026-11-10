@@ -1,0 +1,2 @@
+// Disable Administrative Share Creation at Startup | T1070.005 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_disable_administrative_share.yml
+from * metadata _id, _index, _version | where registry.path like "*\\Services\\LanmanServer\\Parameters\\*" and (ends_with(registry.path, "\\AutoShareWks") or ends_with(registry.path, "\\AutoShareServer")) and winlog.event_data.Details=="DWORD (0x00000000)"

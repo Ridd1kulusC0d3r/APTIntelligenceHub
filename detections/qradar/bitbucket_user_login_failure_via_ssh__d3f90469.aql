@@ -1,0 +1,2 @@
+-- Bitbucket User Login Failure Via SSH | T1021.004, T1110 | https://github.com/SigmaHQ/sigma/blob/master/rules/application/bitbucket/audit/bitbucket_audit_user_login_failure_via_ssh_detected.yml | NOTA: fallback QRadarAQL_payload_pipeline: campos sem propriedade DSM mapeada são buscados em UTF8(payload) – custo maior, crie custom properties
+SELECT * FROM events WHERE LOWER(UTF8(payload)) LIKE '%authentication%' AND LOWER(UTF8(payload)) LIKE '%user login failed(ssh)%'

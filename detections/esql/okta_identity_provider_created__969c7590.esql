@@ -1,0 +1,2 @@
+// Okta Identity Provider Created | T1098.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/identity/okta/okta_identity_provider_created.yml
+from * metadata _id, _index, _version | where eventType=="system.idp.lifecycle.create"

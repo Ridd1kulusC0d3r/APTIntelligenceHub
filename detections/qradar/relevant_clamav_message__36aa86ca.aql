@@ -1,0 +1,2 @@
+-- Relevant ClamAV Message | T1588.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/builtin/clamav/lnx_clamav_relevant_message.yml | NOTA: fallback QRadarAQL_payload_pipeline: campos sem propriedade DSM mapeada são buscados em UTF8(payload) – custo maior, crie custom properties
+SELECT * FROM events WHERE devicetype=11 AND (LOWER(UTF8(payload)) LIKE '%trojan%found%' OR LOWER(UTF8(payload)) LIKE '%virtool%found%' OR LOWER(UTF8(payload)) LIKE '%webshell%found%' OR LOWER(UTF8(payload)) LIKE '%rootkit%found%' OR LOWER(UTF8(payload)) LIKE '%htran%found%')

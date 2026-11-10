@@ -1,0 +1,2 @@
+// Discovery Using AzureHound | T1087.004, T1526 | https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/azure/signin_logs/azure_ad_azurehound_discovery.yml
+any where userAgent:"*azurehound*" and ResultType:0

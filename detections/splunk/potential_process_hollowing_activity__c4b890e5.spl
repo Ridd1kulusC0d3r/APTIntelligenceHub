@@ -1,0 +1,2 @@
+# Potential Process Hollowing Activity | T1055.012 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_tampering/proc_tampering_susp_process_hollowing.yml
+source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=25 Type="Image is replaced" NOT (Image IN ("*:\\Program Files (x86)*", "*:\\Program Files\\*", "*:\\Windows\\System32\\wbem\\WMIADAP.exe*", "*:\\Windows\\SysWOW64\\wbem\\WMIADAP.exe*")) NOT ((Image="*\\AppData\\Local\\Programs\\Opera\\*" Image="*\\opera.exe") OR Image="*\\WindowsApps\\MicrosoftEdge.exe")

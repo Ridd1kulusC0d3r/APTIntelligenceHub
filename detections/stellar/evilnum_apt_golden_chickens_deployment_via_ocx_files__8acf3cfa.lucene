@@ -1,0 +1,18 @@
+// EvilNum APT Golden Chickens Deployment Via OCX Files | T1218.011 | https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2020/TA/Evilnum/proc_creation_win_apt_evilnum_jul20.yml
+CommandLine:*regsvr32* AND CommandLine:*\/s* AND CommandLine:*\/i* AND CommandLine:*\\AppData\\Roaming\\* AND CommandLine:*.ocx*
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "CommandLine:*regsvr32* AND CommandLine:*\\/s* AND CommandLine:*\\/i* AND CommandLine:*\\\\AppData\\\\Roaming\\\\* AND CommandLine:*.ocx*",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

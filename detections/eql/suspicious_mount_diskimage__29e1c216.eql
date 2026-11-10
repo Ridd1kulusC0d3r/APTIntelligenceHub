@@ -1,0 +1,2 @@
+// Suspicious Mount-DiskImage | T1553.005 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/powershell/powershell_script/posh_ps_susp_mount_diskimage.yml
+any where powershell.file.script_block_text:"*Mount-DiskImage *" and powershell.file.script_block_text:"*-ImagePath *"

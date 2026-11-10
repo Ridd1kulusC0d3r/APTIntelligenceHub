@@ -1,0 +1,3 @@
+// System Information Discovery | T1082 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_system_info_discovery.yml
+DeviceProcessEvents
+| where FolderPath endswith "/uname" or FolderPath endswith "/hostname" or FolderPath endswith "/uptime" or FolderPath endswith "/lspci" or FolderPath endswith "/dmidecode" or FolderPath endswith "/lscpu" or FolderPath endswith "/lsmod"

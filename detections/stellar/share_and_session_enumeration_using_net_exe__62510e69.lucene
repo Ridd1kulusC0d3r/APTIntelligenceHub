@@ -1,0 +1,18 @@
+// Share And Session Enumeration Using Net.EXE | T1018 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_net_view_share_and_sessions_enum.yml
+(((Image:(*\\net.exe OR *\\net1.exe)) OR (OriginalFileName:(net.exe OR net1.exe))) AND CommandLine:*view*) AND (NOT CommandLine:*\\\\*)
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(((Image:(*\\\\net.exe OR *\\\\net1.exe)) OR (OriginalFileName:(net.exe OR net1.exe))) AND CommandLine:*view*) AND (NOT CommandLine:*\\\\\\\\*)",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,18 @@
+// Windows Update Error | T1584 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/system/microsoft_windows_windows_update_client/win_system_susp_system_update_error.yml
+Provider_Name:Microsoft\-Windows\-WindowsUpdateClient AND (EventID:(16 OR 20 OR 24 OR 213 OR 217))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "Provider_Name:Microsoft\\-Windows\\-WindowsUpdateClient AND (EventID:(16 OR 20 OR 24 OR 213 OR 217))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

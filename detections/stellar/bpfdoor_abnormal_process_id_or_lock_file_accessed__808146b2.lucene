@@ -1,0 +1,18 @@
+// BPFDoor Abnormal Process ID or Lock File Accessed | T1059, T1106 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/path/lnx_auditd_bpfdoor_file_accessed.yml
+type:PATH AND (name:(\/var\/run\/aepmonend.pid OR \/var\/run\/auditd.lock OR \/var\/run\/cma.lock OR \/var\/run\/console\-kit.pid OR \/var\/run\/consolekit.pid OR \/var\/run\/daemon.pid OR \/var\/run\/hald\-addon.pid OR \/var\/run\/hald\-smartd.pid OR \/var\/run\/haldrund.pid OR \/var\/run\/hp\-health.pid OR \/var\/run\/hpasmlit.lock OR \/var\/run\/hpasmlited.pid OR \/var\/run\/kdevrund.pid OR \/var\/run\/lldpad.lock OR \/var\/run\/mcelog.pid OR \/var\/run\/system.pid OR \/var\/run\/uvp\-srv.pid OR \/var\/run\/vmtoolagt.pid OR \/var\/run\/xinetd.lock))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "type:PATH AND (name:(\\/var\\/run\\/aepmonend.pid OR \\/var\\/run\\/auditd.lock OR \\/var\\/run\\/cma.lock OR \\/var\\/run\\/console\\-kit.pid OR \\/var\\/run\\/consolekit.pid OR \\/var\\/run\\/daemon.pid OR \\/var\\/run\\/hald\\-addon.pid OR \\/var\\/run\\/hald\\-smartd.pid OR \\/var\\/run\\/haldrund.pid OR \\/var\\/run\\/hp\\-health.pid OR \\/var\\/run\\/hpasmlit.lock OR \\/var\\/run\\/hpasmlited.pid OR \\/var\\/run\\/kdevrund.pid OR \\/var\\/run\\/lldpad.lock OR \\/var\\/run\\/mcelog.pid OR \\/var\\/run\\/system.pid OR \\/var\\/run\\/uvp\\-srv.pid OR \\/var\\/run\\/vmtoolagt.pid OR \\/var\\/run\\/xinetd.lock))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

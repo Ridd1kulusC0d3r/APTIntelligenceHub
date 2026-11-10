@@ -1,0 +1,2 @@
+-- Suspicious Teams Application Related ObjectAcess Event | T1528 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_teams_suspicious_objectaccess.yml
+SELECT * FROM events WHERE devicetype=12 AND ("Event ID"=4663 AND (LOWER("Object Name") LIKE '%\microsoft\teams\cookies%' OR LOWER("Object Name") LIKE '%\microsoft\teams\local storage\leveldb%')) AND (NOT(LOWER("Process Name") LIKE '%\microsoft\teams\current\teams.exe%'))

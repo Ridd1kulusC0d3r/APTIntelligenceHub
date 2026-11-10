@@ -1,0 +1,2 @@
+// OpenCanary - SMB File Open Request | T1005, T1021 | https://github.com/SigmaHQ/sigma/blob/master/rules/application/opencanary/opencanary_smb_file_open.yml
+logtype:5000

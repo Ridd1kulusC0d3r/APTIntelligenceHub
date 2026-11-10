@@ -1,0 +1,2 @@
+-- PUA - Crassus Execution | T1590.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_crassus.yml | NOTA: fallback QRadarAQL_payload_pipeline: campos sem propriedade DSM mapeada são buscados em UTF8(payload) – custo maior, crie custom properties
+SELECT * FROM events WHERE devicetype=12 AND ((LOWER("Process Path") LIKE '%\crassus.exe' OR LOWER("Process Name") LIKE '%\crassus.exe') OR Filename='Crassus.exe' OR LOWER(UTF8(payload)) LIKE '%crassus%')

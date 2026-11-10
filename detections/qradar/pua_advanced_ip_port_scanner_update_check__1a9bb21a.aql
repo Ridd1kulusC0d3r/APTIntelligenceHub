@@ -1,0 +1,2 @@
+-- PUA - Advanced IP/Port Scanner Update Check | T1590 | https://github.com/SigmaHQ/sigma/blob/master/rules/web/proxy_generic/proxy_pua_advanced_ip_scanner_update_check.yml
+SELECT * FROM events WHERE LOWER(URL) LIKE '%/checkupdate.php%' AND (LOWER(URL) LIKE '%lng=%' AND LOWER(URL) LIKE '%ver=%' AND LOWER(URL) LIKE '%beta=%' AND LOWER(URL) LIKE '%type=%' AND LOWER(URL) LIKE '%rmode=%' AND LOWER(URL) LIKE '%product=%')

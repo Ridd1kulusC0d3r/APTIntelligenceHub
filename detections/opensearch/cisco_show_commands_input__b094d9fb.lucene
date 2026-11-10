@@ -1,0 +1,2 @@
+// Cisco Show Commands Input | T1552.003 | https://github.com/SigmaHQ/sigma/blob/master/rules/network/cisco/aaa/cisco_cli_input_capture.yml
+*show\ history* OR *show\ history\ all* OR *show\ logging*

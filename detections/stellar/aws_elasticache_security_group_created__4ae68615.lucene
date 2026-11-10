@@ -1,0 +1,18 @@
+// AWS ElastiCache Security Group Created | T1136, T1136.003 | https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/aws/cloudtrail/aws_elasticache_security_group_created.yml
+eventSource:elasticache.amazonaws.com AND eventName:CreateCacheSecurityGroup
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "eventSource:elasticache.amazonaws.com AND eventName:CreateCacheSecurityGroup",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

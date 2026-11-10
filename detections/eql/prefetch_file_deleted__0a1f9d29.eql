@@ -1,0 +1,2 @@
+// Prefetch File Deleted | T1070.004 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_delete/file_delete_win_delete_prefetch.yml
+any where (file.path:"*:\\Windows\\Prefetch\\*" and file.path:"*.pf") and (not (process.executable.caseless:"*:\\windows\\system32\\svchost.exe" and (user.name like~ ("*AUTHORI*", "*AUTORI*"))))

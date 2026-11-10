@@ -1,0 +1,3 @@
+// Trusted Path Bypass via Windows Directory Spoofing | T1548.002, T1574.007 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_win_trusted_path_bypass.yml
+DeviceImageLoadEvents
+| where FolderPath contains ":\\Windows \\System32\\" or FolderPath contains ":\\Windows \\SysWOW64\\"

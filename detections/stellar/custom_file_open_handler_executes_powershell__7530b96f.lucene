@@ -1,0 +1,18 @@
+// Custom File Open Handler Executes PowerShell | T1202 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_custom_file_open_handler_powershell_execution.yml
+TargetObject:*shell\\open\\command\\* AND (Details:*powershell* AND Details:*\-command*)
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "TargetObject:*shell\\\\open\\\\command\\\\* AND (Details:*powershell* AND Details:*\\-command*)",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

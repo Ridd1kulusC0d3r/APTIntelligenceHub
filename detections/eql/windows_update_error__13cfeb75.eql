@@ -1,0 +1,2 @@
+// Windows Update Error | T1584 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/system/microsoft_windows_windows_update_client/win_system_susp_system_update_error.yml
+any where winlog.channel:"System" and (winlog.provider_name:"Microsoft-Windows-WindowsUpdateClient" and (event.code like~ ("16", "20", "24", "213", "217")))

@@ -1,0 +1,2 @@
+// Ps.exe Renamed SysInternals Tool | T1036.003 | https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2017/TA/Dragonfly/proc_creation_win_apt_ta17_293a_ps.yml
+any where process.command_line:"*ps.exe -accepteula*" and process.command_line:"*-s cmd /c netstat*"

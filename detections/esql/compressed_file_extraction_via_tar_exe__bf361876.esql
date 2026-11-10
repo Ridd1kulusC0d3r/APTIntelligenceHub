@@ -1,0 +1,2 @@
+// Compressed File Extraction Via Tar.EXE | T1560, T1560.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_tar_extraction.yml
+from * metadata _id, _index, _version | where (ends_with(process.executable.caseless, "\\tar.exe") or process.pe.original_file_name=="bsdtar") and process.command_line like "*-x*"

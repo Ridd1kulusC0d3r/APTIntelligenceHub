@@ -1,0 +1,3 @@
+// Leviathan Registry Key Activity | T1547.001 | https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2020/TA/Leviathan/registry_event_apt_leviathan.yml
+DeviceRegistryEvents
+| where RegistryKey contains "\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\ntkd"

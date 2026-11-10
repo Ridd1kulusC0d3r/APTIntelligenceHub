@@ -1,0 +1,18 @@
+// DLL Load via LSASS | T1547.008 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/registry_event_susp_lsass_dll_load.yml
+(TargetObject:(*\\CurrentControlSet\\Services\\NTDS\\DirectoryServiceExtPt* OR *\\CurrentControlSet\\Services\\NTDS\\LsaDbExtPt*)) AND (NOT (Image:C\:\\Windows\\system32\\lsass.exe AND (Details:(%%systemroot%%\\system32\\ntdsa.dll OR %%systemroot%%\\system32\\lsadb.dll))))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(TargetObject:(*\\\\CurrentControlSet\\\\Services\\\\NTDS\\\\DirectoryServiceExtPt* OR *\\\\CurrentControlSet\\\\Services\\\\NTDS\\\\LsaDbExtPt*)) AND (NOT (Image:C\\:\\\\Windows\\\\system32\\\\lsass.exe AND (Details:(%%systemroot%%\\\\system32\\\\ntdsa.dll OR %%systemroot%%\\\\system32\\\\lsadb.dll))))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

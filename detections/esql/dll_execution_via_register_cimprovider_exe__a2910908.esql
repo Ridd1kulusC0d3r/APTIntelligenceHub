@@ -1,0 +1,2 @@
+// DLL Execution Via Register-cimprovider.exe | T1574 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_registry_cimprovider_dll_load.yml
+from * metadata _id, _index, _version | where ends_with(process.executable.caseless, "\\register-cimprovider.exe") and process.command_line like "*-path*" and process.command_line like "*dll*"

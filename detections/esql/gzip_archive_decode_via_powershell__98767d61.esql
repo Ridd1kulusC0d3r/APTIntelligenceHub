@@ -1,0 +1,2 @@
+// Gzip Archive Decode Via PowerShell | T1132.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_decode_gzip.yml
+from * metadata _id, _index, _version | where process.command_line like "*GZipStream*" and process.command_line like "*::Decompress*"

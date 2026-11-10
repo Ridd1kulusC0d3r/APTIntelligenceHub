@@ -1,0 +1,2 @@
+-- PUA - Radmin Viewer Utility Execution | T1072 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_radmin.yml | NOTA: fallback QRadarAQL_payload_pipeline: campos sem propriedade DSM mapeada são buscados em UTF8(payload) – custo maior, crie custom properties
+SELECT * FROM events WHERE devicetype=12 AND (LOWER(UTF8(payload)) LIKE '%radmin viewer%' OR LOWER(UTF8(payload)) LIKE '%radmin viewer%' OR Filename='Radmin.exe')

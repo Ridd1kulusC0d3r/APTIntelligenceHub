@@ -1,0 +1,2 @@
+// HackTool - LittleCorporal Generated Maldoc Injection | T1055.003, T1204.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_access/proc_access_win_hktl_littlecorporal_generated_maldoc.yml
+from * metadata _id, _index, _version | where ends_with(process.executable.caseless, "\\winword.exe") and winlog.event_data.CallTrace like "*:\\Windows\\Microsoft.NET\\Framework64\\v2.*" and winlog.event_data.CallTrace like "*UNKNOWN*"

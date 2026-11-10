@@ -1,0 +1,3 @@
+// Winnti Pipemon Characteristics | T1574.001 | https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2020/TA/Winnti/proc_creation_win_apt_winnti_pipemon.yml
+DeviceProcessEvents
+| where ProcessCommandLine contains "setup0.exe -p" or (ProcessCommandLine contains "setup.exe" and (ProcessCommandLine endswith "-x:0" or ProcessCommandLine endswith "-x:1" or ProcessCommandLine endswith "-x:2"))

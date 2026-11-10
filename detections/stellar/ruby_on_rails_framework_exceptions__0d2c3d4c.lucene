@@ -1,0 +1,18 @@
+// Ruby on Rails Framework Exceptions | T1190 | https://github.com/SigmaHQ/sigma/blob/master/rules/application/ruby/appframework_ruby_on_rails_exceptions.yml
+*ActionController\:\:InvalidAuthenticityToken* OR *ActionController\:\:InvalidCrossOriginRequest* OR *ActionController\:\:MethodNotAllowed* OR *ActionController\:\:BadRequest* OR *ActionController\:\:ParameterMissing*
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "*ActionController\\:\\:InvalidAuthenticityToken* OR *ActionController\\:\\:InvalidCrossOriginRequest* OR *ActionController\\:\\:MethodNotAllowed* OR *ActionController\\:\\:BadRequest* OR *ActionController\\:\\:ParameterMissing*",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

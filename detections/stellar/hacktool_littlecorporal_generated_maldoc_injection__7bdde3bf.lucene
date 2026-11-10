@@ -1,0 +1,18 @@
+// HackTool - LittleCorporal Generated Maldoc Injection | T1055.003, T1204.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_access/proc_access_win_hktl_littlecorporal_generated_maldoc.yml
+SourceImage:*\\winword.exe AND (CallTrace:*\:\\Windows\\Microsoft.NET\\Framework64\\v2.* AND CallTrace:*UNKNOWN*)
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "SourceImage:*\\\\winword.exe AND (CallTrace:*\\:\\\\Windows\\\\Microsoft.NET\\\\Framework64\\\\v2.* AND CallTrace:*UNKNOWN*)",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

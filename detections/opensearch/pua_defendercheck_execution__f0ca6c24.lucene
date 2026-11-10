@@ -1,0 +1,2 @@
+// PUA - DefenderCheck Execution | T1027.005 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_defendercheck.yml
+process.executable.caseless:*\\DefenderCheck.exe OR process.pe.description:DefenderCheck

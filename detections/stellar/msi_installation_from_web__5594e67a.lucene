@@ -1,0 +1,18 @@
+// MSI Installation From Web | T1218, T1218.007 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/application/msiinstaller/win_msi_install_from_web.yml
+Provider_Name:MsiInstaller AND (EventID:(1040 OR 1042)) AND Data:*\:\/\/*
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "Provider_Name:MsiInstaller AND (EventID:(1040 OR 1042)) AND Data:*\\:\\/\\/*",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,18 @@
+// Suspicious Child Process Created as System | T1134.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_child_process_as_system_.yml
+((ParentUser:(*AUTHORI* OR *AUTORI*)) AND (ParentUser:(*\\NETWORK\ SERVICE OR *\\LOCAL\ SERVICE)) AND (User:(*AUTHORI* OR *AUTORI*)) AND (User:(*\\SYSTEM OR *\\Système OR *\\СИСТЕМА)) AND (IntegrityLevel:(System OR S\-1\-16\-16384))) AND (NOT (Image:*\\rundll32.exe AND CommandLine:*DavSetCookie*))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "((ParentUser:(*AUTHORI* OR *AUTORI*)) AND (ParentUser:(*\\\\NETWORK\\ SERVICE OR *\\\\LOCAL\\ SERVICE)) AND (User:(*AUTHORI* OR *AUTORI*)) AND (User:(*\\\\SYSTEM OR *\\\\Syst\u00e8me OR *\\\\\u0421\u0418\u0421\u0422\u0415\u041c\u0410)) AND (IntegrityLevel:(System OR S\\-1\\-16\\-16384))) AND (NOT (Image:*\\\\rundll32.exe AND CommandLine:*DavSetCookie*))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,2 @@
+// Diamond Sleet APT DLL Sideloading Indicators | T1574.001 | https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/Diamond-Sleet/image_load_apt_diamond_sleet_side_load.yml
+(process.executable.caseless:*\:\\ProgramData\\clip.exe AND file.path:*\:\\ProgramData\\Version.dll) OR (process.executable.caseless:*\:\\ProgramData\\wsmprovhost.exe AND file.path:*\:\\ProgramData\\DSROLE.dll)

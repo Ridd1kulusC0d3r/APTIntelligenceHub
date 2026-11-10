@@ -1,0 +1,18 @@
+// Lace Tempest PowerShell Evidence Eraser | T1059.001 | https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/Lace-Tempest/posh_ps_apt_lace_tempest_eraser_script.yml
+ScriptBlockText:*cleanLL* AND ScriptBlockText:*usersfiles.war* AND ScriptBlockText:*Remove\-Item\ \-Path\ \"$tomcat_dir* AND ScriptBlockText:*SysAidServer* AND ScriptBlockText:*sleep\ * AND ScriptBlockText:*while\(1\)*
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "ScriptBlockText:*cleanLL* AND ScriptBlockText:*usersfiles.war* AND ScriptBlockText:*Remove\\-Item\\ \\-Path\\ \\\"$tomcat_dir* AND ScriptBlockText:*SysAidServer* AND ScriptBlockText:*sleep\\ * AND ScriptBlockText:*while\\(1\\)*",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

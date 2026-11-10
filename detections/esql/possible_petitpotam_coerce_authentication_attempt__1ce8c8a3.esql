@@ -1,0 +1,2 @@
+// Possible PetitPotam Coerce Authentication Attempt | T1187 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_petitpotam_network_share.yml
+from * metadata _id, _index, _version | where winlog.channel=="Security" and event.code=="5145" and starts_with(winlog.event_data.ShareName, "\\\\") and ends_with(winlog.event_data.ShareName, "\\IPC$") and winlog.event_data.RelativeTargetName=="lsarpc" and user.name=="ANONYMOUS LOGON"

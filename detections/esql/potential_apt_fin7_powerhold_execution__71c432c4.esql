@@ -1,0 +1,2 @@
+// Potential APT FIN7 POWERHOLD Execution | T1059.001 | https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/FIN7/posh_ps_apt_fin7_powerhold.yml
+from * metadata _id, _index, _version | where powershell.file.script_block_text like "*$env:APPDATA*" and powershell.file.script_block_text like "*function MainPayload*" and powershell.file.script_block_text like "*::WriteAllBytes*" and powershell.file.script_block_text like "*wscript.exe*"

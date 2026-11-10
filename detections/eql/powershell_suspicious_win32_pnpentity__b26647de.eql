@@ -1,0 +1,2 @@
+// Powershell Suspicious Win32_PnPEntity | T1120 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/powershell/powershell_script/posh_ps_susp_win32_pnpentity.yml
+any where powershell.file.script_block_text:"*Win32_PnPEntity*"

@@ -1,0 +1,18 @@
+// Potential Persistence Via Excel Add-in - Registry | T1137.006 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_persistence_xll.yml
+TargetObject:*Software\\Microsoft\\Office\\* AND TargetObject:*\\Excel\\Options AND Details:\/R\ * AND Details:*.xll
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "TargetObject:*Software\\\\Microsoft\\\\Office\\\\* AND TargetObject:*\\\\Excel\\\\Options AND Details:\\/R\\ * AND Details:*.xll",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

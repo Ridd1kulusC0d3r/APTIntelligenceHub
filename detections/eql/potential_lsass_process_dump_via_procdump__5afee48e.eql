@@ -1,0 +1,2 @@
+// Potential LSASS Process Dump Via Procdump | T1003.001, T1036 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sysinternals_procdump_lsass.yml
+any where (process.command_line like~ ("* -ma *", "* /ma *", "* –ma *", "* —ma *", "* ―ma *") or process.command_line like~ ("* -mm *", "* /mm *", "* –mm *", "* —mm *", "* ―mm *") or process.command_line like~ ("* -mp *", "* /mp *", "* –mp *", "* —mp *", "* ―mp *")) and (process.command_line like~ ("* ls*", "* keyiso*", "* samss*"))

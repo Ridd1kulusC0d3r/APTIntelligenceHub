@@ -1,0 +1,18 @@
+// Azure Network Firewall Policy Modified or Deleted | T1686.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/azure/activity_logs/azure_network_firewall_policy_modified_or_deleted.yml
+operationName:(MICROSOFT.NETWORK\/FIREWALLPOLICIES\/WRITE OR MICROSOFT.NETWORK\/FIREWALLPOLICIES\/JOIN\/ACTION OR MICROSOFT.NETWORK\/FIREWALLPOLICIES\/CERTIFICATES\/ACTION OR MICROSOFT.NETWORK\/FIREWALLPOLICIES\/DELETE)
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "operationName:(MICROSOFT.NETWORK\\/FIREWALLPOLICIES\\/WRITE OR MICROSOFT.NETWORK\\/FIREWALLPOLICIES\\/JOIN\\/ACTION OR MICROSOFT.NETWORK\\/FIREWALLPOLICIES\\/CERTIFICATES\\/ACTION OR MICROSOFT.NETWORK\\/FIREWALLPOLICIES\\/DELETE)",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

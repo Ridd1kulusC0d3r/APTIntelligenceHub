@@ -1,0 +1,2 @@
+# Control Panel Items | T1218.002, T1546 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_control_panel_item.yml
+source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=1 (((Image="*\\reg.exe" OR OriginalFileName="reg.exe") CommandLine="*add*" CommandLine="*CurrentVersion\\Control Panel\\CPLs*") OR (CommandLine="*.cpl" NOT (CommandLine IN ("*\\System32\\*", "*%System%*", "*|C:\\Windows\\system32|*") OR (CommandLine="*regsvr32 *" CommandLine="* /s *" CommandLine="*igfxCPL.cpl*"))))

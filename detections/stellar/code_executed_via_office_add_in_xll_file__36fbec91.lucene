@@ -1,0 +1,18 @@
+// Code Executed Via Office Add-in XLL File | T1137.006 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/powershell/powershell_script/posh_ps_office_comobject_registerxll.yml
+ScriptBlockText:*new\-object\ * AND ScriptBlockText:*\-ComObject\ * AND ScriptBlockText:*.application* AND ScriptBlockText:*.RegisterXLL*
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "ScriptBlockText:*new\\-object\\ * AND ScriptBlockText:*\\-ComObject\\ * AND ScriptBlockText:*.application* AND ScriptBlockText:*.RegisterXLL*",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

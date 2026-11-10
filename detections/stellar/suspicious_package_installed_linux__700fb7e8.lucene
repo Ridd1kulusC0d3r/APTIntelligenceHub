@@ -1,0 +1,18 @@
+// Suspicious Package Installed - Linux | T1553.004 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_install_suspicious_packages.yml
+(((Image:(*\/apt OR *\/apt\-get)) AND CommandLine:*install*) OR (Image:*\/yum AND (CommandLine:(*localinstall* OR *install*))) OR (Image:*\/rpm AND CommandLine:*\-i*) OR (Image:*\/dpkg AND (CommandLine:(*\-\-install* OR *\-i*)))) AND (CommandLine:(*nmap* OR *\ nc* OR *netcat* OR *wireshark* OR *tshark* OR *openconnect* OR *proxychains* OR *socat*))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(((Image:(*\\/apt OR *\\/apt\\-get)) AND CommandLine:*install*) OR (Image:*\\/yum AND (CommandLine:(*localinstall* OR *install*))) OR (Image:*\\/rpm AND CommandLine:*\\-i*) OR (Image:*\\/dpkg AND (CommandLine:(*\\-\\-install* OR *\\-i*)))) AND (CommandLine:(*nmap* OR *\\ nc* OR *netcat* OR *wireshark* OR *tshark* OR *openconnect* OR *proxychains* OR *socat*))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

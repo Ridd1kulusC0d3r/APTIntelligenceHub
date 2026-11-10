@@ -1,0 +1,3 @@
+// DLL Load via LSASS | T1547.008 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/registry_event_susp_lsass_dll_load.yml
+DeviceRegistryEvents
+| where (RegistryKey contains "\\CurrentControlSet\\Services\\NTDS\\DirectoryServiceExtPt" or RegistryKey contains "\\CurrentControlSet\\Services\\NTDS\\LsaDbExtPt") and (not((InitiatingProcessFolderPath =~ "C:\\Windows\\system32\\lsass.exe" and (RegistryValueData in~ ("%%systemroot%%\\system32\\ntdsa.dll", "%%systemroot%%\\system32\\lsadb.dll")))))

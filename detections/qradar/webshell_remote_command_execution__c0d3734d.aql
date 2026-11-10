@@ -1,0 +1,2 @@
+-- Webshell Remote Command Execution | T1505.003 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/syscall/lnx_auditd_web_rce.yml | NOTA: fallback QRadarAQL_payload_pipeline: campos sem propriedade DSM mapeada são buscados em UTF8(payload) – custo maior, crie custom properties
+SELECT * FROM events WHERE devicetype=11 AND LOWER(UTF8(payload)) LIKE '%syscall%' AND (LOWER(UTF8(payload)) LIKE '%execve%' OR LOWER(UTF8(payload)) LIKE '%execveat%') AND LOWER(UTF8(payload)) LIKE '%euid%33%'

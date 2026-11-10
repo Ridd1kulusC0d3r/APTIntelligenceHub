@@ -1,0 +1,18 @@
+// Admin User Remote Logon | T1078.001, T1078.002, T1078.003 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/account_management/win_security_admin_rdp_login.yml
+EventID:4624 AND LogonType:10 AND AuthenticationPackageName:Negotiate AND TargetUserName:Admin*
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "EventID:4624 AND LogonType:10 AND AuthenticationPackageName:Negotiate AND TargetUserName:Admin*",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

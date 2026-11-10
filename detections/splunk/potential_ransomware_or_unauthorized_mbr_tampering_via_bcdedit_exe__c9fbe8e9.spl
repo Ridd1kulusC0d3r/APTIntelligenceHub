@@ -1,0 +1,2 @@
+# Potential Ransomware or Unauthorized MBR Tampering Via Bcdedit.EXE | T1070, T1542.003 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_bcdedit_susp_execution.yml
+source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=1 (Image="*\\bcdedit.exe" OR OriginalFileName="bcdedit.exe") (CommandLine IN ("*delete*", "*deletevalue*", "*import*", "*safeboot*", "*network*"))

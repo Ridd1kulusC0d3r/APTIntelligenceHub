@@ -1,0 +1,3 @@
+// UEFI Persistence Via Wpbbin - ProcessCreation | T1542.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wpbbin_potential_persistence.yml
+DeviceProcessEvents
+| where FolderPath =~ "C:\\Windows\\System32\\wpbbin.exe"

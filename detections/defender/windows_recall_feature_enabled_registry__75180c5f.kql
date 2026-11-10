@@ -1,0 +1,3 @@
+// Windows Recall Feature Enabled - Registry | T1113 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_enable_windows_recall.yml
+DeviceRegistryEvents
+| where RegistryKey endswith "\\Software\\Policies\\Microsoft\\Windows\\WindowsAI\\DisableAIDataAnalysis" and RegistryValueData =~ "DWORD (0x00000000)"

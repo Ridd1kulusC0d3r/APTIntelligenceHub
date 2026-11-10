@@ -1,0 +1,2 @@
+# Suspicious Where Execution | T1217 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_where_browser_data_recon.yml
+source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=1 (Image="*\\where.exe" OR OriginalFileName="where.exe") (CommandLine IN ("*places.sqlite*", "*cookies.sqlite*", "*formhistory.sqlite*", "*logins.json*", "*key4.db*", "*key3.db*", "*sessionstore.jsonlz4*", "*History*", "*Bookmarks*", "*Cookies*", "*Login Data*"))

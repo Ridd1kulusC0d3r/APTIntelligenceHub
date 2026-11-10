@@ -1,0 +1,18 @@
+// Moriya Rootkit - System | T1543.003 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/system/service_control_manager/win_system_moriya_rootkit.yml
+Provider_Name:"Service Control Manager" AND EventID:7045 AND ServiceName:ZzNetSvc
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "Provider_Name:\"Service Control Manager\" AND EventID:7045 AND ServiceName:ZzNetSvc",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

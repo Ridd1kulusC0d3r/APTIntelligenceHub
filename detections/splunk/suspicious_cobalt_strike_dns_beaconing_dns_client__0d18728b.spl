@@ -1,0 +1,2 @@
+# Suspicious Cobalt Strike DNS Beaconing - DNS Client | T1071.004 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/dns_client/win_dns_client_mal_cobaltstrike.yml
+source="WinEventLog:Microsoft-Windows-DNS Client Events/Operational" EventCode=3008 (QueryName IN ("aaa.stage.*", "post.1*") OR QueryName="*.stage.123456.*")

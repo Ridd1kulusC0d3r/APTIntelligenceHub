@@ -1,0 +1,18 @@
+// Potential QBot Activity | T1059.005 | https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2019/Malware/QBot/proc_creation_win_malware_qbot.yml
+(ParentImage:*\\WinRAR.exe AND Image:*\\wscript.exe) OR CommandLine:*\ \/c\ ping.exe\ \-n\ 6\ 127.0.0.1\ \&\ type\ * OR (CommandLine:*regsvr32.exe* AND CommandLine:*C\:\\ProgramData* AND CommandLine:*.tmp*)
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(ParentImage:*\\\\WinRAR.exe AND Image:*\\\\wscript.exe) OR CommandLine:*\\ \\/c\\ ping.exe\\ \\-n\\ 6\\ 127.0.0.1\\ \\&\\ type\\ * OR (CommandLine:*regsvr32.exe* AND CommandLine:*C\\:\\\\ProgramData* AND CommandLine:*.tmp*)",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

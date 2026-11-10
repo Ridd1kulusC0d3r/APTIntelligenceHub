@@ -1,0 +1,18 @@
+// Guacamole Two Users Sharing Session Anomaly | T1212 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/builtin/guacamole/lnx_guacamole_susp_guacamole.yml
+*\(2\ users\ now\ present\)*
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "*\\(2\\ users\\ now\\ present\\)*",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

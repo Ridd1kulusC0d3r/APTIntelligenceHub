@@ -1,0 +1,2 @@
+-- Audio Capture via PowerShell | T1123 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_audio_capture.yml
+SELECT * FROM events WHERE devicetype=12 AND (LOWER(Command) LIKE '%windowsaudiodevice-powershell-cmdlet%' OR LOWER(Command) LIKE '%toggle-audiodevice%' OR LOWER(Command) LIKE '%get-audiodevice %' OR LOWER(Command) LIKE '%set-audiodevice %' OR LOWER(Command) LIKE '%write-audiodevice %')

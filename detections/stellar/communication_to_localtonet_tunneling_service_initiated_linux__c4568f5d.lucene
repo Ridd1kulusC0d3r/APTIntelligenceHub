@@ -1,0 +1,18 @@
+// Communication To LocaltoNet Tunneling Service Initiated - Linux | T1090, T1102, T1572 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/network_connection/net_connection_lnx_domain_localtonet_tunnel.yml
+(DestinationHostname:(*.localto.net OR *.localtonet.com)) AND Initiated:true
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(DestinationHostname:(*.localto.net OR *.localtonet.com)) AND Initiated:true",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

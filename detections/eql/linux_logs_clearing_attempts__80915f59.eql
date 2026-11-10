@@ -1,0 +1,2 @@
+// Linux Logs Clearing Attempts | T1685.006 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_clear_logs.yml
+any where ((Image like~ ("*/rm", "*/rmdir", "*/shred", "*/unlink")) and (CommandLine like~ ("*/var/log*", "*/var/spool/mail*"))) and (not ((Image:"*/rm" and CommandLine:"rm -f /var/log/sysstat/*") or (Image:"*/rm" and CommandLine:"rm -f -- /var/log//dmesg*")))

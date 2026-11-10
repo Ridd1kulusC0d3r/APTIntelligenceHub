@@ -1,0 +1,2 @@
+-- CMSTP Execution Process Access | T1218.003, T1559.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_access/proc_access_win_cmstp_execution_by_access.yml
+SELECT * FROM events WHERE devicetype=12 AND LOWER("Call Trace") LIKE '%cmlua.dll%'

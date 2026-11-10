@@ -1,0 +1,2 @@
+-- WMI Persistence - Script Event Consumer File Write | T1546.003 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_wmi_persistence_script_event_consumer_write.yml
+SELECT * FROM events WHERE devicetype=12 AND ("Process Path"='C:\WINDOWS\system32\wbem\scrcons.exe' OR "Process Name"='C:\WINDOWS\system32\wbem\scrcons.exe')

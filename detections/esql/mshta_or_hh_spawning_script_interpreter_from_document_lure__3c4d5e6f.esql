@@ -1,0 +1,2 @@
+// MSHTA Or HH Spawning Script Interpreter From Document Lure | T1218.001, T1218.005 | Hub
+from * metadata _id, _index, _version | where (ends_with(process.parent.executable.caseless, "\\mshta.exe") or ends_with(process.parent.executable.caseless, "\\hh.exe")) and (ends_with(process.executable.caseless, "\\powershell.exe") or ends_with(process.executable.caseless, "\\cmd.exe") or ends_with(process.executable.caseless, "\\wscript.exe") or ends_with(process.executable.caseless, "\\cscript.exe") or ends_with(process.executable.caseless, "\\curl.exe"))

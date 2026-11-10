@@ -1,0 +1,2 @@
+// Suspicious Cobalt Strike DNS Beaconing - Sysmon | T1071.004 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/dns_query/dns_query_win_mal_cobaltstrike.yml
+from * metadata _id, _index, _version | where starts_with(dns.question.name, "aaa.stage.") or starts_with(dns.question.name, "post.1") or dns.question.name like "*.stage.123456.*"

@@ -1,0 +1,2 @@
+# Suspicious Git Clone - Linux | T1593.003 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_susp_git_clone.yml
+Image="*/git" CommandLine="* clone *" (CommandLine IN ("*exploit*", "*Vulns*", "*vulnerability*", "*RCE*", "*RemoteCodeExecution*", "*Invoke-*", "*CVE-*", "*poc-*", "*ProofOfConcept*", "*proxyshell*", "*log4shell*", "*eternalblue*", "*eternal-blue*", "*MS17-*"))

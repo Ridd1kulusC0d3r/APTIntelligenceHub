@@ -1,0 +1,2 @@
+// Admin User Remote Logon | T1078.001, T1078.002, T1078.003 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/account_management/win_security_admin_rdp_login.yml
+winlog.channel:Security AND (event.code:4624 AND winlog.event_data.LogonType:10 AND winlog.event_data.AuthenticationPackageName:Negotiate AND winlog.event_data.TargetUserName:Admin*)

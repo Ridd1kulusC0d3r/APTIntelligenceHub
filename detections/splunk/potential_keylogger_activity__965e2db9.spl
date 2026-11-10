@@ -1,0 +1,2 @@
+# Potential Keylogger Activity | T1056.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/powershell/powershell_script/posh_ps_susp_keylogger_activity.yml
+ScriptBlockText="*[Windows.Input.Keyboard]::IsKeyDown([System.Windows.Input.Key]::*"

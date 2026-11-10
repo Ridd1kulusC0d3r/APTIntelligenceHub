@@ -1,0 +1,2 @@
+// Interactive AT Job | T1053.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_at_interactive_execution.yml
+process.executable.caseless:*\\at.exe AND process.command_line:*interactive*

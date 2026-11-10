@@ -1,0 +1,2 @@
+// DNS Query Request To OneLaunch Update Service | T1056 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/dns_query/dns_query_win_onelaunch_update_service.yml
+dns.question.name:update.onelaunch.com AND process.executable.caseless:*\\OneLaunch.exe

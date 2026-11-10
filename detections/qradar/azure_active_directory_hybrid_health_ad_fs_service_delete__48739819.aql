@@ -1,0 +1,2 @@
+-- Azure Active Directory Hybrid Health AD FS Service Delete | T1578.003 | https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/azure/activity_logs/azure_aadhybridhealth_adfs_service_delete.yml | NOTA: fallback QRadarAQL_payload_pipeline: campos sem propriedade DSM mapeada são buscados em UTF8(payload) – custo maior, crie custom properties
+SELECT * FROM events WHERE LOWER(UTF8(payload)) LIKE '%administrative%' AND LOWER(UTF8(payload)) LIKE '%adfederationservice%' AND LOWER(UTF8(payload)) LIKE '%microsoft.adhybridhealthservice/services/delete%'

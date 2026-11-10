@@ -1,0 +1,2 @@
+// Time Travel Debugging Utility Usage - Image | T1003.001, T1218 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_dll_tttracer_module_load.yml
+any where file.path like~ ("*\\ttdrecord.dll", "*\\ttdwriter.dll", "*\\ttdloader.dll")

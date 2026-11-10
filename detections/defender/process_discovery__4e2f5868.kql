@@ -1,0 +1,3 @@
+// Process Discovery | T1057 | https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/linux/process_creation/proc_creation_lnx_susp_running_process_discovery.yml
+DeviceProcessEvents
+| where FolderPath endswith "/atop" or FolderPath endswith "/htop" or FolderPath endswith "/pgrep" or FolderPath endswith "/ps" or FolderPath endswith "/pstree" or FolderPath endswith "/top"

@@ -1,0 +1,2 @@
+-- Renamed BOINC Client Execution | T1553 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_renamed_boinc.yml
+SELECT * FROM events WHERE devicetype=12 AND Filename='BOINC.exe' AND (NOT((LOWER("Process Path") LIKE '%\boinc.exe' OR LOWER("Process Name") LIKE '%\boinc.exe')))

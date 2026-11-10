@@ -1,0 +1,2 @@
+// Guest Account Enabled Via Sysadminctl | T1078, T1078.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_sysadminctl_enable_guest_account.yml
+from * metadata _id, _index, _version | where ends_with(Image, "/sysadminctl") and CommandLine like "* -guestAccount*" and CommandLine like "* on*"

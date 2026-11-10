@@ -1,0 +1,2 @@
+# UAC Bypass Using .NET Code Profiler on MMC | T1548.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_uac_bypass_dotnet_profiler.yml
+source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=11 TargetFilename="C:\\Users\\*" TargetFilename="*\\AppData\\Local\\Temp\\pe386.dll"

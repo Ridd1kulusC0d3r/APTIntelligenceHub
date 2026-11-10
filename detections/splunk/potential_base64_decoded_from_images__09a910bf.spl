@@ -1,0 +1,2 @@
+# Potential Base64 Decoded From Images | T1140 | https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_tail_base64_decode_from_image.yml
+Image="*/bash" CommandLine="*tail*" CommandLine="*-c*" CommandLine="*base64*" CommandLine="*-d*" CommandLine="*>*" (CommandLine IN ("*.avif*", "*.gif*", "*.jfif*", "*.jpeg*", "*.jpg*", "*.pjp*", "*.pjpeg*", "*.png*", "*.svg*", "*.webp*"))

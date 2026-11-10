@@ -1,0 +1,2 @@
+// Potential Persistence Via Outlook LoadMacroProviderOnBoot Setting | T1008, T1137, T1546 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_office_outlook_enable_load_macro_provider_on_boot.yml
+any where registry.path:"*\\Outlook\\LoadMacroProviderOnBoot" and winlog.event_data.Details:"*0x00000001*"

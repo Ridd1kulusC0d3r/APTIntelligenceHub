@@ -1,0 +1,18 @@
+// Okta MFA Reset or Deactivated | T1556.006 | https://github.com/SigmaHQ/sigma/blob/master/rules/identity/okta/okta_mfa_reset_or_deactivated.yml
+eventType:(user.mfa.factor.deactivate OR user.mfa.factor.reset_all)
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "eventType:(user.mfa.factor.deactivate OR user.mfa.factor.reset_all)",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

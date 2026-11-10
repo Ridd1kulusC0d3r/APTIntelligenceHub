@@ -1,0 +1,18 @@
+// SQLite Firefox Profile Data DB Access | T1005, T1539 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sqlite_firefox_gecko_profile_data.yml
+(Product:SQLite OR (Image:(*\\sqlite.exe OR *\\sqlite3.exe))) AND (CommandLine:(*cookies.sqlite* OR *places.sqlite*))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(Product:SQLite OR (Image:(*\\\\sqlite.exe OR *\\\\sqlite3.exe))) AND (CommandLine:(*cookies.sqlite* OR *places.sqlite*))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

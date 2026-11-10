@@ -1,0 +1,2 @@
+// Potential Startup Shortcut Persistence Via PowerShell.EXE | T1547.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_powershell_startup_shortcuts.yml
+from * metadata _id, _index, _version | where (ends_with(process.executable.caseless, "\\powershell.exe") or ends_with(process.executable.caseless, "\\pwsh.exe")) and file.path like "*\\start menu\\programs\\startup\\*" and ends_with(file.path, ".lnk")

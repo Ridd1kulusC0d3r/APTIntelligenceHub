@@ -1,0 +1,2 @@
+// Suspicious Driver/DLL Installation Via Odbcconf.EXE | T1218.008 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_odbcconf_driver_install_susp.yml
+any where ((process.executable.caseless:"*\\odbcconf.exe" or process.pe.original_file_name:"odbcconf.exe") and process.command_line:"*INSTALLDRIVER *") and (not process.command_line:"*.dll*")

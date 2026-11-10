@@ -1,0 +1,18 @@
+// Suspicious Shim Database Patching Activity | T1546.011 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_persistence_shim_database_susp_application.yml
+TargetObject:*\\SOFTWARE\\Microsoft\\Windows\ NT\\CurrentVersion\\AppCompatFlags\\Custom\\* AND (TargetObject:(*\\csrss.exe OR *\\dllhost.exe OR *\\explorer.exe OR *\\RuntimeBroker.exe OR *\\services.exe OR *\\sihost.exe OR *\\svchost.exe OR *\\taskhostw.exe OR *\\winlogon.exe OR *\\WmiPrvSe.exe))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "TargetObject:*\\\\SOFTWARE\\\\Microsoft\\\\Windows\\ NT\\\\CurrentVersion\\\\AppCompatFlags\\\\Custom\\\\* AND (TargetObject:(*\\\\csrss.exe OR *\\\\dllhost.exe OR *\\\\explorer.exe OR *\\\\RuntimeBroker.exe OR *\\\\services.exe OR *\\\\sihost.exe OR *\\\\svchost.exe OR *\\\\taskhostw.exe OR *\\\\winlogon.exe OR *\\\\WmiPrvSe.exe))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,2 @@
+# Web Server Process Spawning Shell Or Recon Commands (Webshell) | T1190, T1505.003 | Hub
+source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=1 (ParentImage IN ("*\\w3wp.exe", "*\\tomcat.exe", "*\\tomcat8.exe", "*\\tomcat9.exe", "*\\java.exe", "*\\httpd.exe", "*\\nginx.exe", "*\\UMWorkerProcess.exe")) (Image IN ("*\\cmd.exe", "*\\powershell.exe", "*\\whoami.exe", "*\\net.exe", "*\\net1.exe", "*\\nltest.exe", "*\\certutil.exe", "*\\rundll32.exe"))

@@ -1,0 +1,18 @@
+// New Federated Domain Added | T1484.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/m365/audit/microsoft365_new_federated_domain_added_audit.yml
+Operation:*domain* AND (Operation:(*add* OR *new*))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "Operation:*domain* AND (Operation:(*add* OR *new*))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

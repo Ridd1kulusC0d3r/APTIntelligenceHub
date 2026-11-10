@@ -1,0 +1,2 @@
+// AWS SecurityHub Findings Evasion | T1685 | https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/aws/cloudtrail/aws_securityhub_finding_evasion.yml
+from * metadata _id, _index, _version | where eventSource=="securityhub.amazonaws.com" and (eventName in ("BatchUpdateFindings", "DeleteInsight", "UpdateFindings", "UpdateInsight"))

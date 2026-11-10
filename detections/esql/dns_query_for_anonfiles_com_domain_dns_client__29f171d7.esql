@@ -1,0 +1,2 @@
+// DNS Query for Anonfiles.com Domain - DNS Client | T1567.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/dns_client/win_dns_client_anonymfiles_com.yml
+from * metadata _id, _index, _version | where winlog.channel=="Microsoft-Windows-DNS Client Events/Operational" and event.code=="3008" and dns.question.name like "*.anonfiles.com*"

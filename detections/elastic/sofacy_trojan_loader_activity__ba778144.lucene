@@ -1,0 +1,2 @@
+// Sofacy Trojan Loader Activity | T1059.003, T1218.011 | https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2018/TA/APT28/proc_creation_win_apt_sofacy.yml
+((process.executable.caseless:*\\rundll32.exe AND (process.command_line:(*%LOCALAPPDATA%* OR *\\AppData\\Local\\*))) AND (process.command_line:*.dat\",* OR (process.command_line:(*.dll\ #1 OR *.dll\"\ #1 OR *.dll\",#1)))) AND (NOT process.command_line:*\\AppData\\Local\\Temp\\*)

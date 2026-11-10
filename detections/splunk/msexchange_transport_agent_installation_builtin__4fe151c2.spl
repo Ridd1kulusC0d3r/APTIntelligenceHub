@@ -1,0 +1,2 @@
+# MSExchange Transport Agent Installation - Builtin | T1505.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/msexchange/win_exchange_transportagent.yml
+source="WinEventLog:MSExchange Management" "Install-TransportAgent"

@@ -1,0 +1,2 @@
+# HackTool - SecurityXploded Execution | T1555 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_secutyxploded.yml
+source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=1 (Company="SecurityXploded" OR Image="*PasswordDump.exe" OR OriginalFileName="*PasswordDump.exe")

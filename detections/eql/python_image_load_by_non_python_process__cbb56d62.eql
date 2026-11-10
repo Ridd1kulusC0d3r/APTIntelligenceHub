@@ -1,0 +1,2 @@
+// Python Image Load By Non-Python Process | T1027.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_susp_python_image_load.yml
+any where file.pe.description:"Python Core" and (not (process.executable.caseless:"*Python*" or (process.executable.caseless like~ ("C:\\Program Files\\*", "C:\\Program Files (x86)\\*", "C:\\ProgramData\\Anaconda3\\*")))) and ?process.executable.caseless != null

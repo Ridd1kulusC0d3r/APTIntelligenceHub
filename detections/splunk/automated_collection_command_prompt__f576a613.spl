@@ -1,0 +1,2 @@
+# Automated Collection Command Prompt | T1119, T1552.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_automated_collection.yml
+source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=1 (CommandLine IN ("*.doc*", "*.docx*", "*.xls*", "*.xlsx*", "*.ppt*", "*.pptx*", "*.rtf*", "*.pdf*", "*.txt*")) ((CommandLine="*dir *" CommandLine="* /b *" CommandLine="* /s *") OR (OriginalFileName="FINDSTR.EXE" (CommandLine IN ("* /e *", "* /si *"))))

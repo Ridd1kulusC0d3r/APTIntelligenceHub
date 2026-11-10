@@ -1,0 +1,2 @@
+-- Activity from Suspicious IP Addresses | T1573 | https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/m365/threat_detection/microsoft365_from_susp_ip_addresses.yml | NOTA: fallback QRadarAQL_payload_pipeline: campos sem propriedade DSM mapeada são buscados em UTF8(payload) – custo maior, crie custom properties
+SELECT * FROM events WHERE devicetype IN(424, 443, 397) AND QIDNAME(qid)='Activity from suspicious IP addresses' AND LOWER(UTF8(payload)) LIKE '%success%'

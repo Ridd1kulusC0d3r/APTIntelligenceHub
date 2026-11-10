@@ -1,0 +1,2 @@
+// Lace Tempest PowerShell Evidence Eraser | T1059.001 | https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/Lace-Tempest/posh_ps_apt_lace_tempest_eraser_script.yml
+any where powershell.file.script_block_text:"*cleanLL*" and powershell.file.script_block_text:"*usersfiles.war*" and powershell.file.script_block_text:"*Remove-Item -Path \"$tomcat_dir*" and powershell.file.script_block_text:"*SysAidServer*" and powershell.file.script_block_text:"*sleep *" and powershell.file.script_block_text:"*while(1)*"

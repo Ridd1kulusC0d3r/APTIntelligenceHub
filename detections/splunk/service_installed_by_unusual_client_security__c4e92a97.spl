@@ -1,0 +1,2 @@
+# Service Installed By Unusual Client - Security | T1543 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_service_installation_by_unusal_client.yml
+source="WinEventLog:Security" EventCode=4697 (ClientProcessId=0 OR ParentProcessId=0)

@@ -1,0 +1,18 @@
+// OpenCanary - SSH Login Attempt | T1021, T1078, T1133 | https://github.com/SigmaHQ/sigma/blob/master/rules/application/opencanary/opencanary_ssh_login_attempt.yml
+logtype:4002
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "logtype:4002",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

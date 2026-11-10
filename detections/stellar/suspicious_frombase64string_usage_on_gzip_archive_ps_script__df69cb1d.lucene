@@ -1,0 +1,18 @@
+// Suspicious FromBase64String Usage On Gzip Archive - Ps Script | T1132.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/powershell/powershell_script/posh_ps_frombase64string_archive.yml
+ScriptBlockText:*FromBase64String* AND ScriptBlockText:*MemoryStream* AND ScriptBlockText:*H4sI*
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "ScriptBlockText:*FromBase64String* AND ScriptBlockText:*MemoryStream* AND ScriptBlockText:*H4sI*",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

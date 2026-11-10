@@ -1,0 +1,2 @@
+// Program Executions in Suspicious Folders | T1584, T1587 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/syscall/lnx_auditd_susp_exe_folders.yml
+any where type:"SYSCALL" and (exe like~ ("/tmp/*", "/var/www/*", "/home/*/public_html/*", "/usr/local/apache2/*", "/usr/local/httpd/*", "/var/apache/*", "/srv/www/*", "/home/httpd/html/*", "/srv/http/*", "/usr/share/nginx/html/*", "/var/lib/pgsql/data/*", "/usr/local/mysql/data/*", "/var/lib/mysql/*", "/var/vsftpd/*", "/etc/bind/*", "/var/named/*"))

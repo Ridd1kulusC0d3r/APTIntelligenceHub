@@ -1,0 +1,18 @@
+// Potential Initial Access via DLL Search Order Hijacking | T1566, T1566.001, T1574, T1574.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_initial_access_dll_search_order_hijacking.yml
+((Image:(*\\winword.exe OR *\\excel.exe OR *\\powerpnt.exe OR *\\MSACCESS.EXE OR *\\MSPUB.EXE OR *\\fltldr.exe OR *\\cmd.exe OR *\\certutil.exe OR *\\mshta.exe OR *\\cscript.exe OR *\\wscript.exe OR *\\curl.exe OR *\\powershell.exe OR *\\pwsh.exe)) AND TargetFilename:*.dll AND (TargetFilename:*\\Users\\* AND TargetFilename:*\\AppData\\*) AND (TargetFilename:(*\\Microsoft\\OneDrive\\* OR *\\Microsoft\ OneDrive\\* OR *\\Microsoft\\Teams\\* OR *\\Local\\slack\\app\-* OR *\\Local\\Programs\\Microsoft\ VS\ Code\\*))) AND (NOT (Image:*\\cmd.exe AND (TargetFilename:*\\Users\\* AND TargetFilename:*\\AppData\\* AND TargetFilename:*\\Microsoft\\OneDrive\\* AND TargetFilename:*\\api\-ms\-win\-core\-*)))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "((Image:(*\\\\winword.exe OR *\\\\excel.exe OR *\\\\powerpnt.exe OR *\\\\MSACCESS.EXE OR *\\\\MSPUB.EXE OR *\\\\fltldr.exe OR *\\\\cmd.exe OR *\\\\certutil.exe OR *\\\\mshta.exe OR *\\\\cscript.exe OR *\\\\wscript.exe OR *\\\\curl.exe OR *\\\\powershell.exe OR *\\\\pwsh.exe)) AND TargetFilename:*.dll AND (TargetFilename:*\\\\Users\\\\* AND TargetFilename:*\\\\AppData\\\\*) AND (TargetFilename:(*\\\\Microsoft\\\\OneDrive\\\\* OR *\\\\Microsoft\\ OneDrive\\\\* OR *\\\\Microsoft\\\\Teams\\\\* OR *\\\\Local\\\\slack\\\\app\\-* OR *\\\\Local\\\\Programs\\\\Microsoft\\ VS\\ Code\\\\*))) AND (NOT (Image:*\\\\cmd.exe AND (TargetFilename:*\\\\Users\\\\* AND TargetFilename:*\\\\AppData\\\\* AND TargetFilename:*\\\\Microsoft\\\\OneDrive\\\\* AND TargetFilename:*\\\\api\\-ms\\-win\\-core\\-*)))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

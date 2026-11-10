@@ -1,0 +1,2 @@
+# Diamond Sleet APT DLL Sideloading Indicators | T1574.001 | https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/Diamond-Sleet/image_load_apt_diamond_sleet_side_load.yml
+source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=7 ((Image="*:\\ProgramData\\clip.exe" ImageLoaded="*:\\ProgramData\\Version.dll") OR (Image="*:\\ProgramData\\wsmprovhost.exe" ImageLoaded="*:\\ProgramData\\DSROLE.dll"))

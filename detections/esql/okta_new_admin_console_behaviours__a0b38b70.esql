@@ -1,0 +1,2 @@
+// Okta New Admin Console Behaviours | T1078.004 | https://github.com/SigmaHQ/sigma/blob/master/rules/identity/okta/okta_new_behaviours_admin_console.yml
+from * metadata _id, _index, _version | where eventType=="policy.evaluate_sign_on" and target.displayName=="Okta Admin Console" and (debugContext.debugData.behaviors like "*POSITIVE*" or debugContext.debugData.logOnlySecurityData like "*POSITIVE*")

@@ -1,0 +1,2 @@
+# Privilege Escalation via Named Pipe Impersonation | T1021 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_priv_escalation_via_named_pipe.yml
+source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=1 (Image IN ("*\\cmd.exe", "*\\powershell.exe") OR OriginalFileName IN ("Cmd.Exe", "PowerShell.EXE")) CommandLine="*echo*" CommandLine="*>*" CommandLine="*\\\\.\\pipe\\*"

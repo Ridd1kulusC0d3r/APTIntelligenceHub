@@ -1,0 +1,2 @@
+# NTLM Logon | T1550.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/ntlm/win_susp_ntlm_auth.yml
+source="WinEventLog:Microsoft-Windows-NTLM/Operational" EventCode=8002

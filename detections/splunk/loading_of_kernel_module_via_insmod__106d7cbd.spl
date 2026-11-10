@@ -1,0 +1,2 @@
+# Loading of Kernel Module via Insmod | T1547.006 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/syscall/lnx_auditd_load_module_insmod.yml
+type="SYSCALL" comm="insmod" exe="/usr/bin/kmod"

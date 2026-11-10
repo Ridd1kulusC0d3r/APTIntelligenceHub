@@ -1,0 +1,18 @@
+// Azure Active Directory Hybrid Health AD FS New Server | T1578 | https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/azure/activity_logs/azure_aadhybridhealth_adfs_new_server.yml
+category:Administrative AND resourceId:*AdFederationService* AND operationName:MICROSOFT.ADHYBRIDHEALTHSERVICE\/SERVICES\/SERVICEMEMBERS\/ACTION
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "category:Administrative AND resourceId:*AdFederationService* AND operationName:MICROSOFT.ADHYBRIDHEALTHSERVICE\\/SERVICES\\/SERVICEMEMBERS\\/ACTION",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

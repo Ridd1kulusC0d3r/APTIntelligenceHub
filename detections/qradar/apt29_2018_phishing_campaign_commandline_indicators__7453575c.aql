@@ -1,0 +1,2 @@
+-- APT29 2018 Phishing Campaign CommandLine Indicators | T1218.011 | https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2018/TA/APT29-CozyBear/proc_creation_win_apt_apt29_phishing_campaign_indicators.yml
+SELECT * FROM events WHERE devicetype=12 AND (LOWER(Command) LIKE '%-noni -ep bypass $%' OR (LOWER(Command) LIKE '%cyzfc.dat,%' AND LOWER(Command) LIKE '%pointfunctioncall%'))

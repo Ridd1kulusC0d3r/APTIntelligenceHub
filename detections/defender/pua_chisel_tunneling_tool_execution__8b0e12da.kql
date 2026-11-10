@@ -1,0 +1,3 @@
+// PUA - Chisel Tunneling Tool Execution | T1090.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_chisel.yml
+DeviceProcessEvents
+| where FolderPath endswith "\\chisel.exe" or ((ProcessCommandLine contains "exe client " or ProcessCommandLine contains "exe server ") and (ProcessCommandLine contains "-socks5" or ProcessCommandLine contains "-reverse" or ProcessCommandLine contains " r:" or ProcessCommandLine contains ":127.0.0.1:" or ProcessCommandLine contains "-tls-skip-verify " or ProcessCommandLine contains ":socks"))

@@ -1,0 +1,2 @@
+// Renamed BrowserCore.EXE Execution | T1036.003, T1528 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_renamed_browsercore.yml
+from * metadata _id, _index, _version | where process.pe.original_file_name=="BrowserCore.exe" and not ends_with(process.executable.caseless, "\\BrowserCore.exe")

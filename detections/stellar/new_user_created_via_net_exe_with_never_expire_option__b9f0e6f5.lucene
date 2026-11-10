@@ -1,0 +1,18 @@
+// New User Created Via Net.EXE With Never Expire Option | T1136.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_net_user_add_never_expire.yml
+((Image:(*\\net.exe OR *\\net1.exe)) OR (OriginalFileName:(net.exe OR net1.exe))) AND (CommandLine:*user* AND CommandLine:*add* AND CommandLine:*expires\:never*)
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "((Image:(*\\\\net.exe OR *\\\\net1.exe)) OR (OriginalFileName:(net.exe OR net1.exe))) AND (CommandLine:*user* AND CommandLine:*add* AND CommandLine:*expires\\:never*)",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

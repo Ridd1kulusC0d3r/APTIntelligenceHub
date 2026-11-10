@@ -1,0 +1,2 @@
+// HackTool - CobaltStrike BOF Injection Pattern | T1106, T1685 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_access/proc_access_win_hktl_cobaltstrike_bof_injection_pattern.yml
+from * metadata _id, _index, _version | where winlog.event_data.CallTrace rlike "^C:\\\\Windows\\\\SYSTEM32\\\\ntdll\\.dll\\+[a-z0-9]{4,6}\\|C:\\\\Windows\\\\System32\\\\KERNELBASE\\.dll\\+[a-z0-9]{4,6}\\|UNKNOWN\\([A-Z0-9]{16}\\)$" and (winlog.event_data.GrantedAccess in ("0x1028", "0x1fffff"))

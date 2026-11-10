@@ -1,0 +1,18 @@
+// Findstr Launching .lnk File | T1027.003, T1036, T1202 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_findstr_lnk.yml
+((Image:(*\\find.exe OR *\\findstr.exe)) OR (OriginalFileName:(FIND.EXE OR FINDSTR.EXE))) AND (CommandLine:(*.lnk OR *.lnk\" OR *.lnk'))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "((Image:(*\\\\find.exe OR *\\\\findstr.exe)) OR (OriginalFileName:(FIND.EXE OR FINDSTR.EXE))) AND (CommandLine:(*.lnk OR *.lnk\\\" OR *.lnk'))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

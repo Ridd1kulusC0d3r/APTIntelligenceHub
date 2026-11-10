@@ -1,0 +1,2 @@
+-- HackTool - Sliver C2 Implant Activity Pattern | T1059 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_sliver_c2_execution_pattern.yml
+SELECT * FROM events WHERE devicetype=12 AND LOWER(Command) LIKE '%-noexit -command [console]::outputencoding=[text.utf8encoding]::utf8%'

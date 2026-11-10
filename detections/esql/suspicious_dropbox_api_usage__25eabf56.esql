@@ -1,0 +1,2 @@
+// Suspicious Dropbox API Usage | T1105, T1567.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_domain_dropbox_api.yml
+from * metadata _id, _index, _version | where network.direction=="true" and (ends_with(destination.domain, "api.dropboxapi.com") or ends_with(destination.domain, "content.dropboxapi.com")) and not process.executable.caseless like "*\\Dropbox*"

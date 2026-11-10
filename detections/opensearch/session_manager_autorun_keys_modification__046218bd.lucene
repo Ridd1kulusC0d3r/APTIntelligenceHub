@@ -1,0 +1,2 @@
+// Session Manager Autorun Keys Modification | T1546.009, T1547.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_asep_reg_keys_modification_session_manager.yml
+registry.path:*\\System\\CurrentControlSet\\Control\\Session\ Manager* AND (registry.path:(*\\SetupExecute* OR *\\S0InitialCommand* OR *\\KnownDlls* OR *\\Execute* OR *\\BootExecute* OR *\\AppCertDlls*)) AND (NOT winlog.event_data.Details:\(Empty\))

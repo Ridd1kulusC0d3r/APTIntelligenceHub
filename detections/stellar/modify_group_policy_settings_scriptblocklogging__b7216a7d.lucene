@@ -1,0 +1,18 @@
+// Modify Group Policy Settings - ScriptBlockLogging | T1484.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/powershell/powershell_script/posh_ps_modify_group_policy_settings.yml
+ScriptBlockText:*\\SOFTWARE\\Policies\\Microsoft\\Windows\\System* AND (ScriptBlockText:(*GroupPolicyRefreshTimeDC* OR *GroupPolicyRefreshTimeOffsetDC* OR *GroupPolicyRefreshTime* OR *GroupPolicyRefreshTimeOffset* OR *EnableSmartScreen* OR *ShellSmartScreenLevel*))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "ScriptBlockText:*\\\\SOFTWARE\\\\Policies\\\\Microsoft\\\\Windows\\\\System* AND (ScriptBlockText:(*GroupPolicyRefreshTimeDC* OR *GroupPolicyRefreshTimeOffsetDC* OR *GroupPolicyRefreshTime* OR *GroupPolicyRefreshTimeOffset* OR *EnableSmartScreen* OR *ShellSmartScreenLevel*))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

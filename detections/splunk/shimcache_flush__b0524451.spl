@@ -1,0 +1,2 @@
+# ShimCache Flush | T1112 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_susp_shimcache_flush.yml
+source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=1 ((CommandLine="*rundll32*" CommandLine="*apphelp.dll*" (CommandLine IN ("*ShimFlushCache*", "*#250*"))) OR (CommandLine="*rundll32*" CommandLine="*kernel32.dll*" (CommandLine IN ("*BaseFlushAppcompatCache*", "*#46*"))))

@@ -1,0 +1,2 @@
+# Office Application Spawning Script Interpreter Or LOLBin | T1204.002, T1221 | Hub
+source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=1 (ParentImage IN ("*\\WINWORD.EXE", "*\\EXCEL.EXE", "*\\POWERPNT.EXE")) (Image IN ("*\\wscript.exe", "*\\cscript.exe", "*\\mshta.exe", "*\\powershell.exe", "*\\cmd.exe"))

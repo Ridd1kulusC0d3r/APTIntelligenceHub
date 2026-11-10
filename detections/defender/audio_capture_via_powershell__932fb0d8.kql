@@ -1,0 +1,3 @@
+// Audio Capture via PowerShell | T1123 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_audio_capture.yml
+DeviceProcessEvents
+| where ProcessCommandLine contains "WindowsAudioDevice-Powershell-Cmdlet" or ProcessCommandLine contains "Toggle-AudioDevice" or ProcessCommandLine contains "Get-AudioDevice " or ProcessCommandLine contains "Set-AudioDevice " or ProcessCommandLine contains "Write-AudioDevice "

@@ -1,0 +1,3 @@
+// HackTool - SecurityXploded Execution | T1555 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_secutyxploded.yml
+DeviceProcessEvents
+| where ProcessVersionInfoCompanyName =~ "SecurityXploded" or FolderPath endswith "PasswordDump.exe" or ProcessVersionInfoOriginalFileName endswith "PasswordDump.exe"

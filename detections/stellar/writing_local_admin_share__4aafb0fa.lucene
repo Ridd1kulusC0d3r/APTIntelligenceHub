@@ -1,0 +1,18 @@
+// Writing Local Admin Share | T1546.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_writing_local_admin_share.yml
+TargetFilename:*\\\\127.0.0* AND TargetFilename:*\\ADMIN$\\*
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "TargetFilename:*\\\\\\\\127.0.0* AND TargetFilename:*\\\\ADMIN$\\\\*",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

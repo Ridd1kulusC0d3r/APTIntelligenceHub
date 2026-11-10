@@ -1,0 +1,2 @@
+// Mailbox Export to Exchange Webserver | T1505.003 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/msexchange/win_exchange_proxyshell_mailbox_export.yml
+any where winlog.channel:"MSExchange Management" and ((("New-MailboxExportRequest" and " -Mailbox ") and ("-FilePath \"\\\\" or ".aspx")) or ("New-ManagementRoleAssignment" and " -Role \"Mailbox Import Export\"" and " -User "))

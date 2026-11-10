@@ -1,0 +1,3 @@
+// Path To Screensaver Binary Modified | T1546.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/registry_event_modify_screensaver_binary_path.yml
+DeviceRegistryEvents
+| where RegistryKey endswith "\\Control Panel\\Desktop\\SCRNSAVE.EXE" and (not((InitiatingProcessFolderPath endswith "\\rundll32.exe" or InitiatingProcessFolderPath endswith "\\explorer.exe")))

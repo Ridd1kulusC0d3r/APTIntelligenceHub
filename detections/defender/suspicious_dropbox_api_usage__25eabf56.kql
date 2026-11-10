@@ -1,0 +1,3 @@
+// Suspicious Dropbox API Usage | T1105, T1567.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_domain_dropbox_api.yml
+DeviceNetworkEvents
+| where (RemoteUrl endswith "api.dropboxapi.com" or RemoteUrl endswith "content.dropboxapi.com") and (not(InitiatingProcessFolderPath contains "\\Dropbox"))

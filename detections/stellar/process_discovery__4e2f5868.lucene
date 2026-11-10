@@ -1,0 +1,18 @@
+// Process Discovery | T1057 | https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/linux/process_creation/proc_creation_lnx_susp_running_process_discovery.yml
+Image:(*\/atop OR *\/htop OR *\/pgrep OR *\/ps OR *\/pstree OR *\/top)
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "Image:(*\\/atop OR *\\/htop OR *\\/pgrep OR *\\/ps OR *\\/pstree OR *\\/top)",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

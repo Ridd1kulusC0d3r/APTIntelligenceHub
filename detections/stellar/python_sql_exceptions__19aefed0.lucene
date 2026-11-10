@@ -1,0 +1,18 @@
+// Python SQL Exceptions | T1190 | https://github.com/SigmaHQ/sigma/blob/master/rules/application/python/app_python_sql_exceptions.yml
+*DataError* OR *IntegrityError* OR *ProgrammingError* OR *OperationalError*
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "*DataError* OR *IntegrityError* OR *ProgrammingError* OR *OperationalError*",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

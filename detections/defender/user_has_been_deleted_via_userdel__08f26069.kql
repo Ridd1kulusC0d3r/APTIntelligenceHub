@@ -1,0 +1,3 @@
+// User Has Been Deleted Via Userdel | T1531 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_userdel.yml
+DeviceProcessEvents
+| where FolderPath endswith "/userdel"

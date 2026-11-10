@@ -1,0 +1,3 @@
+// Potential Persistence Via Powershell Search Order Hijacking - Task | T1053.005, T1059.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_schtasks_powershell_persistence.yml
+DeviceProcessEvents
+| where InitiatingProcessFolderPath =~ "C:\\WINDOWS\\System32\\svchost.exe" and (InitiatingProcessCommandLine contains "-k netsvcs" and InitiatingProcessCommandLine contains "-s Schedule") and (ProcessCommandLine endswith " -windowstyle hidden" or ProcessCommandLine endswith " -w hidden" or ProcessCommandLine endswith " -ep bypass" or ProcessCommandLine endswith " -noni")

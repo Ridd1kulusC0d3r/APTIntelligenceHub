@@ -1,0 +1,2 @@
+# Windows Network Access Suspicious desktop.ini Action | T1547.009 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_net_share_obj_susp_desktop_ini.yml
+source="WinEventLog:Security" EventCode=5145 ObjectType="File" RelativeTargetName="*\\desktop.ini" (AccessList IN ("*WriteData*", "*DELETE*", "*WriteDAC*", "*AppendData*", "*AddSubdirectory*"))

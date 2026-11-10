@@ -1,0 +1,3 @@
+// Suspicious Printer Driver Empty Manufacturer | T1574 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_susp_printer_driver.yml
+DeviceRegistryEvents
+| where ((RegistryKey contains "\\Control\\Print\\Environments\\Windows x64\\Drivers" and RegistryKey contains "\\Manufacturer") and RegistryValueData =~ "(Empty)") and (not((RegistryKey endswith "\\CutePDF Writer v4.0*" or (RegistryKey endswith "\\VNC Printer (PS)*" or RegistryKey endswith "\\VNC Printer (UD)*") or RegistryKey endswith "\\Version-3\\PDF24*")))

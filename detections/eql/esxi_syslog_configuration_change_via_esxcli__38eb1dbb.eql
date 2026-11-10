@@ -1,0 +1,2 @@
+// ESXi Syslog Configuration Change Via ESXCLI | T1059.012, T1685, T1690 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_esxcli_syslog_config_change.yml
+any where Image:"*/esxcli" and (CommandLine:"*system*" and CommandLine:"*syslog*" and CommandLine:"*config*") and CommandLine:"* set*"

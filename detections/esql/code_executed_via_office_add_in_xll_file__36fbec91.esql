@@ -1,0 +1,2 @@
+// Code Executed Via Office Add-in XLL File | T1137.006 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/powershell/powershell_script/posh_ps_office_comobject_registerxll.yml
+from * metadata _id, _index, _version | where powershell.file.script_block_text like "*new-object *" and powershell.file.script_block_text like "*-ComObject *" and powershell.file.script_block_text like "*.application*" and powershell.file.script_block_text like "*.RegisterXLL*"

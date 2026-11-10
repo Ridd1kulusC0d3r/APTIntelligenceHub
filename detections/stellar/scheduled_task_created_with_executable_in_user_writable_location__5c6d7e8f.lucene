@@ -1,0 +1,18 @@
+// Scheduled Task Created With Executable In User-Writable Location | T1053.005 | Hub
+(Image:*\\schtasks.exe AND CommandLine:*\/create*) AND (CommandLine:(*\\AppData\\* OR *\\ProgramData\\* OR *\\Users\\Public\\* OR *%APPDATA%* OR *%PROGRAMDATA%*))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(Image:*\\\\schtasks.exe AND CommandLine:*\\/create*) AND (CommandLine:(*\\\\AppData\\\\* OR *\\\\ProgramData\\\\* OR *\\\\Users\\\\Public\\\\* OR *%APPDATA%* OR *%PROGRAMDATA%*))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

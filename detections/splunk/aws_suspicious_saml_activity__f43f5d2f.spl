@@ -1,0 +1,2 @@
+# AWS Suspicious SAML Activity | T1078, T1548, T1550, T1550.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/aws/cloudtrail/aws_susp_saml_activity.yml
+(eventSource="sts.amazonaws.com" eventName="AssumeRoleWithSAML") OR (eventSource="iam.amazonaws.com" eventName="UpdateSAMLProvider")

@@ -1,0 +1,2 @@
+// Zip A Folder With PowerShell For Staging In Temp - PowerShell Script | T1074.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/powershell/powershell_script/posh_ps_susp_zip_compress.yml
+from * metadata _id, _index, _version | where powershell.file.script_block_text like "*Compress-Archive -Path*-DestinationPath $env:TEMP*" or powershell.file.script_block_text like "*Compress-Archive -Path*-DestinationPath*\\AppData\\Local\\Temp\\*" or powershell.file.script_block_text like "*Compress-Archive -Path*-DestinationPath*:\\Windows\\Temp\\*"

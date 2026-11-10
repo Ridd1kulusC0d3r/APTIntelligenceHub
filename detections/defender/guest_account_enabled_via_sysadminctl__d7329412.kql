@@ -1,0 +1,3 @@
+// Guest Account Enabled Via Sysadminctl | T1078, T1078.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_sysadminctl_enable_guest_account.yml
+DeviceProcessEvents
+| where FolderPath endswith "/sysadminctl" and (ProcessCommandLine contains " -guestAccount" and ProcessCommandLine contains " on")

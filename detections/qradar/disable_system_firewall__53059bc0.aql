@@ -1,0 +1,2 @@
+-- Disable System Firewall | T1686 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/service_stop/lnx_auditd_disable_system_firewall.yml | NOTA: fallback QRadarAQL_payload_pipeline: campos sem propriedade DSM mapeada são buscados em UTF8(payload) – custo maior, crie custom properties
+SELECT * FROM events WHERE devicetype=11 AND LOWER(UTF8(payload)) LIKE '%service_stop%' AND (LOWER(UTF8(payload)) LIKE '%firewalld%' OR LOWER(UTF8(payload)) LIKE '%iptables%' OR LOWER(UTF8(payload)) LIKE '%ufw%')

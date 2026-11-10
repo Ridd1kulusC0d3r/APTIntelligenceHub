@@ -1,0 +1,18 @@
+// UEFI Persistence Via Wpbbin - FileCreation | T1542.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_wpbbin_persistence.yml
+TargetFilename:C\:\\Windows\\System32\\wpbbin.exe
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "TargetFilename:C\\:\\\\Windows\\\\System32\\\\wpbbin.exe",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

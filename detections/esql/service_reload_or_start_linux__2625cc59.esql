@@ -1,0 +1,2 @@
+// Service Reload or Start - Linux | T1543.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/execve/lnx_auditd_susp_service_reload_or_restart.yml
+from * metadata _id, _index, _version | where type=="EXECVE" and (a0 like "*systemctl*" or a0 like "*service*") and (a1 like "*reload*" or a1 like "*start*")

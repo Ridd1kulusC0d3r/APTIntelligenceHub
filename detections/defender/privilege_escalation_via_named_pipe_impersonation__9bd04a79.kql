@@ -1,0 +1,3 @@
+// Privilege Escalation via Named Pipe Impersonation | T1021 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_priv_escalation_via_named_pipe.yml
+DeviceProcessEvents
+| where ((FolderPath endswith "\\cmd.exe" or FolderPath endswith "\\powershell.exe") or (ProcessVersionInfoOriginalFileName in~ ("Cmd.Exe", "PowerShell.EXE"))) and (ProcessCommandLine contains "echo" and ProcessCommandLine contains ">" and ProcessCommandLine contains "\\\\.\\pipe\\")

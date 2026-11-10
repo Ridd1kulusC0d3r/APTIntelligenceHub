@@ -1,0 +1,2 @@
+-- Code Executed Via Office Add-in XLL File | T1137.006 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/powershell/powershell_script/posh_ps_office_comobject_registerxll.yml
+SELECT * FROM events WHERE devicetype=12 AND LOWER(Message) LIKE '%new-object %' AND LOWER(Message) LIKE '%-comobject %' AND LOWER(Message) LIKE '%.application%' AND LOWER(Message) LIKE '%.registerxll%'

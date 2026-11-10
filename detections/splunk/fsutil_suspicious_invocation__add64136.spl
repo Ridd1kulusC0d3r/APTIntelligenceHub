@@ -1,0 +1,2 @@
+# Fsutil Suspicious Invocation | T1070, T1485 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_fsutil_usage.yml
+source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=1 (Image="*\\fsutil.exe" OR OriginalFileName="fsutil.exe") (CommandLine IN ("*deletejournal*", "*createjournal*", "*setZeroData*"))

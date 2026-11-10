@@ -1,0 +1,18 @@
+// Suspicious Program Location Whitelisted In Firewall Via Netsh.EXE | T1686.003 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_netsh_fw_allow_program_in_susp_location.yml
+(Image:*\\netsh.exe OR OriginalFileName:netsh.exe) AND ((CommandLine:*firewall* AND CommandLine:*add* AND CommandLine:*allowedprogram*) OR (CommandLine:*advfirewall* AND CommandLine:*firewall* AND CommandLine:*add* AND CommandLine:*rule* AND CommandLine:*action\=allow* AND CommandLine:*program\=*)) AND (CommandLine:(*\:\\$Recycle.bin\\* OR *\:\\RECYCLER.BIN\\* OR *\:\\RECYCLERS.BIN\\* OR *\:\\SystemVolumeInformation\\* OR *\:\\Temp\\* OR *\:\\Users\\Default\\* OR *\:\\Users\\Desktop\\* OR *\:\\Users\\Public\\* OR *\:\\Windows\\addins\\* OR *\:\\Windows\\cursors\\* OR *\:\\Windows\\debug\\* OR *\:\\Windows\\drivers\\* OR *\:\\Windows\\fonts\\* OR *\:\\Windows\\help\\* OR *\:\\Windows\\system32\\tasks\\* OR *\:\\Windows\\Tasks\\* OR *\:\\Windows\\Temp\\* OR *\\Downloads\\* OR *\\Local\ Settings\\Temporary\ Internet\ Files\\* OR *\\Temporary\ Internet\ Files\\Content.Outlook\\* OR *%Public%\\* OR *%TEMP%* OR *%TMP%*))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(Image:*\\\\netsh.exe OR OriginalFileName:netsh.exe) AND ((CommandLine:*firewall* AND CommandLine:*add* AND CommandLine:*allowedprogram*) OR (CommandLine:*advfirewall* AND CommandLine:*firewall* AND CommandLine:*add* AND CommandLine:*rule* AND CommandLine:*action\\=allow* AND CommandLine:*program\\=*)) AND (CommandLine:(*\\:\\\\$Recycle.bin\\\\* OR *\\:\\\\RECYCLER.BIN\\\\* OR *\\:\\\\RECYCLERS.BIN\\\\* OR *\\:\\\\SystemVolumeInformation\\\\* OR *\\:\\\\Temp\\\\* OR *\\:\\\\Users\\\\Default\\\\* OR *\\:\\\\Users\\\\Desktop\\\\* OR *\\:\\\\Users\\\\Public\\\\* OR *\\:\\\\Windows\\\\addins\\\\* OR *\\:\\\\Windows\\\\cursors\\\\* OR *\\:\\\\Windows\\\\debug\\\\* OR *\\:\\\\Windows\\\\drivers\\\\* OR *\\:\\\\Windows\\\\fonts\\\\* OR *\\:\\\\Windows\\\\help\\\\* OR *\\:\\\\Windows\\\\system32\\\\tasks\\\\* OR *\\:\\\\Windows\\\\Tasks\\\\* OR *\\:\\\\Windows\\\\Temp\\\\* OR *\\\\Downloads\\\\* OR *\\\\Local\\ Settings\\\\Temporary\\ Internet\\ Files\\\\* OR *\\\\Temporary\\ Internet\\ Files\\\\Content.Outlook\\\\* OR *%Public%\\\\* OR *%TEMP%* OR *%TMP%*))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,3 @@
+// Control Panel Items | T1218.002, T1546 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_control_panel_item.yml
+DeviceProcessEvents
+| where ((FolderPath endswith "\\reg.exe" or ProcessVersionInfoOriginalFileName =~ "reg.exe") and (ProcessCommandLine contains "add" and ProcessCommandLine contains "CurrentVersion\\Control Panel\\CPLs")) or (ProcessCommandLine endswith ".cpl" and (not(((ProcessCommandLine contains "\\System32\\" or ProcessCommandLine contains "%System%" or ProcessCommandLine contains "|C:\\Windows\\system32|") or (ProcessCommandLine contains "regsvr32 " and ProcessCommandLine contains " /s " and ProcessCommandLine contains "igfxCPL.cpl")))))

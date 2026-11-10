@@ -1,0 +1,2 @@
+-- Microsoft 365 - User Restricted from Sending Email | T1199 | https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/m365/threat_management/microsoft365_user_restricted_from_sending_email.yml | NOTA: fallback QRadarAQL_payload_pipeline: campos sem propriedade DSM mapeada são buscados em UTF8(payload) – custo maior, crie custom properties
+SELECT * FROM events WHERE devicetype IN(443, 397) AND QIDNAME(qid)='User restricted from sending email' AND LOWER(UTF8(payload)) LIKE '%success%'

@@ -1,0 +1,18 @@
+// APT27 - Emissary Panda Activity | T1574.001 | https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2018/TA/APT27/proc_creation_win_apt_apt27_emissary_panda.yml
+(ParentImage:*\\sllauncher.exe AND Image:*\\svchost.exe) OR (ParentImage:*\\AppData\\Roaming\\* AND Image:*\\svchost.exe AND CommandLine:*\-k*)
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(ParentImage:*\\\\sllauncher.exe AND Image:*\\\\svchost.exe) OR (ParentImage:*\\\\AppData\\\\Roaming\\\\* AND Image:*\\\\svchost.exe AND CommandLine:*\\-k*)",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,2 @@
+// Github Self-Hosted Runner Execution | T1071, T1102.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_github_self_hosted_runner.yml
+((process.executable.caseless:*\\Runner.Worker.exe OR process.pe.original_file_name:Runner.Worker.dll) AND process.command_line:*spawnclient*) OR ((process.executable.caseless:*\\Runner.Listener.exe OR process.pe.original_file_name:Runner.Listener.dll) AND (process.command_line:(*run* OR *configure*)))

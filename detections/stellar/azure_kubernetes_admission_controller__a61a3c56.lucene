@@ -1,0 +1,18 @@
+// Azure Kubernetes Admission Controller | T1078, T1552, T1552.007 | https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/azure/activity_logs/azure_kubernetes_admission_controller.yml
+(operationName:(MICROSOFT.KUBERNETES\/CONNECTEDCLUSTERS\/ADMISSIONREGISTRATION.K8S.IO* OR MICROSOFT.CONTAINERSERVICE\/MANAGEDCLUSTERS\/ADMISSIONREGISTRATION.K8S.IO*)) AND (operationName:(*\/MUTATINGWEBHOOKCONFIGURATIONS\/WRITE OR *\/VALIDATINGWEBHOOKCONFIGURATIONS\/WRITE))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(operationName:(MICROSOFT.KUBERNETES\\/CONNECTEDCLUSTERS\\/ADMISSIONREGISTRATION.K8S.IO* OR MICROSOFT.CONTAINERSERVICE\\/MANAGEDCLUSTERS\\/ADMISSIONREGISTRATION.K8S.IO*)) AND (operationName:(*\\/MUTATINGWEBHOOKCONFIGURATIONS\\/WRITE OR *\\/VALIDATINGWEBHOOKCONFIGURATIONS\\/WRITE))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

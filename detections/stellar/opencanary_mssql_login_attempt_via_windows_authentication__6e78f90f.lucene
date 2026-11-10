@@ -1,0 +1,18 @@
+// OpenCanary - MSSQL Login Attempt Via Windows Authentication | T1003, T1213 | https://github.com/SigmaHQ/sigma/blob/master/rules/application/opencanary/opencanary_mssql_login_winauth.yml
+logtype:9002
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "logtype:9002",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

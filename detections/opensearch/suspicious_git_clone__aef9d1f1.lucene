@@ -1,0 +1,2 @@
+// Suspicious Git Clone | T1593.003 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_git_susp_clone.yml
+((process.executable.caseless:(*\\git.exe OR *\\git\-remote\-https.exe)) OR process.pe.original_file_name:git.exe) AND (process.command_line:(*\ clone\ * OR *git\-remote\-https\ *)) AND (process.command_line:(*exploit* OR *Vulns* OR *vulnerability* OR *RemoteCodeExecution* OR *Invoke\-* OR *CVE\-* OR *poc\-* OR *ProofOfConcept* OR *proxyshell* OR *log4shell* OR *eternalblue* OR *eternal\-blue* OR *MS17\-*))

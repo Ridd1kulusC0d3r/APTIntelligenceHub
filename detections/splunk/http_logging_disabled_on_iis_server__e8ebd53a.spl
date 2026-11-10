@@ -1,0 +1,2 @@
+# HTTP Logging Disabled On IIS Server | T1505.004, T1685.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/iis-configuration/win_iis_logging_http_disabled.yml
+source="WinEventLog:Microsoft-IIS-Configuration/Operational" EventCode=29 Configuration="/system.webServer/httpLogging/@dontLog" NewValue="true"

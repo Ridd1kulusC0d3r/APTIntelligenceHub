@@ -1,0 +1,2 @@
+# Renamed Mavinject.EXE Execution | T1055.001, T1218.013 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_renamed_mavinject.yml
+source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=1 (OriginalFileName IN ("mavinject32.exe", "mavinject64.exe")) NOT (Image IN ("*\\mavinject32.exe", "*\\mavinject64.exe"))

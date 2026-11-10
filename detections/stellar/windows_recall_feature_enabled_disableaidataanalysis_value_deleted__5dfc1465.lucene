@@ -1,0 +1,18 @@
+// Windows Recall Feature Enabled - DisableAIDataAnalysis Value Deleted | T1113 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_delete/registry_delete_enable_windows_recall.yml
+EventType:DeleteValue AND TargetObject:*\\Microsoft\\Windows\\WindowsAI\\DisableAIDataAnalysis
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "EventType:DeleteValue AND TargetObject:*\\\\Microsoft\\\\Windows\\\\WindowsAI\\\\DisableAIDataAnalysis",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,18 @@
+// DNS Query Request By Regsvr32.EXE | T1218.010, T1559.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/dns_query/dns_query_win_regsvr32_dns_query.yml
+Image:*\\regsvr32.exe
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "Image:*\\\\regsvr32.exe",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

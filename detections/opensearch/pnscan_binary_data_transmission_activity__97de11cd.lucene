@@ -1,0 +1,2 @@
+// Pnscan Binary Data Transmission Activity | T1046 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_pnscan_binary_cli_pattern.yml
+CommandLine:/-(W|R)\s?(\s|"|')([0-9a-fA-F]{2}\s?){2,20}(\s|"|')/

@@ -1,0 +1,3 @@
+// Lazarus System Binary Masquerading | T1036.005 | https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2017/TA/Lazarus/proc_creation_win_apt_lazarus_binary_masquerading.yml
+DeviceProcessEvents
+| where (FolderPath endswith "\\msdtc.exe" or FolderPath endswith "\\gpsvc.exe") and (not((FolderPath startswith "C:\\Windows\\System32\\" or FolderPath startswith "C:\\Windows\\SysWOW64\\")))

@@ -1,0 +1,18 @@
+// HackTool - Covenant PowerShell Launcher | T1059.001, T1564.003 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_covenant.yml
+((CommandLine:*\-Sta* AND CommandLine:*\-Nop* AND CommandLine:*\-Window* AND CommandLine:*Hidden*) AND (CommandLine:(*\-Command* OR *\-EncodedCommand*))) OR (CommandLine:(*sv\ o\ \(New\-Object\ IO.MemorySteam\);sv\ d\ * OR *mshta\ file.hta* OR *GruntHTTP* OR *\-EncodedCommand\ cwB2ACAAbwAgA*))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "((CommandLine:*\\-Sta* AND CommandLine:*\\-Nop* AND CommandLine:*\\-Window* AND CommandLine:*Hidden*) AND (CommandLine:(*\\-Command* OR *\\-EncodedCommand*))) OR (CommandLine:(*sv\\ o\\ \\(New\\-Object\\ IO.MemorySteam\\);sv\\ d\\ * OR *mshta\\ file.hta* OR *GruntHTTP* OR *\\-EncodedCommand\\ cwB2ACAAbwAgA*))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

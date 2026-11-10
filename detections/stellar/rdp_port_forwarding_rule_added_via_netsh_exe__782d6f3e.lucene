@@ -1,0 +1,18 @@
+// RDP Port Forwarding Rule Added Via Netsh.EXE | T1090 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_netsh_port_forwarding_3389.yml
+(Image:*\\netsh.exe OR OriginalFileName:netsh.exe) AND (CommandLine:*\ i* AND CommandLine:*\ p* AND CommandLine:*\=3389* AND CommandLine:*\ c*)
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(Image:*\\\\netsh.exe OR OriginalFileName:netsh.exe) AND (CommandLine:*\\ i* AND CommandLine:*\\ p* AND CommandLine:*\\=3389* AND CommandLine:*\\ c*)",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

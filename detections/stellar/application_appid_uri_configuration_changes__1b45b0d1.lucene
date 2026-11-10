@@ -1,0 +1,18 @@
+// Application AppID Uri Configuration Changes | T1078.004, T1552 | https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/azure/audit_logs/azure_app_appid_uri_changes.yml
+properties.message:("Update Application" OR "Update Service principal")
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "properties.message:(\"Update Application\" OR \"Update Service principal\")",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,2 @@
+// Potential Persistence Via Excel Add-in - Registry | T1137.006 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_persistence_xll.yml
+from * metadata _id, _index, _version | where registry.path like "*Software\\Microsoft\\Office\\*" and ends_with(registry.path, "\\Excel\\Options") and starts_with(winlog.event_data.Details, "/R ") and ends_with(winlog.event_data.Details, ".xll")

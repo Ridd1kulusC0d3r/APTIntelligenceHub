@@ -1,0 +1,18 @@
+// Suspicious LNK Double Extension File Created | T1036.007 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_susp_lnk_double_extension.yml
+(TargetFilename:*.lnk AND (TargetFilename:(*.doc.* OR *.docx.* OR *.jpg.* OR *.pdf.* OR *.ppt.* OR *.pptx.* OR *.xls.* OR *.xlsx.*))) AND (NOT TargetFilename:*\\AppData\\Roaming\\Microsoft\\Windows\\Recent\\*) AND (NOT (((Image:(*\\excel.exe OR *\\powerpnt.exe OR *\\winword.exe)) AND TargetFilename:*\\AppData\\Roaming\\Microsoft\\Office\\Recent\\*) OR (Image:*\\excel.exe AND TargetFilename:*\\AppData\\Roaming\\Microsoft\\Excel*) OR (Image:*\\powerpnt.exe AND TargetFilename:*\\AppData\\Roaming\\Microsoft\\PowerPoint*) OR (Image:*\\winword.exe AND TargetFilename:*\\AppData\\Roaming\\Microsoft\\Word*)))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(TargetFilename:*.lnk AND (TargetFilename:(*.doc.* OR *.docx.* OR *.jpg.* OR *.pdf.* OR *.ppt.* OR *.pptx.* OR *.xls.* OR *.xlsx.*))) AND (NOT TargetFilename:*\\\\AppData\\\\Roaming\\\\Microsoft\\\\Windows\\\\Recent\\\\*) AND (NOT (((Image:(*\\\\excel.exe OR *\\\\powerpnt.exe OR *\\\\winword.exe)) AND TargetFilename:*\\\\AppData\\\\Roaming\\\\Microsoft\\\\Office\\\\Recent\\\\*) OR (Image:*\\\\excel.exe AND TargetFilename:*\\\\AppData\\\\Roaming\\\\Microsoft\\\\Excel*) OR (Image:*\\\\powerpnt.exe AND TargetFilename:*\\\\AppData\\\\Roaming\\\\Microsoft\\\\PowerPoint*) OR (Image:*\\\\winword.exe AND TargetFilename:*\\\\AppData\\\\Roaming\\\\Microsoft\\\\Word*)))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

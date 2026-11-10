@@ -1,0 +1,18 @@
+// Commands to Clear or Remove the Syslog - Builtin | T1565.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/builtin/lnx_clear_syslog.yml
+(*rm\ \/var\/log\/syslog* OR *rm\ \-r\ \/var\/log\/syslog* OR *rm\ \-f\ \/var\/log\/syslog* OR *rm\ \-rf\ \/var\/log\/syslog* OR *mv\ \/var\/log\/syslog* OR *\ \>\/var\/log\/syslog* OR *\ \>\ \/var\/log\/syslog*) AND (NOT *\/syslog.*)
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(*rm\\ \\/var\\/log\\/syslog* OR *rm\\ \\-r\\ \\/var\\/log\\/syslog* OR *rm\\ \\-f\\ \\/var\\/log\\/syslog* OR *rm\\ \\-rf\\ \\/var\\/log\\/syslog* OR *mv\\ \\/var\\/log\\/syslog* OR *\\ \\>\\/var\\/log\\/syslog* OR *\\ \\>\\ \\/var\\/log\\/syslog*) AND (NOT *\\/syslog.*)",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,18 @@
+// Psexec Execution | T1021, T1569 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sysinternals_psexec_execution.yml
+Image:*\\psexec.exe OR OriginalFileName:psexec.c
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "Image:*\\\\psexec.exe OR OriginalFileName:psexec.c",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,2 @@
+-- HackTool - SharpEvtMute DLL Load | T1685.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_hktl_sharpevtmute.yml
+SELECT * FROM events WHERE devicetype=12 AND LOWER(CONCAT('MD5=', 'MD5 Hash ', 'SHA1=', 'SHA1 Hash ', 'SHA256=', 'SHA256 Hash ', 'IMPHASH=', 'IMP HASH')) LIKE '%imphash=330768a4f172e10acb6287b87289d83b%'

@@ -1,0 +1,2 @@
+-- Binary Padding - Linux | T1027.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/execve/lnx_auditd_binary_padding.yml | NOTA: fallback QRadarAQL_payload_pipeline: campos sem propriedade DSM mapeada são buscados em UTF8(payload) – custo maior, crie custom properties
+SELECT * FROM events WHERE devicetype=11 AND LOWER(UTF8(payload)) LIKE '%execve%' AND ((LOWER(UTF8(payload)) LIKE '%truncate%' AND LOWER(UTF8(payload)) LIKE '%-s%') OR ((LOWER(UTF8(payload)) LIKE '%dd%' AND LOWER(UTF8(payload)) LIKE '%if=%') AND (NOT(LOWER(UTF8(payload)) LIKE '%of=%'))))

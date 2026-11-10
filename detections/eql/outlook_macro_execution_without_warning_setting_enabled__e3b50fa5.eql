@@ -1,0 +1,2 @@
+// Outlook Macro Execution Without Warning Setting Enabled | T1008, T1137, T1546 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_office_outlook_enable_macro_execution.yml
+any where registry.path:"*\\Outlook\\Security\\Level" and winlog.event_data.Details:"*0x00000001*"

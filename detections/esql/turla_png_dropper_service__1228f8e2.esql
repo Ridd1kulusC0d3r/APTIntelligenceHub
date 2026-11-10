@@ -1,0 +1,2 @@
+// Turla PNG Dropper Service | T1543.003 | https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2017/TA/Turla/win_system_apt_turla_service_png.yml
+from * metadata _id, _index, _version | where winlog.channel=="System" and winlog.provider_name=="Service Control Manager" and event.code=="7045" and winlog.event_data.ServiceName=="WerFaultSvc"

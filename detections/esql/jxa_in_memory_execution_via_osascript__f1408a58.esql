@@ -1,0 +1,2 @@
+// JXA In-memory Execution Via OSAScript | T1059.002, T1059.007 | https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_jxa_in_memory_execution.yml
+from * metadata _id, _index, _version | where CommandLine like "*osascript*" and CommandLine like "* -e *" and CommandLine like "*eval*" and CommandLine like "*NSData.dataWithContentsOfURL*" and (CommandLine like "* -l *" and CommandLine like "*JavaScript*" or CommandLine like "*.js*")

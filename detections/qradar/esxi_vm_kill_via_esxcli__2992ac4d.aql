@@ -1,0 +1,2 @@
+-- ESXi VM Kill Via ESXCLI | T1059.012, T1529 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_esxcli_vm_kill.yml
+SELECT * FROM events WHERE devicetype=11 AND (LOWER("Process Path") LIKE '%/esxcli' OR LOWER("Process Name") LIKE '%/esxcli') AND (LOWER(Command) LIKE '%vm process%' AND LOWER(Command) LIKE '%kill%')

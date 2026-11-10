@@ -1,0 +1,18 @@
+// ETW Logging/Processing Option Disabled On IIS Server | T1505.004, T1685.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/iis-configuration/win_iis_logging_etw_disabled.yml
+(EventID:29 AND Configuration:*@logTargetW3C AND OldValue:*ETW*) AND (NOT NewValue:*ETW*)
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(EventID:29 AND Configuration:*@logTargetW3C AND OldValue:*ETW*) AND (NOT NewValue:*ETW*)",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

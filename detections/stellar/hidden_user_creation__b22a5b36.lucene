@@ -1,0 +1,18 @@
+// Hidden User Creation | T1564.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_create_hidden_account.yml
+((Image:*\/dscl AND CommandLine:*create*) AND (CommandLine:*UniqueID* AND CommandLine:/([0-9]|[1-9][0-9]|[1-4][0-9]{2})/)) OR ((Image:*\/dscl AND CommandLine:*create*) AND (CommandLine:*IsHidden* AND (CommandLine:(*true* OR *yes* OR *1*))))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "((Image:*\\/dscl AND CommandLine:*create*) AND (CommandLine:*UniqueID* AND CommandLine:/([0-9]|[1-9][0-9]|[1-4][0-9]{2})/)) OR ((Image:*\\/dscl AND CommandLine:*create*) AND (CommandLine:*IsHidden* AND (CommandLine:(*true* OR *yes* OR *1*))))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

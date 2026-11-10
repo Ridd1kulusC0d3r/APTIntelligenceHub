@@ -1,0 +1,2 @@
+# AWS SecurityHub Findings Evasion | T1685 | https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/aws/cloudtrail/aws_securityhub_finding_evasion.yml
+eventSource="securityhub.amazonaws.com" (eventName IN ("BatchUpdateFindings", "DeleteInsight", "UpdateFindings", "UpdateInsight"))

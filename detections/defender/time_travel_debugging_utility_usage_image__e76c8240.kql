@@ -1,0 +1,3 @@
+// Time Travel Debugging Utility Usage - Image | T1003.001, T1218 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_dll_tttracer_module_load.yml
+DeviceImageLoadEvents
+| where FolderPath endswith "\\ttdrecord.dll" or FolderPath endswith "\\ttdwriter.dll" or FolderPath endswith "\\ttdloader.dll"

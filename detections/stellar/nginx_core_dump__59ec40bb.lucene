@@ -1,0 +1,18 @@
+// Nginx Core Dump | T1499.004 | https://github.com/SigmaHQ/sigma/blob/master/rules/web/product/nginx/web_nginx_core_dump.yml
+*exited\ on\ signal\ 6\ \(core\ dumped\)*
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "*exited\\ on\\ signal\\ 6\\ \\(core\\ dumped\\)*",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,2 @@
+// ESXi VM Kill Via ESXCLI | T1059.012, T1529 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_esxcli_vm_kill.yml
+from * metadata _id, _index, _version | where ends_with(Image, "/esxcli") and CommandLine like "*vm process*" and CommandLine like "*kill*"

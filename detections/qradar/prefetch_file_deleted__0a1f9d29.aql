@@ -1,0 +1,2 @@
+-- Prefetch File Deleted | T1070.004 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_delete/file_delete_win_delete_prefetch.yml
+SELECT * FROM events WHERE devicetype=12 AND (LOWER(Filename) LIKE '%:\windows\prefetch\%' AND LOWER(Filename) LIKE '%.pf') AND (NOT(((LOWER("Process Path") LIKE '%:\windows\system32\svchost.exe' OR LOWER("Process Name") LIKE '%:\windows\system32\svchost.exe') AND (LOWER(Username) LIKE '%authori%' OR LOWER(Username) LIKE '%autori%'))))

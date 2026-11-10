@@ -1,0 +1,2 @@
+-- Persistence Via Sudoers Files | T1548.003 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/file_event/file_event_lnx_persistence_sudoers_files.yml
+SELECT * FROM events WHERE devicetype=11 AND (Filename='/etc/sudoers' OR LOWER(Filename) LIKE '/etc/sudoers.d/%') AND (NOT(((LOWER("Process Path") LIKE '%/usr/bin/dpkg' OR LOWER("Process Name") LIKE '%/usr/bin/dpkg') AND Filename='/etc/sudoers.d/README.dpkg-new')))

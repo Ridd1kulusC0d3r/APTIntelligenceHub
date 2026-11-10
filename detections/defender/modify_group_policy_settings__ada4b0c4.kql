@@ -1,0 +1,3 @@
+// Modify Group Policy Settings | T1484.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_reg_modify_group_policy_settings.yml
+DeviceProcessEvents
+| where (FolderPath endswith "\\reg.exe" or ProcessVersionInfoOriginalFileName =~ "reg.exe") and ProcessCommandLine contains "\\SOFTWARE\\Policies\\Microsoft\\Windows\\System" and (ProcessCommandLine contains "GroupPolicyRefreshTimeDC" or ProcessCommandLine contains "GroupPolicyRefreshTimeOffsetDC" or ProcessCommandLine contains "GroupPolicyRefreshTime" or ProcessCommandLine contains "GroupPolicyRefreshTimeOffset" or ProcessCommandLine contains "EnableSmartScreen" or ProcessCommandLine contains "ShellSmartScreenLevel")

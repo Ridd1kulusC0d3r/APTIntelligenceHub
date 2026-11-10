@@ -1,0 +1,18 @@
+// Suspicious Network Communication With IPFS | T1056 | https://github.com/SigmaHQ/sigma/blob/master/rules/web/proxy_generic/proxy_susp_ipfs_cred_harvest.yml
+cs-uri:/(?i)(ipfs\.io\/|ipfs\.io\s).+\..+@.+\.[a-z]+/
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "cs-uri:/(?i)(ipfs\\.io\\/|ipfs\\.io\\s).+\\..+@.+\\.[a-z]+/",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

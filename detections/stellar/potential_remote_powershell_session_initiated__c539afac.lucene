@@ -1,0 +1,18 @@
+// Potential Remote PowerShell Session Initiated | T1021.006, T1059.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_susp_remote_powershell_session.yml
+((DestinationPort:(5985 OR 5986)) AND Initiated:true AND SourceIsIpv6:false) AND (NOT (((User:(*NETWORK\ SERVICE* OR *NETZWERKDIENST* OR *SERVICIO\ DE\ RED* OR *SERVIZIO\ DI\ RETE*)) OR (User:*SERVICE\ R* AND User:*SEAU*)) OR ((SourceIp:(\:\:1 OR 127.0.0.1)) AND (DestinationIp:(\:\:1 OR 127.0.0.1))))) AND (NOT (Image:("C\:\\Program Files\\Avast Software\\Avast\\AvastSvc.exe" OR "C\:\\Program Files \(x86\)\\Avast Software\\Avast\\AvastSvc.exe")))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "((DestinationPort:(5985 OR 5986)) AND Initiated:true AND SourceIsIpv6:false) AND (NOT (((User:(*NETWORK\\ SERVICE* OR *NETZWERKDIENST* OR *SERVICIO\\ DE\\ RED* OR *SERVIZIO\\ DI\\ RETE*)) OR (User:*SERVICE\\ R* AND User:*SEAU*)) OR ((SourceIp:(\\:\\:1 OR 127.0.0.1)) AND (DestinationIp:(\\:\\:1 OR 127.0.0.1))))) AND (NOT (Image:(\"C\\:\\\\Program Files\\\\Avast Software\\\\Avast\\\\AvastSvc.exe\" OR \"C\\:\\\\Program Files \\(x86\\)\\\\Avast Software\\\\Avast\\\\AvastSvc.exe\")))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

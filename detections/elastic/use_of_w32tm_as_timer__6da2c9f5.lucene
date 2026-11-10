@@ -1,0 +1,2 @@
+// Use of W32tm as Timer | T1124 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_w32tm.yml
+(process.executable.caseless:*\\w32tm.exe OR process.pe.original_file_name:w32time.dll) AND (process.command_line:*\/stripchart* AND process.command_line:*\/computer\:* AND process.command_line:*\/period\:* AND process.command_line:*\/dataonly* AND process.command_line:*\/samples\:*)

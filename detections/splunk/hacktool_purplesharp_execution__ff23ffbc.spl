@@ -1,0 +1,2 @@
+# HackTool - PurpleSharp Execution | T1587 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_purplesharp_indicators.yml
+source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=1 (Image="*\\purplesharp*" OR OriginalFileName="PurpleSharp.exe" OR CommandLine IN ("*xyz123456.exe*", "*PurpleSharp*"))

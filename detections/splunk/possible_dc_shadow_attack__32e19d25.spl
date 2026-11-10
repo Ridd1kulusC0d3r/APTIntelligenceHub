@@ -1,0 +1,2 @@
+# Possible DC Shadow Attack | T1207 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_possible_dc_shadow.yml
+source="WinEventLog:Security" ((EventCode=4742 ServicePrincipalNames="*GC/*") OR (EventCode=5136 AttributeLDAPDisplayName="servicePrincipalName" AttributeValue="GC/*"))

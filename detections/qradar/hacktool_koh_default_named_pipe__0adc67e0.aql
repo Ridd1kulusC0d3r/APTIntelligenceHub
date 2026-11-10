@@ -1,0 +1,2 @@
+-- HackTool - Koh Default Named Pipe | T1134.001, T1528 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/pipe_created/pipe_created_hktl_koh_default_pipe.yml
+SELECT * FROM events WHERE devicetype=12 AND (LOWER("Pipe Name") LIKE '%\imposecost%' OR LOWER("Pipe Name") LIKE '%\imposingcost%')

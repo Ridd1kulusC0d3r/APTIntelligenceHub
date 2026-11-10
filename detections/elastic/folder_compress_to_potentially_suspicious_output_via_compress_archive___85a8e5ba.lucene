@@ -1,0 +1,2 @@
+// Folder Compress To Potentially Suspicious Output Via Compress-Archive Cmdlet | T1074.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_zip_compress.yml
+process.command_line:(*Compress\-Archive\ \-Path*\-DestinationPath\ $env\:TEMP* OR *Compress\-Archive\ \-Path*\-DestinationPath*\\AppData\\Local\\Temp\\* OR *Compress\-Archive\ \-Path*\-DestinationPath*\:\\Windows\\Temp\\*)

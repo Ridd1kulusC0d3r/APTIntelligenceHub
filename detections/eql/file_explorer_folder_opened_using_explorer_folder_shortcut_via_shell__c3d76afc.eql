@@ -1,0 +1,2 @@
+// File Explorer Folder Opened Using Explorer Folder Shortcut Via Shell | T1135 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_explorer_folder_shortcut_via_shell_binary.yml
+any where (process.parent.executable.caseless like~ ("*\\cmd.exe", "*\\powershell.exe", "*\\pwsh.exe")) and process.executable.caseless:"*\\explorer.exe" and process.command_line:"*shell:mycomputerfolder*"

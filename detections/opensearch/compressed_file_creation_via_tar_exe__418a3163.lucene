@@ -1,0 +1,2 @@
+// Compressed File Creation Via Tar.EXE | T1560, T1560.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_tar_compression.yml
+(process.executable.caseless:*\\tar.exe OR process.pe.original_file_name:bsdtar) AND (process.command_line:(*\-c* OR *\-r* OR *\-u*))

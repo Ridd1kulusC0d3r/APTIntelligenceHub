@@ -1,0 +1,18 @@
+// Potential Ryuk Ransomware Activity | T1547.001 | https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2019/Malware/Ryuk/proc_creation_win_malware_ryuk.yml
+(CommandLine:*Microsoft\\Windows\\CurrentVersion\\Run* AND CommandLine:*C\:\\users\\Public\\*) OR (CommandLine:*del\ \/s\ \/f\ \/q\ c\:\\* AND CommandLine:*\*.bac* AND CommandLine:*\*.bak* AND CommandLine:*\*.bkf*) OR ((Image:(*\\net.exe OR *\\net1.exe)) AND (CommandLine:*\ stop\ * AND CommandLine:*\ \/y*) AND (CommandLine:(*samss* OR *audioendpointbuilder* OR *unistoresvc_* OR *AcrSch2Svc*)))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(CommandLine:*Microsoft\\\\Windows\\\\CurrentVersion\\\\Run* AND CommandLine:*C\\:\\\\users\\\\Public\\\\*) OR (CommandLine:*del\\ \\/s\\ \\/f\\ \\/q\\ c\\:\\\\* AND CommandLine:*\\*.bac* AND CommandLine:*\\*.bak* AND CommandLine:*\\*.bkf*) OR ((Image:(*\\\\net.exe OR *\\\\net1.exe)) AND (CommandLine:*\\ stop\\ * AND CommandLine:*\\ \\/y*) AND (CommandLine:(*samss* OR *audioendpointbuilder* OR *unistoresvc_* OR *AcrSch2Svc*)))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

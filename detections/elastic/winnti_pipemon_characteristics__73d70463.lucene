@@ -1,0 +1,2 @@
+// Winnti Pipemon Characteristics | T1574.001 | https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2020/TA/Winnti/proc_creation_win_apt_winnti_pipemon.yml
+process.command_line:*setup0.exe\ \-p* OR (process.command_line:*setup.exe* AND (process.command_line:(*\-x\:0 OR *\-x\:1 OR *\-x\:2)))

@@ -1,0 +1,2 @@
+-- CodeIntegrity - Blocked Image/Driver Load For Policy Violation | T1543 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/code_integrity/win_codeintegrity_enforced_policy_block.yml
+SELECT * FROM events WHERE devicetype=12 AND "Event ID"=3077

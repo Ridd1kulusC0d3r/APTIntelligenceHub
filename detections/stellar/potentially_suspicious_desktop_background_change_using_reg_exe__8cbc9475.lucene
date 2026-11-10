@@ -1,0 +1,18 @@
+// Potentially Suspicious Desktop Background Change Using Reg.EXE | T1112, T1491.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_reg_desktop_background_change.yml
+((Image:*\\reg.exe OR OriginalFileName:reg.exe) AND CommandLine:*add*) AND (CommandLine:(*Control\ Panel\\Desktop* OR *CurrentVersion\\Policies\\ActiveDesktop* OR *CurrentVersion\\Policies\\System*)) AND ((CommandLine:*\/v\ NoChangingWallpaper* AND CommandLine:*\/d\ 1*) OR (CommandLine:*\/v\ Wallpaper* AND CommandLine:*\/t\ REG_SZ*) OR (CommandLine:*\/v\ WallpaperStyle* AND CommandLine:*\/d\ 2*))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "((Image:*\\\\reg.exe OR OriginalFileName:reg.exe) AND CommandLine:*add*) AND (CommandLine:(*Control\\ Panel\\\\Desktop* OR *CurrentVersion\\\\Policies\\\\ActiveDesktop* OR *CurrentVersion\\\\Policies\\\\System*)) AND ((CommandLine:*\\/v\\ NoChangingWallpaper* AND CommandLine:*\\/d\\ 1*) OR (CommandLine:*\\/v\\ Wallpaper* AND CommandLine:*\\/t\\ REG_SZ*) OR (CommandLine:*\\/v\\ WallpaperStyle* AND CommandLine:*\\/d\\ 2*))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

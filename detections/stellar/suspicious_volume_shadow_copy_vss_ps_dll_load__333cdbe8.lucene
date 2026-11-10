@@ -1,0 +1,18 @@
+// Suspicious Volume Shadow Copy VSS_PS.dll Load | T1490 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_dll_vss_ps_susp_load.yml
+ImageLoaded:*\\vss_ps.dll AND (NOT ((Image:C\:\\Windows\\* AND (Image:(*\\clussvc.exe OR *\\dismhost.exe OR *\\dllhost.exe OR *\\inetsrv\\appcmd.exe OR *\\inetsrv\\iissetup.exe OR *\\msiexec.exe OR *\\rundll32.exe OR *\\searchindexer.exe OR *\\srtasks.exe OR *\\svchost.exe OR *\\System32\\SystemPropertiesAdvanced.exe OR *\\taskhostw.exe OR *\\thor.exe OR *\\thor64.exe OR *\\tiworker.exe OR *\\vssvc.exe OR *\\vssadmin.exe OR *\\WmiPrvSE.exe OR *\\wsmprovhost.exe))) OR (CommandLine:C\:\\$WinREAgent\\Scratch\\* AND CommandLine:*\\dismhost.exe\ \{*) OR (NOT _exists_:Image))) AND (NOT (Image:(C\:\\Program\ Files\\* OR C\:\\Program\ Files\ \(x86\)\\*)))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "ImageLoaded:*\\\\vss_ps.dll AND (NOT ((Image:C\\:\\\\Windows\\\\* AND (Image:(*\\\\clussvc.exe OR *\\\\dismhost.exe OR *\\\\dllhost.exe OR *\\\\inetsrv\\\\appcmd.exe OR *\\\\inetsrv\\\\iissetup.exe OR *\\\\msiexec.exe OR *\\\\rundll32.exe OR *\\\\searchindexer.exe OR *\\\\srtasks.exe OR *\\\\svchost.exe OR *\\\\System32\\\\SystemPropertiesAdvanced.exe OR *\\\\taskhostw.exe OR *\\\\thor.exe OR *\\\\thor64.exe OR *\\\\tiworker.exe OR *\\\\vssvc.exe OR *\\\\vssadmin.exe OR *\\\\WmiPrvSE.exe OR *\\\\wsmprovhost.exe))) OR (CommandLine:C\\:\\\\$WinREAgent\\\\Scratch\\\\* AND CommandLine:*\\\\dismhost.exe\\ \\{*) OR (NOT _exists_:Image))) AND (NOT (Image:(C\\:\\\\Program\\ Files\\\\* OR C\\:\\\\Program\\ Files\\ \\(x86\\)\\\\*)))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

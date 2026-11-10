@@ -1,0 +1,2 @@
+// Hiding User Account Via SpecialAccounts Registry Key - CommandLine | T1564.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_registry_special_accounts_hide_user.yml
+from * metadata _id, _index, _version | where ends_with(process.executable.caseless, "\\reg.exe") and process.command_line like "*\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon\\SpecialAccounts\\UserList*" and process.command_line like "*add*" and process.command_line like "*/v*" and process.command_line like "*/d 0*"

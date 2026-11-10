@@ -1,0 +1,2 @@
+# PUA - DefenderCheck Execution | T1027.005 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_defendercheck.yml
+source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=1 (Image="*\\DefenderCheck.exe" OR Description="DefenderCheck")

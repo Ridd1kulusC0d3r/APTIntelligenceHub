@@ -1,0 +1,2 @@
+-- Visual Basic Command Line Compiler Usage | T1027.004 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_visual_basic_compiler.yml
+SELECT * FROM events WHERE devicetype=12 AND LOWER("Parent Process Path") LIKE '%\vbc.exe' AND (LOWER("Process Path") LIKE '%\cvtres.exe' OR LOWER("Process Name") LIKE '%\cvtres.exe')

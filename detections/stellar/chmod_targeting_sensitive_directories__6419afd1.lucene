@@ -1,0 +1,18 @@
+// Chmod Targeting Sensitive Directories | T1222.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_chmod_targeting_sensitive_directories.yml
+(Image:*\/chmod AND (CommandLine:(*\/tmp\/* OR *\/.Library\/* OR *\/etc\/* OR *\/opt\/*))) AND (NOT ((CommandLine:*chmod\ \-\-reference\=\/etc\/shells* AND ParentCommandLine:*\/update\-shells) OR (CommandLine:*\/etc\/* AND (ParentCommandLine:*\/var\/lib\/dpkg\/info\/* AND ParentCommandLine:*.postinst\ configure*)) OR CommandLine:chmod\ 700\ \/tmp\/apt\-key\-gpghome.* OR CommandLine:chmod\ 755\ \/var\/tmp\/mkinitramfs* OR CommandLine:"chmod 0775 \/etc\/landscape\/" OR CommandLine:"chmod 644 \/etc\/apparmor.d\/tunables\/home.d\/ubuntu"))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(Image:*\\/chmod AND (CommandLine:(*\\/tmp\\/* OR *\\/.Library\\/* OR *\\/etc\\/* OR *\\/opt\\/*))) AND (NOT ((CommandLine:*chmod\\ \\-\\-reference\\=\\/etc\\/shells* AND ParentCommandLine:*\\/update\\-shells) OR (CommandLine:*\\/etc\\/* AND (ParentCommandLine:*\\/var\\/lib\\/dpkg\\/info\\/* AND ParentCommandLine:*.postinst\\ configure*)) OR CommandLine:chmod\\ 700\\ \\/tmp\\/apt\\-key\\-gpghome.* OR CommandLine:chmod\\ 755\\ \\/var\\/tmp\\/mkinitramfs* OR CommandLine:\"chmod 0775 \\/etc\\/landscape\\/\" OR CommandLine:\"chmod 644 \\/etc\\/apparmor.d\\/tunables\\/home.d\\/ubuntu\"))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

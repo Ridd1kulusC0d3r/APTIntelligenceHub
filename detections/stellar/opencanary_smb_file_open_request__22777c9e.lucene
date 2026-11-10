@@ -1,0 +1,18 @@
+// OpenCanary - SMB File Open Request | T1005, T1021 | https://github.com/SigmaHQ/sigma/blob/master/rules/application/opencanary/opencanary_smb_file_open.yml
+logtype:5000
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "logtype:5000",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

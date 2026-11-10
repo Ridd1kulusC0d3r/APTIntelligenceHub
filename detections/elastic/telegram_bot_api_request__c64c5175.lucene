@@ -1,0 +1,2 @@
+// Telegram Bot API Request | T1102.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/network/dns/net_dns_susp_telegram_api.yml
+query:api.telegram.org

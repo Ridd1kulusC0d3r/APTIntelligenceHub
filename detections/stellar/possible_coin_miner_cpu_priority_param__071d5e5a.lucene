@@ -1,0 +1,18 @@
+// Possible Coin Miner CPU Priority Param | T1068 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/execve/lnx_auditd_coinminer.yml
+a1:\-\-cpu\-priority* OR a2:\-\-cpu\-priority* OR a3:\-\-cpu\-priority* OR a4:\-\-cpu\-priority* OR a5:\-\-cpu\-priority* OR a6:\-\-cpu\-priority* OR a7:\-\-cpu\-priority*
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "a1:\\-\\-cpu\\-priority* OR a2:\\-\\-cpu\\-priority* OR a3:\\-\\-cpu\\-priority* OR a4:\\-\\-cpu\\-priority* OR a5:\\-\\-cpu\\-priority* OR a6:\\-\\-cpu\\-priority* OR a7:\\-\\-cpu\\-priority*",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,2 @@
+# RDP Port Forwarding Rule Added Via Netsh.EXE | T1090 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_netsh_port_forwarding_3389.yml
+source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=1 (Image="*\\netsh.exe" OR OriginalFileName="netsh.exe") CommandLine="* i*" CommandLine="* p*" CommandLine="*=3389*" CommandLine="* c*"

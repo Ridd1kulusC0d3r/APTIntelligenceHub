@@ -1,0 +1,2 @@
+-- Renamed SysInternals DebugView Execution | T1588.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_renamed_sysinternals_debugview.yml | NOTA: fallback QRadarAQL_payload_pipeline: campos sem propriedade DSM mapeada são buscados em UTF8(payload) – custo maior, crie custom properties
+SELECT * FROM events WHERE devicetype=12 AND LOWER(UTF8(payload)) LIKE '%sysinternals debugview%' AND (NOT((Filename='Dbgview.exe' AND (LOWER("Process Path") LIKE '%\dbgview.exe' OR LOWER("Process Name") LIKE '%\dbgview.exe'))))

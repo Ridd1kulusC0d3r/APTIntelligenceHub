@@ -1,0 +1,2 @@
+// Certificate Private Key Acquired | T1649 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/capi2/win_capi2_acquire_certificate_private_key.yml
+from * metadata _id, _index, _version | where winlog.channel=="Microsoft-Windows-CAPI2/Operational" and event.code=="70"

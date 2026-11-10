@@ -1,0 +1,18 @@
+// Suspicious Velociraptor Child Process | T1219 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_velociraptor_child_process.yml
+ParentImage:*\\Velociraptor.exe AND ((CommandLine:*code.exe* AND CommandLine:*tunnel* AND CommandLine:*\-\-accept\-server\-license\-terms*) OR (CommandLine:*msiexec* AND CommandLine:*\/i* AND CommandLine:*http*) OR ((Image:(*\\powershell.exe OR *\\powershell_ise.exe OR *\\pwsh.exe)) AND (CommandLine:(*Invoke\-WebRequest\ * OR *IWR\ * OR *.DownloadFile* OR *.DownloadString*))))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "ParentImage:*\\\\Velociraptor.exe AND ((CommandLine:*code.exe* AND CommandLine:*tunnel* AND CommandLine:*\\-\\-accept\\-server\\-license\\-terms*) OR (CommandLine:*msiexec* AND CommandLine:*\\/i* AND CommandLine:*http*) OR ((Image:(*\\\\powershell.exe OR *\\\\powershell_ise.exe OR *\\\\pwsh.exe)) AND (CommandLine:(*Invoke\\-WebRequest\\ * OR *IWR\\ * OR *.DownloadFile* OR *.DownloadString*))))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

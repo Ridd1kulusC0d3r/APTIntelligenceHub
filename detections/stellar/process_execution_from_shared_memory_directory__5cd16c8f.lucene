@@ -1,0 +1,18 @@
+// Process Execution From Shared Memory Directory | T1027.011 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_susp_exec_from_dev_shm.yml
+Image:\/dev\/shm\/*
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "Image:\\/dev\\/shm\\/*",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

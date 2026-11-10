@@ -1,0 +1,18 @@
+// Linux Doas Conf File Creation | T1548 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/file_event/file_event_lnx_doas_conf_creation.yml
+TargetFilename:*\/etc\/doas.conf
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "TargetFilename:*\\/etc\\/doas.conf",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

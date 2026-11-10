@@ -1,0 +1,18 @@
+// Recon Information for Export with Command Prompt | T1119 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_recon.yml
+((Image:(*\\tree.com OR *\\WMIC.exe OR *\\doskey.exe OR *\\sc.exe)) OR (OriginalFileName:(wmic.exe OR DOSKEY.EXE OR sc.exe))) AND (ParentCommandLine:(*\ \>\ %TEMP%\\* OR *\ \>\ %TMP%\\*))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "((Image:(*\\\\tree.com OR *\\\\WMIC.exe OR *\\\\doskey.exe OR *\\\\sc.exe)) OR (OriginalFileName:(wmic.exe OR DOSKEY.EXE OR sc.exe))) AND (ParentCommandLine:(*\\ \\>\\ %TEMP%\\\\* OR *\\ \\>\\ %TMP%\\\\*))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

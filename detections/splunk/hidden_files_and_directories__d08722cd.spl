@@ -1,0 +1,7 @@
+# Hidden Files and Directories | T1564.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/execve/lnx_auditd_hidden_files_directories.yml
+type="EXECVE"
+| rex field=a1 "(?<a1Match>(^|\\/)\\.[^.\\/])"
+| eval a1Condition=if(isnotnull(a1Match), "true", "false")
+| rex field=a2 "(?<a2Match>(^|\\/)\\.[^.\\/])"
+| eval a2Condition=if(isnotnull(a2Match), "true", "false")
+| search (a0 IN ("mkdir", "nano", "touch", "vi", "vim")) (a1Condition="true" OR a2Condition="true")

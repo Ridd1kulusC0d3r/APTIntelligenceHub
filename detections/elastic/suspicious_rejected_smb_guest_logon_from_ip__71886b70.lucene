@@ -1,0 +1,2 @@
+// Suspicious Rejected SMB Guest Logon From IP | T1110.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/smbclient/security/win_smbclient_security_susp_failed_guest_logon.yml
+winlog.channel:Microsoft\-Windows\-SmbClient\/Security AND (event.code:31017 AND winlog.event_data.UserName:"" AND winlog.event_data.ServerName:\\1*)

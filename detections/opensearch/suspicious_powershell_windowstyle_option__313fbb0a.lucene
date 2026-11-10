@@ -1,0 +1,2 @@
+// Suspicious PowerShell WindowStyle Option | T1564.003 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/powershell/powershell_script/posh_ps_susp_windowstyle.yml
+(powershell.file.script_block_text:*powershell* AND powershell.file.script_block_text:*WindowStyle* AND powershell.file.script_block_text:*Hidden*) AND (NOT (powershell.file.script_block_text:*\:\\Program\ Files\\Amazon\\WorkSpacesConfig\\Scripts\\* AND powershell.file.script_block_text:*$PSScriptRoot\\Module\\WorkspaceScriptModule\\WorkspaceScriptModule*))

@@ -1,0 +1,2 @@
+// Binary Padding - Linux | T1027.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/execve/lnx_auditd_binary_padding.yml
+any where type:"EXECVE" and (("truncate" and "-s") or (("dd" and "if=") and (not "of=")))

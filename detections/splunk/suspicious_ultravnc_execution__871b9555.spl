@@ -1,0 +1,2 @@
+# Suspicious UltraVNC Execution | T1021.005 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_ultravnc_susp_execution.yml
+source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=1 CommandLine="*-autoreconnect *" CommandLine="*-connect *" CommandLine="*-id:*"

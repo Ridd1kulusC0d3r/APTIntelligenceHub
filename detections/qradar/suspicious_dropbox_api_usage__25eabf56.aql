@@ -1,0 +1,2 @@
+-- Suspicious Dropbox API Usage | T1105, T1567.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_domain_dropbox_api.yml
+SELECT * FROM events WHERE devicetype=12 AND (Initiated='true' AND (LOWER("Destination Hostname") LIKE '%api.dropboxapi.com' OR LOWER("Destination Hostname") LIKE '%content.dropboxapi.com')) AND (NOT((LOWER("Process Path") LIKE '%\dropbox%' OR LOWER("Process Name") LIKE '%\dropbox%')))

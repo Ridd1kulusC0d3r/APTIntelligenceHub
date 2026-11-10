@@ -1,0 +1,2 @@
+// Detected Windows Software Discovery | T1518 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_reg_software_discovery.yml
+from * metadata _id, _index, _version | where ends_with(process.executable.caseless, "\\reg.exe") and process.command_line like "*query*" and process.command_line like "*\\software\\*" and process.command_line like "*/v*" and process.command_line like "*svcversion*"

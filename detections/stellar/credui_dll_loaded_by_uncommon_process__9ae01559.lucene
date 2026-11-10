@@ -1,0 +1,18 @@
+// CredUI.DLL Loaded By Uncommon Process | T1056.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_dll_credui_uncommon_process_load.yml
+((ImageLoaded:(*\\credui.dll OR *\\wincredui.dll)) OR (OriginalFileName:(credui.dll OR wincredui.dll))) AND (NOT ((Image:(C\:\\Program\ Files\ \(x86\)\\* OR C\:\\Program\ Files\\* OR C\:\\Windows\\System32\\* OR C\:\\Windows\\SysWOW64\\* OR C\:\\Windows\\SystemApps\\*)) OR (Image:(C\:\\Windows\\explorer.exe OR C\:\\Windows\\ImmersiveControlPanel\\SystemSettings.exe OR C\:\\Windows\\regedit.exe)))) AND (NOT (Image:*\\opera_autoupdate.exe OR (Image:(*\\procexp64.exe OR *\\procexp64a.exe OR *\\procexp.exe)) OR (Image:C\:\\Users\\* AND Image:*\\AppData\\Local\\Microsoft\\Teams\\* AND Image:*\\Teams.exe) OR (Image:C\:\\Users\\* AND Image:*\\AppData\\Local\\Microsoft\\OneDrive\\*)))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "((ImageLoaded:(*\\\\credui.dll OR *\\\\wincredui.dll)) OR (OriginalFileName:(credui.dll OR wincredui.dll))) AND (NOT ((Image:(C\\:\\\\Program\\ Files\\ \\(x86\\)\\\\* OR C\\:\\\\Program\\ Files\\\\* OR C\\:\\\\Windows\\\\System32\\\\* OR C\\:\\\\Windows\\\\SysWOW64\\\\* OR C\\:\\\\Windows\\\\SystemApps\\\\*)) OR (Image:(C\\:\\\\Windows\\\\explorer.exe OR C\\:\\\\Windows\\\\ImmersiveControlPanel\\\\SystemSettings.exe OR C\\:\\\\Windows\\\\regedit.exe)))) AND (NOT (Image:*\\\\opera_autoupdate.exe OR (Image:(*\\\\procexp64.exe OR *\\\\procexp64a.exe OR *\\\\procexp.exe)) OR (Image:C\\:\\\\Users\\\\* AND Image:*\\\\AppData\\\\Local\\\\Microsoft\\\\Teams\\\\* AND Image:*\\\\Teams.exe) OR (Image:C\\:\\\\Users\\\\* AND Image:*\\\\AppData\\\\Local\\\\Microsoft\\\\OneDrive\\\\*)))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,2 @@
+-- Office Application Startup - Office Test | T1137.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/registry_event_office_test_regadd.yml
+SELECT * FROM events WHERE devicetype=12 AND (LOWER("Process Name") LIKE '%\software\microsoft\office test\special\perf%' OR LOWER("Target Process Name") LIKE '%\software\microsoft\office test\special\perf%' OR LOWER("Object Name") LIKE '%\software\microsoft\office test\special\perf%')

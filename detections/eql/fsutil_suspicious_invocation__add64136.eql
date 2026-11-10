@@ -1,0 +1,2 @@
+// Fsutil Suspicious Invocation | T1070, T1485 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_fsutil_usage.yml
+any where (process.executable.caseless:"*\\fsutil.exe" or process.pe.original_file_name:"fsutil.exe") and (process.command_line like~ ("*deletejournal*", "*createjournal*", "*setZeroData*"))

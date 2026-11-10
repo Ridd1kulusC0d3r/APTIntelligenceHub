@@ -1,0 +1,18 @@
+// Powershell Keylogging | T1056.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/powershell/powershell_script/posh_ps_keylogging.yml
+ScriptBlockText:*Get\-Keystrokes* OR (ScriptBlockText:*Get\-ProcAddress\ user32.dll\ GetAsyncKeyState* AND ScriptBlockText:*Get\-ProcAddress\ user32.dll\ GetForegroundWindow*)
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "ScriptBlockText:*Get\\-Keystrokes* OR (ScriptBlockText:*Get\\-ProcAddress\\ user32.dll\\ GetAsyncKeyState* AND ScriptBlockText:*Get\\-ProcAddress\\ user32.dll\\ GetForegroundWindow*)",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

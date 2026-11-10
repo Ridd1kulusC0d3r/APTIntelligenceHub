@@ -1,0 +1,18 @@
+// Suspicious DotNET CLR Usage Log Artifact | T1218 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_net_cli_artefact.yml
+(TargetFilename:(*\\UsageLogs\\cmstp.exe.log OR *\\UsageLogs\\cscript.exe.log OR *\\UsageLogs\\mshta.exe.log OR *\\UsageLogs\\msxsl.exe.log OR *\\UsageLogs\\regsvr32.exe.log OR *\\UsageLogs\\rundll32.exe.log OR *\\UsageLogs\\svchost.exe.log OR *\\UsageLogs\\wscript.exe.log OR *\\UsageLogs\\wmic.exe.log)) AND (NOT (ParentImage:*\\MsiExec.exe AND ParentCommandLine:*\ \-Embedding* AND Image:*\\rundll32.exe AND (CommandLine:*Temp* AND CommandLine:*zzzzInvokeManagedCustomActionOutOfProc*)))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(TargetFilename:(*\\\\UsageLogs\\\\cmstp.exe.log OR *\\\\UsageLogs\\\\cscript.exe.log OR *\\\\UsageLogs\\\\mshta.exe.log OR *\\\\UsageLogs\\\\msxsl.exe.log OR *\\\\UsageLogs\\\\regsvr32.exe.log OR *\\\\UsageLogs\\\\rundll32.exe.log OR *\\\\UsageLogs\\\\svchost.exe.log OR *\\\\UsageLogs\\\\wscript.exe.log OR *\\\\UsageLogs\\\\wmic.exe.log)) AND (NOT (ParentImage:*\\\\MsiExec.exe AND ParentCommandLine:*\\ \\-Embedding* AND Image:*\\\\rundll32.exe AND (CommandLine:*Temp* AND CommandLine:*zzzzInvokeManagedCustomActionOutOfProc*)))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

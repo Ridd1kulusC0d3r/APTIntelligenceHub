@@ -1,0 +1,2 @@
+-- Remote Server Service Abuse for Lateral Movement | T1569.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/application/rpc_firewall/rpc_firewall_remote_service_lateral_movement.yml | NOTA: fallback QRadarAQL_payload_pipeline: campos sem propriedade DSM mapeada são buscados em UTF8(payload) – custo maior, crie custom properties
+SELECT * FROM events WHERE LOWER(UTF8(payload)) LIKE '%rpcfw%' AND "Event ID"=3 AND "Source Interface UUID"='367abb81-9844-35f1-ad32-98f038001003'

@@ -1,0 +1,2 @@
+-- SharpHound Recon Account Discovery | T1087 | https://github.com/SigmaHQ/sigma/blob/master/rules/application/rpc_firewall/rpc_firewall_sharphound_recon_account.yml | NOTA: fallback QRadarAQL_payload_pipeline: campos sem propriedade DSM mapeada são buscados em UTF8(payload) – custo maior, crie custom properties
+SELECT * FROM events WHERE LOWER(UTF8(payload)) LIKE '%rpcfw%' AND "Event ID"=3 AND "Source Interface UUID"='6bffd098-a112-3610-9833-46c3f87e345a' AND LOWER(UTF8(payload)) LIKE '%opnum%2%'

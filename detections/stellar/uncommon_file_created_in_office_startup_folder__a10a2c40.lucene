@@ -1,0 +1,18 @@
+// Uncommon File Created In Office Startup Folder | T1587.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_office_uncommon_file_startup.yml
+(((TargetFilename:*\\Microsoft\\Word\\STARTUP* OR (TargetFilename:*\\Office* AND TargetFilename:*\\Program\ Files* AND TargetFilename:*\\STARTUP*)) AND (NOT (TargetFilename:(*.docb OR *.docm OR *.docx OR *.dotm OR *.mdb OR *.mdw OR *.pdf OR *.wll OR *.wwl)))) OR ((TargetFilename:*\\Microsoft\\Excel\\XLSTART* OR (TargetFilename:*\\Office* AND TargetFilename:*\\Program\ Files* AND TargetFilename:*\\XLSTART*)) AND (NOT (TargetFilename:(*.xll OR *.xls OR *.xlsm OR *.xlsx OR *.xlt OR *.xltm OR *.xlw))))) AND (NOT ((Image:*\:\\Program\ Files\\Common\ Files\\Microsoft\ Shared\\ClickToRun\\* AND Image:*\\OfficeClickToRun.exe) OR ((Image:(*\:\\Program\ Files\\Microsoft\ Office\\* OR *\:\\Program\ Files\ \(x86\)\\Microsoft\ Office\\*)) AND (Image:(*\\winword.exe OR *\\excel.exe)))))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(((TargetFilename:*\\\\Microsoft\\\\Word\\\\STARTUP* OR (TargetFilename:*\\\\Office* AND TargetFilename:*\\\\Program\\ Files* AND TargetFilename:*\\\\STARTUP*)) AND (NOT (TargetFilename:(*.docb OR *.docm OR *.docx OR *.dotm OR *.mdb OR *.mdw OR *.pdf OR *.wll OR *.wwl)))) OR ((TargetFilename:*\\\\Microsoft\\\\Excel\\\\XLSTART* OR (TargetFilename:*\\\\Office* AND TargetFilename:*\\\\Program\\ Files* AND TargetFilename:*\\\\XLSTART*)) AND (NOT (TargetFilename:(*.xll OR *.xls OR *.xlsm OR *.xlsx OR *.xlt OR *.xltm OR *.xlw))))) AND (NOT ((Image:*\\:\\\\Program\\ Files\\\\Common\\ Files\\\\Microsoft\\ Shared\\\\ClickToRun\\\\* AND Image:*\\\\OfficeClickToRun.exe) OR ((Image:(*\\:\\\\Program\\ Files\\\\Microsoft\\ Office\\\\* OR *\\:\\\\Program\\ Files\\ \\(x86\\)\\\\Microsoft\\ Office\\\\*)) AND (Image:(*\\\\winword.exe OR *\\\\excel.exe)))))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

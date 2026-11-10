@@ -1,0 +1,3 @@
+// Psexec Execution | T1021, T1569 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sysinternals_psexec_execution.yml
+DeviceProcessEvents
+| where FolderPath endswith "\\psexec.exe" or ProcessVersionInfoOriginalFileName =~ "psexec.c"

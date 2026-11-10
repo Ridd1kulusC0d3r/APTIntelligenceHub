@@ -1,0 +1,18 @@
+// Renamed Mavinject.EXE Execution | T1055.001, T1218.013 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_renamed_mavinject.yml
+(OriginalFileName:(mavinject32.exe OR mavinject64.exe)) AND (NOT (Image:(*\\mavinject32.exe OR *\\mavinject64.exe)))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(OriginalFileName:(mavinject32.exe OR mavinject64.exe)) AND (NOT (Image:(*\\\\mavinject32.exe OR *\\\\mavinject64.exe)))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

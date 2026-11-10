@@ -1,0 +1,18 @@
+// Control Panel Items | T1218.002, T1546 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_control_panel_item.yml
+((Image:*\\reg.exe OR OriginalFileName:reg.exe) AND (CommandLine:*add* AND CommandLine:*CurrentVersion\\Control\ Panel\\CPLs*)) OR (CommandLine:*.cpl AND (NOT ((CommandLine:(*\\System32\\* OR *%System%* OR *\|C\:\\Windows\\system32\|*)) OR (CommandLine:*regsvr32\ * AND CommandLine:*\ \/s\ * AND CommandLine:*igfxCPL.cpl*))))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "((Image:*\\\\reg.exe OR OriginalFileName:reg.exe) AND (CommandLine:*add* AND CommandLine:*CurrentVersion\\\\Control\\ Panel\\\\CPLs*)) OR (CommandLine:*.cpl AND (NOT ((CommandLine:(*\\\\System32\\\\* OR *%System%* OR *\\|C\\:\\\\Windows\\\\system32\\|*)) OR (CommandLine:*regsvr32\\ * AND CommandLine:*\\ \\/s\\ * AND CommandLine:*igfxCPL.cpl*))))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

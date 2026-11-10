@@ -1,0 +1,2 @@
+-- Sudo Privilege Escalation CVE-2019-14287 - Builtin | T1068, T1548.003 | https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2019/Exploits/CVE-2019-14287/lnx_sudo_exploit_cve_2019_14287.yml
+SELECT * FROM events WHERE devicetype=11 AND (LOWER(Username) LIKE '#-%' OR LOWER(Username) LIKE '#%4294967295')

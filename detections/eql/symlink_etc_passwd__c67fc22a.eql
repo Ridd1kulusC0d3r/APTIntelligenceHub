@@ -1,0 +1,2 @@
+// Symlink Etc Passwd | T1204.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/builtin/lnx_symlink_etc_passwd.yml
+any where "ln -s -f /etc/passwd" or "ln -s /etc/passwd"

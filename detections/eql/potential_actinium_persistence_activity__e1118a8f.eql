@@ -1,0 +1,2 @@
+// Potential ACTINIUM Persistence Activity | T1053, T1053.005 | https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2022/TA/ACTINIUM/proc_creation_win_apt_actinium_persistence.yml
+any where process.command_line:"*schtasks*" and process.command_line:"*create*" and process.command_line:"*wscript*" and process.command_line:"* /e:vbscript*"

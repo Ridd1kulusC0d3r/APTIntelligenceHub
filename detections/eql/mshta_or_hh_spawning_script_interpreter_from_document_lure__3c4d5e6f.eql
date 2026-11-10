@@ -1,0 +1,2 @@
+// MSHTA Or HH Spawning Script Interpreter From Document Lure | T1218.001, T1218.005 | Hub
+any where (process.parent.executable.caseless like~ ("*\\mshta.exe", "*\\hh.exe")) and (process.executable.caseless like~ ("*\\powershell.exe", "*\\cmd.exe", "*\\wscript.exe", "*\\cscript.exe", "*\\curl.exe"))

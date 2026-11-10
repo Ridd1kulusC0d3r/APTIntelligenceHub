@@ -1,0 +1,18 @@
+// Suspicious SSL Connection | T1573 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/powershell/powershell_script/posh_ps_susp_ssl_keyword.yml
+ScriptBlockText:*System.Net.Security.SslStream* AND ScriptBlockText:*Net.Security.RemoteCertificateValidationCallback* AND ScriptBlockText:*.AuthenticateAsClient*
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "ScriptBlockText:*System.Net.Security.SslStream* AND ScriptBlockText:*Net.Security.RemoteCertificateValidationCallback* AND ScriptBlockText:*.AuthenticateAsClient*",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

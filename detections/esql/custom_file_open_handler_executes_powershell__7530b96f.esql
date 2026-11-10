@@ -1,0 +1,2 @@
+// Custom File Open Handler Executes PowerShell | T1202 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_custom_file_open_handler_powershell_execution.yml
+from * metadata _id, _index, _version | where registry.path like "*shell\\open\\command\\*" and winlog.event_data.Details like "*powershell*" and winlog.event_data.Details like "*-command*"

@@ -1,0 +1,2 @@
+// Modify Group Policy Settings | T1484.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_reg_modify_group_policy_settings.yml
+any where (process.executable.caseless:"*\\reg.exe" or process.pe.original_file_name:"reg.exe") and process.command_line:"*\\SOFTWARE\\Policies\\Microsoft\\Windows\\System*" and (process.command_line like~ ("*GroupPolicyRefreshTimeDC*", "*GroupPolicyRefreshTimeOffsetDC*", "*GroupPolicyRefreshTime*", "*GroupPolicyRefreshTimeOffset*", "*EnableSmartScreen*", "*ShellSmartScreenLevel*"))

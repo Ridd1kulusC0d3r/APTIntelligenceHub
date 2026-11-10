@@ -1,0 +1,2 @@
+// Addition of SID History to Active Directory Object | T1134.005 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_susp_add_sid_history.yml
+any where winlog.channel:"Security" and ((event.code like~ ("4765", "4766")) or (event.code:"4738" and (not (winlog.event_data.SidHistory like~ ("-", "%%1793"))) and ?winlog.event_data.SidHistory != null))

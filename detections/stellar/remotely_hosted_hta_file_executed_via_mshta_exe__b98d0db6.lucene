@@ -1,0 +1,18 @@
+// Remotely Hosted HTA File Executed Via Mshta.EXE | T1218.005 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_mshta_http.yml
+(Image:*\\mshta.exe OR OriginalFileName:MSHTA.EXE) AND (CommandLine:(*http\:\/\/* OR *https\:\/\/* OR *ftp\:\/\/*))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(Image:*\\\\mshta.exe OR OriginalFileName:MSHTA.EXE) AND (CommandLine:(*http\\:\\/\\/* OR *https\\:\\/\\/* OR *ftp\\:\\/\\/*))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

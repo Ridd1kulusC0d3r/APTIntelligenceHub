@@ -1,0 +1,25 @@
+title: Service Installed With Binary In Unusual Path (svchost-hosted DLL)
+id: 7c2d9e41-5a6b-4c3d-8e1f-0a9b8c7d6e06
+status: experimental
+description: New service whose ImagePath references svchost with a ServiceDll outside System32 - technique used by TinyTurla and similar backdoors.
+author: CTI Consolidation
+date: 2025-01-01
+tags:
+    - attack.persistence
+    - attack.t1543.003
+logsource:
+    category: registry_set
+    product: windows
+detection:
+    selection:
+        TargetObject|contains: '\Services\'
+        TargetObject|endswith: '\Parameters\ServiceDll'
+    filter_system:
+        Details|startswith:
+            - 'C:\Windows\System32\'
+            - '%SystemRoot%\System32\'
+            - '%systemroot%\system32\'
+    condition: selection and not filter_system
+falsepositives:
+    - Softwares de terceiros que registram ServiceDll própria (raro)
+level: high

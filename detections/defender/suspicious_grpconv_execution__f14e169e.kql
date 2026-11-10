@@ -1,0 +1,3 @@
+// Suspicious GrpConv Execution | T1547 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_susp_grpconv.yml
+DeviceProcessEvents
+| where ProcessCommandLine contains "grpconv.exe -o" or ProcessCommandLine contains "grpconv -o"

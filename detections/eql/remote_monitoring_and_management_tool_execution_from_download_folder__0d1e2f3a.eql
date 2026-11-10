@@ -1,0 +1,2 @@
+// Remote Monitoring And Management Tool Execution From Download Folder | T1219 | Hub
+any where ((process.executable.caseless like~ ("*AteraAgent*", "*ScreenConnect*", "*SimpleHelp*", "*AnyDesk*", "*Syncro*", "*netbird*")) or (process.pe.product like~ ("*Atera*", "*ScreenConnect*", "*SimpleHelp*", "*AnyDesk*"))) and (process.executable.caseless like~ ("*\\Downloads\\*", "*\\AppData\\Local\\Temp\\*"))

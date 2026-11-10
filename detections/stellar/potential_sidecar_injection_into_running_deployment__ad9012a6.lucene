@@ -1,0 +1,18 @@
+// Potential Sidecar Injection Into Running Deployment | T1609 | https://github.com/SigmaHQ/sigma/blob/master/rules/application/kubernetes/audit/kubernetes_audit_sidecar_injection.yml
+verb:patch AND apiGroup:apps AND objectRef.resource:deployments
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "verb:patch AND apiGroup:apps AND objectRef.resource:deployments",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

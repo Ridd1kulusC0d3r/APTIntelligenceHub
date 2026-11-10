@@ -1,0 +1,2 @@
+// Potential Ransomware Activity Using LegalNotice Message | T1491.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_legalnotice_susp_message.yml
+(registry.path:(*\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System\\LegalNoticeCaption* OR *\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System\\LegalNoticeText*)) AND (winlog.event_data.Details:(*encrypted* OR *Unlock\-Password* OR *paying*))

@@ -1,0 +1,18 @@
+// Important Scheduled Task Deleted/Disabled | T1053.005 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_susp_scheduled_task_delete_or_disable.yml
+((EventID:(4699 OR 4701)) AND (TaskName:(*\\Windows\\SystemRestore\\SR* OR *\\Windows\\Windows\ Defender\\* OR *\\Windows\\BitLocker* OR *\\Windows\\WindowsBackup\\* OR *\\Windows\\WindowsUpdate\\* OR *\\Windows\\UpdateOrchestrator\\Schedule* OR *\\Windows\\ExploitGuard*))) AND (NOT (EventID:4699 AND SubjectUserName:*$ AND TaskName:*\\Windows\\Windows\ Defender\\*))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "((EventID:(4699 OR 4701)) AND (TaskName:(*\\\\Windows\\\\SystemRestore\\\\SR* OR *\\\\Windows\\\\Windows\\ Defender\\\\* OR *\\\\Windows\\\\BitLocker* OR *\\\\Windows\\\\WindowsBackup\\\\* OR *\\\\Windows\\\\WindowsUpdate\\\\* OR *\\\\Windows\\\\UpdateOrchestrator\\\\Schedule* OR *\\\\Windows\\\\ExploitGuard*))) AND (NOT (EventID:4699 AND SubjectUserName:*$ AND TaskName:*\\\\Windows\\\\Windows\\ Defender\\\\*))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

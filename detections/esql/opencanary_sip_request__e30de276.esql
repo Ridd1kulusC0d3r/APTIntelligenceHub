@@ -1,0 +1,2 @@
+// OpenCanary - SIP Request | T1123 | https://github.com/SigmaHQ/sigma/blob/master/rules/application/opencanary/opencanary_sip_request.yml
+from * metadata _id, _index, _version | where logtype==15001

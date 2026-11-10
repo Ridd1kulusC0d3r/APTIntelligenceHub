@@ -1,0 +1,2 @@
+# Potential Recon Activity Via Nltest.EXE | T1016, T1482 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_nltest_recon.yml
+source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=1 (Image="*\\nltest.exe" OR OriginalFileName="nltestrk.exe") ((CommandLine="*server*" CommandLine="*query*") OR CommandLine IN ("*/user*", "*all_trusts*", "*dclist:*", "*dnsgetdc:*", "*domain_trusts*", "*dsgetdc:*", "*parentdomain*", "*trusted_domains*"))

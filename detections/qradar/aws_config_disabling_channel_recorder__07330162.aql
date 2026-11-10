@@ -1,0 +1,2 @@
+-- AWS Config Disabling Channel/Recorder | T1685.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/aws/cloudtrail/aws_config_disable_recording.yml
+SELECT * FROM events WHERE devicetype IN(516, 519, 456, 460, 501, 502, 507, 440, 347) AND QIDNAME(qid) IN('DeleteDeliveryChannel', 'StopConfigurationRecorder')

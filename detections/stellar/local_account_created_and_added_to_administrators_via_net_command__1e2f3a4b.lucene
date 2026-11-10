@@ -1,0 +1,18 @@
+// Local Account Created And Added To Administrators Via Net Command | T1136.001 | Hub
+(Image:(*\\net.exe OR *\\net1.exe)) AND (CommandLine:*localgroup* AND CommandLine:*admin* AND CommandLine:*\/add*)
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(Image:(*\\\\net.exe OR *\\\\net1.exe)) AND (CommandLine:*localgroup* AND CommandLine:*admin* AND CommandLine:*\\/add*)",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

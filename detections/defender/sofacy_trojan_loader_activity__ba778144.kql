@@ -1,0 +1,3 @@
+// Sofacy Trojan Loader Activity | T1059.003, T1218.011 | https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2018/TA/APT28/proc_creation_win_apt_sofacy.yml
+DeviceProcessEvents
+| where ((FolderPath endswith "\\rundll32.exe" and (ProcessCommandLine contains "%LOCALAPPDATA%" or ProcessCommandLine contains "\\AppData\\Local\\")) and (ProcessCommandLine contains ".dat\"," or (ProcessCommandLine endswith ".dll #1" or ProcessCommandLine endswith ".dll\" #1" or ProcessCommandLine endswith ".dll\",#1"))) and (not(ProcessCommandLine contains "\\AppData\\Local\\Temp\\"))

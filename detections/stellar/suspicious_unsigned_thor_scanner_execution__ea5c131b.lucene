@@ -1,0 +1,18 @@
+// Suspicious Unsigned Thor Scanner Execution | T1574.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_thor_unsigned_execution.yml
+((Image:(*\\thor.exe OR *\\thor64.exe)) AND (ImageLoaded:(*\\thor.exe OR *\\thor64.exe))) AND (NOT (Signed:true AND SignatureStatus:valid AND Signature:"Nextron Systems GmbH"))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "((Image:(*\\\\thor.exe OR *\\\\thor64.exe)) AND (ImageLoaded:(*\\\\thor.exe OR *\\\\thor64.exe))) AND (NOT (Signed:true AND SignatureStatus:valid AND Signature:\"Nextron Systems GmbH\"))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

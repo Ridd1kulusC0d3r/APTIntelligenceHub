@@ -1,0 +1,2 @@
+// Scheduled Cron Task/Job - Linux | T1053.003 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_schedule_task_job_cron.yml
+any where Image:"*crontab" and CommandLine:"*/tmp/*"

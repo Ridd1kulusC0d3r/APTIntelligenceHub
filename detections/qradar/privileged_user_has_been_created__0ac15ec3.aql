@@ -1,0 +1,2 @@
+-- Privileged User Has Been Created | T1098, T1136.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/builtin/lnx_privileged_user_creation.yml | NOTA: fallback QRadarAQL_payload_pipeline: campos sem propriedade DSM mapeada são buscados em UTF8(payload) – custo maior, crie custom properties
+SELECT * FROM events WHERE devicetype=11 AND LOWER(UTF8(payload)) LIKE '%new user%' AND (LOWER(UTF8(payload)) LIKE '%gid=0,%' OR LOWER(UTF8(payload)) LIKE '%uid=0,%' OR LOWER(UTF8(payload)) LIKE '%gid=10,%' OR LOWER(UTF8(payload)) LIKE '%gid=27,%')

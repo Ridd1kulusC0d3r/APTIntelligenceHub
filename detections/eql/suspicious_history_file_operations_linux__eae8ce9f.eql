@@ -1,0 +1,2 @@
+// Suspicious History File Operations - Linux | T1552.003 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/execve/lnx_auditd_susp_histfile_operations.yml
+any where type:"EXECVE" and (".bash_history" or ".zsh_history" or ".zhistory" or ".history" or ".sh_history" or "fish_history")

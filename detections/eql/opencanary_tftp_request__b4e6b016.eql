@@ -1,0 +1,2 @@
+// OpenCanary - TFTP Request | T1041 | https://github.com/SigmaHQ/sigma/blob/master/rules/application/opencanary/opencanary_tftp_request.yml
+any where logtype:10001

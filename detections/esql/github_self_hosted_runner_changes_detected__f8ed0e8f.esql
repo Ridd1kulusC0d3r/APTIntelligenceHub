@@ -1,0 +1,2 @@
+// Github Self Hosted Runner Changes Detected | T1078.004, T1213.003, T1526 | https://github.com/SigmaHQ/sigma/blob/master/rules/application/github/audit/github_self_hosted_runner_changes_detected.yml
+from * metadata _id, _index, _version | where action in ("org.remove_self_hosted_runner", "org.runner_group_created", "org.runner_group_removed", "org.runner_group_runner_removed", "org.runner_group_runners_added", "org.runner_group_runners_updated", "org.runner_group_updated", "repo.register_self_hosted_runner", "repo.remove_self_hosted_runner")

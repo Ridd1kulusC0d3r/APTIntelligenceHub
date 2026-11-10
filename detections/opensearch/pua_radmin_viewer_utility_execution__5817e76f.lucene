@@ -1,0 +1,2 @@
+// PUA - Radmin Viewer Utility Execution | T1072 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_radmin.yml
+process.pe.description:"Radmin Viewer" OR process.pe.product:"Radmin Viewer" OR process.pe.original_file_name:Radmin.exe

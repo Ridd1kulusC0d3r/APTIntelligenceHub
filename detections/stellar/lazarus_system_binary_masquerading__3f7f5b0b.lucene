@@ -1,0 +1,18 @@
+// Lazarus System Binary Masquerading | T1036.005 | https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2017/TA/Lazarus/proc_creation_win_apt_lazarus_binary_masquerading.yml
+(Image:(*\\msdtc.exe OR *\\gpsvc.exe)) AND (NOT (Image:(C\:\\Windows\\System32\\* OR C\:\\Windows\\SysWOW64\\*)))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(Image:(*\\\\msdtc.exe OR *\\\\gpsvc.exe)) AND (NOT (Image:(C\\:\\\\Windows\\\\System32\\\\* OR C\\:\\\\Windows\\\\SysWOW64\\\\*)))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

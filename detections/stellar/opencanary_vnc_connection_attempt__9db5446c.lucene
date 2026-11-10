@@ -1,0 +1,18 @@
+// OpenCanary - VNC Connection Attempt | T1021 | https://github.com/SigmaHQ/sigma/blob/master/rules/application/opencanary/opencanary_vnc_connection_attempt.yml
+logtype:12001
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "logtype:12001",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

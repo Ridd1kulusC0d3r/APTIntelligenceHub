@@ -1,0 +1,18 @@
+// Potential Persistence Via Logon Scripts - Registry | T1037.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_persistence_logon_scripts_userinitmprlogonscript.yml
+TargetObject:*UserInitMprLogonScript*
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "TargetObject:*UserInitMprLogonScript*",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

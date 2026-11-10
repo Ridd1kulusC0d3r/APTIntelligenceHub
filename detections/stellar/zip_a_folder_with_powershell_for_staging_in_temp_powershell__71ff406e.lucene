@@ -1,0 +1,18 @@
+// Zip A Folder With PowerShell For Staging In Temp - PowerShell | T1074.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/powershell/powershell_classic/posh_pc_susp_zip_compress.yml
+Data:(*Compress\-Archive\ \-Path*\-DestinationPath\ $env\:TEMP* OR *Compress\-Archive\ \-Path*\-DestinationPath*\\AppData\\Local\\Temp\\* OR *Compress\-Archive\ \-Path*\-DestinationPath*\:\\Windows\\Temp\\*)
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "Data:(*Compress\\-Archive\\ \\-Path*\\-DestinationPath\\ $env\\:TEMP* OR *Compress\\-Archive\\ \\-Path*\\-DestinationPath*\\\\AppData\\\\Local\\\\Temp\\\\* OR *Compress\\-Archive\\ \\-Path*\\-DestinationPath*\\:\\\\Windows\\\\Temp\\\\*)",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

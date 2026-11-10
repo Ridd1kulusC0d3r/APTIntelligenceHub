@@ -1,0 +1,3 @@
+// Visual Studio Code Tunnel Execution | T1071.001, T1219 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_vscode_tunnel_execution.yml
+DeviceProcessEvents
+| where (isnull(ProcessVersionInfoOriginalFileName) and ProcessCommandLine endswith ".exe tunnel") or (ProcessCommandLine contains ".exe tunnel" and ProcessCommandLine contains "--accept-server-license-terms") or (InitiatingProcessCommandLine endswith " tunnel" and FolderPath endswith "\\cmd.exe" and (ProcessCommandLine contains "/d /c " and ProcessCommandLine contains "\\servers\\Stable-" and ProcessCommandLine contains "code-server.cmd"))

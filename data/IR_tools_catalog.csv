@@ -1,0 +1,295 @@
+﻿categoria,nome,link,detalhes
+APT Reference,Attack Mitre,https://attack.mitre.org/groups/,APT Details
+APT Reference,Cyber Research,https://github.com/cyber-research/APTMalware,Contain Malware Samples · 4k Samples password is infected
+APT Reference,Threat Actor Encyclopedia,https://www.thaicert.or.th/downloads/files/A_Threat_Actor_Encyclopedia.pdf,APT Details
+APT Reference,ATP Google Sheet,https://docs.google.com/spreadsheets/d/1H9_xaxQHpWaa4O_Son4Gx0YOIzlcBWMsdvePFX68EKU/edit?usp=sharing,APT Details
+APT Reference,FireEye,https://www.fireeye.com/current-threats/apt-groups.html,APT Details
+APT Reference,CyberMonitor,https://github.com/CyberMonitor/APT_CyberCriminal_Campagin_Collections,APT Details
+APT Reference,Florian Roth,https://gist.github.com/Neo23x0/c4f40629342769ad0a8f3980942e21d3,APT Details
+APT Reference,MalPedia,https://malpedia.caad.fkie.fraunhofer.de/actors,APT Details/Samples
+APT Reference,Threat Actor Encyclopedia V 2.0,https://www.thaicert.or.th/downloads/files/Threat_Group_Cards_v2.0.pdf,APT Details
+Books,Practical Malware Analysis,,Sikorski Michael · Paid
+Books,Learning Malware Analysis,,Monnappa K A · Paid
+Books,Malware Analysis and Detection Engineering,,"Abhijit Mohanta, Anoop Saldanha · Paid"
+Books,Mastering Malware Analysis,,"Amr Thabet, Alexey Kleymenov · Paid"
+Books,Practical Reverse Engineering,,"Bruce Dang, Alexandre Gazet, Elias Bachaalany · Paid"
+Books,The Art of Memory Forensics,,"Michael Hale Ligh, Andrew Case , Jamie Levy, AAron Walters · Paid"
+Books,"Windows Internals, Part 1",,"Alex Ionescu, Mark E. Russinovich, David A. Solomon · Paid"
+Books,Reverse Engineering for Beginners,,Dennis Yurichev · Free
+Books,"The IDA Pro Book, 2nd Edition",,Chris Eagle · Paid
+Classes,PracticalMalwareAnalysis-Labs,https://github.com/mikesiko/PracticalMalwareAnalysis-Labs,Free · Windows
+Classes,Reverse Engineering 101,https://malwareunicorn.org/workshops/re101.html#0,Free · Windows
+Classes,Intro to x86,http://opensecuritytraining.info/IntroX86.html,Free · Assembly
+Classes,Intro to x86–6,http://opensecuritytraining.info/IntroX86-64.html,Free · Assembly
+Classes,Malware Dynamic Analysis,http://opensecuritytraining.info/MalwareDynamicAnalysis.html,Free · Windows
+Classes,Introduction To Software Exploits,http://opensecuritytraining.info/Exploits1.html,Free
+Classes,"Intermediate Intel x86: Architecture, Assembly, Applications, & Alliteration",http://opensecuritytraining.info/IntermediateX86.html,Free · Assembly
+Classes,Reverse Engineering Malware,http://opensecuritytraining.info/ReverseEngineeringMalware.html,Free · Windows
+Classes,RPISEC,https://github.com/RPISEC/Malware,Free
+Classes,Reverse Engineering 101 Speaker Presentation,https://vimeo.com/6764570,Free · Reverse Engineering
+Classes,Reverse Engineering 101 - NYU:Poly 2010,https://prezi.com/a5tm-lf0879-/reverse-engineering-101-nyupoly-2010/,Free · Reverse Engineering · PPT for Day 1
+Classes,Reverse Engineering 101 - NYU:Poly 2010,https://prezi.com/e5a2tumdqocj/reverse-engineering-102-nyupoly-2010/,Free · Reverse Engineering · PPT for Day 2
+Classes,Reverse Engineering for Beginners,https://www.begin.re/,Free · Reverse Engineering
+Classes,Malware Analysis,https://class.malware.re/,"Free · Malware Analysis, Reverse Engineering"
+Classes,Reverse Engineering for Beginners,https://www.begin.re/,Free · Reverse Engineering
+Classes,Adhokshaj Mishra's Journal,https://adhokshajmishraonline.in/,"Free · For Linux Platform, , Reverse Engineering, Malware Development"
+CTF,Flare-On Challenge,https://www.fireeye.com/blog/threat-research/2017/10/2017-flare-on-challenge-solutions.html,
+CTF,Join ESET,https://join.eset.com/en,
+CTF,Beginner Malware Reversing Challenges,https://www.malwaretech.com/beginner-malware-reversing-challenges,
+CTF,Reverse Engineering challenges,https://challenges.re/,
+CTF,0x00sec,https://0x00sec.org/c/reverse-engineering,
+CTF,CTF Field Guide,https://trailofbits.github.io/ctf/,
+Deobfuscation,Decalage,https://bitbucket.org/decalage/balbuzard/wiki/Home,"Free · Python · A malware analysis tool for reversing obfuscation (XOR, ROL, etc) and more."
+Deobfuscation,De4dot,https://github.com/0xd4d/de4dot,Free · Windows · .NET deobfuscator and unpacker.
+Deobfuscation,Floss,https://github.com/fireeye/flare-floss,"Free · Linux, Mac OS, Windows · The FireEye Labs Obfuscated String Solver uses advanced static analysis techniques to automatically deobfuscate strings from malware binaries."
+Deobfuscation,PackerAttacker,https://github.com/BromiumLabs/PackerAttacker,Free · The Packer Attacker is a generic hidden code extractor for Windows malware.
+Deobfuscation,Unpaker,https://github.com/malwaremusings/unpacker/,"Free · Python, Windows · Automated malware unpacker for Windows malware based on WinAppDbg."
+Deobfuscation,VirtualDeobfuscator,https://github.com/jnraber/VirtualDeobfuscator,Free · Python · Reverse engineering tool for virtualization wrappers.
+Deobfuscation,XORSearch & XORStrings,https://blog.didierstevens.com/programs/xorsearch/,Free · Windows · A couple programs from Didier Stevens for finding XORed data.
+Deobfuscation,Unpca.Me,https://www.unpac.me/#/,Registration · Online · An automated malware unpacking service
+Deobfuscation,CyberChef,https://gchq.github.io/CyberChef/,"Free · Online · The Cyber Swiss Army Knife - a web app for encryption, encoding, compression and data analysis."
+Disassembler,X64,https://x64dbg.com/#start,Windows · Free
+Disassembler,OllyDbg,http://www.ollydbg.de/,Windows · Free
+Disassembler,ILSpy,http://www.ilspy.net/,Windwos .Net · Free
+Disassembler,DNSpy,https://github.com/0xd4d/dnSpy?WT.mc_id=-blog-scottha,Windwos .Net · Free
+Disassembler,GDB,https://www.gnu.org/software/gdb/,"Windows, Linux, Mac Os · Free"
+Disassembler,Binary Ninja,https://binary.ninja/,"Windows, Linux, Mac Os · Free"
+Disassembler,Qira,http://qira.me/,Linux · Free
+Document Analysis,Ole Tool,http://www.decalage.info/python/oletools,"Free · Python · Windows, MaC OS, Linux"
+Document Analysis,Didier's PDF Tools,https://blog.didierstevens.com/programs/pdf-tools/,"Free · Python · Windows, MaC OS, Linux"
+Document Analysis,Origami,https://github.com/cogent/origami-pdf,"Free · Ruby · Windows, MaC OS, Linux"
+Document Analysis,REMnux,https://remnux.org/,"Free · Vitual Machine · Linux, Windows, MacOS"
+Document Analysis,PDF,https://www.xpdfreader.com/about.html,"Free · Binary · Linux, Windows"
+Document Analysis,ViperMonkey,https://github.com/decalage2/ViperMonkey,"Free · Python · Linux, Windows, MacOS"
+Dynamic Analysis,Sysinternals,https://docs.microsoft.com/en-us/sysinternals/downloads/sysinternals-suite,Free · Windows · The Sysinternals Troubleshooting Utilities have been rolled up into a single Suite of tools. This file contains the individual troubleshooting tools and help files.
+Dynamic Analysis,Process Hacker,https://processhacker.sourceforge.io/,"Free · Windows · Powerful, multi-purpose tool that helps you monitor system resources, debug software and detect malware."
+Dynamic Analysis,NirSoft,https://www.nirsoft.net/,Free · Windows · Collection of tools which helps during IR and MA.
+Dynamic Analysis,RegRipper,https://github.com/keydet89/RegRipper2.8,Free · Windows · A too which is use for registry analysis in forensic examinations.
+Dynamic Analysis,Regshot,https://regshot.en.uptodown.com/windows/download,Free · Windows · Regshot is allows you to quickly take a snapshot of your registry and then compare it with a second one - done after doing system changes or installing a new software product.
+Dynamic Analysis,Resource Hacker,http://www.angusj.com/resourcehacker/#download,"Free · Windows · Ressource Hacker is a complete resource editing tool that is free, it doesn’t have unwanted notifications, and it doesn’t have adverts. It is a resource editing tool that may be used for viewing, compiling, decompiling and recompiling your resources. It does all of this for all popularly known 64bit and 32bit Windows executables."
+Dynamic Analysis,HxD,https://mh-nexus.de/en/hxd/,Free · Windows · Freeware Hex Editor and Disk Editor.
+Dynamic Analysis,Sysanalyzer,http://sandsprite.com/iDef/SysAnalyzer/,"Free · Windows · Automated tool to collect, compare & report on the actions a binary took while running on the system. It is present in Flare VM tool set."
+Dynamic Analysis,Object-See,https://objective-see.com/products.html,Free · Mac OS · Free Mac Security Tools
+Dynamic Analysis,Winaudit,http://www.parmavex.co.uk/winaudit.html,"Free · Windows · Creates a comprehensive report on a machine's configuration, hardware and software. WinAudit is free, open source and can be used or distributed by anyone. It is used by IT experts in academia, government, industry as well as security conscious professionals in the armed services, defence contractors, electricity generators and police forces"
+Dynamic Analysis,Capturebat,https://www.honeynet.org/projects/old/capture-bat/,"Free · Windows · This is a behavioral analysis tool of applications for the Win32 operating system family. Capture BAT is able to monitor the state of a system during the execution of applications and processing of documents, which provides an analyst with insights on how the software operates even if no source code is available. Capture BAT monitors state changes on a low kernel level and can easily be used across various Win32 operating system versions and configurations. CaptureBAT is developed and maintained by Christian Seifert of the NZ Chapter."
+File Carving,Bulk Extractor,https://github.com/simsong/bulk_extractor,"Free · Linux, Mac OS · Fast file carving tool."
+File Carving,EVTXtract,https://github.com/williballenthin/EVTXtract,Free · Windows · Carve Windows Event Log files from raw binary data.
+File Carving,Foremost,http://foremost.sourceforge.net/,"Free · Linux, Mac OS · Foremost is a console program to recover files based on their headers, footers, and internal data structures. This process is commonly referred to as data carving. Foremost can work on image files, such as those generated by dd, Safeback, Encase, etc, or directly on a drive. The headers and footers can be specified by a configuration file or you can use command line switches to specify built-in file types"
+File Carving,Hachiir3,https://github.com/vstinner/hachoir3,Free · Python · Hachoir is a Python library to view and edit a binary stream field by field.
+Honey Pot,Conpot,https://github.com/mushorg/conpot,ICS/SCADA honeypot.
+Honey Pot,Cowrie,https://github.com/micheloosterhof/cowrie,SSH honeypot based on Kippo.
+Honey Pot,DemoHunter,https://github.com/RevengeComing/DemonHunter,Low interaction Distributed Honeypots.
+Honey Pot,Dionaea,https://github.com/DinoTools/dionaea,Honeypot designed to trap malware.
+Honey Pot,Glastopf,https://github.com/mushorg/glastopf,Web application honeypot.
+Honey Pot,Honeyd,http://www.honeyd.org/,Create a virtual honeynet.
+Honey Pot,HoneyDrive,http://bruteforcelab.com/honeydrive,Honeypot bundle Linux distro.
+Honey Pot,Honeytrap,https://github.com/honeytrap/honeytrap,Opensource system for running monitoring and managing honeypots.
+Honey Pot,MHN,https://github.com/pwnlandia/mhn,MHN is a centralized server for management and data collection of honeypots. MHN allows you to deploy sensors quickly and to collect data immediately viewable from a neat web interface.
+Honey Pot,Mnemosyne,https://github.com/johnnykv/mnemosyne,A normalizer for honeypot data; supports Dionaea.
+Honey Pot,Thug,https://github.com/buffer/thug,Low interaction honeyclient for investigating malicious websites.
+Honey Pot,Reference,https://github.com/rshipp/awesome-malware-analysis,
+Malware Analysis Course,Malware Analysis Master Course,https://www.fireeye.com/services/training/courses/malware-analysis-master-course.html,Paid · FireEye
+Malware Analysis Course,FOR610,https://www.sans.org/course/reverse-engineering-malware-malware-analysis-tools-techniques,Paid · SANS
+Malware Analysis Course,Malware Analysis Mindset Training,https://maltrak.com/order-29881701,Paid · Amr Thabet
+Malware Analysis Course,Reversing & Malware Analysis Training,https://securitytrainings.net/,Free · SecurityXploded
+Malware Analysis Course,Advanced Malware Analysis Training,https://securitytrainings.net/advanced-malware-analysis-training/,Free · SecurityXploded
+Malware Samples,VirusBay,https://beta.virusbay.io/,Free · Yes · support@virusbay.io
+Malware Samples,Malpedia,https://malpedia.caad.fkie.fraunhofer.de/,Free · Yes · daniel.plohmann@fkie.fraunhofer.de
+Malware Samples,Malshare,https://malshare.com/,Free · Yes · N.A
+Malware Samples,TheZoo,https://github.com/ytisf/theZoo,Free · No · N.A · For Old Malware Samples
+Malware Samples,VirusShare,https://virusshare.com/,Free · Yes · admin@virusshare.com
+Malware Samples,VX Vault,http://vxvault.net/ViriList.php,Free · Yes
+Malware Samples,Cyber Tracker,http://cybercrime-tracker.net/,Free · No · Redirects to VT
+Malware Samples,Virus Sign,https://www.virussign.com/index.html,Free · Yes · service@virussign.com
+Malware Samples,Malware Traffic Analysis,http://malware-traffic-analysis.net/,Free · No
+Malware Samples,Contagio,http://contagiodump.blogspot.com/,Free · No
+Malware Samples,APT-Sample,https://github.com/Cherishao/APT-Sample,Free · No
+Malware Samples,LOLBAN Samples,https://docs.google.com/spreadsheets/d/1G0O__hwXXas2VQYk2ub42ljBoRbo9UVccLG6AdIzUjs/edit#gid=1398348975,Free · No
+Malware Samples,Tracker.VirusShare,http://tracker.virusshare.com:6969/,Free · No
+Memory Acquisition,Redline,https://www.fireeye.com/services/freeware/redline.html,Free · Windows
+Memory Acquisition,Belkasoft,https://belkasoft.com/get?product=ram,Free · Windows
+Memory Acquisition,Magnet,https://www.magnetforensics.com/resources/magnet-ram-capture/,Free · Windows
+Memory Acquisition,Ftk Imager,http://accessdata.com/product-download,Free · Windows/MaC OS
+Memory Acquisition,Dumpit,https://qpdownload.com/dumpit/,Free · Windows
+Memory Acquisition,LiME,https://github.com/504ensicsLabs/LiME,Free · Linux
+Memory Analysis,Volatility,https://www.volatilityfoundation.org/26,"Free · Windows, Linux, Mac Os · The Volatility Framework is a completely open collection of tools, implemented in Python under the GNU General Public License, for the extraction of digital artifacts from volatile memory (RAM) samples."
+Memory Analysis,Rekall,https://github.com/google/rekall/releases,"Free · Windows, Linux, Mac Os · Rekall is the most complete Memory Analysis framework. Rekall provides an end-to-end solution to incident responders and forensic analysts. From state of the art acquisition tools, to the most advanced open source memory analysis framework. Rekall provides cross-platform solutions on Windows, Mac OSX, and Linux. Additionally, as stated above each operating system has it’s own memory acquisition tool provided by Rekall called pmem."
+Memory Analysis,Redline,https://www.fireeye.com/services/freeware/redline.html,"Free · Windows · Redline FireEye's premier free endpoint security tool, provides host investigative capabilities to users to find signs of malicious activity through memory and file analysis and the development of a threat assessment profile."
+Network Monitor,Wireshark,https://www.wireshark.org/download.html,"Free · Windows, Linux, Mac OS"
+Network Monitor,NetworkMiner,https://www.netresec.com/?page=networkminer,Free · Windows
+Network Monitor,Network Monitor,https://www.microsoft.com/en-in/download/details.aspx?id=4865,Free · Windows
+Network Monitor,Fiddler,https://www.telerik.com/download/fiddler,Free · Windows
+Network Monitor,FakeNet,https://practicalmalwareanalysis.com/fakenet/,"Free · Windows, Linux"
+Network Monitor,INetSim,https://www.inetsim.org/index.html,Free · Linux
+Network Monitor,ApateDNS,https://www.fireeye.com/services/freeware/apatedns.html,Free · Windows
+Offline SandBox,Cuckoo,https://cuckoo.cert.ee/,"Free · Winows, Linux, APK · Document Analyzer, File Analyzer"
+Offline SandBox,Limone,https://github.com/monnappa22/Limon,"Free · Linux · Document Analyzer, File Analyzer, Memory Analyzer"
+Offline SandBox,Noriben,https://github.com/Rurik/Noriben,"Free · Winows · Document Analyzer, File Analyzer"
+Offline SandBox,"Assemblyline 4
+(Beta)",https://cybercentrecanada.github.io/assemblyline4_docs/,"Free · Windwos · Document Analyzer, File Analyzer, URL"
+Online SandBox,Malpedia,https://malpedia.caad.fkie.fraunhofer.de/,"Yes · Windows, Android · Document Analyzer, File Analyzer · Yes"
+Online SandBox,Joe SandBox,https://www.joesandbox.com/,"No · Winows, Andriod · URL Analyzer, Document Analyzer, File Analyzer, APK Analyzer · No"
+Online SandBox,Cuckoo,https://cuckoo.cert.ee/,"No · Winows, Linux, APK · URL Analyzer, Document Analyzer, File Analyzer · No"
+Online SandBox,Hybrid Analysis,https://www.hybrid-analysis.com/,"User Preference · Windows · URL Analyzer, Document Analyzer, File Analyzer, Yara Analyzer, Hash Analyzer, IP Analyzer · Yes"
+Online SandBox,Sndbox,https://app.sndbox.com/login,"Yes · Windows · Document Analyzer, File Analyzer · No"
+Online SandBox,Virus Total,https://www.virustotal.com/gui/home/upload,"User Preference · Winows, Andriod · URL Analyzer, Document Analyzer, File Analyzer, APK Analyzer, Hash Analyzer, IP Analyzer, Domain Analyzer · No"
+Online SandBox,Any Run,https://app.any.run/#register,"User Preference · Windows · URL Analyzer, Document Analyzer, File Analyzer · Yes"
+Online SandBox,UrlScan,https://urlscan.io,User Preference · URL Analyzer · N.A
+Online SandBox,Checkphish,https://checkphish.ai/,User Preference · URL Analyzer · N.A
+Online SandBox,Url Void,https://www.urlvoid.com/,No · URL Analyzer · N.A
+Online SandBox,TotalHash,https://totalhash.cymru.com/,"No · Hash Analyzer, IP Analyzer, Domain Analyzer · No"
+Online SandBox,Intezer,https://analyze.intezer.com/#/,"Yes · Windows · Document Analyzer, File Analyzer · No"
+Online SandBox,Maltiverse,https://maltiverse.com/,Yes · IoC Search engine · No
+Online SandBox,Yomi,https://yomi.yoroi.company/upload,"Yes · Windows · Document Analyzer, File Analyzer · No"
+Online SandBox,SNDBOX,https://app.sndbox.com/login,"Yes · Windows · Document Analyzer, File Analyzer · No"
+Online SandBox,Hatching,https://tria.ge/,"Yes · Winows, Linux, APK · URL Analyzer, Document Analyzer, File Analyzer, APK Analyzer, Domain Analyzer · Yes"
+PE Analysis,DIE,https://github.com/horsicq/Detect-It-Easy,"Free · Mac OS, Linux, Windwos · Detect It Easy (DIE) has totally open architecture of signatures. You can easily add your own algorithms of detects or modify those that already exist. This is achieved by using scripts. The script language is very similar to JavaScript and any person, who understands the basics of programming, will understand easily how it works. Possibly, someone may decide the scripts are working very slow. Indeed, scripts run slower than compiled code, but, thanks to the good optimization of Script Engine, this doesn't cause any special inconvenience. The possibilities of open architecture compensate these limitations."
+PE Analysis,PE Bear,https://hshrzd.wordpress.com/pe-bear/,"Free · Windwos · PE-bear is a freeware reversing tool for PE files.  Its objective was to deliver fast and flexible “first view” tool for malware analysts, stable and capable to handle malformed PE files."
+PE Analysis,PortEx,https://github.com/katjahahn/PortEx,Free · Windwos · Java library to analyse Portable Executable files with a special focus on malware analysis and PE malformation robustness.
+PE Analysis,Manalyze,https://github.com/JusticeRage/Manalyze,Free · Windwos · PE static analysis.
+PE Analysis,PE Studio,http://www.winitor.com/,Free · Windwos · imported and exported function names and strings and much more.
+PE Analysis,Mastiff,https://code.google.com/p/peframe/,Free · Windwos · A malware analysis framework.
+PE Analysis,Exeinfo PE,http://www.exeinfo.xn.pl/,Free · Windwos · A good at identifying signatures of commonly-used packers.
+PE Analysis,CFF Explorer,http://www.ntcore.com/exsuite.php,Free · Windwos · A content header editing.
+PE Analysis,PE Tools,https://github.com/petoolse/petools,Free · Windwos · PE Tools - portable executable (PE) manipulation toolkit.
+PE Analysis,FileAlyzer,http://www.safer-networking.org/products/filealyzer/,"Free · Windwos · FileAlyzer brings more to offer than PEview as far as features, being able to provide basic PE information as well as offer some new functionality,  such as automated unpacking for files packed with UPX and PECompact."
+PE Analysis,PE Explorer,http://www.heaventools.com/download/pexsetup.exe,"Free · Windwos · PE Explorer gives you the power to look inside these PE binary files, perform static analysis, reveal a lot of information about the function of the executable, and collect as much information about the executable file as possible, without executing it., , PE Explorer leaves you with only minimal work to do in order to get an analysis of a piece of software. Once you have selected the file you wish to examine, PE Explorer will analyze the file and display a summary of the PE header information, and all of the resources contained in the PE file. From here, the tool allows you to explore the specific elements within an executable file"
+PE Analysis,PE Insider,http://cerbero.io/static/tools/peinsider_setup.exe,Free · Windwos · PE Insider is a free Portable Executable viewer for the community. It shares the same codebase for inspection as Cerbero Profiler and hence it supports the entire PE specification and is incredibly fast and stable
+PE Analysis,PE View,http://wjradburn.com/software/PEview.zip,"Free · Windwos · PEview provides a quick and easy way to view the structure and content of 32-bit Portable Executable (PE) and Component Object File Format (COFF) files. This PE/COFF file viewer displays header, section, directory, import table, export table, and resource information within EXE, DLL, OBJ, LIB, DBG, and other file types."
+PE Analysis,Chimprec,http://www.woodmann.com/collaborative/tools/images/Bin_CHimpREC_2008-6-24_13.59_CHimpREC.zip,"Free · Windwos · This is the 32/64-bit imports rebuilder that I introduced at ReCon 2008 in Montreal., Made for the best compatibility with WoW64 on x64-based Windows XP or Vista., , This is the same version that was used at the conference., The first official release will come soon., , +Features, The first universal 64-bit imports rebuilder, 32-bit version included, Interface similar to ImpREC, Integrated 32/64-bit process dumper, IAT AutoSearch from ImageBase or OEP, Unshuffle thunks function, Manual imports editor"
+PE Analysis,PEID,https://tuts4you.com/e107_plugins/download/download.php?view.398,"Free · Windwos · PEiD detects most common packers, cryptors and compilers for PE files. It can currently detect more than 470 different signatures in PE files., , PEiD is special in some aspects when compared to other identifiers already out there!, , 1. It has a superb GUI and the interface is really intuitive and simple., 2. Detection rates are amongst the best given by any other identifier., 3. Special scanning modes for *advanced* detections of modified and unknown files., 4. Shell integration, Command line support, Always on top and Drag'n'Drop capabilities., 5. Multiple file and directory scanning with recursion., 6. Task viewer and controller., 7. Plugin Interface with plugins like Generic OEP Finder and Krypto ANALyzer., 8. Extra scanning techniques used for even better detections., 9. Heuristic Scanning options., 10. New PE details, Imports, Exports and TLS viewers, 11. New built in quick disassembler., 12. New built in hex viewer., 13. External signature interface which can be updated by the user."
+Reverse Engineering,IDA,https://www.hex-rays.com/products/ida/support/download_freeware.shtml,Windows · Free/Paid
+Reverse Engineering,Ghidra,https://ghidra-sre.org/,"Windows, Linux, Mac · Free"
+Reverse Engineering,Cutter,https://cutter.re/,Windows · Free
+Reverse Engineering,Radare,https://rada.re/n/radare2.html,Linux · Free
+Scripts,AnalysisScipt,https://github.com/Ptr32Void/AnalysisScript,Python · Ptr32Void
+Scripts,Malware Analysisi Scripts,https://github.com/deadbits/malware-analysis-scripts,Python · deadbits
+Scripts,Malware-Analysisi,https://github.com/SpiderLabs/malware-analysis,"C, IDA, Python, Ruby, Yara · SpiderLabs"
+Scripts,MAUPS,https://github.com/ShilpeshTrivedi/MAUPS,Python · ShilpeshTrivedi
+Scripts,VirusTotal_API_Tool,https://github.com/Xen0ph0n/VirusTotal_API_Tool,Python · Xen0ph0n
+Scripts,FindYara,https://github.com/OALabs/FindYara,Python/IDA · OALabs
+Scripts,IR TI Scripts,https://github.com/ShilpeshTrivedi/IR_TI_Scripts,Python · ShilpeshTrivedi
+Scripts,Hasherezade,https://github.com/hasherezade,Tools
+Scripts,Florian Roth,https://github.com/Neo23x0,"Python, Yara, Tools"
+Threat Hunting,Attack&Ck,https://attack.mitre.org/,Website for Information related to Hunting Techniques.
+Threat Hunting,The ThreatHunting Project,https://www.threathunting.net/,Website for Information to start Threat Hunting.
+Threat Hunting,HUNTPEDIA,https://www.threathunting.net/files/huntpedia.pdf,Book
+Threat Hunting,Practical Acticity,,
+Threat Hunting,EVTX-ATTACK-SAMPLES,https://github.com/sbousseaden/EVTX-ATTACK-SAMPLES,"This is a container for windows events samples associated to specific attack and post-exploitation techniques. Can be useful for:, , 1] Testing your detection scripts based on EVTX parsing, 2] Training on DFIR and threat hunting using event logs, 3] Designing detection use cases using Windows and Sysmon event logs, 4] Avoid/Bypass the noisy techniques if you are a redteamer · Provide Real Life Scenaro"
+Threat Hunting,Atomic Red Team,https://github.com/redcanaryco/atomic-red-team,"Atomic Red Team allows every security team to test their controls by executing simple ""atomic tests"" that exercise the same techniques used by adversaries · Provide Real Life Scenaro"
+Threat Hunting,Videos,,
+Threat Hunting,Name,,Link · Description
+Threat Hunting,Adrian Crenshaw,https://www.youtube.com/watch?v=MUUseTJp3jM,Fix Me19 Intrusion Hunting for the Masses A Practical Guide David Sharpe
+Threat Hunting,SANS DFIR,https://www.youtube.com/watch?v=pDY639JsT7I,Threat Hunting in Security Operation - SANS Threat Hunting Summit 2017
+Threat Hunting,James Bower,https://www.youtube.com/watch?v=FEb8KZoEyzI,Threat Hunting Web Shells With Splunk
+Threat Hunting,Red Canary,https://www.youtube.com/watch?v=58lS_pEElt8,How to Build Threat Hunting into Your Security Operations
+Threat Hunting,Tools,,
+Threat Hunting,Name,,Link · Description · Note
+Threat Hunting,ELK,https://www.elastic.co/downloads/,A platform which help to create usecasses for threat huntng and hypothesis. · Free Tool
+Threat Hunting,HELK,https://github.com/Cyb3rWard0g/HELK,"The HELK is one of the first open source hunt platforms with advanced analytics capabilities such as SQL declarative language, graphing, structured streaming, and even machine learning via Jupyter notebooks and Apache Spark over an ELK stack. This project was developed primarily for research, but due to its flexible design and core components, it can be deployed in larger environments with the right configurations and scalable infrastructure. · Free Tool"
+Threat Hunting,Sysmon (For Windows),https://docs.microsoft.com/en-us/sysinternals/downloads/sysmon,"System Monitor (Sysmon) is a Windows system service and device driver that, once installed on a system, remains resident across system reboots to monitor and log system activity to the Windows event log. · Free Tool"
+Threat Hunting,Osquery,https://osquery.io/,"Performant endpoint visibility, Supoort all OS platform. · Free Tool"
+Threat Hunting,ThreatPursuit VM,https://www.fireeye.com/blog/threat-research/2020/10/threatpursuit-vm-threat-intelligence-and-hunting-virtual-machine.html,"ThreatPursuit Virtual Machine (VM) is a fully customizable, open-sourced Windows-based distribution focused on threat intelligence analysis and hunting designed for intel and malware analysts as well as threat hunters to get up and running quickly. The threat intelligence analyst role is a subset and specialized member of the blue team. Individuals in this role generally have a strong impetus for knowing the threat environment. Often their traits, skills and experiences will vary depending on training and subject matter expertise. · VM"
+Threat Hunting,Courses,,
+Threat Hunting,Name,,Link · Description · Note
+Threat Hunting,Cyber Threat Hunting by FireEye,https://www.fireeye.com/services/training/courses/cyber-threat-hunting.html,"Learning Objectives, After completing this course, learners should be able to:, , 1]. Define Cyber Threat Hunting and articulate its value to an organization, 2]. Create or enhance an existing hunting program, 3]. Leverage provided use cases for your Hunting Program, 4]. Build hunt missions for threat hunting in your organization, 5]. Leverage both endpoint and network data for successful hunting, 6]. Implement a hunting mission to hunt, find, and automate the hunting process · Paid Course"
+Threat Hunting,"Incident Response and Threat Hunting
+By SANS",https://www.sans.org/curricula/incident-response-and-threat-hunting,Paid Course
+Threat Hunting,Blog Post,,
+Threat Hunting,Name,,Link · Note
+Threat Hunting,Red Teaming Experiments,https://www.ired.team/,Give's new techinque for Red Team and Threat Huning TTPs
+Threat Hunting,MITRE | ATT&CK,https://medium.com/mitre-attack,Give's new techinque for Red Team and Threat Huning TTPs
+Threat Hunting,RedCanary,https://redcanary.com/blog/,Give's new techinque for Red Team and Threat Huning TTPs
+Threat Hunting,RedCanary,https://redcanary.com/resources/?type=case-studies,Case Studies
+Threat Intelligence,badips.com,https://www.badips.com/get/list/any/2?age=24h,Free · Online
+Threat Intelligence,bambenekconsulting for domain,http://osint.bambenekconsulting.com/feeds/c2-dommasterlist.txt,Free · Online
+Threat Intelligence,bambenekconsulting for IP,http://osint.bambenekconsulting.com/feeds/c2-ipmasterlist.txt,Free · Online
+Threat Intelligence,blocklist,http://lists.blocklist.de/lists/all.txt,Free · Online
+Threat Intelligence,blocklistnetua,https://blocklist.net.ua/blocklist.csv,Free · Online
+Threat Intelligence,botvrij for domain,http://www.botvrij.eu/data/ioclist.domain,Free · Online
+Threat Intelligence,botvrij for IP,http://www.botvrij.eu/data/ioclist.ip-dst,Free · Online
+Threat Intelligence,charlesthehaleys,http://charles.the-haleys.org/ssh_dico_attack_hdeny_format.php/hostsdeny.txt,Free · Online
+Threat Intelligence,CiArmy.com,https://rules.emergingthreats.net/blockrules/emerging-ciarmy.rules,Free · Online
+Threat Intelligence,cinsscore,http://cinsscore.com/list/ci-badguys.txt,Free · Online
+Threat Intelligence,cybercrimetracker,http://cybercrime-tracker.net/all.php,Free · Online
+Threat Intelligence,dan_me,https://raw.githubusercontent.com/firehol/blocklist-ipsets/master/dm_tor.ipset,Free · Online
+Threat Intelligence,danger.rulez.sk,http://danger.rulez.sk/projects/bruteforceblocker/blist.php,Free · Online
+Threat Intelligence,disconnect.me,https://disconnect.me/lists/malvertising,Free · Online
+Threat Intelligence,dshield.org,https://www.dshield.org/feeds/suspiciousdomains_High.txt,Free · Online
+Threat Intelligence,dydns,http://security-research.dyndns.org/pub/malware-feeds/ponmocup-infected-domains-shadowserver.csv,Free · Online
+Threat Intelligence,emergingthreats for botcc,https://rules.emergingthreats.net/blockrules/emerging-botcc.rules,Free · Online
+Threat Intelligence,fedotracker,https://feodotracker.abuse.ch/blocklist/?download=ipblocklist,Free · Online
+Threat Intelligence,greensnow,https://blocklist.greensnow.co/greensnow.txt,Free · Online
+Threat Intelligence,h3xtracker,http://tracker.h3x.eu/api/sites_1day.php,Free · Online
+Threat Intelligence,hphosts for malware,https://hosts-file.net/emd.txt,Free · Online
+Threat Intelligence,iblocklist,https://raw.githubusercontent.com/firehol/blocklist-ipsets/master/iblocklist_onion_router.netset,Free · Online
+Threat Intelligence,ibmxforce,https://raw.githubusercontent.com/firehol/blocklist-ipsets/master/xforce_bccs.ipset,Free · Online
+Threat Intelligence,intercept.sh,https://threatlists.intercept.sh/threatlist_1hr.csv?token=<token>,Free · Online
+Threat Intelligence,intercept.sh,https://threatlists.intercept.sh/threatlist_24hr.csv?token=<token>,Free · Online
+Threat Intelligence,malc0de,https://raw.githubusercontent.com/firehol/blocklist-ipsets/master/malc0de.ipset,Free · Online
+Threat Intelligence,malware_traffic,https://pastebin.com/u/malware_traffic,Free · Online
+Threat Intelligence,malwared.malwaremustdie.org,https://malwared.malwaremustdie.org/rss.php,Free · Online
+Threat Intelligence,malwared.malwaremustdie.org,https://malwared.malwaremustdie.org/rss_ssh.php,Free · Online
+Threat Intelligence,malwaredomainlist,https://panwdbl.appspot.com/lists/mdl.txt,Free · Online
+Threat Intelligence,Nothink for DNS,http://www.nothink.org/blacklist/blacklist_malware_dns.txt,Free · Online
+Threat Intelligence,Nothink for HTTP,http://www.nothink.org/blacklist/blacklist_malware_http.txt,Free · Online
+Threat Intelligence,nothink.org for DNS,http://www.nothink.org/honeypot_dns_attacks.txt,Free · Online
+Threat Intelligence,nothink.org for SSH,http://www.nothink.org/blacklist/blacklist_ssh_day.txt,Free · Online
+Threat Intelligence,openphish,https://openphish.com/feed.txt,Free · Online
+Threat Intelligence,phishtank,http://data.phishtank.com/data/online-valid.csv,Free · Online
+Threat Intelligence,raw.githubusercontent.com/botherder,https://raw.githubusercontent.com/botherder/targetedthreats/master/targetedthreats.csv,Free · Online
+Threat Intelligence,raw.githubusercontent.com/stamparm,https://raw.githubusercontent.com/stamparm/ipsum/master/ipsum.txt,Free · Online
+Threat Intelligence,report.cs.rutgers.edu,https://report.cs.rutgers.edu/mrtg/drop/dropstat.cgi?start=-24h,Free · Online
+Threat Intelligence,rules.emergingthreats.net,https://rules.emergingthreats.net/fwrules/emerging-Block-IPs.txt,Free · Online
+Threat Intelligence,sslbl.abuse.ch,https://sslbl.abuse.ch/blacklist/sslipblacklist_aggressive.csv,Free · Online
+Threat Intelligence,threatsourcingdomain,https://www.threatsourcing.com/dnall-free.txt,Free · Online
+Threat Intelligence,threatsourcingip,https://www.threatsourcing.com/ipall-free.txt,Free · Online
+Threat Intelligence,torstatus,https://torstatus.blutmagie.de/ip_list_all.php/Tor_ip_list_ALL.csv,Free · Online
+Threat Intelligence,urlhaus,https://urlhaus.abuse.ch/downloads/csv/,Free · Online
+Threat Intelligence,urlvir,http://www.urlvir.com/export-ip-addresses/,Free · Online
+Threat Intelligence,urlvir,http://www.urlvir.com/export-hosts/,Free · Online
+Threat Intelligence,vxvault,http://vxvault.net/URL_List.php,Free · Online
+Threat Intelligence,whoisds,https://whoisds.com/whois-database/newly-registered-domains/,Free · Online
+Threat Intelligence,www.binarydefense.com,https://www.binarydefense.com/banlist.txt,Free · Online
+Threat Intelligence,zerodot for Domain,https://zerodot1.gitlab.io/CoinBlockerLists/hosts,Free · Online
+Threat Intelligence,zerodot for IP,https://zerodot1.gitlab.io/CoinBlockerLists/MiningServerIPList.txt,Free · Online
+Twitter Handle,Cyb3rops,https://twitter.com/cyb3rops,
+Twitter Handle,Fs0c131y,https://twitter.com/fs0c131y,
+Twitter Handle,Hasherezade,https://twitter.com/hasherezade,
+Twitter Handle,Herrcore,https://twitter.com/herrcore,
+Twitter Handle,Lenny Zeltser,https://twitter.com/lennyzeltser,
+Twitter Handle,LiveOverflow,https://twitter.com/LiveOverflow,
+Twitter Handle,Malware Unicorn,https://twitter.com/malwareunicorn,
+Twitter Handle,MalwareTech,https://twitter.com/malwaretechblog,
+Twitter Handle,Ophir Harpaz,https://twitter.com/OphirHarpaz,
+Twitter Handle,Samir,https://twitter.com/SBousseaden,
+Twitter Handle,Sean,https://twitter.com/seanmw,
+Twitter Handle,USCYBERCOM Malware Alert,https://twitter.com/CNMF_VirusAlert,
+VMs,Virtual Environment,https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/,"VM OS · Windows · Free Version · VM Machine · Microsoft Edge Legacy using free Windows 10 virtual machines you download and manage locally., The password to your VM is ""Passw0rd!"""
+VMs,OsBoxes,https://www.osboxes.org/virtualbox-images/#,"VM OS · Linux · Free Version · VM Machine · OsBoxes offer open-source (Linux/Unix) virtual machines (VDIs) for VirtualBox, we install and make them ready-to-use VirtualBox images for user., username is ""osboxes.org"" and the password is ""osboxes.org""."
+VMs,Flare VM (FireEye),https://github.com/fireeye/flare-vm,"Script · Windows · Free Version · Windows OS · FLARE VM - a fully customizable, Windows-based security distribution for malware analysis, incident response, penetration testing, It is having all required tools related to Malware analysis."
+VMs,OA Labs VM,https://oalabs.openanalysis.net/2018/07/16/oalabs_malware_analysis_virtual_machine/,Script · Windows · Free Version · Windows OS · This tutorial provide instructions for the installation and configuration of a free Windows 7 VM with the OAlabs-VM installer.
+VMs,REMnux,https://remnux.org/,VM OS · Linux · Free Version · VM Machine · Linux Toolkit for Reverse-Engineering and Analyzing Malware
+VMs,Detection Lab,https://medium.com/@clong/introducing-detection-lab-61db34bed6ae,"Lab · Windows · Free Version · Lab · Detection Lab is a collection of Packer and Vagrant scripts that allow you to quickly bring a Windows Active Directory online, complete with a collection of endpoint security tooling and logging best practices."
+Yara,Yara,https://github.com/VirusTotal/yara/releases,Windows · N.A
+Yara,Yara Doc,https://yara.readthedocs.io/en/v3.4.0/writingrules.html,Document · N.A
+Yara,Yara Gen,https://github.com/Neo23x0/yarGen,Free · Python
+YouTube Channel,OALabs,https://www.youtube.com/channel/UC--DwaiMV-jtO-6EvmKOnqg,
+YouTube Channel,Kindred Security,https://www.youtube.com/channel/UCwTH3RkRCIE35RJ16Nh8V8Q,
+YouTube Channel,Colin Hardy,https://www.youtube.com/channel/UCND1KVdVt8A580SjdaS4cZg,
+YouTube Channel,MalwareAnalysisForHedgehogs,https://www.youtube.com/channel/UCVFXrUwuWxNlm6UNZtBLJ-A,
+YouTube Channel,Michael Gillespie,https://www.youtube.com/channel/UCDbWhUnMdhxi2bo-oZQ1m3Q,
+YouTube Channel,ReverseIT,https://www.youtube.com/channel/UCej7jrdKOsjTTi_GuaWFKcA,
+YouTube Channel,LiveOverflow,https://www.youtube.com/channel/UClcE-kVhqyiHCcjYwcpfj9w,
+YouTube Channel,hasherezade,https://www.youtube.com/channel/UCNWVswPNgn5kutPNa5sprkg/feed?activity_view=7,
+YouTube Channel,John Hammond,https://www.youtube.com/channel/UCVeW9qkBjo3zosnqUbG7CFw,
+YouTube Channel,MalwareTech,https://www.youtube.com/channel/UCLDnEn-TxejaDB8qm2AUhHQ,
+YouTube Channel,RSA Conferenc,https://www.youtube.com/watch?v=20xYpxe8mBg,
+YouTube Channel,Monnappa K A,https://www.youtube.com/user/hackycracky22,
+Others,Fireeye Market,https://fireeye.market/apps,Free/Paid · Fireye applications
+Others,ProcDot,https://www.procdot.com/,Free · Turns Procmon output & Pcap into behavioral picture
+Others,Malzilla,http://malzilla.sourceforge.net/,"Free · Web pages that contain exploits often use a series of redirects and obfuscated code to make it more difficult for somebody to follow. MalZilla is a useful program for use in exploring malicious pages. It allows you to choose your own user agent and referrer, and has the ability to use proxies. It shows you the full source of webpages and all the HTTP headers. It gives you various decoders to try and deobfuscate javascript aswell."
+Others,Kahu Security Tools,http://www.kahusecurity.com/tools.html,"Free · Kahu Security is a personal blog website used to document and share research and knowledge related to security, digital forensics, reverse engineering, and malware analysis. It consists of various malware analysis tools."
+Others,Hashmyfile,https://www.nirsoft.net/utils/hash_my_files.html,Free · Utility that allows you to calculate the MD5 and SHA1 hashes of one or more files in your system.
+Others,Notepda++,https://notepad-plus-plus.org/downloads/,Free · Advanced text editor.
+Others,PInvoke.net,http://pinvoke.net/,"Free · PInvoke.net is primarily a wiki, allowing developers to find, edit and add PInvoke* signatures, user-defined types, and any other information related to calling Win32 and other unmanaged APIs from managed code (written in languages such as C# or VB.NET)."

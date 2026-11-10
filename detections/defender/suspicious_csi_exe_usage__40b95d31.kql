@@ -1,0 +1,3 @@
+// Suspicious Csi.exe Usage | T1072, T1218 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_csi_execution.yml
+DeviceProcessEvents
+| where ((FolderPath endswith "\\csi.exe" or FolderPath endswith "\\rcsi.exe") or (ProcessVersionInfoOriginalFileName in~ ("csi.exe", "rcsi.exe"))) and ProcessVersionInfoCompanyName =~ "Microsoft Corporation"

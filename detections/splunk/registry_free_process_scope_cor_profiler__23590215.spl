@@ -1,0 +1,2 @@
+# Registry-Free Process Scope COR_PROFILER | T1574.012 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/powershell/powershell_script/posh_ps_cor_profiler.yml
+ScriptBlockText="*$env:COR_ENABLE_PROFILING*" ScriptBlockText="*$env:COR_PROFILER*" ScriptBlockText="*$env:COR_PROFILER_PATH*"

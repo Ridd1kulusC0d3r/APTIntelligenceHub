@@ -1,0 +1,18 @@
+// Windows Defender Grace Period Expired | T1685 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/windefend/win_defender_antimalware_platform_expired.yml
+EventID:5101
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "EventID:5101",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

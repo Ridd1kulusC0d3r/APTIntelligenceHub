@@ -1,0 +1,18 @@
+// Okta New Admin Console Behaviours | T1078.004 | https://github.com/SigmaHQ/sigma/blob/master/rules/identity/okta/okta_new_behaviours_admin_console.yml
+(eventType:policy.evaluate_sign_on AND target.displayName:"Okta Admin Console") AND (debugContext.debugData.behaviors:*POSITIVE* OR debugContext.debugData.logOnlySecurityData:*POSITIVE*)
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(eventType:policy.evaluate_sign_on AND target.displayName:\"Okta Admin Console\") AND (debugContext.debugData.behaviors:*POSITIVE* OR debugContext.debugData.logOnlySecurityData:*POSITIVE*)",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

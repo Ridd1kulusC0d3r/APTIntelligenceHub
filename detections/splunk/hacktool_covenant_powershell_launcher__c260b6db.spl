@@ -1,0 +1,2 @@
+# HackTool - Covenant PowerShell Launcher | T1059.001, T1564.003 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_covenant.yml
+source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=1 ((CommandLine="*-Sta*" CommandLine="*-Nop*" CommandLine="*-Window*" CommandLine="*Hidden*" (CommandLine IN ("*-Command*", "*-EncodedCommand*"))) OR CommandLine IN ("*sv o (New-Object IO.MemorySteam);sv d *", "*mshta file.hta*", "*GruntHTTP*", "*-EncodedCommand cwB2ACAAbwAgA*"))

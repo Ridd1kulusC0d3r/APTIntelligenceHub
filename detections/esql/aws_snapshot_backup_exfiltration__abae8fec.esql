@@ -1,0 +1,2 @@
+// AWS Snapshot Backup Exfiltration | T1537 | https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/aws/cloudtrail/aws_snapshot_backup_exfiltration.yml
+from * metadata _id, _index, _version | where eventSource=="ec2.amazonaws.com" and eventName=="ModifySnapshotAttribute"

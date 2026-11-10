@@ -1,0 +1,3 @@
+// HackTool - SILENTTRINITY Stager Execution | T1071 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_silenttrinity_stager.yml
+DeviceProcessEvents
+| where ProcessVersionInfoFileDescription contains "st2stager"

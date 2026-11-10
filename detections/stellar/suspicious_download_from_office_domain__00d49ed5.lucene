@@ -1,0 +1,18 @@
+// Suspicious Download from Office Domain | T1105, T1608 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_download_office_domain.yml
+((Image:(*\\curl.exe OR *\\wget.exe)) OR (CommandLine:(*Invoke\-WebRequest* OR *iwr\ * OR *curl\ * OR *wget\ * OR *Start\-BitsTransfer* OR *.DownloadFile\(* OR *.DownloadString\(*))) AND (CommandLine:(*https\:\/\/attachment.outlook.live.net\/owa\/* OR *https\:\/\/onenoteonlinesync.onenote.com\/onenoteonlinesync\/*))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "((Image:(*\\\\curl.exe OR *\\\\wget.exe)) OR (CommandLine:(*Invoke\\-WebRequest* OR *iwr\\ * OR *curl\\ * OR *wget\\ * OR *Start\\-BitsTransfer* OR *.DownloadFile\\(* OR *.DownloadString\\(*))) AND (CommandLine:(*https\\:\\/\\/attachment.outlook.live.net\\/owa\\/* OR *https\\:\\/\\/onenoteonlinesync.onenote.com\\/onenoteonlinesync\\/*))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

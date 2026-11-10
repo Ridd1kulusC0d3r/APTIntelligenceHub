@@ -1,0 +1,3 @@
+// Suspicious Teams Application Related ObjectAcess Event | T1528 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_teams_suspicious_objectaccess.yml
+DeviceRegistryEvents
+| where (RegistryKey contains "\\Microsoft\\Teams\\Cookies" or RegistryKey contains "\\Microsoft\\Teams\\Local Storage\\leveldb") and (not(InitiatingProcessFolderPath contains "\\Microsoft\\Teams\\current\\Teams.exe"))

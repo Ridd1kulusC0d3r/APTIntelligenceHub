@@ -1,0 +1,2 @@
+// Certificate Exported From Local Certificate Store | T1649 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/certificate_services_client_lifecycle_system/win_certificateservicesclient_lifecycle_system_cert_exported.yml
+from * metadata _id, _index, _version | where winlog.channel=="Microsoft-Windows-CertificateServicesClient-Lifecycle-System/Operational" and event.code=="1007"

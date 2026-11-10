@@ -1,0 +1,2 @@
+// Potential QBot Activity | T1059.005 | https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2019/Malware/QBot/proc_creation_win_malware_qbot.yml
+from * metadata _id, _index, _version | where ends_with(process.parent.executable.caseless, "\\WinRAR.exe") and ends_with(process.executable.caseless, "\\wscript.exe") or process.command_line like "* /c ping.exe -n 6 127.0.0.1 & type *" or process.command_line like "*regsvr32.exe*" and process.command_line like "*C:\\ProgramData*" and process.command_line like "*.tmp*"

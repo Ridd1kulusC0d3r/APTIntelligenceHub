@@ -1,0 +1,2 @@
+# Winlogon Helper DLL | T1547.004 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/powershell/powershell_script/posh_ps_winlogon_helper_dll.yml
+ScriptBlockText="*CurrentVersion\\Winlogon*" (ScriptBlockText IN ("*Set-ItemProperty*", "*New-Item*"))

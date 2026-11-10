@@ -1,0 +1,2 @@
+# Binary Padding - MacOS | T1027.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_binary_padding.yml
+(Image="*/truncate" CommandLine="*-s +*") OR (Image="*/dd" (CommandLine IN ("*if=/dev/zero*", "*if=/dev/random*", "*if=/dev/urandom*")))

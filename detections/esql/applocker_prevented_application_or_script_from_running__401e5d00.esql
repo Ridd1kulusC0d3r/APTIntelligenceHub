@@ -1,0 +1,2 @@
+// AppLocker Prevented Application or Script from Running | T1059.001, T1059.003, T1059.005, T1059.006, T1059.007, T1204.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/applocker/win_applocker_application_was_prevented_from_running.yml
+from * metadata _id, _index, _version | where (winlog.channel in ("Microsoft-Windows-AppLocker/MSI and Script", "Microsoft-Windows-AppLocker/EXE and DLL", "Microsoft-Windows-AppLocker/Packaged app-Deployment", "Microsoft-Windows-AppLocker/Packaged app-Execution")) and (event.code in ("8004", "8007", "8022", "8025"))

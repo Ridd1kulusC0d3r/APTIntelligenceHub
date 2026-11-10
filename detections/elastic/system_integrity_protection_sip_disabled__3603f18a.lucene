@@ -1,0 +1,2 @@
+// System Integrity Protection (SIP) Disabled | T1518.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_csrutil_disable.yml
+Image:*\/csrutil AND CommandLine:*disable*

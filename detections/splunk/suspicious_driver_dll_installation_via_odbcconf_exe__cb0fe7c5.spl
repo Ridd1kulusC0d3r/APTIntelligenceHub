@@ -1,0 +1,2 @@
+# Suspicious Driver/DLL Installation Via Odbcconf.EXE | T1218.008 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_odbcconf_driver_install_susp.yml
+source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=1 (Image="*\\odbcconf.exe" OR OriginalFileName="odbcconf.exe") CommandLine="*INSTALLDRIVER *" NOT CommandLine="*.dll*"

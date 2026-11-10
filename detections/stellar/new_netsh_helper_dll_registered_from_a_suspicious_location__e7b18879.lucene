@@ -1,0 +1,18 @@
+// New Netsh Helper DLL Registered From A Suspicious Location | T1546.007 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_netsh_help_dll_persistence_susp_location.yml
+TargetObject:*\\SOFTWARE\\Microsoft\\NetSh* AND ((Details:(*\:\\Perflogs\\* OR *\:\\Users\\Public\\* OR *\:\\Windows\\Temp\\* OR *\\AppData\\Local\\Temp\\* OR *\\Temporary\ Internet*)) OR ((Details:*\:\\Users\\* AND Details:*\\Favorites\\*) OR (Details:*\:\\Users\\* AND Details:*\\Favourites\\*) OR (Details:*\:\\Users\\* AND Details:*\\Contacts\\*) OR (Details:*\:\\Users\\* AND Details:*\\Pictures\\*)))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "TargetObject:*\\\\SOFTWARE\\\\Microsoft\\\\NetSh* AND ((Details:(*\\:\\\\Perflogs\\\\* OR *\\:\\\\Users\\\\Public\\\\* OR *\\:\\\\Windows\\\\Temp\\\\* OR *\\\\AppData\\\\Local\\\\Temp\\\\* OR *\\\\Temporary\\ Internet*)) OR ((Details:*\\:\\\\Users\\\\* AND Details:*\\\\Favorites\\\\*) OR (Details:*\\:\\\\Users\\\\* AND Details:*\\\\Favourites\\\\*) OR (Details:*\\:\\\\Users\\\\* AND Details:*\\\\Contacts\\\\*) OR (Details:*\\:\\\\Users\\\\* AND Details:*\\\\Pictures\\\\*)))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

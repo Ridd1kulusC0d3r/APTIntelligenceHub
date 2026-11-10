@@ -1,0 +1,18 @@
+// Possible DC Shadow Attack | T1207 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_possible_dc_shadow.yml
+(EventID:4742 AND ServicePrincipalNames:*GC\/*) OR (EventID:5136 AND AttributeLDAPDisplayName:servicePrincipalName AND AttributeValue:GC\/*)
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(EventID:4742 AND ServicePrincipalNames:*GC\\/*) OR (EventID:5136 AND AttributeLDAPDisplayName:servicePrincipalName AND AttributeValue:GC\\/*)",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

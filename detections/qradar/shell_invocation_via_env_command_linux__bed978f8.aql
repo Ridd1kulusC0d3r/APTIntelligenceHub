@@ -1,0 +1,2 @@
+-- Shell Invocation via Env Command - Linux | T1059.004 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_env_shell_invocation.yml
+SELECT * FROM events WHERE devicetype=11 AND (LOWER("Process Path") LIKE '%/env' OR LOWER("Process Name") LIKE '%/env') AND (LOWER(Command) LIKE '%/bin/bash%' OR LOWER(Command) LIKE '%/bin/dash%' OR LOWER(Command) LIKE '%/bin/fish%' OR LOWER(Command) LIKE '%/bin/sh%' OR LOWER(Command) LIKE '%/bin/zsh%')

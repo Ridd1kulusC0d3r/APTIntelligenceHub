@@ -1,0 +1,2 @@
+// System Information Discovery Via Sysctl - MacOS | T1082, T1497.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_sysctl_discovery.yml
+(Image:*\/sysctl OR CommandLine:*sysctl*) AND (CommandLine:(*hw.* OR *kern.* OR *machdep.*))

@@ -1,0 +1,2 @@
+// PUA - Crassus Execution | T1590.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_crassus.yml
+process.executable.caseless:*\\Crassus.exe OR process.pe.original_file_name:Crassus.exe OR process.pe.description:*Crassus*

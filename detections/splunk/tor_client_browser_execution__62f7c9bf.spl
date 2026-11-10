@@ -1,0 +1,2 @@
+# Tor Client/Browser Execution | T1090.003 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_browsers_tor_execution.yml
+source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=1 (Description="Tor Browser" OR Product="Tor Browser" OR Image IN ("*\\tor.exe", "*\\Tor Browser\\Browser\\firefox.exe"))

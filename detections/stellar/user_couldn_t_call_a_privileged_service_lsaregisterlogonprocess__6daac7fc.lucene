@@ -1,0 +1,18 @@
+// User Couldn't Call a Privileged Service 'LsaRegisterLogonProcess' | T1558.003 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_user_couldnt_call_priv_service_lsaregisterlogonprocess.yml
+EventID:4673 AND Service:LsaRegisterLogonProcess\(\) AND Keywords:0x8010000000000000
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "EventID:4673 AND Service:LsaRegisterLogonProcess\\(\\) AND Keywords:0x8010000000000000",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,2 @@
+-- NTLMv1 Logon Between Client and Server | T1550.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/system/lsasrv/win_system_lsasrv_ntlmv1.yml | NOTA: fallback QRadarAQL_payload_pipeline: campos sem propriedade DSM mapeada são buscados em UTF8(payload) – custo maior, crie custom properties
+SELECT * FROM events WHERE devicetype=12 AND LOWER(UTF8(payload)) LIKE '%lsasrv%' AND ("Event ID" IN('6038', '6039'))

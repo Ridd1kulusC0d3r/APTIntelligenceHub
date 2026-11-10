@@ -1,0 +1,2 @@
+-- App Granted Privileged Delegated Or App Permissions | T1098.003 | https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/azure/audit_logs/azure_app_privileged_permissions.yml
+SELECT * FROM events WHERE LOWER(Message) LIKE '%add app role assignment to service principal%'

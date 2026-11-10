@@ -1,0 +1,2 @@
+# Sysmon Discovery Via Default Driver Altitude Using Findstr.EXE | T1518.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_findstr_sysmon_discovery_via_default_altitude.yml
+source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=1 (Image IN ("*\\find.exe", "*\\findstr.exe") OR OriginalFileName IN ("FIND.EXE", "FINDSTR.EXE")) CommandLine="* 385201*"

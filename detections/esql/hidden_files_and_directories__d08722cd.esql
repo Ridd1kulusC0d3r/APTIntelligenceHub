@@ -1,0 +1,2 @@
+// Hidden Files and Directories | T1564.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/execve/lnx_auditd_hidden_files_directories.yml
+from * metadata _id, _index, _version | where type=="EXECVE" and (a0 in ("mkdir", "nano", "touch", "vi", "vim")) and (a1 rlike "(^|\\/)\\.[^.\\/]" or a2 rlike "(^|\\/)\\.[^.\\/]")

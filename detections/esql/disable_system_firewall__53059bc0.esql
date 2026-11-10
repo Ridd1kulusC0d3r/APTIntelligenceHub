@@ -1,0 +1,2 @@
+// Disable System Firewall | T1686 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/service_stop/lnx_auditd_disable_system_firewall.yml
+from * metadata _id, _index, _version | where type=="SERVICE_STOP" and (unit in ("firewalld", "iptables", "ufw"))

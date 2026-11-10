@@ -1,0 +1,2 @@
+-- Browser Started with Remote Debugging | T1185 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_browsers_remote_debugging.yml
+SELECT * FROM events WHERE devicetype=12 AND (LOWER(Command) LIKE '% --remote-debugging-%' OR ((LOWER("Process Path") LIKE '%\firefox.exe' OR LOWER("Process Name") LIKE '%\firefox.exe') AND LOWER(Command) LIKE '% -start-debugger-server%'))

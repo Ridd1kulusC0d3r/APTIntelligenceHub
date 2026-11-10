@@ -1,0 +1,2 @@
+# HybridConnectionManager Service Running | T1554 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/servicebus/win_hybridconnectionmgr_svc_running.yml
+(source IN ("WinEventLog:Microsoft-ServiceBus-Client/Operational", "WinEventLog:Microsoft-ServiceBus-Client/Admin")) (EventCode IN (40300, 40301, 40302)) ("HybridConnection" OR "sb://" OR "servicebus.windows.net" OR "HybridConnectionManage")

@@ -1,0 +1,18 @@
+// External Disk Drive Or USB Storage Device Was Recognized By The System | T1091, T1200 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_external_device.yml
+EventID:6416 AND (ClassName:DiskDrive OR DeviceDescription:"USB Mass Storage Device")
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "EventID:6416 AND (ClassName:DiskDrive OR DeviceDescription:\"USB Mass Storage Device\")",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

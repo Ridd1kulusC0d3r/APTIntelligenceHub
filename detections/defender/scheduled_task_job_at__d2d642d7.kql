@@ -1,0 +1,3 @@
+// Scheduled Task/Job At | T1053.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_at_command.yml
+DeviceProcessEvents
+| where FolderPath endswith "/at" or FolderPath endswith "/atd"

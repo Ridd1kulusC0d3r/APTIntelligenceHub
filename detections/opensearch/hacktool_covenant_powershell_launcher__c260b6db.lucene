@@ -1,0 +1,2 @@
+// HackTool - Covenant PowerShell Launcher | T1059.001, T1564.003 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_covenant.yml
+((process.command_line:*\-Sta* AND process.command_line:*\-Nop* AND process.command_line:*\-Window* AND process.command_line:*Hidden*) AND (process.command_line:(*\-Command* OR *\-EncodedCommand*))) OR (process.command_line:(*sv\ o\ \(New\-Object\ IO.MemorySteam\);sv\ d\ * OR *mshta\ file.hta* OR *GruntHTTP* OR *\-EncodedCommand\ cwB2ACAAbwAgA*))

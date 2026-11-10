@@ -1,0 +1,18 @@
+// Discovery Using AzureHound | T1087.004, T1526 | https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/azure/signin_logs/azure_ad_azurehound_discovery.yml
+userAgent:*azurehound* AND ResultType:0
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "userAgent:*azurehound* AND ResultType:0",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

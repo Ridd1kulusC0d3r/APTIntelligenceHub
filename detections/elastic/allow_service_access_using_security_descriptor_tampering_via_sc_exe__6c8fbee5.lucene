@@ -1,0 +1,2 @@
+// Allow Service Access Using Security Descriptor Tampering Via Sc.EXE | T1543.003 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sc_sdset_allow_service_changes.yml
+((process.executable.caseless:*\\sc.exe OR process.pe.original_file_name:sc.exe) AND (process.command_line:*sdset* AND process.command_line:*A;*) AND (process.command_line:(*;IU* OR *;SU* OR *;BA* OR *;SY* OR *;WD*))) AND (NOT process.parent.executable.caseless:"C\:\\Hexnode\\Hexnode Agent\\Current\\HexnodeAgent.exe")

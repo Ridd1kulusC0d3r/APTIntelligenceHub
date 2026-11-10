@@ -1,0 +1,2 @@
+// Suspicious NTLM Authentication on the Printer Spooler Service | T1212 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_ntlmrelay.yml
+(process.executable.caseless:*\\rundll32.exe OR process.pe.original_file_name:RUNDLL32.EXE) AND ((process.command_line:*C\:\\windows\\system32\\davclnt.dll,DavSetCookie* AND process.command_line:*http*) AND (process.command_line:(*spoolss* OR *srvsvc* OR *\/print\/pipe\/*)))

@@ -1,0 +1,2 @@
+# Mimikatz Use | T1003.001, T1003.002, T1003.004, T1003.006 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/win_alert_mimikatz_keywords.yml
+("dpapi::masterkey" OR "eo.oe.kiwi" OR "event::clear" OR "event::drop" OR "gentilkiwi.com" OR "kerberos::golden" OR "kerberos::ptc" OR "kerberos::ptt" OR "kerberos::tgt" OR "Kiwi Legit Printer" OR "lsadump::" OR "mimidrv.sys" OR "\\mimilib.dll" OR "misc::printnightmare" OR "misc::shadowcopies" OR "misc::skeleton" OR "privilege::backup" OR "privilege::debug" OR "privilege::driver" OR "sekurlsa::") NOT EventCode=15

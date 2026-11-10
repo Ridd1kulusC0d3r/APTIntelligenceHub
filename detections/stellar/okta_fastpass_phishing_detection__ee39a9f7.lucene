@@ -1,0 +1,18 @@
+// Okta FastPass Phishing Detection | T1566 | https://github.com/SigmaHQ/sigma/blob/master/rules/identity/okta/okta_fastpass_phishing_detection.yml
+outcome.reason:"FastPass declined phishing attempt" AND outcome.result:FAILURE AND eventType:user.authentication.auth_via_mfa
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "outcome.reason:\"FastPass declined phishing attempt\" AND outcome.result:FAILURE AND eventType:user.authentication.auth_via_mfa",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

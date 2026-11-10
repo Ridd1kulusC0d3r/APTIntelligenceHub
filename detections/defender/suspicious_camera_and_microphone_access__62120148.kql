@@ -1,0 +1,3 @@
+// Suspicious Camera and Microphone Access | T1123, T1125 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/registry_event_susp_mic_cam_access.yml
+DeviceRegistryEvents
+| where (RegistryKey endswith "\\Software\\Microsoft\\Windows\\CurrentVersion\\CapabilityAccessManager\\ConsentStore*" and RegistryKey contains "\\NonPackaged") and (RegistryKey contains "microphone" or RegistryKey contains "webcam") and (RegistryKey contains ":#Windows#Temp#" or RegistryKey contains ":#$Recycle.bin#" or RegistryKey contains ":#Temp#" or RegistryKey contains ":#Users#Public#" or RegistryKey contains ":#Users#Default#" or RegistryKey contains ":#Users#Desktop#")

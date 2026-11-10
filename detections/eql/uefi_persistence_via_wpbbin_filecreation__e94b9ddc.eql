@@ -1,0 +1,2 @@
+// UEFI Persistence Via Wpbbin - FileCreation | T1542.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_wpbbin_persistence.yml
+any where file.path:"C:\\Windows\\System32\\wpbbin.exe"

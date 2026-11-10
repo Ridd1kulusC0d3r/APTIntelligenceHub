@@ -1,0 +1,2 @@
+-- WMIC Loading Scripting Libraries | T1220 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_wmic_remote_xsl_scripting_dlls.yml
+SELECT * FROM events WHERE devicetype=12 AND (LOWER("Process Path") LIKE '%\wmic.exe' OR LOWER("Process Name") LIKE '%\wmic.exe') AND (LOWER(CONCAT('file directory', '/', filename)) LIKE '%\jscript.dll' OR LOWER(CONCAT('file directory', '/', filename)) LIKE '%\vbscript.dll')

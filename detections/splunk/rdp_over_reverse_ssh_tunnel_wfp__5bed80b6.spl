@@ -1,0 +1,2 @@
+# RDP over Reverse SSH Tunnel WFP | T1021.001, T1090.001, T1090.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_rdp_reverse_tunnel.yml
+source="WinEventLog:Security" EventCode=5156 ((SourcePort=3389 (DestAddress IN ("127.*", "::1"))) OR (DestPort=3389 (SourceAddress IN ("127.*", "::1")))) NOT (FilterOrigin="AppContainer Loopback" OR Application IN ("*\\thor.exe", "*\\thor64.exe"))

@@ -1,0 +1,18 @@
+// ADFS Database Named Pipe Connection By Uncommon Tool | T1005 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/pipe_created/pipe_created_adfs_namedpipe_connection_uncommon_tool.yml
+PipeName:\\MICROSOFT##WID\\tsql\\query AND (NOT (Image:(*\:\\Windows\\System32\\mmc.exe OR *\:\\Windows\\system32\\svchost.exe OR *\:\\Windows\\System32\\wsmprovhost.exe OR *\:\\Windows\\SysWOW64\\mmc.exe OR *\:\\Windows\\SysWOW64\\wsmprovhost.exe OR *\:\\Windows\\WID\\Binn\\sqlwriter.exe OR *\\AzureADConnect.exe OR *\\Microsoft.Identity.Health.Adfs.PshSurrogate.exe OR *\\Microsoft.IdentityServer.ServiceHost.exe OR *\\Microsoft.Tri.Sensor.exe OR *\\sqlservr.exe OR *\\tssdis.exe)))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "PipeName:\\\\MICROSOFT##WID\\\\tsql\\\\query AND (NOT (Image:(*\\:\\\\Windows\\\\System32\\\\mmc.exe OR *\\:\\\\Windows\\\\system32\\\\svchost.exe OR *\\:\\\\Windows\\\\System32\\\\wsmprovhost.exe OR *\\:\\\\Windows\\\\SysWOW64\\\\mmc.exe OR *\\:\\\\Windows\\\\SysWOW64\\\\wsmprovhost.exe OR *\\:\\\\Windows\\\\WID\\\\Binn\\\\sqlwriter.exe OR *\\\\AzureADConnect.exe OR *\\\\Microsoft.Identity.Health.Adfs.PshSurrogate.exe OR *\\\\Microsoft.IdentityServer.ServiceHost.exe OR *\\\\Microsoft.Tri.Sensor.exe OR *\\\\sqlservr.exe OR *\\\\tssdis.exe)))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,18 @@
+// Diamond Sleet APT DLL Sideloading Indicators | T1574.001 | https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/Diamond-Sleet/image_load_apt_diamond_sleet_side_load.yml
+(Image:*\:\\ProgramData\\clip.exe AND ImageLoaded:*\:\\ProgramData\\Version.dll) OR (Image:*\:\\ProgramData\\wsmprovhost.exe AND ImageLoaded:*\:\\ProgramData\\DSROLE.dll)
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(Image:*\\:\\\\ProgramData\\\\clip.exe AND ImageLoaded:*\\:\\\\ProgramData\\\\Version.dll) OR (Image:*\\:\\\\ProgramData\\\\wsmprovhost.exe AND ImageLoaded:*\\:\\\\ProgramData\\\\DSROLE.dll)",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

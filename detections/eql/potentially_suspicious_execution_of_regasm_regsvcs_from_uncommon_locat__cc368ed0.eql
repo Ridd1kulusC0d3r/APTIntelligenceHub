@@ -1,0 +1,2 @@
+// Potentially Suspicious Execution Of Regasm/Regsvcs From Uncommon Location | T1218.009 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_regasm_regsvcs_uncommon_location_execution.yml
+any where ((process.executable.caseless like~ ("*\\Regsvcs.exe", "*\\Regasm.exe")) or (process.pe.original_file_name like~ ("RegSvcs.exe", "RegAsm.exe"))) and (process.command_line like~ ("*\\AppData\\Local\\Temp\\*", "*\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\*", "*\\PerfLogs\\*", "*\\Users\\Public\\*", "*\\Windows\\Temp\\*"))

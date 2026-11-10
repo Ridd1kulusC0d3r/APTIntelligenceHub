@@ -1,0 +1,18 @@
+// Disabling Security Tools | T1686 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_security_tools_disabling.yml
+(Image:*\/service AND (CommandLine:*iptables* AND CommandLine:*stop*)) OR (Image:*\/service AND (CommandLine:*ip6tables* AND CommandLine:*stop*)) OR (Image:*\/chkconfig AND (CommandLine:*iptables* AND CommandLine:*stop*)) OR (Image:*\/chkconfig AND (CommandLine:*ip6tables* AND CommandLine:*stop*)) OR (Image:*\/systemctl AND (CommandLine:*firewalld* AND CommandLine:*stop*)) OR (Image:*\/systemctl AND (CommandLine:*firewalld* AND CommandLine:*disable*)) OR (Image:*\/service AND (CommandLine:*cbdaemon* AND CommandLine:*stop*)) OR (Image:*\/chkconfig AND (CommandLine:*cbdaemon* AND CommandLine:*off*)) OR (Image:*\/systemctl AND (CommandLine:*cbdaemon* AND CommandLine:*stop*)) OR (Image:*\/systemctl AND (CommandLine:*cbdaemon* AND CommandLine:*disable*)) OR (Image:*\/setenforce AND CommandLine:*0*) OR (Image:*\/systemctl AND (CommandLine:*stop* AND CommandLine:*falcon\-sensor*)) OR (Image:*\/systemctl AND (CommandLine:*disable* AND CommandLine:*falcon\-sensor*))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(Image:*\\/service AND (CommandLine:*iptables* AND CommandLine:*stop*)) OR (Image:*\\/service AND (CommandLine:*ip6tables* AND CommandLine:*stop*)) OR (Image:*\\/chkconfig AND (CommandLine:*iptables* AND CommandLine:*stop*)) OR (Image:*\\/chkconfig AND (CommandLine:*ip6tables* AND CommandLine:*stop*)) OR (Image:*\\/systemctl AND (CommandLine:*firewalld* AND CommandLine:*stop*)) OR (Image:*\\/systemctl AND (CommandLine:*firewalld* AND CommandLine:*disable*)) OR (Image:*\\/service AND (CommandLine:*cbdaemon* AND CommandLine:*stop*)) OR (Image:*\\/chkconfig AND (CommandLine:*cbdaemon* AND CommandLine:*off*)) OR (Image:*\\/systemctl AND (CommandLine:*cbdaemon* AND CommandLine:*stop*)) OR (Image:*\\/systemctl AND (CommandLine:*cbdaemon* AND CommandLine:*disable*)) OR (Image:*\\/setenforce AND CommandLine:*0*) OR (Image:*\\/systemctl AND (CommandLine:*stop* AND CommandLine:*falcon\\-sensor*)) OR (Image:*\\/systemctl AND (CommandLine:*disable* AND CommandLine:*falcon\\-sensor*))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

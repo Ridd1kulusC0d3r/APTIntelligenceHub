@@ -1,0 +1,2 @@
+// Security Support Provider (SSP) Added to LSA Configuration | T1547.005 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/registry_event_ssp_added_lsa_config.yml
+any where (registry.path like~ ("*\\Control\\Lsa\\Security Packages", "*\\Control\\Lsa\\OSConfig\\Security Packages")) and (not ((process.executable.caseless like~ ("C:\\Windows\\system32\\msiexec.exe", "C:\\Windows\\syswow64\\MsiExec.exe")) or (?process.executable.caseless == null)))

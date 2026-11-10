@@ -1,0 +1,2 @@
+// Automated Collection Bookmarks Using Get-ChildItem PowerShell | T1217 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/powershell/powershell_script/posh_ps_get_childitem_bookmarks.yml
+any where powershell.file.script_block_text:"*Get-ChildItem*" and powershell.file.script_block_text:"* -Recurse *" and powershell.file.script_block_text:"* -Path *" and powershell.file.script_block_text:"* -Filter Bookmarks*" and powershell.file.script_block_text:"* -ErrorAction SilentlyContinue*" and powershell.file.script_block_text:"* -Force*"

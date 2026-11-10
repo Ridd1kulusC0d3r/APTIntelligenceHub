@@ -1,0 +1,2 @@
+# Python One-Liners with Base64 Decoding - Linux | T1027.010, T1059.006 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_python_base64_encoded_execution.yml
+Image="*/python*" CommandLine="*import*" CommandLine="*base64*" CommandLine="* -c*" (CommandLine IN ("*.decode*", "*b16decode*", "*b32decode*", "*b32hexdecode*", "*b64decode*", "*b85decode*", "*z85decode*"))

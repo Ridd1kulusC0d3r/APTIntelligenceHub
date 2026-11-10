@@ -1,0 +1,3 @@
+// Suspicious Redirection to Local Admin Share | T1048 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_redirect_local_admin_share.yml
+DeviceProcessEvents
+| where ProcessCommandLine contains ">" and (ProcessCommandLine contains "\\\\127.0.0.1\\admin$\\" or ProcessCommandLine contains "\\\\localhost\\admin$\\")

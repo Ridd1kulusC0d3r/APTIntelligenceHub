@@ -1,0 +1,18 @@
+// New Federated Domain Added - Exchange | T1136.003 | https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/m365/exchange/microsoft365_new_federated_domain_added_exchange.yml
+eventSource:Exchange AND eventName:Add\-FederatedDomain AND status:success
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "eventSource:Exchange AND eventName:Add\\-FederatedDomain AND status:success",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

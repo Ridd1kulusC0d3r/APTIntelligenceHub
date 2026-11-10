@@ -1,0 +1,3 @@
+// Potential MSTSC Shadowing Activity | T1563.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_mstsc_rdp_hijack_shadowing.yml
+DeviceProcessEvents
+| where ProcessCommandLine contains "noconsentprompt" and ProcessCommandLine contains "shadow:"

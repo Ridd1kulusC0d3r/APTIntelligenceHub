@@ -1,0 +1,2 @@
+// Zip A Folder With PowerShell For Staging In Temp - PowerShell | T1074.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/powershell/powershell_classic/posh_pc_susp_zip_compress.yml
+winlog.channel:"Windows PowerShell" AND (winlog.event_data.Data:(*Compress\-Archive\ \-Path*\-DestinationPath\ $env\:TEMP* OR *Compress\-Archive\ \-Path*\-DestinationPath*\\AppData\\Local\\Temp\\* OR *Compress\-Archive\ \-Path*\-DestinationPath*\:\\Windows\\Temp\\*))

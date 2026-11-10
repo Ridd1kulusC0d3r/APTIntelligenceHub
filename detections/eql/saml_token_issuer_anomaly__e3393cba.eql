@@ -1,0 +1,2 @@
+// SAML Token Issuer Anomaly | T1606 | https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/azure/identity_protection/azure_identity_protection_token_issuer_anomaly.yml
+any where riskEventType:"tokenIssuerAnomaly"

@@ -1,0 +1,2 @@
+// Diamond Sleet APT Scheduled Task Creation - Registry | T1685 | https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/Diamond-Sleet/registry_event_apt_diamond_sleet_scheduled_task.yml
+registry.path:*\\SOFTWARE\\Microsoft\\Windows\ NT\\CurrentVersion\\Schedule\\TaskCache\\Tree\\* AND registry.path:*Windows\ TeamCity\ Settings\ User\ Interface*

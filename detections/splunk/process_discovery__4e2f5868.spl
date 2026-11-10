@@ -1,0 +1,2 @@
+# Process Discovery | T1057 | https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/linux/process_creation/proc_creation_lnx_susp_running_process_discovery.yml
+Image IN ("*/atop", "*/htop", "*/pgrep", "*/ps", "*/pstree", "*/top")

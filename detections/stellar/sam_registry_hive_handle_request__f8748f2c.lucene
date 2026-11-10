@@ -1,0 +1,18 @@
+// SAM Registry Hive Handle Request | T1012, T1552.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_sam_registry_hive_handle_request.yml
+EventID:4656 AND ObjectType:Key AND ObjectName:*\\SAM
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "EventID:4656 AND ObjectType:Key AND ObjectName:*\\\\SAM",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

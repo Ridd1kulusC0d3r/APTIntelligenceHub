@@ -1,0 +1,18 @@
+// Forest Blizzard APT - JavaScript Constrained File Creation | T1685.001 | https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2024/TA/Forest-Blizzard/file_event_win_apt_forest_blizzard_constrained_js.yml
+TargetFilename:C\:\\Windows\\System32\\DriverStore\\FileRepository\\* AND TargetFilename:*\\.js
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "TargetFilename:C\\:\\\\Windows\\\\System32\\\\DriverStore\\\\FileRepository\\\\* AND TargetFilename:*\\\\.js",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,18 @@
+// Cisco Modify Configuration | T1053, T1490, T1505, T1565.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/network/cisco/aaa/cisco_cli_modify_config.yml
+*ip\ http\ server* OR *ip\ https\ server* OR *kron\ policy\-list* OR *kron\ occurrence* OR *policy\-list* OR *access\-list* OR *ip\ access\-group* OR *archive\ maximum* OR *ntp\ server*
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "*ip\\ http\\ server* OR *ip\\ https\\ server* OR *kron\\ policy\\-list* OR *kron\\ occurrence* OR *policy\\-list* OR *access\\-list* OR *ip\\ access\\-group* OR *archive\\ maximum* OR *ntp\\ server*",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

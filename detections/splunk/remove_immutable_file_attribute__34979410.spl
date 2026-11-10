@@ -1,0 +1,2 @@
+# Remove Immutable File Attribute | T1222.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_chattr_immutable_removal.yml
+Image="*/chattr" CommandLine="* -i *"

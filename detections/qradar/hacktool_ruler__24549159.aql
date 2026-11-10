@@ -1,0 +1,2 @@
+-- Hacktool Ruler | T1059, T1087, T1114, T1550.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_alert_ruler.yml | NOTA: fallback QRadarAQL_payload_pipeline: campos sem propriedade DSM mapeada são buscados em UTF8(payload) – custo maior, crie custom properties
+SELECT * FROM events WHERE devicetype=12 AND (("Event ID"=4776 AND LOWER(UTF8(payload)) LIKE '%ruler%') OR (("Event ID" IN('4624', '4625')) AND LOWER(UTF8(payload)) LIKE '%ruler%'))

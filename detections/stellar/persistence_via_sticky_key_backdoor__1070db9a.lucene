@@ -1,0 +1,18 @@
+// Persistence Via Sticky Key Backdoor | T1546.008 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_cmd_sticky_keys_replace.yml
+CommandLine:*copy\ * AND CommandLine:*\/y\ * AND CommandLine:*C\:\\windows\\system32\\cmd.exe\ C\:\\windows\\system32\\sethc.exe*
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "CommandLine:*copy\\ * AND CommandLine:*\\/y\\ * AND CommandLine:*C\\:\\\\windows\\\\system32\\\\cmd.exe\\ C\\:\\\\windows\\\\system32\\\\sethc.exe*",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

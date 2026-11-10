@@ -1,0 +1,2 @@
+-- COM Hijack via Sdclt | T1546, T1548 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_comhijack_sdclt.yml
+SELECT * FROM events WHERE devicetype=12 AND (LOWER("Process Name") LIKE '%\software\classes\folder\shell\open\command\delegateexecute%' OR LOWER("Target Process Name") LIKE '%\software\classes\folder\shell\open\command\delegateexecute%' OR LOWER("Object Name") LIKE '%\software\classes\folder\shell\open\command\delegateexecute%')

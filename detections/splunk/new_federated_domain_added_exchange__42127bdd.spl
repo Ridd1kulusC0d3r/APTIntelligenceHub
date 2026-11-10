@@ -1,0 +1,2 @@
+# New Federated Domain Added - Exchange | T1136.003 | https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/m365/exchange/microsoft365_new_federated_domain_added_exchange.yml
+eventSource="Exchange" eventName="Add-FederatedDomain" status="success"

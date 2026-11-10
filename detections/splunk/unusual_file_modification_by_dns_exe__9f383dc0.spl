@@ -1,0 +1,2 @@
+# Unusual File Modification by dns.exe | T1133 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_change/file_change_win_unusual_modification_by_dns_exe.yml
+source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=2 Image="*\\dns.exe" NOT TargetFilename="*\\dns.log"

@@ -1,0 +1,3 @@
+// AWL Bypass with Winrm.vbs and Malicious WsmPty.xsl/WsmTxt.xsl - File | T1216 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_winrm_awl_bypass.yml
+DeviceFileEvents
+| where (FolderPath endswith "WsmPty.xsl" or FolderPath endswith "WsmTxt.xsl") and (not((FolderPath startswith "C:\\Windows\\System32\\" or FolderPath startswith "C:\\Windows\\SysWOW64\\")))

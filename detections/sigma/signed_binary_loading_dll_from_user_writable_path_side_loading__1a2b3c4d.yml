@@ -1,0 +1,28 @@
+title: Signed Binary Loading DLL From User-Writable Path (Side-Loading)
+id: 1a2b3c4d-5e6f-4a7b-8c9d-0e1f2a3b4c07
+status: experimental
+description: Microsoft-signed or vendor executables running from user profile/ProgramData loading unsigned DLLs, pattern seen in Lazarus DreamJob payloads.
+author: CTI Consolidation
+date: 2025-01-01
+tags:
+    - attack.defense-evasion
+    - attack.t1574.002
+logsource:
+    category: image_load
+    product: windows
+detection:
+    selection_path:
+        Image|contains:
+            - '\AppData\'
+            - '\ProgramData\'
+            - '\Users\Public\'
+        ImageLoaded|contains:
+            - '\AppData\'
+            - '\ProgramData\'
+            - '\Users\Public\'
+    selection_unsigned:
+        Signed: 'false'
+    condition: all of selection_*
+falsepositives:
+    - Aplicações de usuário (Teams, Slack, atualizadores) – criar allowlist por Image
+level: medium

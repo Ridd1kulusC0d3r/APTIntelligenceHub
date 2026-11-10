@@ -1,0 +1,2 @@
+# Turla Group Named Pipes | T1106 | https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2017/TA/Turla/pipe_created_apt_turla_named_pipes.yml
+source="WinEventLog:Microsoft-Windows-Sysmon/Operational" (EventCode IN (17, 18)) (PipeName IN ("\\atctl", "\\comnap", "\\iehelper", "\\sdlrpc", "\\userpipe"))

@@ -1,0 +1,18 @@
+// Potential Persistence Via Powershell Search Order Hijacking - Task | T1053.005, T1059.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_schtasks_powershell_persistence.yml
+ParentImage:C\:\\WINDOWS\\System32\\svchost.exe AND (ParentCommandLine:*\-k\ netsvcs* AND ParentCommandLine:*\-s\ Schedule*) AND (CommandLine:(*\ \-windowstyle\ hidden OR *\ \-w\ hidden OR *\ \-ep\ bypass OR *\ \-noni))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "ParentImage:C\\:\\\\WINDOWS\\\\System32\\\\svchost.exe AND (ParentCommandLine:*\\-k\\ netsvcs* AND ParentCommandLine:*\\-s\\ Schedule*) AND (CommandLine:(*\\ \\-windowstyle\\ hidden OR *\\ \\-w\\ hidden OR *\\ \\-ep\\ bypass OR *\\ \\-noni))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

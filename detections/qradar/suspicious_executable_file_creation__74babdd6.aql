@@ -1,0 +1,2 @@
+-- Suspicious Executable File Creation | T1564 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_susp_executable_creation.yml
+SELECT * FROM events WHERE devicetype=12 AND (LOWER(Filename) LIKE '%:\$recycle.bin.exe' OR LOWER(Filename) LIKE '%:\documents and settings.exe' OR LOWER(Filename) LIKE '%:\msocache.exe' OR LOWER(Filename) LIKE '%:\perflogs.exe' OR LOWER(Filename) LIKE '%:\recovery.exe' OR LOWER(Filename) LIKE '%.bat.exe' OR LOWER(Filename) LIKE '%.sys.exe')

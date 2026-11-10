@@ -1,0 +1,18 @@
+// Potential File Extension Spoofing Using Right-to-Left Override | T1036.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_susp_right_to_left_override_extension_spoofing.yml
+(TargetFilename:(*\\u202e* OR *\[U\+202E\]* OR *‮*)) AND (TargetFilename:(*3pm.* OR *4pm.* OR *cod.* OR *fdp.* OR *ftr.* OR *gepj.* OR *gnp.* OR *gpj.* OR *ism.* OR *lmth.* OR *nls.* OR *piz.* OR *slx.* OR *tdo.* OR *vsc.* OR *vwm.* OR *xcod.* OR *xslx.* OR *xtpp.*))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(TargetFilename:(*\\\\u202e* OR *\\[U\\+202E\\]* OR *\u202e*)) AND (TargetFilename:(*3pm.* OR *4pm.* OR *cod.* OR *fdp.* OR *ftr.* OR *gepj.* OR *gnp.* OR *gpj.* OR *ism.* OR *lmth.* OR *nls.* OR *piz.* OR *slx.* OR *tdo.* OR *vsc.* OR *vwm.* OR *xcod.* OR *xslx.* OR *xtpp.*))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

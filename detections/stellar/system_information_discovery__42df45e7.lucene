@@ -1,0 +1,18 @@
+// System Information Discovery | T1082 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_system_info_discovery.yml
+Image:(*\/uname OR *\/hostname OR *\/uptime OR *\/lspci OR *\/dmidecode OR *\/lscpu OR *\/lsmod)
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "Image:(*\\/uname OR *\\/hostname OR *\\/uptime OR *\\/lspci OR *\\/dmidecode OR *\\/lscpu OR *\\/lsmod)",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

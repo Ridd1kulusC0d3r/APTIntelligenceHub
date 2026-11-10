@@ -1,0 +1,18 @@
+// Potential Obfuscated Ordinal Call Via Rundll32 | T1027.010 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_obfuscated_ordinal_call.yml
+(Image:*\\rundll32.exe OR OriginalFileName:RUNDLL32.EXE OR CommandLine:*rundll32*) AND (CommandLine:(*#\+* OR *#\-* OR *#0* OR *#655* OR *#656*))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(Image:*\\\\rundll32.exe OR OriginalFileName:RUNDLL32.EXE OR CommandLine:*rundll32*) AND (CommandLine:(*#\\+* OR *#\\-* OR *#0* OR *#655* OR *#656*))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

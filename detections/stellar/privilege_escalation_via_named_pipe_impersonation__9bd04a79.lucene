@@ -1,0 +1,18 @@
+// Privilege Escalation via Named Pipe Impersonation | T1021 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_priv_escalation_via_named_pipe.yml
+((Image:(*\\cmd.exe OR *\\powershell.exe)) OR (OriginalFileName:(Cmd.Exe OR PowerShell.EXE))) AND (CommandLine:*echo* AND CommandLine:*\>* AND CommandLine:*\\\\.\\pipe\\*)
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "((Image:(*\\\\cmd.exe OR *\\\\powershell.exe)) OR (OriginalFileName:(Cmd.Exe OR PowerShell.EXE))) AND (CommandLine:*echo* AND CommandLine:*\\>* AND CommandLine:*\\\\\\\\.\\\\pipe\\\\*)",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

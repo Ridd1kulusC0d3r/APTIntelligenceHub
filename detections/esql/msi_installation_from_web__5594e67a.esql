@@ -1,0 +1,2 @@
+// MSI Installation From Web | T1218, T1218.007 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/application/msiinstaller/win_msi_install_from_web.yml
+from * metadata _id, _index, _version | where winlog.channel=="Application" and winlog.provider_name=="MsiInstaller" and (event.code in ("1040", "1042")) and winlog.event_data.Data like "*://*"

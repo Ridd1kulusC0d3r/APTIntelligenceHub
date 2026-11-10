@@ -1,0 +1,18 @@
+// HackTool - Impersonate Execution | T1134.001, T1134.003 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_impersonate.yml
+(CommandLine:*impersonate.exe* AND (CommandLine:(*\ list\ * OR *\ exec\ * OR *\ adduser\ *))) OR (Hashes:(*MD5\=9520714AB576B0ED01D1513691377D01* OR *SHA256\=E81CC96E2118DC4FBFE5BAD1604E0AC7681960143E2101E1A024D52264BB0A8A* OR *IMPHASH\=0A358FFC1697B7A07D0E817AC740DF62*))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(CommandLine:*impersonate.exe* AND (CommandLine:(*\\ list\\ * OR *\\ exec\\ * OR *\\ adduser\\ *))) OR (Hashes:(*MD5\\=9520714AB576B0ED01D1513691377D01* OR *SHA256\\=E81CC96E2118DC4FBFE5BAD1604E0AC7681960143E2101E1A024D52264BB0A8A* OR *IMPHASH\\=0A358FFC1697B7A07D0E817AC740DF62*))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

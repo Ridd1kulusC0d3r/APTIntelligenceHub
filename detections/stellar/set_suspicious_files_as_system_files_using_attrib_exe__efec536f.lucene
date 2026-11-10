@@ -1,0 +1,18 @@
+// Set Suspicious Files as System Files Using Attrib.EXE | T1564.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_attrib_system_susp_paths.yml
+((Image:*\\attrib.exe OR OriginalFileName:ATTRIB.EXE) AND CommandLine:*\ \+s* AND (CommandLine:(*\ %* OR *\\Users\\Public\\* OR *\\AppData\\Local\\* OR *\\ProgramData\\* OR *\\Downloads\\* OR *\\Windows\\Temp\\*)) AND (CommandLine:(*.bat* OR *.dll* OR *.exe* OR *.hta* OR *.ps1* OR *.vbe* OR *.vbs*))) AND (NOT (CommandLine:*\\Windows\\TEMP\\* AND CommandLine:*.exe*))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "((Image:*\\\\attrib.exe OR OriginalFileName:ATTRIB.EXE) AND CommandLine:*\\ \\+s* AND (CommandLine:(*\\ %* OR *\\\\Users\\\\Public\\\\* OR *\\\\AppData\\\\Local\\\\* OR *\\\\ProgramData\\\\* OR *\\\\Downloads\\\\* OR *\\\\Windows\\\\Temp\\\\*)) AND (CommandLine:(*.bat* OR *.dll* OR *.exe* OR *.hta* OR *.ps1* OR *.vbe* OR *.vbs*))) AND (NOT (CommandLine:*\\\\Windows\\\\TEMP\\\\* AND CommandLine:*.exe*))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

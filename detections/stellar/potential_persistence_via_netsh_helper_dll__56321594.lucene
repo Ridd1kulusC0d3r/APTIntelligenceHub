@@ -1,0 +1,18 @@
+// Potential Persistence Via Netsh Helper DLL | T1546.007 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_netsh_helper_dll_persistence.yml
+(OriginalFileName:netsh.exe OR Image:*\\netsh.exe) AND (CommandLine:*add* AND CommandLine:*helper*)
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(OriginalFileName:netsh.exe OR Image:*\\\\netsh.exe) AND (CommandLine:*add* AND CommandLine:*helper*)",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

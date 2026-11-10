@@ -1,0 +1,18 @@
+// PUA - Mouse Lock Execution | T1056.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_mouselock_execution.yml
+Product:*Mouse\ Lock* OR Company:*Misc314* OR CommandLine:*Mouse\ Lock_*
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "Product:*Mouse\\ Lock* OR Company:*Misc314* OR CommandLine:*Mouse\\ Lock_*",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

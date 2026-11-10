@@ -1,0 +1,18 @@
+// Remote Thread Creation Ttdinject.exe Proxy | T1127 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/create_remote_thread/create_remote_thread_win_ttdinjec.yml
+SourceImage:*\\ttdinject.exe
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "SourceImage:*\\\\ttdinject.exe",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

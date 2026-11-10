@@ -1,0 +1,18 @@
+// Security Support Provider (SSP) Added to LSA Configuration | T1547.005 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/registry_event_ssp_added_lsa_config.yml
+(TargetObject:(*\\Control\\Lsa\\Security\ Packages OR *\\Control\\Lsa\\OSConfig\\Security\ Packages)) AND (NOT ((Image:(C\:\\Windows\\system32\\msiexec.exe OR C\:\\Windows\\syswow64\\MsiExec.exe)) OR (NOT _exists_:Image)))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(TargetObject:(*\\\\Control\\\\Lsa\\\\Security\\ Packages OR *\\\\Control\\\\Lsa\\\\OSConfig\\\\Security\\ Packages)) AND (NOT ((Image:(C\\:\\\\Windows\\\\system32\\\\msiexec.exe OR C\\:\\\\Windows\\\\syswow64\\\\MsiExec.exe)) OR (NOT _exists_:Image)))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

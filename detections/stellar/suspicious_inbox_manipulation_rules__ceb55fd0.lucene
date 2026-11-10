@@ -1,0 +1,18 @@
+// Suspicious Inbox Manipulation Rules | T1140 | https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/azure/identity_protection/azure_identity_protection_inbox_manipulation.yml
+riskEventType:mcasSuspiciousInboxManipulationRules
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "riskEventType:mcasSuspiciousInboxManipulationRules",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

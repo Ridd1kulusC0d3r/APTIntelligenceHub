@@ -1,0 +1,2 @@
+// Linux Reverse Shell Indicator | T1059.004 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/network_connection/net_connection_lnx_back_connect_shell_dev.yml
+Image:*\/bin\/bash AND (NOT (DestinationIp:(127.0.0.1 OR 0.0.0.0)))

@@ -1,0 +1,18 @@
+// Delete Important Scheduled Task | T1489 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_schtasks_delete.yml
+(Image:*\\schtasks.exe OR OriginalFileName:schtasks.exe) AND CommandLine:(*\-delete* OR *\/delete* OR *–delete* OR *—delete* OR *―delete*) AND (CommandLine:(*\\Windows\\BitLocker* OR *\\Windows\\ExploitGuard* OR *\\Windows\\SystemRestore\\SR* OR *\\Windows\\UpdateOrchestrator\\* OR *\\Windows\\Windows\ Defender\\* OR *\\Windows\\WindowsBackup\\* OR *\\Windows\\WindowsUpdate\\*))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(Image:*\\\\schtasks.exe OR OriginalFileName:schtasks.exe) AND CommandLine:(*\\-delete* OR *\\/delete* OR *\u2013delete* OR *\u2014delete* OR *\u2015delete*) AND (CommandLine:(*\\\\Windows\\\\BitLocker* OR *\\\\Windows\\\\ExploitGuard* OR *\\\\Windows\\\\SystemRestore\\\\SR* OR *\\\\Windows\\\\UpdateOrchestrator\\\\* OR *\\\\Windows\\\\Windows\\ Defender\\\\* OR *\\\\Windows\\\\WindowsBackup\\\\* OR *\\\\Windows\\\\WindowsUpdate\\\\*))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

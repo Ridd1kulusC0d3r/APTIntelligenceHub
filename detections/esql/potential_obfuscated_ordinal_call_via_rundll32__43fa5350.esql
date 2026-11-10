@@ -1,0 +1,2 @@
+// Potential Obfuscated Ordinal Call Via Rundll32 | T1027.010 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_obfuscated_ordinal_call.yml
+from * metadata _id, _index, _version | where (ends_with(process.executable.caseless, "\\rundll32.exe") or process.pe.original_file_name=="RUNDLL32.EXE" or process.command_line like "*rundll32*") and (process.command_line like "*#+*" or process.command_line like "*#-*" or process.command_line like "*#0*" or process.command_line like "*#655*" or process.command_line like "*#656*")

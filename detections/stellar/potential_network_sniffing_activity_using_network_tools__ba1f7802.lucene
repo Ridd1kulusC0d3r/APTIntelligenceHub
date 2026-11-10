@@ -1,0 +1,18 @@
+// Potential Network Sniffing Activity Using Network Tools | T1040 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_network_sniffing.yml
+(Image:*\\tshark.exe AND CommandLine:*\-i*) OR Image:*\\windump.exe
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(Image:*\\\\tshark.exe AND CommandLine:*\\-i*) OR Image:*\\\\windump.exe",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

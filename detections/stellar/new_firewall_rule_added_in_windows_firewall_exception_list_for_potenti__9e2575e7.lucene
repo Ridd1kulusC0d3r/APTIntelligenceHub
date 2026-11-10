@@ -1,0 +1,18 @@
+// New Firewall Rule Added In Windows Firewall Exception List For Potential Suspicious Application | T1686.003 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/firewall_as/win_firewall_as_add_rule_susp_folder.yml
+((EventID:(2004 OR 2071 OR 2097)) AND (ApplicationPath:(*\:\\PerfLogs\\* OR *\:\\Temp\\* OR *\:\\Tmp\\* OR *\:\\Users\\Public\\* OR *\:\\Windows\\Tasks\\* OR *\:\\Windows\\Temp\\* OR *\\AppData\\Local\\Temp\\*))) AND (NOT Action:2)
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "((EventID:(2004 OR 2071 OR 2097)) AND (ApplicationPath:(*\\:\\\\PerfLogs\\\\* OR *\\:\\\\Temp\\\\* OR *\\:\\\\Tmp\\\\* OR *\\:\\\\Users\\\\Public\\\\* OR *\\:\\\\Windows\\\\Tasks\\\\* OR *\\:\\\\Windows\\\\Temp\\\\* OR *\\\\AppData\\\\Local\\\\Temp\\\\*))) AND (NOT Action:2)",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

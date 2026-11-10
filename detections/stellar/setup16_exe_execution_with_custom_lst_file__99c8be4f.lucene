@@ -1,0 +1,18 @@
+// Setup16.EXE Execution With Custom .Lst File | T1574.005 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_setup16_custom_lst_execution.yml
+(ParentImage:C\:\\Windows\\SysWOW64\\setup16.exe AND ParentCommandLine:*\ \-m\ *) AND (NOT Image:C\:\\\~MSSETUP.T\\*)
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(ParentImage:C\\:\\\\Windows\\\\SysWOW64\\\\setup16.exe AND ParentCommandLine:*\\ \\-m\\ *) AND (NOT Image:C\\:\\\\\\~MSSETUP.T\\\\*)",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

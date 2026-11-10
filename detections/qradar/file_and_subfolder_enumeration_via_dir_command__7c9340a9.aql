@@ -1,0 +1,2 @@
+-- File And SubFolder Enumeration Via Dir Command | T1217 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_cmd_dir_execution.yml
+SELECT * FROM events WHERE devicetype=12 AND (((LOWER("Process Path") LIKE '%\cmd.exe' OR LOWER("Process Name") LIKE '%\cmd.exe') OR Filename='Cmd.Exe') AND ((LOWER(Command) LIKE '%-s%' OR LOWER(Command) LIKE '%/s%' OR LOWER(Command) LIKE '%–s%' OR LOWER(Command) LIKE '%—s%' OR LOWER(Command) LIKE '%―s%') AND LOWER(Command) LIKE '%dir %')) AND (NOT(LOWER(Command) LIKE '%rmdir%'))

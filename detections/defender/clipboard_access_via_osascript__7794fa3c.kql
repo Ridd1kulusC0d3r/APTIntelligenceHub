@@ -1,0 +1,3 @@
+// Clipboard Access Via OSAScript | T1059.002, T1115 | https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_clipboard_access_via_osascript.yml
+DeviceProcessEvents
+| where (FolderPath endswith "/osascript" and (ProcessCommandLine contains " -e " and ProcessCommandLine contains "clipboard")) and (not((InitiatingProcessFolderPath endswith "opencode" and (ProcessCommandLine contains "osascript" and ProcessCommandLine contains " -e " and ProcessCommandLine contains "set imageData to the clipboard" and ProcessCommandLine contains "set fileRef"))))

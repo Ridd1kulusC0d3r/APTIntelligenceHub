@@ -1,0 +1,2 @@
+-- JXA In-memory Execution Via OSAScript | T1059.002, T1059.007 | https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_jxa_in_memory_execution.yml
+SELECT * FROM events WHERE devicetype=102 AND (LOWER(Command) LIKE '%osascript%' AND LOWER(Command) LIKE '% -e %' AND LOWER(Command) LIKE '%eval%' AND LOWER(Command) LIKE '%nsdata.datawithcontentsofurl%') AND ((LOWER(Command) LIKE '% -l %' AND LOWER(Command) LIKE '%javascript%') OR LOWER(Command) LIKE '%.js%')

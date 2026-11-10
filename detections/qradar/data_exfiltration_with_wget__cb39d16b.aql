@@ -1,0 +1,2 @@
+-- Data Exfiltration with Wget | T1048.003 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/execve/lnx_auditd_data_exfil_wget.yml | NOTA: fallback QRadarAQL_payload_pipeline: campos sem propriedade DSM mapeada são buscados em UTF8(payload) – custo maior, crie custom properties
+SELECT * FROM events WHERE devicetype=11 AND LOWER(UTF8(payload)) LIKE '%execve%' AND LOWER(Command) LIKE '%a0%wget%' AND LOWER(Command) LIKE '%a1%--post-file=%'

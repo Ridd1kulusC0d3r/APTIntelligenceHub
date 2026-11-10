@@ -1,0 +1,2 @@
+// USB Device Plugged | T1200 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/driverframeworks/win_usb_device_plugged.yml
+from * metadata _id, _index, _version | where winlog.channel=="Microsoft-Windows-DriverFrameworks-UserMode/Operational" and (event.code in ("2003", "2100", "2102"))

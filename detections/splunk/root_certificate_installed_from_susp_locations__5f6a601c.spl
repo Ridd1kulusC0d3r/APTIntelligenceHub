@@ -1,0 +1,2 @@
+# Root Certificate Installed From Susp Locations | T1553.004 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_import_cert_susp_locations.yml
+source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=1 CommandLine="*Import-Certificate*" CommandLine="* -FilePath *" CommandLine="*Cert:\\LocalMachine\\Root*" (CommandLine IN ("*\\AppData\\Local\\Temp\\*", "*:\\Windows\\TEMP\\*", "*\\Desktop\\*", "*\\Downloads\\*", "*\\Perflogs\\*", "*:\\Users\\Public\\*"))

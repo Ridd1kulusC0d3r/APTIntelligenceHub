@@ -1,0 +1,2 @@
+// Suspicious Child Process Created as System | T1134.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_child_process_as_system_.yml
+((winlog.event_data.ParentUser:(*AUTHORI* OR *AUTORI*)) AND (winlog.event_data.ParentUser:(*\\NETWORK\ SERVICE OR *\\LOCAL\ SERVICE)) AND (user.name:(*AUTHORI* OR *AUTORI*)) AND (user.name:(*\\SYSTEM OR *\\Système OR *\\СИСТЕМА)) AND (winlog.event_data.IntegrityLevel:(System OR S\-1\-16\-16384))) AND (NOT (process.executable.caseless:*\\rundll32.exe AND process.command_line:*DavSetCookie*))

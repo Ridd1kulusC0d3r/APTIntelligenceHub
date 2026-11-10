@@ -1,0 +1,18 @@
+// HackTool - SharpEvtMute DLL Load | T1685.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_hktl_sharpevtmute.yml
+Hashes:*IMPHASH\=330768A4F172E10ACB6287B87289D83B*
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "Hashes:*IMPHASH\\=330768A4F172E10ACB6287B87289D83B*",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

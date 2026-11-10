@@ -1,0 +1,3 @@
+// GUI Input Capture - macOS | T1056.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_gui_input_capture.yml
+DeviceProcessEvents
+| where FolderPath endswith "/osascript" and (ProcessCommandLine contains "-e" and ProcessCommandLine contains "display" and ProcessCommandLine contains "dialog" and ProcessCommandLine contains "answer") and (ProcessCommandLine contains "admin" or ProcessCommandLine contains "administrator" or ProcessCommandLine contains "authenticate" or ProcessCommandLine contains "authentication" or ProcessCommandLine contains "credentials" or ProcessCommandLine contains "pass" or ProcessCommandLine contains "password" or ProcessCommandLine contains "unlock")

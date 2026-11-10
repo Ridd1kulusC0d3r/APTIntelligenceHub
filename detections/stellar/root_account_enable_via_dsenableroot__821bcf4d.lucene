@@ -1,0 +1,18 @@
+// Root Account Enable Via Dsenableroot | T1078, T1078.001, T1078.003 | https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_dsenableroot_enable_root_account.yml
+Image:*\/dsenableroot AND (NOT CommandLine:*\ \-d\ *)
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "Image:*\\/dsenableroot AND (NOT CommandLine:*\\ \\-d\\ *)",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

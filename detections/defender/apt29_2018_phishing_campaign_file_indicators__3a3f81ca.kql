@@ -1,0 +1,3 @@
+// APT29 2018 Phishing Campaign File Indicators | T1218.011 | https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2018/TA/APT29-CozyBear/file_event_win_apt_cozy_bear_phishing_campaign_indicators.yml
+DeviceFileEvents
+| where FolderPath contains "ds7002.lnk" or FolderPath contains "ds7002.pdf" or FolderPath contains "ds7002.zip"

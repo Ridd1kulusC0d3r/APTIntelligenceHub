@@ -1,0 +1,2 @@
+# Potential Network Sniffing Activity Using Network Tools | T1040 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_network_sniffing.yml
+source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=1 ((Image="*\\tshark.exe" CommandLine="*-i*") OR Image="*\\windump.exe")

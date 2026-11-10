@@ -1,0 +1,2 @@
+-- Writing Local Admin Share | T1546.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_writing_local_admin_share.yml
+SELECT * FROM events WHERE devicetype=12 AND LOWER(Filename) LIKE '%\\127.0.0%' AND LOWER(Filename) LIKE '%\admin$\%'

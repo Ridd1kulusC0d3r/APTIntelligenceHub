@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+.venv*/
+venv*/
+/tmp/
+*.zip
+.DS_Store
+# nunca versionar amostras de malware
+samples/
+*.exe
+*.dll
+*.bin

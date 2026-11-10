@@ -1,0 +1,2 @@
+// Data Exfiltration with Wget | T1048.003 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/execve/lnx_auditd_data_exfil_wget.yml
+from * metadata _id, _index, _version | where type=="EXECVE" and a0=="wget" and starts_with(a1, "--post-file=")

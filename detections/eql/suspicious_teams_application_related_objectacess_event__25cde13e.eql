@@ -1,0 +1,2 @@
+// Suspicious Teams Application Related ObjectAcess Event | T1528 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_teams_suspicious_objectaccess.yml
+any where winlog.channel:"Security" and ((event.code:"4663" and (winlog.event_data.ObjectName like~ ("*\\Microsoft\\Teams\\Cookies*", "*\\Microsoft\\Teams\\Local Storage\\leveldb*"))) and (not process.executable.caseless:"*\\Microsoft\\Teams\\current\\Teams.exe*"))

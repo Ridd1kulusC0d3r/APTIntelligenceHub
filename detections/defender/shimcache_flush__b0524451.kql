@@ -1,0 +1,3 @@
+// ShimCache Flush | T1112 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_susp_shimcache_flush.yml
+DeviceProcessEvents
+| where ((ProcessCommandLine contains "rundll32" and ProcessCommandLine contains "apphelp.dll") and (ProcessCommandLine contains "ShimFlushCache" or ProcessCommandLine contains "#250")) or ((ProcessCommandLine contains "rundll32" and ProcessCommandLine contains "kernel32.dll") and (ProcessCommandLine contains "BaseFlushAppcompatCache" or ProcessCommandLine contains "#46"))

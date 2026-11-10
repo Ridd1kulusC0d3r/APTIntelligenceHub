@@ -1,0 +1,18 @@
+// Launch-VsDevShell.PS1 Proxy Execution | T1216.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_launch_vsdevshell.yml
+CommandLine:*Launch\-VsDevShell.ps1* AND (CommandLine:(*VsWherePath\ * OR *VsInstallationPath\ *))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "CommandLine:*Launch\\-VsDevShell.ps1* AND (CommandLine:(*VsWherePath\\ * OR *VsInstallationPath\\ *))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

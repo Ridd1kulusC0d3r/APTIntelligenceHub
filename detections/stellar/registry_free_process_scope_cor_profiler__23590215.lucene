@@ -1,0 +1,18 @@
+// Registry-Free Process Scope COR_PROFILER | T1574.012 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/powershell/powershell_script/posh_ps_cor_profiler.yml
+ScriptBlockText:*$env\:COR_ENABLE_PROFILING* AND ScriptBlockText:*$env\:COR_PROFILER* AND ScriptBlockText:*$env\:COR_PROFILER_PATH*
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "ScriptBlockText:*$env\\:COR_ENABLE_PROFILING* AND ScriptBlockText:*$env\\:COR_PROFILER* AND ScriptBlockText:*$env\\:COR_PROFILER_PATH*",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

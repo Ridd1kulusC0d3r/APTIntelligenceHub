@@ -1,0 +1,2 @@
+// TeamPCP LiteLLM Supply Chain Attack Persistence Indicators | T1195.002, T1543.002 | https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2026/TA/TeamPCP/file_event_lnx_teampcp_litellm_supply_chain_attack_indicators.yml
+Image:*\/python3* AND (TargetFilename:(*\/.config\/sysmon\/sysmon.py OR *\/.config\/systemd\/user\/sysmon.service))

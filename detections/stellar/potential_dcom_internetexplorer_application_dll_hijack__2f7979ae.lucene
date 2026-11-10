@@ -1,0 +1,18 @@
+// Potential DCOM InternetExplorer.Application DLL Hijack | T1021.002, T1021.003 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_dcom_iertutil_dll_hijack.yml
+Image:System AND TargetFilename:*\\Internet\ Explorer\\iertutil.dll
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "Image:System AND TargetFilename:*\\\\Internet\\ Explorer\\\\iertutil.dll",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

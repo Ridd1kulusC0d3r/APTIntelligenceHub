@@ -1,0 +1,2 @@
+// Suspicious Executable File Creation | T1564 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_susp_executable_creation.yml
+file.path:(*\:\\$Recycle.Bin.exe OR *\:\\Documents\ and\ Settings.exe OR *\:\\MSOCache.exe OR *\:\\PerfLogs.exe OR *\:\\Recovery.exe OR *.bat.exe OR *.sys.exe)

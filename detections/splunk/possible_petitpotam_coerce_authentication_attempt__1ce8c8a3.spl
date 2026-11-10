@@ -1,0 +1,2 @@
+# Possible PetitPotam Coerce Authentication Attempt | T1187 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_petitpotam_network_share.yml
+source="WinEventLog:Security" EventCode=5145 ShareName="\\\\*" ShareName="*\\IPC$" RelativeTargetName="lsarpc" SubjectUserName="ANONYMOUS LOGON"

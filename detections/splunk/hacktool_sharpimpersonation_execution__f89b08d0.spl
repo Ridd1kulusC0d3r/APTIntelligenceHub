@@ -1,0 +1,2 @@
+# HackTool - SharpImpersonation Execution | T1134.001, T1134.003 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_sharp_impersonation.yml
+source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=1 (Image="*\\SharpImpersonation.exe" OR OriginalFileName="SharpImpersonation.exe" OR (CommandLine="* user:*" CommandLine="* binary:*") OR (CommandLine="* user:*" CommandLine="* shellcode:*") OR CommandLine IN ("* technique:CreateProcessAsUserW*", "* technique:ImpersonateLoggedOnuser*"))

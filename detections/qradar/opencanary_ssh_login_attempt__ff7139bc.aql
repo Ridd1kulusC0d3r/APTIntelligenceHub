@@ -1,0 +1,2 @@
+-- OpenCanary - SSH Login Attempt | T1021, T1078, T1133 | https://github.com/SigmaHQ/sigma/blob/master/rules/application/opencanary/opencanary_ssh_login_attempt.yml | NOTA: fallback QRadarAQL_payload_pipeline: campos sem propriedade DSM mapeada são buscados em UTF8(payload) – custo maior, crie custom properties
+SELECT * FROM events WHERE LOWER(UTF8(payload)) LIKE '%logtype%4002%'

@@ -1,0 +1,18 @@
+// Windows Defender Threat Detection Service Disabled | T1685 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/system/service_control_manager/win_system_defender_disabled.yml
+EventID:7036 AND Provider_Name:"Service Control Manager" AND (param1:("Windows Defender Antivirus Service" OR "Service antivirus Microsoft Defender")) AND (param2:(stopped OR arrêté))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "EventID:7036 AND Provider_Name:\"Service Control Manager\" AND (param1:(\"Windows Defender Antivirus Service\" OR \"Service antivirus Microsoft Defender\")) AND (param2:(stopped OR arr\u00eat\u00e9))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

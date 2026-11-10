@@ -1,0 +1,481 @@
+{
+ "name": "OilRig – APT Threat Map",
+ "versions": {
+  "layer": "4.5",
+  "navigator": "5.1.0"
+ },
+ "domain": "enterprise-attack",
+ "description": "Técnicas de OilRig com cobertura do catálogo (score 3=regra, 2=parcial, 1=lacuna)",
+ "techniques": [
+  {
+   "techniqueID": "T1003.001",
+   "score": 3,
+   "comment": "OilRig has used credential dumping tools such as Mimikatz to steal credentials to accounts logged into the compromised system and to Outlook Web Access. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1003.004",
+   "score": 3,
+   "comment": "OilRig has used credential dumping tools such as LaZagne to steal credentials to accounts logged into the compromised system and to Outlook Web Access. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1003.005",
+   "score": 3,
+   "comment": "OilRig has used credential dumping tools such as LaZagne to steal credentials to accounts logged into the compromised system and to Outlook Web Access. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1005",
+   "score": 3,
+   "comment": "OilRig has used PowerShell to upload files from compromised systems. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1007",
+   "score": 3,
+   "comment": "OilRig has used `sc query` on a victim to gather information about services. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1008",
+   "score": 3,
+   "comment": "OilRig malware ISMAgent falls back to its DNS tunneling mechanism if it is unable to reach the C2 server over HTTP. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1012",
+   "score": 3,
+   "comment": "OilRig has used `reg query “HKEY_CURRENT_USER\\Software\\Microsoft\\Terminal Server Client\\Default”` on a victim to query the Registry. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1016",
+   "score": 3,
+   "comment": "OilRig has run `ipconfig /all` on a victim. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1021.001",
+   "score": 3,
+   "comment": "OilRig has used Remote Desktop Protocol for lateral movement. The group has also used tunneling tools to tunnel RDP into the environment. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1021.004",
+   "score": 3,
+   "comment": "OilRig has used Putty to access compromised systems. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1025",
+   "score": 1,
+   "comment": "OilRig has used Wireshark’s usbcapcmd utility to capture USB traffic. | cobertura: lacuna",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1027.005",
+   "score": 3,
+   "comment": "OilRig has tested malware samples to determine AV detection and subsequently modified the samples to ensure AV evasion. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1027.013",
+   "score": 3,
+   "comment": "OilRig has encrypted and encoded data in its malware, including by using base64. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1033",
+   "score": 3,
+   "comment": "OilRig has run `whoami` on a victim. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1036",
+   "score": 3,
+   "comment": "OilRig has used .doc file extensions to mask malicious executables. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1036.005",
+   "score": 3,
+   "comment": "OilRig has named a downloaded copy of the Plink tunneling utility as \\ProgramData\\Adobe.exe. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1046",
+   "score": 3,
+   "comment": "OilRig has used the publicly available tool SoftPerfect Network Scanner as well as a custom tool called GOLDIRONY to conduct network scanning. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1047",
+   "score": 3,
+   "comment": "OilRig has used WMI for execution. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1048.003",
+   "score": 3,
+   "comment": "OilRig has exfiltrated data via Microsoft Exchange and over FTP separately from its primary C2 channel over DNS. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1049",
+   "score": 3,
+   "comment": "OilRig has used `netstat -an` on a victim to get a listing of network connections. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1053.005",
+   "score": 3,
+   "comment": "OilRig has created scheduled tasks that run a VBScript to execute a payload on victim machines. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1056.001",
+   "score": 3,
+   "comment": "OilRig has employed keyloggers including KEYPUNCH and LONGWATCH. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1057",
+   "score": 3,
+   "comment": "OilRig has run `tasklist` on a victim's machine and used infostealers to capture processes. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1059",
+   "score": 3,
+   "comment": "OilRig has used various types of scripting for execution. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1059.001",
+   "score": 3,
+   "comment": "OilRig has used PowerShell scripts for execution, including use of a macro to run a PowerShell command to decode file contents. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1059.003",
+   "score": 3,
+   "comment": "OilRig has used macros to deliver malware such as QUADAGENT and OopsIE. OilRig has used batch scripts. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1059.005",
+   "score": 3,
+   "comment": "OilRig has used VBScript macros for execution on compromised hosts. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1068",
+   "score": 3,
+   "comment": "OilRig has exploited the Windows Kernel Elevation of Privilege vulnerability, CVE-2024-30088. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1069.001",
+   "score": 3,
+   "comment": "OilRig has used `net localgroup administrators` to find local administrators on compromised systems. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1069.002",
+   "score": 3,
+   "comment": "OilRig has used `net group /domain`, `net group “domain admins” /domain`, and `net group “Exchange Trusted Subsystem” /domain` to find domain group permission settings. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1070.004",
+   "score": 3,
+   "comment": "OilRig has deleted files associated with their payload after execution. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1071.001",
+   "score": 3,
+   "comment": "OilRig has used HTTP for C2. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1071.004",
+   "score": 3,
+   "comment": "OilRig has used DNS for C2 including the publicly available `requestbin.net` tunneling service. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1078",
+   "score": 3,
+   "comment": "OilRig has used compromised credentials to access other systems on a victim network. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1078.002",
+   "score": 3,
+   "comment": "OilRig has used an exfiltration tool named STEALHOOK to retreive valid domain credentials. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1082",
+   "score": 3,
+   "comment": "OilRig has run `hostname` and `systeminfo` on a victim. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1087.001",
+   "score": 3,
+   "comment": "OilRig has run `net user`, `net user /domain`, `net group “domain admins” /domain`, and `net group “Exchange Trusted Subsystem” /domain` to get account listings on a victim. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1087.002",
+   "score": 3,
+   "comment": "OilRig has run `net user`, `net user /domain`, `net group “domain admins” /domain`, and `net group “Exchange Trusted Subsystem” /domain` to get account listings on a victim. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1105",
+   "score": 3,
+   "comment": "OilRig had downloaded remote files onto victim infrastructure. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1110",
+   "score": 3,
+   "comment": "OilRig has used brute force techniques to obtain credentials. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1112",
+   "score": 3,
+   "comment": "OilRig has used reg.exe to modify system configuration. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1113",
+   "score": 3,
+   "comment": "OilRig has a tool called CANDYKING to capture a screenshot of user's desktop. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1115",
+   "score": 3,
+   "comment": "OilRig has used infostealer tools to copy clipboard data. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1119",
+   "score": 3,
+   "comment": "OilRig has used automated collection. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1120",
+   "score": 3,
+   "comment": "OilRig has used tools to identify if a mouse is connected to a targeted system. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1133",
+   "score": 3,
+   "comment": "OilRig uses remote services such as VPN, Citrix, or OWA to persist in an environment. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1137.004",
+   "score": 3,
+   "comment": "OilRig has abused the Outlook Home Page feature for persistence. OilRig has also used CVE-2017-11774 to roll back the initial patch designed to protect against Home Page abuse. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1140",
+   "score": 3,
+   "comment": "A OilRig macro has run a PowerShell command to decode file contents. OilRig has also used certutil to decode base64-encoded files on victims. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1195",
+   "score": 3,
+   "comment": "OilRig has leveraged compromised organizations to conduct supply chain attacks on government entities. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1201",
+   "score": 3,
+   "comment": "OilRig has used net.exe in a script with `net accounts /domain` to find the password policy of a domain. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1203",
+   "score": 3,
+   "comment": "OilRig has exploited CVE-2024-30088 to run arbitrary code in the context of `SYSTEM`. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1204.001",
+   "score": 3,
+   "comment": "OilRig has delivered malicious links to achieve execution on the target system. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1204.002",
+   "score": 3,
+   "comment": "OilRig has delivered macro-enabled documents that required targets to click the \"enable content\" button to execute the payload on the system. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1218.001",
+   "score": 3,
+   "comment": "OilRig has used a CHM payload to load and execute another malicious file once delivered to a victim. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1219",
+   "score": 3,
+   "comment": "OilRig has incorporated remote monitoring and management (RMM) tools into their operations including ngrok. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1497.001",
+   "score": 3,
+   "comment": "OilRig has used macros to verify if a mouse is connected to a compromised machine. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1505.003",
+   "score": 3,
+   "comment": "OilRig has used web shells, often to maintain access to a victim network. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1543.003",
+   "score": 3,
+   "comment": "OilRig has used a compromised Domain Controller to create a service on a remote host. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1552.001",
+   "score": 3,
+   "comment": "OilRig has used credential dumping tools such as LaZagne to steal credentials to accounts logged into the compromised system and to Outlook Web Access. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1553.002",
+   "score": 3,
+   "comment": "OilRig has signed its malware with stolen certificates. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1555",
+   "score": 3,
+   "comment": "OilRig has used credential dumping tools such as LaZagne to steal credentials to accounts logged into the compromised system and to Outlook Web Access. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1555.003",
+   "score": 3,
+   "comment": "OilRig has used credential dumping tools such as LaZagne to steal credentials to accounts logged into the compromised system and to Outlook Web Access. OilRig has also used tool named PICKPOCKET to dump passwords from web browsers. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1555.004",
+   "score": 3,
+   "comment": "OilRig has used credential dumping tool named VALUEVAULT to steal credentials from the Windows Credential Manager. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1556.002",
+   "score": 3,
+   "comment": "OilRig has registered a password filter DLL in order to drop malware. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1566.001",
+   "score": 3,
+   "comment": "OilRig has sent spearphising emails with malicious attachments to potential victims using compromised and/or spoofed email accounts. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1566.002",
+   "score": 3,
+   "comment": "OilRig has sent spearphising emails with malicious links to potential victims. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1566.003",
+   "score": 3,
+   "comment": "OilRig has used LinkedIn to send spearphishing links. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1572",
+   "score": 3,
+   "comment": "OilRig has used the Plink utility and other tools to create tunnels to C2 servers. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1573.002",
+   "score": 3,
+   "comment": "OilRig used the PowerExchange utility and other tools to create tunnels to C2 servers. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1583.001",
+   "score": 1,
+   "comment": "OilRig has set up fake VPN portals, conference sign ups, and job application websites to target victims. | cobertura: lacuna",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1586.002",
+   "score": 3,
+   "comment": "OilRig has compromised email accounts to send phishing emails. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1587.001",
+   "score": 3,
+   "comment": "OilRig actively developed and used a series of downloaders during 2022. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1588.002",
+   "score": 3,
+   "comment": "OilRig has made use of the publicly available tools including Plink and Mimikatz. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1588.003",
+   "score": 3,
+   "comment": "OilRig has obtained stolen code signing certificates to digitally sign malware. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1608.001",
+   "score": 3,
+   "comment": "OilRig has hosted malware on fake websites designed to target specific audiences. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1686.003",
+   "score": 3,
+   "comment": "OilRig has modified Windows firewall rules to enable remote access. | cobertura: regra",
+   "enabled": true
+  }
+ ],
+ "gradient": {
+  "colors": [
+   "#ff5d6c",
+   "#ffb347",
+   "#2ecc8f"
+  ],
+  "minValue": 1,
+  "maxValue": 3
+ },
+ "layout": {
+  "layout": "side",
+  "showName": true,
+  "showID": true
+ }
+}

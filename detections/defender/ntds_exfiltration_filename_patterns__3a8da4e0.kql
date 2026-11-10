@@ -1,0 +1,3 @@
+// NTDS Exfiltration Filename Patterns | T1003.003 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_ntds_exfil_tools.yml
+DeviceFileEvents
+| where FolderPath endswith "\\All.cab" or FolderPath endswith ".ntds.cleartext"

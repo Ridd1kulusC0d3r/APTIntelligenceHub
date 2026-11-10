@@ -1,0 +1,18 @@
+// Suspicious Child Process of Notepad++ Updater - GUP.Exe | T1195.002, T1557 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_gup_susp_child_process.yml
+ParentImage:*\\gup.exe AND ((Image:(*\\cmd.exe OR *\\powershell.exe OR *\\pwsh.exe OR *\\cscript.exe OR *\\wscript.exe OR *\\mshta.exe)) OR (CommandLine:(*bitsadmin* OR *certutil* OR *curl* OR *finger* OR *forfiles* OR *regsvr32* OR *rundll32* OR *wget*)))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "ParentImage:*\\\\gup.exe AND ((Image:(*\\\\cmd.exe OR *\\\\powershell.exe OR *\\\\pwsh.exe OR *\\\\cscript.exe OR *\\\\wscript.exe OR *\\\\mshta.exe)) OR (CommandLine:(*bitsadmin* OR *certutil* OR *curl* OR *finger* OR *forfiles* OR *regsvr32* OR *rundll32* OR *wget*)))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

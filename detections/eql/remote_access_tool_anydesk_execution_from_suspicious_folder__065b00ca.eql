@@ -1,0 +1,2 @@
+// Remote Access Tool - Anydesk Execution From Suspicious Folder | T1219.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_remote_access_tools_anydesk_susp_exec.yml
+any where ((process.executable.caseless like~ ("*\\AnyDesk.exe", "*\\AnyDeskMSI.exe")) or process.pe.description:"AnyDesk" or process.pe.product:"AnyDesk" or process.pe.company:"AnyDesk Software GmbH") and (not (process.executable.caseless like~ ("*\\AppData\\*", "*Program Files (x86)\\AnyDesk*", "*Program Files\\AnyDesk*")))

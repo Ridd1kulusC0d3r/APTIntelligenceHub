@@ -1,0 +1,2 @@
+-- Restricted Software Access By SRP | T1072 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/application/microsoft_windows_software_restriction_policies/win_software_restriction_policies_block.yml | NOTA: fallback QRadarAQL_payload_pipeline: campos sem propriedade DSM mapeada são buscados em UTF8(payload) – custo maior, crie custom properties
+SELECT * FROM events WHERE devicetype=12 AND LOWER(UTF8(payload)) LIKE '%microsoft-windows-softwarerestrictionpolicies%' AND ("Event ID" IN('865', '866', '867', '868', '882'))

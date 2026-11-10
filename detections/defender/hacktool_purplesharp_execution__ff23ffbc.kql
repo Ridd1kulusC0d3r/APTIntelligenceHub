@@ -1,0 +1,3 @@
+// HackTool - PurpleSharp Execution | T1587 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_purplesharp_indicators.yml
+DeviceProcessEvents
+| where (FolderPath contains "\\purplesharp" or ProcessVersionInfoOriginalFileName =~ "PurpleSharp.exe") or (ProcessCommandLine contains "xyz123456.exe" or ProcessCommandLine contains "PurpleSharp")

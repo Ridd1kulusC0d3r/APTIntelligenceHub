@@ -1,0 +1,18 @@
+// Potential POWERTRASH Script Execution | T1059.001 | https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/FIN7/posh_ps_apt_fin7_powertrash_execution.yml
+ScriptBlockText:*IO.Compression.DeflateStream* AND ScriptBlockText:*IO.MemoryStream* AND ScriptBlockText:*\:\:FromBase64String* AND ScriptBlockText:*GetDelegateForFunctionPointer* AND ScriptBlockText:*.Invoke\(\)* AND ScriptBlockText:*GlobalAssemblyCache*
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "ScriptBlockText:*IO.Compression.DeflateStream* AND ScriptBlockText:*IO.MemoryStream* AND ScriptBlockText:*\\:\\:FromBase64String* AND ScriptBlockText:*GetDelegateForFunctionPointer* AND ScriptBlockText:*.Invoke\\(\\)* AND ScriptBlockText:*GlobalAssemblyCache*",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

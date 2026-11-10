@@ -1,0 +1,3 @@
+// Potential Persistence Via Shim Database In Uncommon Location | T1546.011 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_persistence_shim_database_uncommon_location.yml
+DeviceRegistryEvents
+| where (RegistryKey endswith "\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\AppCompatFlags\\InstalledSDB*" and RegistryKey contains "\\DatabasePath") and (not(RegistryValueData contains ":\\Windows\\AppPatch\\Custom"))

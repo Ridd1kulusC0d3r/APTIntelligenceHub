@@ -1,0 +1,9 @@
+# Powershell Token Obfuscation - Powershell | T1027.009 | https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/powershell/powershell_script/posh_ps_token_obfuscation.yml
+
+| rex field=ScriptBlockText "(?<ScriptBlockTextMatch>\\w+`(\\w+|-|.)`[\\w+|\\s])"
+| eval ScriptBlockTextCondition=if(isnotnull(ScriptBlockTextMatch), "true", "false")
+| rex field=ScriptBlockText "(?<ScriptBlockTextMatch2>\"(\\{\\d\\}){2,}\"\\s*-f)"
+| eval ScriptBlockTextCondition2=if(isnotnull(ScriptBlockTextMatch2), "true", "false")
+| rex field=ScriptBlockText "(?<ScriptBlockTextMatch3>(?i)\\$\\{`?e`?n`?v`?:`?p`?a`?t`?h`?\\})"
+| eval ScriptBlockTextCondition3=if(isnotnull(ScriptBlockTextMatch3), "true", "false")
+| search (ScriptBlockTextCondition="true" OR ScriptBlockTextCondition2="true" OR ScriptBlockTextCondition3="true") NOT (ScriptBlockText="*${env:path}*" OR ScriptBlockText IN ("*it will return true or false instead*", "*The function also prevents `Get-ItemProperty` from failing*") OR (Path="C:\\Program Files\\Microsoft\\Exchange Server\\*" Path="*\\bin\\servicecontrol.ps1" ScriptBlockText="*`r`n*"))

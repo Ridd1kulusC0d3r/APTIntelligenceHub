@@ -1,0 +1,18 @@
+// Sofacy Trojan Loader Activity | T1059.003, T1218.011 | https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2018/TA/APT28/proc_creation_win_apt_sofacy.yml
+((Image:*\\rundll32.exe AND (CommandLine:(*%LOCALAPPDATA%* OR *\\AppData\\Local\\*))) AND (CommandLine:*.dat\",* OR (CommandLine:(*.dll\ #1 OR *.dll\"\ #1 OR *.dll\",#1)))) AND (NOT CommandLine:*\\AppData\\Local\\Temp\\*)
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "((Image:*\\\\rundll32.exe AND (CommandLine:(*%LOCALAPPDATA%* OR *\\\\AppData\\\\Local\\\\*))) AND (CommandLine:*.dat\\\",* OR (CommandLine:(*.dll\\ #1 OR *.dll\\\"\\ #1 OR *.dll\\\",#1)))) AND (NOT CommandLine:*\\\\AppData\\\\Local\\\\Temp\\\\*)",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

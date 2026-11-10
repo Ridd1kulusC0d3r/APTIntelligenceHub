@@ -1,0 +1,2 @@
+-- Windows Defender Grace Period Expired | T1685 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/windefend/win_defender_antimalware_platform_expired.yml
+SELECT * FROM events WHERE devicetype IN(433, 12) AND "Event ID"=5101

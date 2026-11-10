@@ -1,0 +1,2 @@
+-- Suspicious Hyper-V Cmdlets | T1564.006 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/powershell/powershell_script/posh_ps_susp_hyper_v_condlet.yml
+SELECT * FROM events WHERE devicetype=12 AND (LOWER(Message) LIKE '%new-vm%' OR LOWER(Message) LIKE '%set-vmfirmware%' OR LOWER(Message) LIKE '%start-vm%')

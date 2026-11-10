@@ -1,0 +1,2 @@
+# RottenPotato Like Attack Pattern | T1557.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/account_management/win_security_susp_rottenpotato.yml
+source="WinEventLog:Security" EventCode=4624 LogonType=3 TargetUserName="ANONYMOUS LOGON" WorkstationName="-" (IpAddress IN ("127.0.0.1", "::1"))

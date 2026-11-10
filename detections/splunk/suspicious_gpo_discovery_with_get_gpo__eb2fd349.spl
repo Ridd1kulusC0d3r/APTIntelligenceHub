@@ -1,0 +1,2 @@
+# Suspicious GPO Discovery With Get-GPO | T1615 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/powershell/powershell_script/posh_ps_susp_get_gpo.yml
+ScriptBlockText="*Get-GPO*"

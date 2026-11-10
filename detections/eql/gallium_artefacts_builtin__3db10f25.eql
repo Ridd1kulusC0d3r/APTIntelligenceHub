@@ -1,0 +1,2 @@
+// GALLIUM Artefacts - Builtin | T1071 | https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2020/TA/GALLIUM/win_dns_analytic_apt_gallium.yml
+any where winlog.channel:"Microsoft-Windows-DNS-Server/Analytical" and (event.code:"257" and (winlog.event_data.QNAME like~ ("asyspy256.ddns.net", "hotkillmail9sddcc.ddns.net", "rosaf112.ddns.net", "cvdfhjh1231.myftp.biz", "sz2016rose.ddns.net", "dffwescwer4325.myftp.biz", "cvdfhjh1231.ddns.net")))

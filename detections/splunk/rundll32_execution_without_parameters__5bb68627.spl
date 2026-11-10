@@ -1,0 +1,2 @@
+# Rundll32 Execution Without Parameters | T1021.002, T1569.002, T1570 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_without_parameters.yml
+source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=1 (CommandLine IN ("rundll32.exe", "rundll32"))

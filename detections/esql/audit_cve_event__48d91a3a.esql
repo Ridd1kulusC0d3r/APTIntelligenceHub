@@ -1,0 +1,2 @@
+// Audit CVE Event | T1068, T1203, T1210, T1211, T1212, T1499.004 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/application/microsoft-windows_audit_cve/win_audit_cve.yml
+from * metadata _id, _index, _version | where winlog.channel=="Application" and (winlog.provider_name in ("Microsoft-Windows-Audit-CVE", "Audit-CVE")) and event.code=="1"

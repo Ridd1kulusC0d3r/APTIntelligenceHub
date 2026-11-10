@@ -1,0 +1,3 @@
+// Suspicious IIS Module Registration | T1505.004 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_iis_susp_module_registration.yml
+DeviceProcessEvents
+| where InitiatingProcessFolderPath endswith "\\w3wp.exe" and (ProcessCommandLine contains "appcmd.exe add module" or (ProcessCommandLine contains " system.enterpriseservices.internal.publish" and FolderPath endswith "\\powershell.exe") or (ProcessCommandLine contains "gacutil" and ProcessCommandLine contains " /I"))

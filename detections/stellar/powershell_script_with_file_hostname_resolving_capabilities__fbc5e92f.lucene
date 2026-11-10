@@ -1,0 +1,18 @@
+// PowerShell Script With File Hostname Resolving Capabilities | T1020 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/powershell/powershell_script/posh_ps_resolve_list_of_ip_from_file.yml
+ScriptBlockText:*Get\-content\ * AND ScriptBlockText:*foreach* AND ScriptBlockText:*\[System.Net.Dns\]\:\:GetHostEntry* AND ScriptBlockText:*Out\-File*
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "ScriptBlockText:*Get\\-content\\ * AND ScriptBlockText:*foreach* AND ScriptBlockText:*\\[System.Net.Dns\\]\\:\\:GetHostEntry* AND ScriptBlockText:*Out\\-File*",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,3 @@
+// Netsh PortProxy Rule Added (Internal Pivot) | T1090.001 | Hub
+DeviceProcessEvents
+| where FolderPath endswith "\\netsh.exe" and (ProcessCommandLine contains "portproxy" and ProcessCommandLine contains "add")

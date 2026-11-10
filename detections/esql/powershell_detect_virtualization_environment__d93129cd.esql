@@ -1,0 +1,2 @@
+// Powershell Detect Virtualization Environment | T1497.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/powershell/powershell_script/posh_ps_detect_vm_env.yml
+from * metadata _id, _index, _version | where (powershell.file.script_block_text like "*Get-WmiObject*" or powershell.file.script_block_text like "*gwmi*") and (powershell.file.script_block_text like "*MSAcpi_ThermalZoneTemperature*" or powershell.file.script_block_text like "*Win32_ComputerSystem*")

@@ -1,0 +1,2 @@
+-- APT27 - Emissary Panda Activity | T1574.001 | https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2018/TA/APT27/proc_creation_win_apt_apt27_emissary_panda.yml
+SELECT * FROM events WHERE devicetype=12 AND ((LOWER("Parent Process Path") LIKE '%\sllauncher.exe' AND (LOWER("Process Path") LIKE '%\svchost.exe' OR LOWER("Process Name") LIKE '%\svchost.exe')) OR (LOWER("Parent Process Path") LIKE '%\appdata\roaming\%' AND (LOWER("Process Path") LIKE '%\svchost.exe' OR LOWER("Process Name") LIKE '%\svchost.exe') AND LOWER(Command) LIKE '%-k%'))

@@ -1,0 +1,2 @@
+// GALLIUM Artefacts - Builtin | T1071 | https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2020/TA/GALLIUM/win_dns_analytic_apt_gallium.yml
+winlog.channel:Microsoft\-Windows\-DNS\-Server\/Analytical AND (event.code:257 AND (winlog.event_data.QNAME:(asyspy256.ddns.net OR hotkillmail9sddcc.ddns.net OR rosaf112.ddns.net OR cvdfhjh1231.myftp.biz OR sz2016rose.ddns.net OR dffwescwer4325.myftp.biz OR cvdfhjh1231.ddns.net)))

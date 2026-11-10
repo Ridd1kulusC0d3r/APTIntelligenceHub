@@ -1,0 +1,2 @@
+-- Payload Decoded and Decrypted via Built-in Utilities | T1059, T1140, T1204 | https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_payload_decoded_and_decrypted.yml
+SELECT * FROM events WHERE devicetype=102 AND (LOWER("Process Path") LIKE '%/openssl' OR LOWER("Process Name") LIKE '%/openssl') AND (LOWER(Command) LIKE '%/volumes/%' AND LOWER(Command) LIKE '%enc%' AND LOWER(Command) LIKE '%-base64%' AND LOWER(Command) LIKE '% -d %')

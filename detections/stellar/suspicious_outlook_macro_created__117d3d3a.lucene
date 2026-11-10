@@ -1,0 +1,18 @@
+// Suspicious Outlook Macro Created | T1008, T1137, T1546 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_office_outlook_susp_macro_creation.yml
+TargetFilename:*\\Microsoft\\Outlook\\VbaProject.OTM AND (NOT Image:*\\outlook.exe)
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "TargetFilename:*\\\\Microsoft\\\\Outlook\\\\VbaProject.OTM AND (NOT Image:*\\\\outlook.exe)",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

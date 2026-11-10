@@ -1,0 +1,18 @@
+// SCM Database Handle Failure | T1010 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_scm_database_handle_failure.yml
+(EventID:4656 AND ObjectType:"SC_MANAGER OBJECT" AND ObjectName:ServicesActive AND AccessMask:0xf003f) AND (NOT SubjectLogonId:0x3e4)
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(EventID:4656 AND ObjectType:\"SC_MANAGER OBJECT\" AND ObjectName:ServicesActive AND AccessMask:0xf003f) AND (NOT SubjectLogonId:0x3e4)",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

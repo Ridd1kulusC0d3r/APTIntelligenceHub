@@ -1,0 +1,3 @@
+// Potentially Suspicious NTFS Symlink Behavior Modification | T1059, T1222.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_fsutil_symlinkevaluation.yml
+DeviceProcessEvents
+| where ((FolderPath endswith "\\cmd.exe" or FolderPath endswith "\\powershell.exe" or FolderPath endswith "\\pwsh.exe") or (ProcessVersionInfoOriginalFileName in~ ("Cmd.Exe", "PowerShell.EXE", "pwsh.dll"))) and (ProcessCommandLine contains "fsutil" and ProcessCommandLine contains "behavior" and ProcessCommandLine contains "set" and ProcessCommandLine contains "SymlinkEvaluation") and (ProcessCommandLine contains "R2L:1" or ProcessCommandLine contains "R2R:1" or ProcessCommandLine contains "L2L:1")

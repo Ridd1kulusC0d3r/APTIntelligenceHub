@@ -1,0 +1,2 @@
+// Suspicious Execution via macOS Script Editor | T1059, T1059.002, T1204, T1204.001, T1553, T1566, T1566.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_susp_execution_macos_script_editor.yml
+ParentImage:*\/Script\ Editor AND ((Image:(*\/curl OR *\/bash OR *\/sh OR *\/zsh OR *\/dash OR *\/fish OR *\/osascript OR *\/mktemp OR *\/chmod OR *\/php OR *\/nohup OR *\/openssl OR *\/plutil OR *\/PlistBuddy OR *\/xattr OR *\/sqlite OR *\/funzip OR *\/popen)) OR (Image:(*python* OR *perl*)))

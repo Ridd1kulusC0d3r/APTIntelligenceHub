@@ -1,0 +1,3 @@
+// Potential WerFault ReflectDebugger Registry Value Abuse | T1036.003 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_persistence_reflectdebugger.yml
+DeviceRegistryEvents
+| where RegistryKey endswith "\\Microsoft\\Windows\\Windows Error Reporting\\Hangs\\ReflectDebugger"

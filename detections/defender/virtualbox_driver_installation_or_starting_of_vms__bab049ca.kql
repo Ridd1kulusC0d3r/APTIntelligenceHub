@@ -1,0 +1,3 @@
+// Virtualbox Driver Installation or Starting of VMs | T1564, T1564.006 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_virtualbox_execution.yml
+DeviceProcessEvents
+| where (ProcessCommandLine contains "VBoxRT.dll,RTR3Init" or ProcessCommandLine contains "VBoxC.dll" or ProcessCommandLine contains "VBoxDrv.sys") or (ProcessCommandLine contains "startvm" or ProcessCommandLine contains "controlvm")

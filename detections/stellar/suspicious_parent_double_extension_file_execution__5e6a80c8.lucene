@@ -1,0 +1,18 @@
+// Suspicious Parent Double Extension File Execution | T1036.007 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_double_extension_parent.yml
+(ParentImage:(*.doc.lnk OR *.docx.lnk OR *.xls.lnk OR *.xlsx.lnk OR *.ppt.lnk OR *.pptx.lnk OR *.rtf.lnk OR *.pdf.lnk OR *.txt.lnk OR *.doc.js OR *.docx.js OR *.xls.js OR *.xlsx.js OR *.ppt.js OR *.pptx.js OR *.rtf.js OR *.pdf.js OR *.txt.js)) OR (ParentCommandLine:(*.doc.lnk* OR *.docx.lnk* OR *.xls.lnk* OR *.xlsx.lnk* OR *.ppt.lnk* OR *.pptx.lnk* OR *.rtf.lnk* OR *.pdf.lnk* OR *.txt.lnk* OR *.doc.js* OR *.docx.js* OR *.xls.js* OR *.xlsx.js* OR *.ppt.js* OR *.pptx.js* OR *.rtf.js* OR *.pdf.js* OR *.txt.js*))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(ParentImage:(*.doc.lnk OR *.docx.lnk OR *.xls.lnk OR *.xlsx.lnk OR *.ppt.lnk OR *.pptx.lnk OR *.rtf.lnk OR *.pdf.lnk OR *.txt.lnk OR *.doc.js OR *.docx.js OR *.xls.js OR *.xlsx.js OR *.ppt.js OR *.pptx.js OR *.rtf.js OR *.pdf.js OR *.txt.js)) OR (ParentCommandLine:(*.doc.lnk* OR *.docx.lnk* OR *.xls.lnk* OR *.xlsx.lnk* OR *.ppt.lnk* OR *.pptx.lnk* OR *.rtf.lnk* OR *.pdf.lnk* OR *.txt.lnk* OR *.doc.js* OR *.docx.js* OR *.xls.js* OR *.xlsx.js* OR *.ppt.js* OR *.pptx.js* OR *.rtf.js* OR *.pdf.js* OR *.txt.js*))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

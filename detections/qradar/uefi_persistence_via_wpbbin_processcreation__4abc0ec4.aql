@@ -1,0 +1,2 @@
+-- UEFI Persistence Via Wpbbin - ProcessCreation | T1542.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wpbbin_potential_persistence.yml
+SELECT * FROM events WHERE devicetype=12 AND ("Process Path"='C:\Windows\System32\wpbbin.exe' OR "Process Name"='C:\Windows\System32\wpbbin.exe')

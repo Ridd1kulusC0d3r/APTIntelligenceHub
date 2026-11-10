@@ -1,0 +1,2 @@
+-- TAIDOOR RAT DLL Load | T1055.001 | https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2020/TA/TAIDOOR-RAT/proc_creation_win_apt_taidoor.yml
+SELECT * FROM events WHERE devicetype=12 AND ((LOWER(Command) LIKE '%dll,mystart%' OR LOWER(Command) LIKE '%dll mystart%') OR (LOWER(Command) LIKE '% mystart' AND LOWER(Command) LIKE '%rundll32.exe%'))

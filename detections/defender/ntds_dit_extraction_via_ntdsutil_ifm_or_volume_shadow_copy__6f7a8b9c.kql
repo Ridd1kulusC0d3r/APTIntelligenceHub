@@ -1,0 +1,3 @@
+// NTDS.dit Extraction Via Ntdsutil IFM Or Volume Shadow Copy | T1003.003 | Hub
+DeviceProcessEvents
+| where (FolderPath endswith "\\ntdsutil.exe" and ProcessCommandLine contains "ifm") or (FolderPath endswith "\\vssadmin.exe" and (ProcessCommandLine contains "create" and ProcessCommandLine contains "shadow"))

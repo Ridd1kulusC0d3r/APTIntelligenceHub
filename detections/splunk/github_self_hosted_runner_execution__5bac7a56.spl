@@ -1,0 +1,2 @@
+# Github Self-Hosted Runner Execution | T1071, T1102.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_github_self_hosted_runner.yml
+source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=1 (((Image="*\\Runner.Worker.exe" OR OriginalFileName="Runner.Worker.dll") CommandLine="*spawnclient*") OR ((Image="*\\Runner.Listener.exe" OR OriginalFileName="Runner.Listener.dll") (CommandLine IN ("*run*", "*configure*"))))

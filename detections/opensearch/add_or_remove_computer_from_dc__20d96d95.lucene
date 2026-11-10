@@ -1,0 +1,2 @@
+// Add or Remove Computer from DC | T1207 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_add_remove_computer.yml
+winlog.channel:Security AND (event.code:(4741 OR 4743))

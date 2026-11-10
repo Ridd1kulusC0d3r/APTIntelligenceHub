@@ -1,0 +1,2 @@
+# SSHD Error Message CVE-2018-15473 | T1589 | https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2018/Exploits/CVE-2018-15473/lnx_sshd_exploit_cve_2018_15473.yml
+"error: buffer_get_ret: trying to get more bytes 1907 than in buffer 308 [preauth]"

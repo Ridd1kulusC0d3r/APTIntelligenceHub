@@ -1,0 +1,2 @@
+-- Remotely Hosted HTA File Executed Via Mshta.EXE | T1218.005 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_mshta_http.yml
+SELECT * FROM events WHERE devicetype=12 AND ((LOWER("Process Path") LIKE '%\mshta.exe' OR LOWER("Process Name") LIKE '%\mshta.exe') OR Filename='MSHTA.EXE') AND (LOWER(Command) LIKE '%http://%' OR LOWER(Command) LIKE '%https://%' OR LOWER(Command) LIKE '%ftp://%')

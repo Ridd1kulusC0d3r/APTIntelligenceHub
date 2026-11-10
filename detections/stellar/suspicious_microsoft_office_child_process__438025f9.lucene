@@ -1,0 +1,18 @@
+// Suspicious Microsoft Office Child Process | T1047, T1204.002, T1218.010 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_office_susp_child_processes.yml
+(ParentImage:(*\\EQNEDT32.EXE OR *\\EXCEL.EXE OR *\\MSACCESS.EXE OR *\\MSPUB.exe OR *\\ONENOTE.EXE OR *\\POWERPNT.exe OR *\\VISIO.exe OR *\\WINWORD.EXE OR *\\wordpad.exe OR *\\wordview.exe)) AND (((OriginalFileName:(bitsadmin.exe OR CertOC.exe OR CertUtil.exe OR Cmd.Exe OR CMSTP.EXE OR cscript.exe OR curl.exe OR HH.exe OR IEExec.exe OR InstallUtil.exe OR javaw.exe OR Microsoft.Workflow.Compiler.exe OR msdt.exe OR MSHTA.EXE OR msiexec.exe OR Msxsl.exe OR odbcconf.exe OR pcalua.exe OR PowerShell.EXE OR RegAsm.exe OR RegSvcs.exe OR REGSVR32.exe OR RUNDLL32.exe OR schtasks.exe OR ScriptRunner.exe OR wmic.exe OR WorkFolders.exe OR wscript.exe)) OR (Image:(*\\AppVLP.exe OR *\\bash.exe OR *\\bitsadmin.exe OR *\\certoc.exe OR *\\certutil.exe OR *\\cmd.exe OR *\\cmstp.exe OR *\\control.exe OR *\\cscript.exe OR *\\curl.exe OR *\\forfiles.exe OR *\\hh.exe OR *\\ieexec.exe OR *\\installutil.exe OR *\\javaw.exe OR *\\mftrace.exe OR *\\Microsoft.Workflow.Compiler.exe OR *\\msbuild.exe OR *\\msdt.exe OR *\\mshta.exe OR *\\msidb.exe OR *\\msiexec.exe OR *\\msxsl.exe OR *\\odbcconf.exe OR *\\pcalua.exe OR *\\powershell.exe OR *\\pwsh.exe OR *\\regasm.exe OR *\\regsvcs.exe OR *\\regsvr32.exe OR *\\rundll32.exe OR *\\schtasks.exe OR *\\scrcons.exe OR *\\scriptrunner.exe OR *\\sh.exe OR *\\svchost.exe OR *\\verclsid.exe OR *\\wmic.exe OR *\\workfolders.exe OR *\\wscript.exe))) OR (Image:(*\\AppData\\* OR *\\Users\\Public\\* OR *\\ProgramData\\* OR *\\Windows\\Tasks\\* OR *\\Windows\\Temp\\* OR *\\Windows\\System32\\Tasks\\*)))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(ParentImage:(*\\\\EQNEDT32.EXE OR *\\\\EXCEL.EXE OR *\\\\MSACCESS.EXE OR *\\\\MSPUB.exe OR *\\\\ONENOTE.EXE OR *\\\\POWERPNT.exe OR *\\\\VISIO.exe OR *\\\\WINWORD.EXE OR *\\\\wordpad.exe OR *\\\\wordview.exe)) AND (((OriginalFileName:(bitsadmin.exe OR CertOC.exe OR CertUtil.exe OR Cmd.Exe OR CMSTP.EXE OR cscript.exe OR curl.exe OR HH.exe OR IEExec.exe OR InstallUtil.exe OR javaw.exe OR Microsoft.Workflow.Compiler.exe OR msdt.exe OR MSHTA.EXE OR msiexec.exe OR Msxsl.exe OR odbcconf.exe OR pcalua.exe OR PowerShell.EXE OR RegAsm.exe OR RegSvcs.exe OR REGSVR32.exe OR RUNDLL32.exe OR schtasks.exe OR ScriptRunner.exe OR wmic.exe OR WorkFolders.exe OR wscript.exe)) OR (Image:(*\\\\AppVLP.exe OR *\\\\bash.exe OR *\\\\bitsadmin.exe OR *\\\\certoc.exe OR *\\\\certutil.exe OR *\\\\cmd.exe OR *\\\\cmstp.exe OR *\\\\control.exe OR *\\\\cscript.exe OR *\\\\curl.exe OR *\\\\forfiles.exe OR *\\\\hh.exe OR *\\\\ieexec.exe OR *\\\\installutil.exe OR *\\\\javaw.exe OR *\\\\mftrace.exe OR *\\\\Microsoft.Workflow.Compiler.exe OR *\\\\msbuild.exe OR *\\\\msdt.exe OR *\\\\mshta.exe OR *\\\\msidb.exe OR *\\\\msiexec.exe OR *\\\\msxsl.exe OR *\\\\odbcconf.exe OR *\\\\pcalua.exe OR *\\\\powershell.exe OR *\\\\pwsh.exe OR *\\\\regasm.exe OR *\\\\regsvcs.exe OR *\\\\regsvr32.exe OR *\\\\rundll32.exe OR *\\\\schtasks.exe OR *\\\\scrcons.exe OR *\\\\scriptrunner.exe OR *\\\\sh.exe OR *\\\\svchost.exe OR *\\\\verclsid.exe OR *\\\\wmic.exe OR *\\\\workfolders.exe OR *\\\\wscript.exe))) OR (Image:(*\\\\AppData\\\\* OR *\\\\Users\\\\Public\\\\* OR *\\\\ProgramData\\\\* OR *\\\\Windows\\\\Tasks\\\\* OR *\\\\Windows\\\\Temp\\\\* OR *\\\\Windows\\\\System32\\\\Tasks\\\\*)))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

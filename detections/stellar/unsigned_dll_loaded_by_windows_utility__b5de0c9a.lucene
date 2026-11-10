@@ -1,0 +1,18 @@
+// Unsigned DLL Loaded by Windows Utility | T1218.010, T1218.011 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_susp_unsigned_dll.yml
+(Image:(*\\InstallUtil.exe OR *\\RegAsm.exe OR *\\RegSvcs.exe OR *\\regsvr32.exe OR *\\rundll32.exe)) AND (NOT (Signed:true OR (SignatureStatus:(errorChaining OR errorCode_endpoint OR errorExpired OR trusted OR Valid)) OR (NOT _exists_:Signed) OR (Signed:("" OR \-)) OR (NOT _exists_:SignatureStatus) OR (SignatureStatus:("" OR \-)) OR ((Image:(C\:\\Windows\\SysWOW64\\rundll32.exe OR C\:\\Windows\\System32\\rundll32.exe)) AND ImageLoaded:C\:\\Windows\\Installer\\* AND (ImageLoaded:(*.tmp\-\\Microsoft.Deployment.WindowsInstaller.dll OR *.tmp\-\\Avira.OE.Setup.CustomActions.dll))) OR ((Image:(C\:\\Windows\\SysWOW64\\* OR C\:\\Windows\\System32\\* OR C\:\\Windows\\Microsoft.NET\\Framework64*)) AND Image:*\\RegAsm.exe AND ImageLoaded:*.dll AND ImageLoaded:C\:\\Windows\\assembly\\NativeImages*))) AND (NOT ((Image:(C\:\\Windows\\SysWOW64\\regsvr32.exe OR C\:\\Windows\\System32\\regsvr32.exe)) AND (ImageLoaded:(C\:\\Program\ Files\ \(x86\)\\K\-Lite\ Codec\ Pack\\* OR C\:\\Program\ Files\\K\-Lite\ Codec\ Pack\\*))))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(Image:(*\\\\InstallUtil.exe OR *\\\\RegAsm.exe OR *\\\\RegSvcs.exe OR *\\\\regsvr32.exe OR *\\\\rundll32.exe)) AND (NOT (Signed:true OR (SignatureStatus:(errorChaining OR errorCode_endpoint OR errorExpired OR trusted OR Valid)) OR (NOT _exists_:Signed) OR (Signed:(\"\" OR \\-)) OR (NOT _exists_:SignatureStatus) OR (SignatureStatus:(\"\" OR \\-)) OR ((Image:(C\\:\\\\Windows\\\\SysWOW64\\\\rundll32.exe OR C\\:\\\\Windows\\\\System32\\\\rundll32.exe)) AND ImageLoaded:C\\:\\\\Windows\\\\Installer\\\\* AND (ImageLoaded:(*.tmp\\-\\\\Microsoft.Deployment.WindowsInstaller.dll OR *.tmp\\-\\\\Avira.OE.Setup.CustomActions.dll))) OR ((Image:(C\\:\\\\Windows\\\\SysWOW64\\\\* OR C\\:\\\\Windows\\\\System32\\\\* OR C\\:\\\\Windows\\\\Microsoft.NET\\\\Framework64*)) AND Image:*\\\\RegAsm.exe AND ImageLoaded:*.dll AND ImageLoaded:C\\:\\\\Windows\\\\assembly\\\\NativeImages*))) AND (NOT ((Image:(C\\:\\\\Windows\\\\SysWOW64\\\\regsvr32.exe OR C\\:\\\\Windows\\\\System32\\\\regsvr32.exe)) AND (ImageLoaded:(C\\:\\\\Program\\ Files\\ \\(x86\\)\\\\K\\-Lite\\ Codec\\ Pack\\\\* OR C\\:\\\\Program\\ Files\\\\K\\-Lite\\ Codec\\ Pack\\\\*))))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,18 @@
+// Hidden Files and Directories | T1564.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/execve/lnx_auditd_hidden_files_directories.yml
+(type:EXECVE AND (a0:(mkdir OR nano OR touch OR vi OR vim))) AND (a1:/(^|\\/)\.[^.\\/]/ OR a2:/(^|\\/)\.[^.\\/]/)
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(type:EXECVE AND (a0:(mkdir OR nano OR touch OR vi OR vim))) AND (a1:/(^|\\\\/)\\.[^.\\\\/]/ OR a2:/(^|\\\\/)\\.[^.\\\\/]/)",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

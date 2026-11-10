@@ -1,0 +1,2 @@
+-- VsCode Powershell Profile Modification | T1546.013 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_susp_vscode_powershell_profile.yml
+SELECT * FROM events WHERE devicetype=12 AND LOWER(Filename) LIKE '%\microsoft.vscode_profile.ps1'

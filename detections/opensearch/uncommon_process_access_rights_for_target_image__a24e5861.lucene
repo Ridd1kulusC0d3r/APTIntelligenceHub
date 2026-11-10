@@ -1,0 +1,2 @@
+// Uncommon Process Access Rights For Target Image | T1055.011 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_access/proc_access_win_susp_all_access_uncommon_target.yml
+(winlog.event_data.TargetImage:(*\\calc.exe OR *\\calculator.exe OR *\\mspaint.exe OR *\\notepad.exe OR *\\ping.exe OR *\\wordpad.exe OR *\\write.exe)) AND winlog.event_data.GrantedAccess:0x1FFFFF

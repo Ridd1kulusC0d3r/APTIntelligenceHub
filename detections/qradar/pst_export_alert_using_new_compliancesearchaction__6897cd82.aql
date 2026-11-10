@@ -1,0 +1,2 @@
+-- PST Export Alert Using New-ComplianceSearchAction | T1114 | https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/m365/threat_management/microsoft365_pst_export_alert_using_new_compliancesearchaction.yml
+SELECT * FROM events WHERE devicetype IN(443, 397) AND LOWER(UTF8(payload)) LIKE '%new-compliancesearchaction%' AND LOWER(UTF8(payload)) LIKE '%export%' AND LOWER(UTF8(payload)) LIKE '%pst%'

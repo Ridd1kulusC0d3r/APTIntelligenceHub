@@ -1,0 +1,2 @@
+// Enable Microsoft Dynamic Data Exchange | T1559.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_office_enable_dde.yml
+from * metadata _id, _index, _version | where ends_with(registry.path, "\\Word\\Security\\AllowDDE") and (winlog.event_data.Details in ("DWORD (0x00000001)", "DWORD (0x00000002)")) or (ends_with(registry.path, "\\Excel\\Security\\DisableDDEServerLaunch") or ends_with(registry.path, "\\Excel\\Security\\DisableDDEServerLookup")) and winlog.event_data.Details=="DWORD (0x00000000)"

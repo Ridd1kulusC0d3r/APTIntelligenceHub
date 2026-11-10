@@ -1,0 +1,3 @@
+// Using SettingSyncHost.exe as LOLBin | T1574.008 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_settingsynchost.yml
+DeviceProcessEvents
+| where (not((FolderPath startswith "C:\\Windows\\System32\\" or FolderPath startswith "C:\\Windows\\SysWOW64\\"))) and (InitiatingProcessCommandLine contains "cmd.exe /c" and InitiatingProcessCommandLine contains "RoamDiag.cmd" and InitiatingProcessCommandLine contains "-outputpath")

@@ -1,0 +1,2 @@
+// Manipulation of User Computer or Group Security Principals Across AD | T1136.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/powershell/powershell_script/posh_ps_directoryservices_accountmanagement.yml
+any where powershell.file.script_block_text:"*System.DirectoryServices.AccountManagement*"

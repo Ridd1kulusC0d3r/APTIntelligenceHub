@@ -1,0 +1,2 @@
+// Remote Thread Creation Ttdinject.exe Proxy | T1127 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/create_remote_thread/create_remote_thread_win_ttdinjec.yml
+from * metadata _id, _index, _version | where ends_with(process.executable.caseless, "\\ttdinject.exe")

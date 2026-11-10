@@ -1,0 +1,18 @@
+// Suspicious UltraVNC Execution | T1021.005 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_ultravnc_susp_execution.yml
+CommandLine:*\-autoreconnect\ * AND CommandLine:*\-connect\ * AND CommandLine:*\-id\:*
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "CommandLine:*\\-autoreconnect\\ * AND CommandLine:*\\-connect\\ * AND CommandLine:*\\-id\\:*",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

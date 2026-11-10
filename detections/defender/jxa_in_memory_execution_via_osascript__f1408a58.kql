@@ -1,0 +1,3 @@
+// JXA In-memory Execution Via OSAScript | T1059.002, T1059.007 | https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_jxa_in_memory_execution.yml
+DeviceProcessEvents
+| where (ProcessCommandLine contains "osascript" and ProcessCommandLine contains " -e " and ProcessCommandLine contains "eval" and ProcessCommandLine contains "NSData.dataWithContentsOfURL") and ((ProcessCommandLine contains " -l " and ProcessCommandLine contains "JavaScript") or ProcessCommandLine contains ".js")

@@ -1,0 +1,18 @@
+// HackTool - Certipy Execution | T1649 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_certipy.yml
+(Image:*\\Certipy.exe OR OriginalFileName:Certipy.exe OR Description:*Certipy*) OR ((CommandLine:(*\ account\ * OR *\ auth\ * OR *\ cert\ * OR *\ find\ * OR *\ forge\ * OR *\ ptt\ * OR *\ relay\ * OR *\ req\ * OR *\ shadow\ * OR *\ template\ *)) AND (CommandLine:(*\ \-bloodhound* OR *\ \-ca\-pfx\ * OR *\ \-dc\-ip\ * OR *\ \-kirbi* OR *\ \-old\-bloodhound* OR *\ \-pfx\ * OR *\ \-target* OR *\ \-template* OR *\ \-username\ * OR *\ \-vulnerable* OR *auth\ \-pfx* OR *shadow\ auto* OR *shadow\ list*)))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(Image:*\\\\Certipy.exe OR OriginalFileName:Certipy.exe OR Description:*Certipy*) OR ((CommandLine:(*\\ account\\ * OR *\\ auth\\ * OR *\\ cert\\ * OR *\\ find\\ * OR *\\ forge\\ * OR *\\ ptt\\ * OR *\\ relay\\ * OR *\\ req\\ * OR *\\ shadow\\ * OR *\\ template\\ *)) AND (CommandLine:(*\\ \\-bloodhound* OR *\\ \\-ca\\-pfx\\ * OR *\\ \\-dc\\-ip\\ * OR *\\ \\-kirbi* OR *\\ \\-old\\-bloodhound* OR *\\ \\-pfx\\ * OR *\\ \\-target* OR *\\ \\-template* OR *\\ \\-username\\ * OR *\\ \\-vulnerable* OR *auth\\ \\-pfx* OR *shadow\\ auto* OR *shadow\\ list*)))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

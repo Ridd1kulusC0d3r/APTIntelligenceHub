@@ -1,0 +1,2 @@
+// DNS Exfiltration and Tunneling Tools Execution | T1048.001, T1071.004, T1132.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_dns_exfiltration_tools_execution.yml
+from * metadata _id, _index, _version | where ends_with(process.executable.caseless, "\\iodine.exe") or process.executable.caseless like "*\\dnscat2*"

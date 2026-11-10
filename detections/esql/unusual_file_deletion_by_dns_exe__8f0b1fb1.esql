@@ -1,0 +1,2 @@
+// Unusual File Deletion by Dns.exe | T1133 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_delete/file_delete_win_unusual_deletion_by_dns_exe.yml
+from * metadata _id, _index, _version | where ends_with(process.executable.caseless, "\\dns.exe") and not ends_with(file.path, "\\dns.log")

@@ -1,0 +1,18 @@
+// Cisco Sniffing | T1040 | https://github.com/SigmaHQ/sigma/blob/master/rules/network/cisco/aaa/cisco_cli_net_sniff.yml
+*monitor\ capture\ point* OR *set\ span* OR *set\ rspan*
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "*monitor\\ capture\\ point* OR *set\\ span* OR *set\\ rspan*",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

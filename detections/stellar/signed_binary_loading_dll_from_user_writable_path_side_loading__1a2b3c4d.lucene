@@ -1,0 +1,18 @@
+// Signed Binary Loading DLL From User-Writable Path (Side-Loading) | T1574.002 | Hub
+((Image:(*\\AppData\\* OR *\\ProgramData\\* OR *\\Users\\Public\\*)) AND (ImageLoaded:(*\\AppData\\* OR *\\ProgramData\\* OR *\\Users\\Public\\*))) AND Signed:false
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "((Image:(*\\\\AppData\\\\* OR *\\\\ProgramData\\\\* OR *\\\\Users\\\\Public\\\\*)) AND (ImageLoaded:(*\\\\AppData\\\\* OR *\\\\ProgramData\\\\* OR *\\\\Users\\\\Public\\\\*))) AND Signed:false",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

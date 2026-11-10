@@ -1,0 +1,18 @@
+// OSACompile Run-Only Execution | T1059.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_osacompile_runonly_execution.yml
+CommandLine:*osacompile* AND CommandLine:*\ \-x\ * AND CommandLine:*\ \-e\ *
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "CommandLine:*osacompile* AND CommandLine:*\\ \\-x\\ * AND CommandLine:*\\ \\-e\\ *",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

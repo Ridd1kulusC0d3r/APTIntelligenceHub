@@ -1,0 +1,2 @@
+# Suspicious Connection to Remote Account | T1110.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/powershell/powershell_script/posh_ps_susp_networkcredential.yml
+ScriptBlockText IN ("*System.DirectoryServices.Protocols.LdapDirectoryIdentifier*", "*System.Net.NetworkCredential*", "*System.DirectoryServices.Protocols.LdapConnection*")

@@ -1,0 +1,2 @@
+// External Disk Drive Or USB Storage Device Was Recognized By The System | T1091, T1200 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_external_device.yml
+winlog.channel:Security AND (event.code:6416 AND (winlog.event_data.ClassName:DiskDrive OR winlog.event_data.DeviceDescription:"USB Mass Storage Device"))

@@ -1,0 +1,18 @@
+// AWS GuardDuty Detector Deleted Or Updated | T1685, T1685.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/aws/cloudtrail/aws_cloudtrail_guardduty_detector_deleted_or_updated.yml
+eventSource:guardduty.amazonaws.com AND (eventName:DeleteDetector OR (eventName:UpdateDetector AND requestParameters.enable:false)) AND (errorCode:Success OR (NOT _exists_:errorCode))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "eventSource:guardduty.amazonaws.com AND (eventName:DeleteDetector OR (eventName:UpdateDetector AND requestParameters.enable:false)) AND (errorCode:Success OR (NOT _exists_:errorCode))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

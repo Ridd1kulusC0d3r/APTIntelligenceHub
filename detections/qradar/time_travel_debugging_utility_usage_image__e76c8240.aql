@@ -1,0 +1,2 @@
+-- Time Travel Debugging Utility Usage - Image | T1003.001, T1218 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_dll_tttracer_module_load.yml
+SELECT * FROM events WHERE devicetype=12 AND (LOWER(CONCAT('file directory', '/', filename)) LIKE '%\ttdrecord.dll' OR LOWER(CONCAT('file directory', '/', filename)) LIKE '%\ttdwriter.dll' OR LOWER(CONCAT('file directory', '/', filename)) LIKE '%\ttdloader.dll')

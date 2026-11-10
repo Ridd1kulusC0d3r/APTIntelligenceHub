@@ -1,0 +1,2 @@
+-- Discovery Using AzureHound | T1087.004, T1526 | https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/azure/signin_logs/azure_ad_azurehound_discovery.yml | NOTA: fallback QRadarAQL_payload_pipeline: campos sem propriedade DSM mapeada são buscados em UTF8(payload) – custo maior, crie custom properties
+SELECT * FROM events WHERE LOWER("User Agent") LIKE '%azurehound%' AND LOWER(UTF8(payload)) LIKE '%resulttype%0%'

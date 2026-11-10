@@ -1,0 +1,2 @@
+// DPAPI Backup Keys And Certificate Export Activity IOC | T1552.004, T1555 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_susp_dpapi_backup_and_cert_export_ioc.yml
+(file.path:(*ntds_capi_* OR *ntds_legacy_* OR *ntds_unknown_*)) AND (file.path:(*.cer OR *.key OR *.pfx OR *.pvk))

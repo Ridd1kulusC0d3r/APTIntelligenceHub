@@ -1,0 +1,3 @@
+// Exchange PowerShell Snap-Ins Usage | T1059.001, T1114 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_snapins_hafnium.yml
+DeviceProcessEvents
+| where (((FolderPath endswith "\\powershell.exe" or FolderPath endswith "\\pwsh.exe") or (ProcessVersionInfoOriginalFileName in~ ("PowerShell.EXE", "pwsh.dll"))) and ProcessCommandLine contains "Add-PSSnapin" and (ProcessCommandLine contains "Microsoft.Exchange.Powershell.Snapin" or ProcessCommandLine contains "Microsoft.Exchange.Management.PowerShell.SnapIn")) and (not((InitiatingProcessFolderPath =~ "C:\\Windows\\System32\\msiexec.exe" and ProcessCommandLine contains "$exserver=Get-ExchangeServer ([Environment]::MachineName) -ErrorVariable exerr 2> $null")))

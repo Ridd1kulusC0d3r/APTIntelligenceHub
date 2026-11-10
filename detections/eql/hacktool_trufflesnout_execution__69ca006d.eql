@@ -1,0 +1,2 @@
+// HackTool - TruffleSnout Execution | T1482 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_trufflesnout.yml
+any where process.pe.original_file_name:"TruffleSnout.exe" or process.executable.caseless:"*\\TruffleSnout.exe"

@@ -1,0 +1,18 @@
+// Directory Service Restore Mode(DSRM) Registry Value Tampering | T1556 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_dsrm_tampering.yml
+TargetObject:*\\Control\\Lsa\\DsrmAdminLogonBehavior AND (NOT Details:"DWORD \(0x00000000\)")
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "TargetObject:*\\\\Control\\\\Lsa\\\\DsrmAdminLogonBehavior AND (NOT Details:\"DWORD \\(0x00000000\\)\")",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,2 @@
+# NTDS Exfiltration Filename Patterns | T1003.003 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_ntds_exfil_tools.yml
+source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=11 (TargetFilename IN ("*\\All.cab", "*.ntds.cleartext"))

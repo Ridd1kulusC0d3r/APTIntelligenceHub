@@ -1,0 +1,18 @@
+// Automated Collection Command Prompt | T1119, T1552.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_automated_collection.yml
+(CommandLine:(*.doc* OR *.docx* OR *.xls* OR *.xlsx* OR *.ppt* OR *.pptx* OR *.rtf* OR *.pdf* OR *.txt*)) AND ((CommandLine:*dir\ * AND CommandLine:*\ \/b\ * AND CommandLine:*\ \/s\ *) OR (OriginalFileName:FINDSTR.EXE AND (CommandLine:(*\ \/e\ * OR *\ \/si\ *))))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(CommandLine:(*.doc* OR *.docx* OR *.xls* OR *.xlsx* OR *.ppt* OR *.pptx* OR *.rtf* OR *.pdf* OR *.txt*)) AND ((CommandLine:*dir\\ * AND CommandLine:*\\ \\/b\\ * AND CommandLine:*\\ \\/s\\ *) OR (OriginalFileName:FINDSTR.EXE AND (CommandLine:(*\\ \\/e\\ * OR *\\ \\/si\\ *))))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

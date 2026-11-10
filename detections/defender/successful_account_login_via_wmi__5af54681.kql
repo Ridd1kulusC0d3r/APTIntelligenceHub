@@ -1,0 +1,3 @@
+// Successful Account Login Via WMI | T1047 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/account_management/win_security_susp_wmi_login.yml
+DeviceLogonEvents
+| where InitiatingProcessFolderPath endswith "\\WmiPrvSE.exe"

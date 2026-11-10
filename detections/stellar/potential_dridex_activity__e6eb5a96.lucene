@@ -1,0 +1,18 @@
+// Potential Dridex Activity | T1033, T1055, T1135 | https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2019/Malware/Dridex/proc_creation_win_malware_dridex.yml
+((Image:*\\svchost.exe AND (CommandLine:*C\:\\Users\\* AND CommandLine:*\\Desktop\\*)) AND (NOT ParentImage:C\:\\Windows\\System32\\*)) OR ((ParentImage:*\\excel.exe AND Image:*\\regsvr32.exe AND (CommandLine:(*\ \-s\ * OR *\\AppData\\Local\\Temp\\*))) AND (NOT CommandLine:*.dll*)) OR (ParentImage:*\\svchost.exe AND ((Image:*\\whoami.exe AND CommandLine:*\ \/all*) OR ((Image:(*\\net.exe OR *\\net1.exe)) AND CommandLine:*\ view*)))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "((Image:*\\\\svchost.exe AND (CommandLine:*C\\:\\\\Users\\\\* AND CommandLine:*\\\\Desktop\\\\*)) AND (NOT ParentImage:C\\:\\\\Windows\\\\System32\\\\*)) OR ((ParentImage:*\\\\excel.exe AND Image:*\\\\regsvr32.exe AND (CommandLine:(*\\ \\-s\\ * OR *\\\\AppData\\\\Local\\\\Temp\\\\*))) AND (NOT CommandLine:*.dll*)) OR (ParentImage:*\\\\svchost.exe AND ((Image:*\\\\whoami.exe AND CommandLine:*\\ \\/all*) OR ((Image:(*\\\\net.exe OR *\\\\net1.exe)) AND CommandLine:*\\ view*)))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

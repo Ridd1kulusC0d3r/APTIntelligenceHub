@@ -1,0 +1,2 @@
+// Remote LSASS Process Access Through Windows Remote Management | T1003.001, T1021.006, T1059.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_access/proc_access_win_lsass_remote_access_trough_winrm.yml
+from * metadata _id, _index, _version | where ends_with(winlog.event_data.TargetImage, "\\lsass.exe") and ends_with(process.executable.caseless, ":\\Windows\\system32\\wsmprovhost.exe") and not winlog.event_data.GrantedAccess=="0x80000000"

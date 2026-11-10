@@ -1,0 +1,2 @@
+// Powershell Local Email Collection | T1114.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/powershell/powershell_script/posh_ps_susp_mail_acces.yml
+from * metadata _id, _index, _version | where powershell.file.script_block_text like "*Get-Inbox.ps1*" or powershell.file.script_block_text like "*Microsoft.Office.Interop.Outlook*" or powershell.file.script_block_text like "*Microsoft.Office.Interop.Outlook.olDefaultFolders*" or powershell.file.script_block_text like "*-comobject outlook.application*"

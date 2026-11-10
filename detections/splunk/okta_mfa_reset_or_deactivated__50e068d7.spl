@@ -1,0 +1,2 @@
+# Okta MFA Reset or Deactivated | T1556.006 | https://github.com/SigmaHQ/sigma/blob/master/rules/identity/okta/okta_mfa_reset_or_deactivated.yml
+eventType IN ("user.mfa.factor.deactivate", "user.mfa.factor.reset_all")

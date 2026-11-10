@@ -1,0 +1,2 @@
+// Visual Basic Command Line Compiler Usage | T1027.004 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_visual_basic_compiler.yml
+from * metadata _id, _index, _version | where ends_with(process.parent.executable.caseless, "\\vbc.exe") and ends_with(process.executable.caseless, "\\cvtres.exe")

@@ -1,0 +1,2 @@
+// Enabling COR Profiler Environment Variables | T1574.012 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_enabling_cor_profiler_env_variables.yml
+from * metadata _id, _index, _version | where ends_with(registry.path, "\\COR_ENABLE_PROFILING") or ends_with(registry.path, "\\COR_PROFILER") or ends_with(registry.path, "\\CORECLR_ENABLE_PROFILING") or registry.path like "*\\CORECLR_PROFILER_PATH*"

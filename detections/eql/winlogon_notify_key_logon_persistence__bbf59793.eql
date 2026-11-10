@@ -1,0 +1,2 @@
+// Winlogon Notify Key Logon Persistence | T1547.004 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_winlogon_notify_key.yml
+any where registry.path:"*\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon\\Notify\\logon" and winlog.event_data.Details:"*.dll"

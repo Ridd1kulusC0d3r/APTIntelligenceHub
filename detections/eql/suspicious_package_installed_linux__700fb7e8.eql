@@ -1,0 +1,2 @@
+// Suspicious Package Installed - Linux | T1553.004 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_install_suspicious_packages.yml
+any where (((Image like~ ("*/apt", "*/apt-get")) and CommandLine:"*install*") or (Image:"*/yum" and (CommandLine like~ ("*localinstall*", "*install*"))) or (Image:"*/rpm" and CommandLine:"*-i*") or (Image:"*/dpkg" and (CommandLine like~ ("*--install*", "*-i*")))) and (CommandLine like~ ("*nmap*", "* nc*", "*netcat*", "*wireshark*", "*tshark*", "*openconnect*", "*proxychains*", "*socat*"))

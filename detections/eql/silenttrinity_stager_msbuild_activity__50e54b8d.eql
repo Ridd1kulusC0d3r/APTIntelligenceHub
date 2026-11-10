@@ -1,0 +1,2 @@
+// Silenttrinity Stager Msbuild Activity | T1127.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_silenttrinity_stager_msbuild_activity.yml
+any where process.executable.caseless:"*\\msbuild.exe" and ((destination.port like~ (80, 443)) and network.direction:"true")

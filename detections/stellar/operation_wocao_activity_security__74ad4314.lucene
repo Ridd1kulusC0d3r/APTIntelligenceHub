@@ -1,0 +1,18 @@
+// Operation Wocao Activity - Security | T1012, T1027, T1036.004, T1053.005, T1059.001 | https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2019/TA/Operation-Wocao/win_security_apt_wocao.yml
+EventID:4799 AND TargetUserName:Administr* AND CallerProcessName:*\\checkadmin.exe
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "EventID:4799 AND TargetUserName:Administr* AND CallerProcessName:*\\\\checkadmin.exe",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

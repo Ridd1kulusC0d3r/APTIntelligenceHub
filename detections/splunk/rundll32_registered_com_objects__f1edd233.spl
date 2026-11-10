@@ -1,0 +1,2 @@
+# Rundll32 Registered COM Objects | T1546.015 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_registered_com_objects.yml
+source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=1 (Image="*\\rundll32.exe" OR OriginalFileName="RUNDLL32.EXE") (CommandLine IN ("*-sta *", "*-localserver *")) CommandLine="*{*" CommandLine="*}*"

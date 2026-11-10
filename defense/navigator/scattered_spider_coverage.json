@@ -1,0 +1,409 @@
+{
+ "name": "Scattered Spider – APT Threat Map",
+ "versions": {
+  "layer": "4.5",
+  "navigator": "5.1.0"
+ },
+ "domain": "enterprise-attack",
+ "description": "Técnicas de Scattered Spider com cobertura do catálogo (score 3=regra, 2=parcial, 1=lacuna)",
+ "techniques": [
+  {
+   "techniqueID": "T1003.003",
+   "score": 3,
+   "comment": "Scattered Spider has extracted the `NTDS.dit` file by creating volume shadow copies of virtual domain controller disks. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1006",
+   "score": 3,
+   "comment": "Scattered Spider has created volume shadow copies of virtual domain controller disks to extract the `NTDS.dit` file. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1016",
+   "score": 3,
+   "comment": "Scattered Spider has used network reconnaissance commands for discovery including `ping` and `nltest`. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1018",
+   "score": 3,
+   "comment": "Scattered Spider can enumerate remote systems, such as VMware vCenter infrastructure. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1021.001",
+   "score": 3,
+   "comment": "Scattered Spider has used RDP to enable lateral movement. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1021.004",
+   "score": 3,
+   "comment": "Scattered Spider has used SSH to move laterally in victim environments and to access the vSphere vCenter Server GUI. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1021.007",
+   "score": 3,
+   "comment": "Scattered Spider has also leveraged pre-existing AWS EC2 instances for lateral movement and data collection purposes. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1041",
+   "score": 3,
+   "comment": "Scattered Spider has exfiltrated data from compromised VMware vCenter servers through an established C2 channel using the Teleport remote access tool. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1059.001",
+   "score": 3,
+   "comment": "Scattered Spider has used the PowerShell cmdlet Get-ADUser. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1059.004",
+   "score": 3,
+   "comment": "Scattered Spider has used the command shell to upload and install the Teleport remote access tool to a compromised vCenter Server Appliance. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1068",
+   "score": 3,
+   "comment": "Scattered Spider has deployed a malicious kernel driver through exploitation of CVE-2015-2291 in the Intel Ethernet diagnostics driver for Windows (iqvw64.sys). | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1069",
+   "score": 3,
+   "comment": "Scattered Spider has enumerated the vSphere Admins and ESX Admins groups in targeted environments. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1069.002",
+   "score": 3,
+   "comment": "Scattered Spider has enumerated Active Directory security groups including through the use of ADExplorer, ADRecon.ps1, and Get-ADUser. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1070.008",
+   "score": 3,
+   "comment": "Scattered Spider has manually deleted emails notifying users of suspicious account activity. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1074",
+   "score": 3,
+   "comment": "Scattered Spider stages data in a centralized database prior to exfiltration. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1078",
+   "score": 3,
+   "comment": "Scattered Spider has used compromised credentials for initial access. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1078.004",
+   "score": 3,
+   "comment": "Scattered Spider has used compromised Microsoft Entra ID accounts to pivot in victim environments. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1082",
+   "score": 3,
+   "comment": "Scattered Spider has executed scripts to identify the underlying operating system to ensure it uses the correct installation package for malicious payloads. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1083",
+   "score": 3,
+   "comment": "Scattered Spider Spider enumerates a target organization for files and directories of interest, including source code, user provisioning, MFA device registration, network diagrams, and shared credentials in documents or spreadsheets. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1087",
+   "score": 3,
+   "comment": "Scattered Spider has identified vSphere administrator accounts. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1087.002",
+   "score": 3,
+   "comment": "Scattered Spider has enumerated legitimate domain accounts which are used in the targeted environment. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1090",
+   "score": 3,
+   "comment": "Scattered Spider has used proxy networks to hamper detection and has installed legitimate proxy tools on VMware vCenter and adversary-controlled VMs. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1098",
+   "score": 3,
+   "comment": "Scattered Spider has added accounts to the ESX Admins group to grant them full admin rights in vSphere. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1098.003",
+   "score": 3,
+   "comment": "Scattered Spider has assigned user access admin roles in order to gain Tenant Root Group management permissions in Azure. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1105",
+   "score": 3,
+   "comment": "Scattered Spider has downloaded the Teleport remote access tool to compromised VMware vCenter Servers. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1114",
+   "score": 3,
+   "comment": "Scattered Spider searched the victim’s Microsoft Exchange for emails about the intrusion and incident response. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1114.003",
+   "score": 3,
+   "comment": "Scattered Spider has redirected emails notifying users of suspicious account activity. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1133",
+   "score": 3,
+   "comment": "Scattered Spider has leveraged legitimate remote management tools to maintain persistent access. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1136",
+   "score": 3,
+   "comment": "Scattered Spider creates new user identities within the compromised organization. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1204",
+   "score": 3,
+   "comment": "Scattered Spider has impersonated organization IT and helpdesk staff to instruct victims to execute commercial remote access tools to gain initial access. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1213.003",
+   "score": 3,
+   "comment": "Scattered Spider enumerates data stored within victim code repositories, such as internal GitHub repositories. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1213.005",
+   "score": 3,
+   "comment": "Scattered Spider threat actors search the victim’s Slack and Microsoft Teams for conversations about the intrusion and incident response. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1217",
+   "score": 3,
+   "comment": "Scattered Spider retrieves browser histories via infostealer malware such as Raccoon Stealer. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1219.002",
+   "score": 3,
+   "comment": "In addition to directing victims to run remote software, Scattered Spider members themselves also deploy RMM software including TeamViewer, AnyDesk, LogMeIn, ngrok, and ConnectWise to establish persistence on the compromised network. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1484.002",
+   "score": 3,
+   "comment": "Scattered Spider adds a federated identity provider to the victim’s SSO tenant and activates automatic account linking. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1486",
+   "score": 3,
+   "comment": "Scattered Spider has used BlackCat and DragonForce ransomware to encrypt files including on VMWare ESXi servers. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1490",
+   "score": 3,
+   "comment": "Scattered Spider has stopped the Volume Shadow Copy service on compromised hosts. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1530",
+   "score": 1,
+   "comment": "Scattered Spider enumerates data stored in cloud resources for collection and exfiltration purposes. | cobertura: lacuna",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1538",
+   "score": 1,
+   "comment": "Scattered Spider abused AWS Systems Manager Inventory to identify targets on the compromised network prior to lateral movement. | cobertura: lacuna",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1539",
+   "score": 3,
+   "comment": "Scattered Spider retrieves browser cookies via Raccoon Stealer. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1543.002",
+   "score": 3,
+   "comment": "Scattered Spider has run `SYSTEMD_UNIT_PATH=\"/lib/systemd/ system/teleport.service` to establish persistence for the Teleport remote access tool. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1552.001",
+   "score": 3,
+   "comment": "Scattered Spider Spider searches for credential storage documentation on a compromised host. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1552.004",
+   "score": 3,
+   "comment": "Scattered Spider enumerate and exfiltrate code-signing certificates from a compromised host. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1553.002",
+   "score": 3,
+   "comment": "Scattered Spider has used self-signed and stolen certificates originally issued to NVIDIA and Global Software LLC. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1555.005",
+   "score": 3,
+   "comment": "Scattered Spider has searched for credentials in password vaults and Privileged Access Management (PAM) solutions including HashiCorp Vault. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1556.006",
+   "score": 3,
+   "comment": "After compromising user accounts, Scattered Spider registers their own MFA tokens. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1556.009",
+   "score": 3,
+   "comment": "Scattered Spider has added additional trusted locations to Azure AD conditional access policies. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1564.008",
+   "score": 3,
+   "comment": "Scattered Spider creates inbound rules on the compromised email accounts of security personnel to automatically delete emails from vendor security products. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1567.002",
+   "score": 3,
+   "comment": "Scattered Spider has exfiltrated victim data to the MEGA file sharing site, SnowFlake, and AWS S3 buckets. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1572",
+   "score": 3,
+   "comment": "Scattered Spider has installed protocol-tunneling tools on VMware vCenter and adversary-controlled VMs, including Teleport.sh, Chisel (configured to communicate with trycloudflare[.]com subdomains), MobaXterm, ngrok, Pinggy, and Teleport. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1578.002",
+   "score": 3,
+   "comment": "Scattered Spider has created Amazon EC2 instances within the victim's environment. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1580",
+   "score": 3,
+   "comment": "Scattered Spider enumerates cloud environments including Amazon Web Services (AWS) S3 buckets to identify server and backup management infrastructure, resource access, databases and storage containers . | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1583.001",
+   "score": 1,
+   "comment": "Scattered Spider has registered domains to spoof legitimate corporate login portals. | cobertura: lacuna",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1585.001",
+   "score": 1,
+   "comment": "Scattered Spider has created matching fake social media profiles to support new accounts created in victim environments. | cobertura: lacuna",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1588.001",
+   "score": 3,
+   "comment": "Scattered Spider has obtained malware to use at multiple stages of operations including information stealers, remote access tools, and ransomware. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1588.002",
+   "score": 3,
+   "comment": "Scattered Spider has obtained tools for use throughout the attack lifecycle to include remote access software, protocol tunneling and proxy tools, exploitation frameworks, and reconnaissance tools. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1589",
+   "score": 3,
+   "comment": "Scattered Spider has used information from previous data breaches to identify employee names to be used in social engineering. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1598",
+   "score": 1,
+   "comment": "Scattered Spider has used a combination of credential phishing and social engineering to capture one-time-password (OTP) codes. | cobertura: lacuna",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1598.003",
+   "score": 1,
+   "comment": "Scattered Spider has used domains mirroring corporate login portals to socially engineer victims into providing credentials. | cobertura: lacuna",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1598.004",
+   "score": 1,
+   "comment": "Scattered Spider has used help desk voice-based phishing and also called employees at target organizations and compelled them to navigate to fake login portals using adversary-in-the-middle toolkits. | cobertura: lacuna",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1621",
+   "score": 3,
+   "comment": "Scattered Spider has used multifactor authentication (MFA) fatigue by sending repeated MFA authentication requests to targets. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1657",
+   "score": 1,
+   "comment": "Scattered Spider has deployed ransomware on compromised hosts and threatened to leak stolen data for financial gain. | cobertura: lacuna",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1684.001",
+   "score": 1,
+   "comment": "Scattered Spider utilized social engineering to compel IT help desk personnel to reset passwords and MFA tokens. Scattered Spider has also used Microsoft Teams to pose as internal IT support or help desk personnel. | cobertura: lacuna",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1685",
+   "score": 3,
+   "comment": "Scattered Spider has uninstalled and disabled security tools. | cobertura: regra",
+   "enabled": true
+  }
+ ],
+ "gradient": {
+  "colors": [
+   "#ff5d6c",
+   "#ffb347",
+   "#2ecc8f"
+  ],
+  "minValue": 1,
+  "maxValue": 3
+ },
+ "layout": {
+  "layout": "side",
+  "showName": true,
+  "showID": true
+ }
+}

@@ -1,0 +1,18 @@
+// Enabling COR Profiler Environment Variables | T1574.012 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_enabling_cor_profiler_env_variables.yml
+(TargetObject:(*\\COR_ENABLE_PROFILING OR *\\COR_PROFILER OR *\\CORECLR_ENABLE_PROFILING)) OR TargetObject:*\\CORECLR_PROFILER_PATH*
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(TargetObject:(*\\\\COR_ENABLE_PROFILING OR *\\\\COR_PROFILER OR *\\\\CORECLR_ENABLE_PROFILING)) OR TargetObject:*\\\\CORECLR_PROFILER_PATH*",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

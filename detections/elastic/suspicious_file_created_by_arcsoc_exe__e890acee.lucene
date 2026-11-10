@@ -1,0 +1,2 @@
+// Suspicious File Created by ArcSOC.exe | T1105, T1127, T1133 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_arcsoc_susp_file_created.yml
+process.executable.caseless:*\\ArcSOC.exe AND (file.path:(*.ahk OR *.aspx OR *.au3 OR *.bat OR *.cmd OR *.dll OR *.exe OR *.hta OR *.js OR *.ps1 OR *.py OR *.vbe OR *.vbs OR *.wsf))

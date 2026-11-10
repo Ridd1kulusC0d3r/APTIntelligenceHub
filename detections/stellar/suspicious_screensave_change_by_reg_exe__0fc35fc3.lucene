@@ -1,0 +1,18 @@
+// Suspicious ScreenSave Change by Reg.exe | T1546.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_reg_screensaver.yml
+(Image:*\\reg.exe AND (CommandLine:(*HKEY_CURRENT_USER\\Control\ Panel\\Desktop* OR *HKCU\\Control\ Panel\\Desktop*))) AND ((CommandLine:*\/v\ ScreenSaveActive* AND CommandLine:*\/t\ REG_SZ* AND CommandLine:*\/d\ 1* AND CommandLine:*\/f*) OR (CommandLine:*\/v\ ScreenSaveTimeout* AND CommandLine:*\/t\ REG_SZ* AND CommandLine:*\/d\ * AND CommandLine:*\/f*) OR (CommandLine:*\/v\ ScreenSaverIsSecure* AND CommandLine:*\/t\ REG_SZ* AND CommandLine:*\/d\ 0* AND CommandLine:*\/f*) OR (CommandLine:*\/v\ SCRNSAVE.EXE* AND CommandLine:*\/t\ REG_SZ* AND CommandLine:*\/d\ * AND CommandLine:*.scr* AND CommandLine:*\/f*))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(Image:*\\\\reg.exe AND (CommandLine:(*HKEY_CURRENT_USER\\\\Control\\ Panel\\\\Desktop* OR *HKCU\\\\Control\\ Panel\\\\Desktop*))) AND ((CommandLine:*\\/v\\ ScreenSaveActive* AND CommandLine:*\\/t\\ REG_SZ* AND CommandLine:*\\/d\\ 1* AND CommandLine:*\\/f*) OR (CommandLine:*\\/v\\ ScreenSaveTimeout* AND CommandLine:*\\/t\\ REG_SZ* AND CommandLine:*\\/d\\ * AND CommandLine:*\\/f*) OR (CommandLine:*\\/v\\ ScreenSaverIsSecure* AND CommandLine:*\\/t\\ REG_SZ* AND CommandLine:*\\/d\\ 0* AND CommandLine:*\\/f*) OR (CommandLine:*\\/v\\ SCRNSAVE.EXE* AND CommandLine:*\\/t\\ REG_SZ* AND CommandLine:*\\/d\\ * AND CommandLine:*.scr* AND CommandLine:*\\/f*))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

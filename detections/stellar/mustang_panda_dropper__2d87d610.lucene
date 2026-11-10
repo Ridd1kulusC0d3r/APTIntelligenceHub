@@ -1,0 +1,18 @@
+// Mustang Panda Dropper | T1587.001 | https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2019/TA/MustangPanda/proc_creation_win_apt_mustangpanda.yml
+((CommandLine:(*Temp\\wtask.exe\ \/create* OR *%windir\:\~\-3,1%%PUBLIC\:\~\-9,1%* OR *\/tn\ \"Security\ Script\ * OR *%windir\:\~\-1,1%*)) OR (CommandLine:*\/E\:vbscript* AND CommandLine:*C\:\\Users\\* AND CommandLine:*.txt* AND CommandLine:*\/F*)) OR Image:*Temp\\winwsh.exe
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "((CommandLine:(*Temp\\\\wtask.exe\\ \\/create* OR *%windir\\:\\~\\-3,1%%PUBLIC\\:\\~\\-9,1%* OR *\\/tn\\ \\\"Security\\ Script\\ * OR *%windir\\:\\~\\-1,1%*)) OR (CommandLine:*\\/E\\:vbscript* AND CommandLine:*C\\:\\\\Users\\\\* AND CommandLine:*.txt* AND CommandLine:*\\/F*)) OR Image:*Temp\\\\winwsh.exe",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

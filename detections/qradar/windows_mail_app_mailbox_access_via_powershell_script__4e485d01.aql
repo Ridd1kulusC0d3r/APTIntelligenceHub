@@ -1,0 +1,2 @@
+-- Windows Mail App Mailbox Access Via PowerShell Script | T1070.008 | https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/powershell/powershell_script/posh_ps_mailbox_access.yml
+SELECT * FROM events WHERE devicetype=12 AND LOWER(Message) LIKE '%\comms\unistore\data%'

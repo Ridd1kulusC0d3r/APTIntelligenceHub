@@ -1,0 +1,2 @@
+// Service Installed By Unusual Client - Security | T1543 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_service_installation_by_unusal_client.yml
+any where winlog.channel:"Security" and (event.code:"4697" and (winlog.event_data.ClientProcessId:"0" or process.parent.pid:0))

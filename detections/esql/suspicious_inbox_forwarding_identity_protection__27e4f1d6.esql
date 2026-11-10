@@ -1,0 +1,2 @@
+// Suspicious Inbox Forwarding Identity Protection | T1114.003 | https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/azure/identity_protection/azure_identity_protection_inbox_forwarding_rule.yml
+from * metadata _id, _index, _version | where riskEventType=="suspiciousInboxForwarding"

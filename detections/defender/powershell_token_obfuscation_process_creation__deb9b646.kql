@@ -1,0 +1,3 @@
+// Powershell Token Obfuscation - Process Creation | T1027.009 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_token_obfuscation.yml
+DeviceProcessEvents
+| where (ProcessCommandLine matches regex "\\w+`(?:\\w+|-|.)`[\\w+|\\s]" or ProcessCommandLine matches regex "\"(?:\\{\\d\\})+\"\\s*-f" or ProcessCommandLine matches regex "(?i)\\$\\{`?e`?n`?v`?:`?p`?a`?t`?h`?\\}") and (not(ProcessCommandLine contains "${env:path}"))

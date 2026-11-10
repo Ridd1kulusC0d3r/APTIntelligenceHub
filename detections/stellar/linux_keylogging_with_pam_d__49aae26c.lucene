@@ -1,0 +1,18 @@
+// Linux Keylogging with Pam.d | T1003, T1056.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/lnx_auditd_keylogging_with_pam_d.yml
+(type:PATH AND (name:(\/etc\/pam.d\/system\-auth OR \/etc\/pam.d\/password\-auth))) OR (type:(TTY OR USER_TTY))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(type:PATH AND (name:(\\/etc\\/pam.d\\/system\\-auth OR \\/etc\\/pam.d\\/password\\-auth))) OR (type:(TTY OR USER_TTY))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,18 @@
+// VsCode Powershell Profile Modification | T1546.013 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_susp_vscode_powershell_profile.yml
+TargetFilename:*\\Microsoft.VSCode_profile.ps1
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "TargetFilename:*\\\\Microsoft.VSCode_profile.ps1",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

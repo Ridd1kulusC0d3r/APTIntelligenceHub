@@ -1,0 +1,3 @@
+// Hiding User Account Via SpecialAccounts Registry Key | T1564.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_special_accounts.yml
+DeviceRegistryEvents
+| where RegistryKey contains "\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon\\SpecialAccounts\\UserList" and RegistryValueData =~ "DWORD (0x00000000)"

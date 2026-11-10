@@ -1,0 +1,2 @@
+// Suspicious Java Children Processes | T1059 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_susp_java_children.yml
+from * metadata _id, _index, _version | where ends_with(ParentImage, "/java") and (CommandLine like "*/bin/sh*" or CommandLine like "*bash*" or CommandLine like "*dash*" or CommandLine like "*ksh*" or CommandLine like "*zsh*" or CommandLine like "*csh*" or CommandLine like "*fish*" or CommandLine like "*curl*" or CommandLine like "*wget*" or CommandLine like "*python*")

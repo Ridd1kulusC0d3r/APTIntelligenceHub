@@ -1,0 +1,2 @@
+// Share And Session Enumeration Using Net.EXE | T1018 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_net_view_share_and_sessions_enum.yml
+any where (((process.executable.caseless like~ ("*\\net.exe", "*\\net1.exe")) or (process.pe.original_file_name like~ ("net.exe", "net1.exe"))) and process.command_line:"*view*") and (not process.command_line:"*\\\\*")

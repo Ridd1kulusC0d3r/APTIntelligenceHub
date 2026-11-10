@@ -1,0 +1,2 @@
+// Potential APT10 Cloud Hopper Activity | T1059.005 | https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2017/TA/APT10/proc_creation_win_apt_apt10_cloud_hopper.yml
+from * metadata _id, _index, _version | where ends_with(process.executable.caseless, "\\cscript.exe") and process.command_line like "*.vbs /shell *" or process.command_line like "*csvde -f C:\\windows\\web\\*" and process.command_line like "*.log*"

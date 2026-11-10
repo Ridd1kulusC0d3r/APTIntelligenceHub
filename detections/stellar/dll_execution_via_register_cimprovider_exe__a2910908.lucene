@@ -1,0 +1,18 @@
+// DLL Execution Via Register-cimprovider.exe | T1574 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_registry_cimprovider_dll_load.yml
+Image:*\\register\-cimprovider.exe AND (CommandLine:*\-path* AND CommandLine:*dll*)
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "Image:*\\\\register\\-cimprovider.exe AND (CommandLine:*\\-path* AND CommandLine:*dll*)",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

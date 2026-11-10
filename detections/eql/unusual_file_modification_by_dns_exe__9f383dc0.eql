@@ -1,0 +1,2 @@
+// Unusual File Modification by dns.exe | T1133 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_change/file_change_win_unusual_modification_by_dns_exe.yml
+any where process.executable.caseless:"*\\dns.exe" and (not file.path:"*\\dns.log")

@@ -1,0 +1,18 @@
+// Potential Persistence Via PlistBuddy | T1543.001, T1543.004 | https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_persistence_via_plistbuddy.yml
+Image:*\/PlistBuddy AND (CommandLine:*RunAtLoad* AND CommandLine:*true*) AND (CommandLine:(*LaunchAgents* OR *LaunchDaemons*))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "Image:*\\/PlistBuddy AND (CommandLine:*RunAtLoad* AND CommandLine:*true*) AND (CommandLine:(*LaunchAgents* OR *LaunchDaemons*))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

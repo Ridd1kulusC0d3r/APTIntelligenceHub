@@ -1,0 +1,18 @@
+// Winlogon Notify Key Logon Persistence | T1547.004 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_winlogon_notify_key.yml
+TargetObject:*\\SOFTWARE\\Microsoft\\Windows\ NT\\CurrentVersion\\Winlogon\\Notify\\logon AND Details:*.dll
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "TargetObject:*\\\\SOFTWARE\\\\Microsoft\\\\Windows\\ NT\\\\CurrentVersion\\\\Winlogon\\\\Notify\\\\logon AND Details:*.dll",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

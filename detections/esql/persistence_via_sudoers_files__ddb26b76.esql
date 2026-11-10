@@ -1,0 +1,2 @@
+// Persistence Via Sudoers Files | T1548.003 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/file_event/file_event_lnx_persistence_sudoers_files.yml
+from * metadata _id, _index, _version | where (TargetFilename=="/etc/sudoers" or starts_with(TargetFilename, "/etc/sudoers.d/")) and not (ends_with(Image, "/usr/bin/dpkg") and TargetFilename=="/etc/sudoers.d/README.dpkg-new")

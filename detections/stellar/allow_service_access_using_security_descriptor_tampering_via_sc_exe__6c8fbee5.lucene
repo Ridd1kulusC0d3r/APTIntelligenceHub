@@ -1,0 +1,18 @@
+// Allow Service Access Using Security Descriptor Tampering Via Sc.EXE | T1543.003 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sc_sdset_allow_service_changes.yml
+((Image:*\\sc.exe OR OriginalFileName:sc.exe) AND (CommandLine:*sdset* AND CommandLine:*A;*) AND (CommandLine:(*;IU* OR *;SU* OR *;BA* OR *;SY* OR *;WD*))) AND (NOT ParentImage:"C\:\\Hexnode\\Hexnode Agent\\Current\\HexnodeAgent.exe")
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "((Image:*\\\\sc.exe OR OriginalFileName:sc.exe) AND (CommandLine:*sdset* AND CommandLine:*A;*) AND (CommandLine:(*;IU* OR *;SU* OR *;BA* OR *;SY* OR *;WD*))) AND (NOT ParentImage:\"C\\:\\\\Hexnode\\\\Hexnode Agent\\\\Current\\\\HexnodeAgent.exe\")",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

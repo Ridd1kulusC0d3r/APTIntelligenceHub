@@ -1,0 +1,2 @@
+// Source Code Enumeration Detection by Keyword | T1083 | https://github.com/SigmaHQ/sigma/blob/master/rules/web/webserver_generic/web_source_code_enumeration.yml
+any where ".git/"

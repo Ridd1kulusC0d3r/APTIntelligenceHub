@@ -1,0 +1,2 @@
+-- Compressed File Extraction Via Tar.EXE | T1560, T1560.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_tar_extraction.yml
+SELECT * FROM events WHERE devicetype=12 AND ((LOWER("Process Path") LIKE '%\tar.exe' OR LOWER("Process Name") LIKE '%\tar.exe') OR Filename='bsdtar') AND LOWER(Command) LIKE '%-x%'

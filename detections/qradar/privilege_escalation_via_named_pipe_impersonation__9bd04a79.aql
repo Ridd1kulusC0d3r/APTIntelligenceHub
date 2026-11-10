@@ -1,0 +1,2 @@
+-- Privilege Escalation via Named Pipe Impersonation | T1021 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_priv_escalation_via_named_pipe.yml
+SELECT * FROM events WHERE devicetype=12 AND (((LOWER("Process Path") LIKE '%\cmd.exe' OR LOWER("Process Path") LIKE '%\powershell.exe') OR (LOWER("Process Name") LIKE '%\cmd.exe' OR LOWER("Process Name") LIKE '%\powershell.exe')) OR (Filename IN('Cmd.Exe', 'PowerShell.EXE'))) AND (LOWER(Command) LIKE '%echo%' AND LOWER(Command) LIKE '%>%' AND LOWER(Command) LIKE '%\\.\pipe\%')

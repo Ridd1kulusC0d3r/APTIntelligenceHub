@@ -1,0 +1,3 @@
+// Suspicious Double Extension Files | T1036.007 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_susp_double_extension.yml
+DeviceFileEvents
+| where (FolderPath matches regex "(?i)\\.(docx?|gif|jpe?g|mp3|mp4|pdf|png|pptx?|rtf|svg|txt|xlsx?)\\.(bat|exe|iso|rar|svg|vbe|vbs|zip)$" or (FolderPath endswith ".rar.exe" or FolderPath endswith ".zip.exe")) and (not((FolderPath endswith ".svg.svg" or FolderPath endswith ".png.svg" or FolderPath endswith ".jpg.svg" or FolderPath endswith ".jpeg.svg"))) and (not(FolderPath startswith "/usr/share/icons/"))

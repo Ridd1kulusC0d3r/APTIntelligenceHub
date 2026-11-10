@@ -1,0 +1,2 @@
+-- Turla Service Install | T1543.003 | https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2017/TA/Turla/win_system_apt_carbonpaper_turla.yml | NOTA: fallback QRadarAQL_payload_pipeline: campos sem propriedade DSM mapeada são buscados em UTF8(payload) – custo maior, crie custom properties
+SELECT * FROM events WHERE devicetype=12 AND LOWER(UTF8(payload)) LIKE '%service control manager%' AND "Event ID"=7045 AND ("Service Name" IN('srservice', 'ipvpn', 'hkmsvc'))

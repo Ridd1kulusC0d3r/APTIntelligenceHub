@@ -1,0 +1,2 @@
+// Disk Image Mounting Via Hdiutil - MacOS | T1560.001, T1566.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_hdiutil_mount.yml
+any where Image:"*/hdiutil" and (CommandLine like~ ("*attach *", "*mount *"))

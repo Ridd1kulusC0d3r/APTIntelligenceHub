@@ -1,0 +1,18 @@
+// OpenCanary - NTP Monlist Request | T1498 | https://github.com/SigmaHQ/sigma/blob/master/rules/application/opencanary/opencanary_ntp_monlist.yml
+logtype:11001
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "logtype:11001",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,18 @@
+// Suspicious Use of CSharp Interactive Console | T1127 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_csi_use_of_csharp_console.yml
+Image:*\\csi.exe AND (ParentImage:(*\\powershell.exe OR *\\pwsh.exe OR *\\powershell_ise.exe)) AND OriginalFileName:csi.exe
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "Image:*\\\\csi.exe AND (ParentImage:(*\\\\powershell.exe OR *\\\\pwsh.exe OR *\\\\powershell_ise.exe)) AND OriginalFileName:csi.exe",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

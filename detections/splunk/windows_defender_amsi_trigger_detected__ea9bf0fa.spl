@@ -1,0 +1,2 @@
+# Windows Defender AMSI Trigger Detected | T1059 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/windefend/win_defender_malware_detected_amsi_source.yml
+source="WinEventLog:Microsoft-Windows-Windows Defender/Operational" EventCode=1116 SourceName="AMSI"

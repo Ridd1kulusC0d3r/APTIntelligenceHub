@@ -1,0 +1,2 @@
+# Suspicious Startup Folder Persistence | T1204.002, T1547.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_susp_startup_folder_persistence.yml
+source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=11 TargetFilename="*\\Windows\\Start Menu\\Programs\\Startup\\*" (TargetFilename IN ("*.bat", "*.cmd", "*.dll", "*.hta", "*.jar", "*.js", "*.jse", "*.msi", "*.ps1", "*.psd1", "*.psm1", "*.scr", "*.url", "*.vba", "*.vbe", "*.vbs", "*.wsf"))

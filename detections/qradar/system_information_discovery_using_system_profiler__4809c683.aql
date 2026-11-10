@@ -1,0 +1,2 @@
+-- System Information Discovery Using System_Profiler | T1082, T1497.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_system_profiler_discovery.yml
+SELECT * FROM events WHERE devicetype=102 AND ((LOWER("Process Path") LIKE '%/system_profiler' OR LOWER("Process Name") LIKE '%/system_profiler') OR LOWER(Command) LIKE '%system_profiler%') AND (LOWER(Command) LIKE '%spapplicationsdatatype%' OR LOWER(Command) LIKE '%sphardwaredatatype%' OR LOWER(Command) LIKE '%spnetworkdatatype%' OR LOWER(Command) LIKE '%spusbdatatype%')

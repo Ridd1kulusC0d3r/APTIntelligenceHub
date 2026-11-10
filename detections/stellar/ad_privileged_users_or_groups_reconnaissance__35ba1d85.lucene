@@ -1,0 +1,18 @@
+// AD Privileged Users or Groups Reconnaissance | T1087.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_account_discovery.yml
+(EventID:4661 AND (ObjectType:(SAM_USER OR SAM_GROUP))) AND ((ObjectName:(*\-512 OR *\-502 OR *\-500 OR *\-505 OR *\-519 OR *\-520 OR *\-544 OR *\-551 OR *\-555)) OR ObjectName:*admin*) AND (NOT SubjectUserName:*$)
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(EventID:4661 AND (ObjectType:(SAM_USER OR SAM_GROUP))) AND ((ObjectName:(*\\-512 OR *\\-502 OR *\\-500 OR *\\-505 OR *\\-519 OR *\\-520 OR *\\-544 OR *\\-551 OR *\\-555)) OR ObjectName:*admin*) AND (NOT SubjectUserName:*$)",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,18 @@
+// Suspicious Unblock-File | T1553.005 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/powershell/powershell_script/posh_ps_susp_unblock_file.yml
+ScriptBlockText:*Unblock\-File\ * AND ScriptBlockText:*\-Path\ *
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "ScriptBlockText:*Unblock\\-File\\ * AND ScriptBlockText:*\\-Path\\ *",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

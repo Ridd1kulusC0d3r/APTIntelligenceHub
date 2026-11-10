@@ -1,0 +1,18 @@
+// Bitbucket Unauthorized Access To A Resource | T1586 | https://github.com/SigmaHQ/sigma/blob/master/rules/application/bitbucket/audit/bitbucket_audit_unauthorized_access_detected.yml
+auditType.category:Security AND auditType.action:"Unauthorized access to a resource"
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "auditType.category:Security AND auditType.action:\"Unauthorized access to a resource\"",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

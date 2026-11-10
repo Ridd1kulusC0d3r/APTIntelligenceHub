@@ -1,0 +1,776 @@
+version: 1.1
+file_type: data-source-administration
+name: 'APT29 – data sources'
+domain: enterprise-attack
+systems:
+  - applicable_to: all
+    platform:
+      - all
+data_sources:
+  - data_source_name: Process Creation
+    data_source:
+      - applicable_to:
+          - all
+        date_registered:
+        date_connected:
+        products:
+          - 'Microsoft Defender XDR – DeviceProcessEvents'
+        available_for_data_analytics: false
+        comment: 'Necessário p/ 40 técnica(s) de APT29 | template'
+        data_quality:
+          device_completeness: 0
+          data_field_completeness: 0
+          timeliness: 0
+          consistency: 0
+          retention: 0
+  - data_source_name: Network Connection Creation
+    data_source:
+      - applicable_to:
+          - all
+        date_registered:
+        date_connected:
+        products:
+          - 'Microsoft Defender XDR – DeviceNetworkEvents'
+        available_for_data_analytics: false
+        comment: 'Necessário p/ 19 técnica(s) de APT29 | template'
+        data_quality:
+          device_completeness: 0
+          data_field_completeness: 0
+          timeliness: 0
+          consistency: 0
+          retention: 0
+  - data_source_name: File Creation
+    data_source:
+      - applicable_to:
+          - all
+        date_registered:
+        date_connected:
+        products:
+          - 'Microsoft Defender XDR – DeviceFileEvents:FileCreated'
+        available_for_data_analytics: false
+        comment: 'Necessário p/ 18 técnica(s) de APT29 | template'
+        data_quality:
+          device_completeness: 0
+          data_field_completeness: 0
+          timeliness: 0
+          consistency: 0
+          retention: 0
+  - data_source_name: Application Log Content
+    data_source:
+      - applicable_to:
+          - all
+        date_registered:
+        date_connected:
+        products:
+          - 'Microsoft Defender XDR – CloudAppEvents'
+        available_for_data_analytics: false
+        comment: 'Necessário p/ 16 técnica(s) de APT29 | template'
+        data_quality:
+          device_completeness: 0
+          data_field_completeness: 0
+          timeliness: 0
+          consistency: 0
+          retention: 0
+  - data_source_name: Network Traffic Content
+    data_source:
+      - applicable_to:
+          - all
+        date_registered:
+        date_connected:
+        products:
+          - 'Microsoft Defender XDR – DeviceNetworkEvents:*ConnectionInspected'
+        available_for_data_analytics: false
+        comment: 'Necessário p/ 15 técnica(s) de APT29 | template'
+        data_quality:
+          device_completeness: 0
+          data_field_completeness: 0
+          timeliness: 0
+          consistency: 0
+          retention: 0
+  - data_source_name: Command Execution
+    data_source:
+      - applicable_to:
+          - all
+        date_registered:
+        date_connected:
+        products:
+          - 'Microsoft Defender XDR – DeviceProcessEvents'
+          - 'Microsoft Defender XDR – DeviceEvents:PowerShellCommand'
+        available_for_data_analytics: false
+        comment: 'Necessário p/ 14 técnica(s) de APT29 | template'
+        data_quality:
+          device_completeness: 0
+          data_field_completeness: 0
+          timeliness: 0
+          consistency: 0
+          retention: 0
+  - data_source_name: User Account Authentication
+    data_source:
+      - applicable_to:
+          - all
+        date_registered:
+        date_connected:
+        products:
+          - 'Microsoft Defender XDR – IdentityLogonEvents'
+          - 'Microsoft Defender XDR – DeviceLogonEvents'
+          - 'Microsoft Defender XDR – EntraIdSignInEvents'
+        available_for_data_analytics: false
+        comment: 'Necessário p/ 12 técnica(s) de APT29 | template'
+        data_quality:
+          device_completeness: 0
+          data_field_completeness: 0
+          timeliness: 0
+          consistency: 0
+          retention: 0
+  - data_source_name: Network Traffic Flow
+    data_source:
+      - applicable_to:
+          - all
+        date_registered:
+        date_connected:
+        products:
+          - 'Microsoft Defender XDR – DeviceNetworkEvents'
+        available_for_data_analytics: false
+        comment: 'Necessário p/ 12 técnica(s) de APT29 | template'
+        data_quality:
+          device_completeness: 0
+          data_field_completeness: 0
+          timeliness: 0
+          consistency: 0
+          retention: 0
+  - data_source_name: File Access
+    data_source:
+      - applicable_to:
+          - all
+        date_registered:
+        date_connected:
+        products:
+          - 'Microsoft Defender XDR – DeviceFileEvents (parcial)'
+        available_for_data_analytics: false
+        comment: 'Necessário p/ 11 técnica(s) de APT29 | template'
+        data_quality:
+          device_completeness: 0
+          data_field_completeness: 0
+          timeliness: 0
+          consistency: 0
+          retention: 0
+  - data_source_name: Module Load
+    data_source:
+      - applicable_to:
+          - all
+        date_registered:
+        date_connected:
+        products:
+          - 'Microsoft Defender XDR – DeviceImageLoadEvents'
+        available_for_data_analytics: false
+        comment: 'Necessário p/ 10 técnica(s) de APT29 | template'
+        data_quality:
+          device_completeness: 0
+          data_field_completeness: 0
+          timeliness: 0
+          consistency: 0
+          retention: 0
+  - data_source_name: Logon Session Creation
+    data_source:
+      - applicable_to:
+          - all
+        date_registered:
+        date_connected:
+        products:
+          - 'Microsoft Defender XDR – DeviceLogonEvents'
+          - 'Microsoft Defender XDR – IdentityLogonEvents'
+        available_for_data_analytics: false
+        comment: 'Necessário p/ 10 técnica(s) de APT29 | template'
+        data_quality:
+          device_completeness: 0
+          data_field_completeness: 0
+          timeliness: 0
+          consistency: 0
+          retention: 0
+  - data_source_name: File Modification
+    data_source:
+      - applicable_to:
+          - all
+        date_registered:
+        date_connected:
+        products:
+          - 'Microsoft Defender XDR – DeviceFileEvents:FileModified'
+          - 'Microsoft Defender XDR – DeviceFileEvents:FileRenamed'
+        available_for_data_analytics: false
+        comment: 'Necessário p/ 8 técnica(s) de APT29 | template'
+        data_quality:
+          device_completeness: 0
+          data_field_completeness: 0
+          timeliness: 0
+          consistency: 0
+          retention: 0
+  - data_source_name: Logon Session Metadata
+    data_source:
+      - applicable_to:
+          - all
+        date_registered:
+        date_connected:
+        products:
+          - 'Microsoft Defender XDR – DeviceLogonEvents'
+          - 'Microsoft Defender XDR – IdentityLogonEvents'
+          - 'Microsoft Defender XDR – EntraIdSignInEvents'
+        available_for_data_analytics: false
+        comment: 'Necessário p/ 8 técnica(s) de APT29 | template'
+        data_quality:
+          device_completeness: 0
+          data_field_completeness: 0
+          timeliness: 0
+          consistency: 0
+          retention: 0
+  - data_source_name: File Metadata
+    data_source:
+      - applicable_to:
+          - all
+        date_registered:
+        date_connected:
+        products:
+          - 'Microsoft Defender XDR – DeviceFileCertificateInfo'
+          - 'Microsoft Defender XDR – DeviceFileEvents'
+        available_for_data_analytics: false
+        comment: 'Necessário p/ 7 técnica(s) de APT29 | template'
+        data_quality:
+          device_completeness: 0
+          data_field_completeness: 0
+          timeliness: 0
+          consistency: 0
+          retention: 0
+  - data_source_name: Windows Registry Key Modification
+    data_source:
+      - applicable_to:
+          - all
+        date_registered:
+        date_connected:
+        products:
+          - 'Microsoft Defender XDR – DeviceRegistryEvents:RegistryValueSet'
+        available_for_data_analytics: false
+        comment: 'Necessário p/ 6 técnica(s) de APT29 | template'
+        data_quality:
+          device_completeness: 0
+          data_field_completeness: 0
+          timeliness: 0
+          consistency: 0
+          retention: 0
+  - data_source_name: Process Access
+    data_source:
+      - applicable_to:
+          - all
+        date_registered:
+        date_connected:
+        products:
+          - 'Microsoft Defender XDR – DeviceEvents:OpenProcessApiCall'
+        available_for_data_analytics: false
+        comment: 'Necessário p/ 5 técnica(s) de APT29 | template'
+        data_quality:
+          device_completeness: 0
+          data_field_completeness: 0
+          timeliness: 0
+          consistency: 0
+          retention: 0
+  - data_source_name: Script Execution
+    data_source:
+      - applicable_to:
+          - all
+        date_registered:
+        date_connected:
+        products:
+          - 'Microsoft Defender XDR – DeviceEvents:PowerShellCommand'
+          - 'Microsoft Defender XDR – DeviceEvents:AmsiScriptDetection'
+        available_for_data_analytics: false
+        comment: 'Necessário p/ 5 técnica(s) de APT29 | template'
+        data_quality:
+          device_completeness: 0
+          data_field_completeness: 0
+          timeliness: 0
+          consistency: 0
+          retention: 0
+  - data_source_name: User Account Modification
+    data_source:
+      - applicable_to:
+          - all
+        date_registered:
+        date_connected:
+        products:
+          - 'Microsoft Defender XDR – IdentityDirectoryEvents'
+          - 'Microsoft Defender XDR – CloudAppEvents'
+        available_for_data_analytics: false
+        comment: 'Necessário p/ 5 técnica(s) de APT29 | template'
+        data_quality:
+          device_completeness: 0
+          data_field_completeness: 0
+          timeliness: 0
+          consistency: 0
+          retention: 0
+  - data_source_name: Cloud Service Modification
+    data_source:
+      - applicable_to:
+          - all
+        date_registered:
+        date_connected:
+        products:
+          - 'Microsoft Defender XDR – CloudAppEvents'
+        available_for_data_analytics: false
+        comment: 'Necessário p/ 4 técnica(s) de APT29 | template'
+        data_quality:
+          device_completeness: 0
+          data_field_completeness: 0
+          timeliness: 0
+          consistency: 0
+          retention: 0
+  - data_source_name: Scheduled Job Creation
+    data_source:
+      - applicable_to:
+          - all
+        date_registered:
+        date_connected:
+        products:
+          - 'Microsoft Defender XDR – DeviceEvents:ScheduledTaskCreated'
+        available_for_data_analytics: false
+        comment: 'Necessário p/ 3 técnica(s) de APT29 | template'
+        data_quality:
+          device_completeness: 0
+          data_field_completeness: 0
+          timeliness: 0
+          consistency: 0
+          retention: 0
+  - data_source_name: Response Content
+    data_source:
+      - applicable_to:
+          - all
+        date_registered:
+        date_connected:
+        products:
+          - '<preencher>'
+        available_for_data_analytics: false
+        comment: 'Necessário p/ 3 técnica(s) de APT29 | template'
+        data_quality:
+          device_completeness: 0
+          data_field_completeness: 0
+          timeliness: 0
+          consistency: 0
+          retention: 0
+  - data_source_name: Process Modification
+    data_source:
+      - applicable_to:
+          - all
+        date_registered:
+        date_connected:
+        products:
+          - 'Microsoft Defender XDR – DeviceEvents:*ApiCall'
+        available_for_data_analytics: false
+        comment: 'Necessário p/ 2 técnica(s) de APT29 | template'
+        data_quality:
+          device_completeness: 0
+          data_field_completeness: 0
+          timeliness: 0
+          consistency: 0
+          retention: 0
+  - data_source_name: Process Metadata
+    data_source:
+      - applicable_to:
+          - all
+        date_registered:
+        date_connected:
+        products:
+          - 'Microsoft Defender XDR – DeviceProcessEvents'
+        available_for_data_analytics: false
+        comment: 'Necessário p/ 2 técnica(s) de APT29 | template'
+        data_quality:
+          device_completeness: 0
+          data_field_completeness: 0
+          timeliness: 0
+          consistency: 0
+          retention: 0
+  - data_source_name: Service Metadata
+    data_source:
+      - applicable_to:
+          - all
+        date_registered:
+        date_connected:
+        products:
+          - 'Microsoft Defender XDR – DeviceRegistryEvents'
+        available_for_data_analytics: false
+        comment: 'Necessário p/ 2 técnica(s) de APT29 | template'
+        data_quality:
+          device_completeness: 0
+          data_field_completeness: 0
+          timeliness: 0
+          consistency: 0
+          retention: 0
+  - data_source_name: WMI Creation
+    data_source:
+      - applicable_to:
+          - all
+        date_registered:
+        date_connected:
+        products:
+          - 'Microsoft Defender XDR – DeviceEvents:WmiBindEventFilterToConsumer'
+        available_for_data_analytics: false
+        comment: 'Necessário p/ 2 técnica(s) de APT29 | template'
+        data_quality:
+          device_completeness: 0
+          data_field_completeness: 0
+          timeliness: 0
+          consistency: 0
+          retention: 0
+  - data_source_name: Active Directory Credential Request
+    data_source:
+      - applicable_to:
+          - all
+        date_registered:
+        date_connected:
+        products:
+          - 'Microsoft Defender XDR – IdentityLogonEvents'
+          - 'Microsoft Defender XDR – IdentityDirectoryEvents'
+        available_for_data_analytics: false
+        comment: 'Necessário p/ 2 técnica(s) de APT29 | template'
+        data_quality:
+          device_completeness: 0
+          data_field_completeness: 0
+          timeliness: 0
+          consistency: 0
+          retention: 0
+  - data_source_name: Active Directory Object Modification
+    data_source:
+      - applicable_to:
+          - all
+        date_registered:
+        date_connected:
+        products:
+          - 'Microsoft Defender XDR – IdentityDirectoryEvents'
+        available_for_data_analytics: false
+        comment: 'Necessário p/ 2 técnica(s) de APT29 | template'
+        data_quality:
+          device_completeness: 0
+          data_field_completeness: 0
+          timeliness: 0
+          consistency: 0
+          retention: 0
+  - data_source_name: Malware Metadata
+    data_source:
+      - applicable_to:
+          - all
+        date_registered:
+        date_connected:
+        products:
+          - 'Microsoft Defender XDR – DeviceFileEvents'
+          - 'Microsoft Defender XDR – AlertEvidence'
+        available_for_data_analytics: false
+        comment: 'Necessário p/ 2 técnica(s) de APT29 | template'
+        data_quality:
+          device_completeness: 0
+          data_field_completeness: 0
+          timeliness: 0
+          consistency: 0
+          retention: 0
+  - data_source_name: Image Metadata
+    data_source:
+      - applicable_to:
+          - all
+        date_registered:
+        date_connected:
+        products:
+          - '<preencher>'
+        available_for_data_analytics: false
+        comment: 'Necessário p/ 1 técnica(s) de APT29 | template'
+        data_quality:
+          device_completeness: 0
+          data_field_completeness: 0
+          timeliness: 0
+          consistency: 0
+          retention: 0
+  - data_source_name: Scheduled Job Modification
+    data_source:
+      - applicable_to:
+          - all
+        date_registered:
+        date_connected:
+        products:
+          - 'Microsoft Defender XDR – DeviceEvents:ScheduledTaskUpdated'
+        available_for_data_analytics: false
+        comment: 'Necessário p/ 1 técnica(s) de APT29 | template'
+        data_quality:
+          device_completeness: 0
+          data_field_completeness: 0
+          timeliness: 0
+          consistency: 0
+          retention: 0
+  - data_source_name: Driver Load
+    data_source:
+      - applicable_to:
+          - all
+        date_registered:
+        date_connected:
+        products:
+          - 'Microsoft Defender XDR – DeviceEvents:DriverLoad'
+        available_for_data_analytics: false
+        comment: 'Necessário p/ 1 técnica(s) de APT29 | template'
+        data_quality:
+          device_completeness: 0
+          data_field_completeness: 0
+          timeliness: 0
+          consistency: 0
+          retention: 0
+  - data_source_name: Container Enumeration
+    data_source:
+      - applicable_to:
+          - all
+        date_registered:
+        date_connected:
+        products:
+          - '<preencher>'
+        available_for_data_analytics: false
+        comment: 'Necessário p/ 1 técnica(s) de APT29 | template'
+        data_quality:
+          device_completeness: 0
+          data_field_completeness: 0
+          timeliness: 0
+          consistency: 0
+          retention: 0
+  - data_source_name: File Deletion
+    data_source:
+      - applicable_to:
+          - all
+        date_registered:
+        date_connected:
+        products:
+          - 'Microsoft Defender XDR – DeviceFileEvents:FileDeleted'
+        available_for_data_analytics: false
+        comment: 'Necessário p/ 1 técnica(s) de APT29 | template'
+        data_quality:
+          device_completeness: 0
+          data_field_completeness: 0
+          timeliness: 0
+          consistency: 0
+          retention: 0
+  - data_source_name: OS API Execution
+    data_source:
+      - applicable_to:
+          - all
+        date_registered:
+        date_connected:
+        products:
+          - 'Microsoft Defender XDR – DeviceEvents:*ApiCall'
+        available_for_data_analytics: false
+        comment: 'Necessário p/ 1 técnica(s) de APT29 | template'
+        data_quality:
+          device_completeness: 0
+          data_field_completeness: 0
+          timeliness: 0
+          consistency: 0
+          retention: 0
+  - data_source_name: User Account Metadata
+    data_source:
+      - applicable_to:
+          - all
+        date_registered:
+        date_connected:
+        products:
+          - 'Microsoft Defender XDR – IdentityInfo'
+        available_for_data_analytics: false
+        comment: 'Necessário p/ 1 técnica(s) de APT29 | template'
+        data_quality:
+          device_completeness: 0
+          data_field_completeness: 0
+          timeliness: 0
+          consistency: 0
+          retention: 0
+  - data_source_name: Firewall Rule Modification
+    data_source:
+      - applicable_to:
+          - all
+        date_registered:
+        date_connected:
+        products:
+          - 'Microsoft Defender XDR – DeviceProcessEvents (netsh/Set-NetFirewallRule)'
+          - 'Microsoft Defender XDR – DeviceRegistryEvents'
+        available_for_data_analytics: false
+        comment: 'Necessário p/ 1 técnica(s) de APT29 | template'
+        data_quality:
+          device_completeness: 0
+          data_field_completeness: 0
+          timeliness: 0
+          consistency: 0
+          retention: 0
+  - data_source_name: Firmware Modification
+    data_source:
+      - applicable_to:
+          - all
+        date_registered:
+        date_connected:
+        products:
+          - 'Microsoft Defender XDR – DeviceTvmHardwareFirmware'
+        available_for_data_analytics: false
+        comment: 'Necessário p/ 1 técnica(s) de APT29 | template'
+        data_quality:
+          device_completeness: 0
+          data_field_completeness: 0
+          timeliness: 0
+          consistency: 0
+          retention: 0
+  - data_source_name: Active Directory Object Creation
+    data_source:
+      - applicable_to:
+          - all
+        date_registered:
+        date_connected:
+        products:
+          - 'Microsoft Defender XDR – IdentityDirectoryEvents'
+        available_for_data_analytics: false
+        comment: 'Necessário p/ 1 técnica(s) de APT29 | template'
+        data_quality:
+          device_completeness: 0
+          data_field_completeness: 0
+          timeliness: 0
+          consistency: 0
+          retention: 0
+  - data_source_name: User Account Creation
+    data_source:
+      - applicable_to:
+          - all
+        date_registered:
+        date_connected:
+        products:
+          - 'Microsoft Defender XDR – IdentityDirectoryEvents'
+          - 'Microsoft Defender XDR – DeviceEvents:UserAccountCreated'
+          - 'Microsoft Defender XDR – CloudAppEvents'
+        available_for_data_analytics: false
+        comment: 'Necessário p/ 1 técnica(s) de APT29 | template'
+        data_quality:
+          device_completeness: 0
+          data_field_completeness: 0
+          timeliness: 0
+          consistency: 0
+          retention: 0
+  - data_source_name: Group Modification
+    data_source:
+      - applicable_to:
+          - all
+        date_registered:
+        date_connected:
+        products:
+          - 'Microsoft Defender XDR – IdentityDirectoryEvents'
+        available_for_data_analytics: false
+        comment: 'Necessário p/ 1 técnica(s) de APT29 | template'
+        data_quality:
+          device_completeness: 0
+          data_field_completeness: 0
+          timeliness: 0
+          consistency: 0
+          retention: 0
+  - data_source_name: Cloud Service Enumeration
+    data_source:
+      - applicable_to:
+          - all
+        date_registered:
+        date_connected:
+        products:
+          - 'Microsoft Defender XDR – CloudAppEvents'
+        available_for_data_analytics: false
+        comment: 'Necessário p/ 1 técnica(s) de APT29 | template'
+        data_quality:
+          device_completeness: 0
+          data_field_completeness: 0
+          timeliness: 0
+          consistency: 0
+          retention: 0
+  - data_source_name: Cloud Storage Access
+    data_source:
+      - applicable_to:
+          - all
+        date_registered:
+        date_connected:
+        products:
+          - 'Microsoft Defender XDR – CloudAppEvents'
+        available_for_data_analytics: false
+        comment: 'Necessário p/ 1 técnica(s) de APT29 | template'
+        data_quality:
+          device_completeness: 0
+          data_field_completeness: 0
+          timeliness: 0
+          consistency: 0
+          retention: 0
+  - data_source_name: Malware Content
+    data_source:
+      - applicable_to:
+          - all
+        date_registered:
+        date_connected:
+        products:
+          - 'Microsoft Defender XDR – AlertEvidence'
+        available_for_data_analytics: false
+        comment: 'Necessário p/ 1 técnica(s) de APT29 | template'
+        data_quality:
+          device_completeness: 0
+          data_field_completeness: 0
+          timeliness: 0
+          consistency: 0
+          retention: 0
+  - data_source_name: Windows Registry Key Access
+    data_source:
+      - applicable_to:
+          - all
+        date_registered:
+        date_connected:
+        products:
+          - '<preencher>'
+        available_for_data_analytics: false
+        comment: 'Necessário p/ 1 técnica(s) de APT29 | template'
+        data_quality:
+          device_completeness: 0
+          data_field_completeness: 0
+          timeliness: 0
+          consistency: 0
+          retention: 0
+  - data_source_name: Domain Registration
+    data_source:
+      - applicable_to:
+          - all
+        date_registered:
+        date_connected:
+        products:
+          - '<preencher>'
+        available_for_data_analytics: false
+        comment: 'Necessário p/ 1 técnica(s) de APT29 | template'
+        data_quality:
+          device_completeness: 0
+          data_field_completeness: 0
+          timeliness: 0
+          consistency: 0
+          retention: 0
+  - data_source_name: Response Metadata
+    data_source:
+      - applicable_to:
+          - all
+        date_registered:
+        date_connected:
+        products:
+          - '<preencher>'
+        available_for_data_analytics: false
+        comment: 'Necessário p/ 1 técnica(s) de APT29 | template'
+        data_quality:
+          device_completeness: 0
+          data_field_completeness: 0
+          timeliness: 0
+          consistency: 0
+          retention: 0
+  - data_source_name: Cloud Service Disable
+    data_source:
+      - applicable_to:
+          - all
+        date_registered:
+        date_connected:
+        products:
+          - 'Microsoft Defender XDR – CloudAppEvents'
+        available_for_data_analytics: false
+        comment: 'Necessário p/ 1 técnica(s) de APT29 | template'
+        data_quality:
+          device_completeness: 0
+          data_field_completeness: 0
+          timeliness: 0
+          consistency: 0
+          retention: 0

@@ -1,0 +1,433 @@
+{
+ "name": "MuddyWater – APT Threat Map",
+ "versions": {
+  "layer": "4.5",
+  "navigator": "5.1.0"
+ },
+ "domain": "enterprise-attack",
+ "description": "Técnicas de MuddyWater com cobertura do catálogo (score 3=regra, 2=parcial, 1=lacuna)",
+ "techniques": [
+  {
+   "techniqueID": "T1003.001",
+   "score": 3,
+   "comment": "MuddyWater has performed credential dumping with Mimikatz and procdump64.exe. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1003.004",
+   "score": 3,
+   "comment": "MuddyWater has performed credential dumping with LaZagne. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1003.005",
+   "score": 3,
+   "comment": "MuddyWater has performed credential dumping with LaZagne. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1016",
+   "score": 3,
+   "comment": "MuddyWater has used malware to collect the victim’s IP address and domain name. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1027.003",
+   "score": 3,
+   "comment": "MuddyWater has stored obfuscated JavaScript code in an image file named temp.jpg. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1027.004",
+   "score": 3,
+   "comment": "MuddyWater has used the .NET csc.exe tool to compile executables from downloaded C# code. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1027.010",
+   "score": 3,
+   "comment": "MuddyWater has used Daniel Bohannon’s Invoke-Obfuscation framework and obfuscated PowerShell scripts. The group has also used other obfuscation methods, including Base64 obfuscation of VBScripts and PowerShell commands. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1033",
+   "score": 3,
+   "comment": "MuddyWater has used malware that can collect the victim’s username. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1036.005",
+   "score": 3,
+   "comment": "MuddyWater has disguised malicious executables and used filenames and Registry key names associated with Windows Defender. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1041",
+   "score": 3,
+   "comment": "MuddyWater has used C2 infrastructure to receive exfiltrated data. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1047",
+   "score": 3,
+   "comment": "MuddyWater has used malware that leveraged WMI for execution and querying host information. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1049",
+   "score": 3,
+   "comment": "MuddyWater has used a PowerShell backdoor to check for Skype connections on the target machine. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1053.005",
+   "score": 3,
+   "comment": "MuddyWater has used scheduled tasks to establish persistence. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1057",
+   "score": 3,
+   "comment": "MuddyWater has used malware to obtain a list of running processes on the system. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1059.001",
+   "score": 3,
+   "comment": "MuddyWater has used PowerShell for execution. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1059.003",
+   "score": 3,
+   "comment": "MuddyWater has used a custom tool for creating reverse shells. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1059.005",
+   "score": 3,
+   "comment": "MuddyWater has used VBScript files to execute its POWERSTATS payload, as well as macros. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1059.006",
+   "score": 3,
+   "comment": "MuddyWater has developed tools in Python including Out1. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1059.007",
+   "score": 3,
+   "comment": "MuddyWater has used JavaScript files to execute its POWERSTATS payload. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1071.001",
+   "score": 3,
+   "comment": "MuddyWater has used HTTP for C2 communications. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1074.001",
+   "score": 3,
+   "comment": "MuddyWater has stored a decoy PDF file within a victim's `%temp%` folder. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1082",
+   "score": 3,
+   "comment": "MuddyWater has used malware that can collect the victim’s OS version and machine name. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1083",
+   "score": 3,
+   "comment": "MuddyWater has used malware that checked if the ProgramData folder had folders or files with the keywords \"Kasper,\" \"Panda,\" or \"ESET.\" | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1087.002",
+   "score": 3,
+   "comment": "MuddyWater has used `cmd.exe net user /domain` to enumerate domain users. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1090",
+   "score": 3,
+   "comment": "MuddyWater has used NordVPN to proxy phishing emails, making them appear to originate from France. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1090.002",
+   "score": 3,
+   "comment": "MuddyWater has controlled POWERSTATS from behind a proxy network to obfuscate the C2 location. MuddyWater has used a series of compromised websites that victims connected to randomly to relay information to command and control (C2). MuddyWater has also used go-socks5 variants to bypass firewalls and Network Address Translation (NAT), to communicate with a… | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1102.002",
+   "score": 3,
+   "comment": "MuddyWater has used web services including OneHub to distribute remote access tools. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1104",
+   "score": 2,
+   "comment": "MuddyWater has used one C2 to obtain enumeration scripts and monitor web logs, but a different C2 to send data back. | cobertura: parcial (ASR/D3FEND)",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1105",
+   "score": 3,
+   "comment": "MuddyWater has used malware that can upload additional files to the victim’s machine. MuddyWater has used PowerShell commands to install remote management and monitoring (RMM) software on the victim’s machine to conduct espionage and to exfiltrate data. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1113",
+   "score": 3,
+   "comment": "MuddyWater has used malware that can capture screenshots of the victim’s machine. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1132.001",
+   "score": 3,
+   "comment": "MuddyWater has used tools to encode C2 communications including Base64 encoding. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1137.001",
+   "score": 3,
+   "comment": "MuddyWater has used a Word Template, Normal.dotm, for persistence. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1140",
+   "score": 3,
+   "comment": "MuddyWater has decoded base64-encoded PowerShell, JavaScript, and VBScript. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1190",
+   "score": 3,
+   "comment": "MuddyWater has exploited the Microsoft Exchange memory corruption vulnerability (CVE-2020-0688). | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1203",
+   "score": 3,
+   "comment": "MuddyWater has exploited the Office vulnerability CVE-2017-0199 for execution. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1204.001",
+   "score": 3,
+   "comment": "MuddyWater has distributed URLs in phishing e-mails that link to lure documents. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1204.002",
+   "score": 3,
+   "comment": "MuddyWater has attempted to get users to open malicious PDF attachment and to enable macros and launch malicious Microsoft Word documents delivered via spearphishing emails. Additionally, MuddyWater has used a Word document with a malicious Visual Basic for Applications (VBA) macro; when enabled, the CertificationKit.ini payload is constructed and executed. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1204.004",
+   "score": 3,
+   "comment": "MuddyWater has leveraged ClickFix type tactics enticing victims to copy and paste malicious PowerShell code. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1210",
+   "score": 3,
+   "comment": "MuddyWater has exploited the Microsoft Netlogon vulnerability (CVE-2020-1472). | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1218.003",
+   "score": 3,
+   "comment": "MuddyWater has used CMSTP.exe and a malicious INF to execute its POWERSTATS payload. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1218.005",
+   "score": 3,
+   "comment": "MuddyWater has used mshta.exe to execute its POWERSTATS payload and to pass a PowerShell one-liner for execution. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1218.011",
+   "score": 3,
+   "comment": "MuddyWater has used malware that leveraged rundll32.exe in a Registry Run key to execute a .dll. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1219.002",
+   "score": 3,
+   "comment": "MuddyWater has leveraged RMM solutions including ScreenConnect, AteraAgent, SimpleHelp, Action1, Level, and PDQ to facilitate follow-on actions within compromised hosts to include data exfiltration. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1518",
+   "score": 3,
+   "comment": "MuddyWater has used a PowerShell backdoor to check for Skype connectivity on the target machine. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1518.001",
+   "score": 3,
+   "comment": "MuddyWater has used malware to check running processes against a hard-coded list of security tools often used by malware researchers. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1534",
+   "score": 2,
+   "comment": "MuddyWater has used compromised mailboxes within target organizations to send spearphishing emails. | cobertura: parcial (ASR/D3FEND)",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1547.001",
+   "score": 3,
+   "comment": "MuddyWater has added Registry Run key `KCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\SystemTextEncoding` to establish persistence. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1548.002",
+   "score": 3,
+   "comment": "MuddyWater uses various techniques to bypass UAC. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1552.001",
+   "score": 3,
+   "comment": "MuddyWater has run a tool that steals passwords saved in victim email. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1555",
+   "score": 3,
+   "comment": "MuddyWater has performed credential dumping with LaZagne and other tools, including by dumping passwords saved in victim email. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1555.003",
+   "score": 3,
+   "comment": "MuddyWater has run tools including Browser64 to steal passwords saved in victim web browsers. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1559.001",
+   "score": 3,
+   "comment": "MuddyWater has used malware that has the capability to execute malicious code via COM, DCOM, and Outlook. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1559.002",
+   "score": 3,
+   "comment": "MuddyWater has used malware that can execute PowerShell scripts via DDE. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1560.001",
+   "score": 3,
+   "comment": "MuddyWater has used the native Windows cabinet creation tool, makecab.exe, likely to compress stolen data to be uploaded. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1566",
+   "score": 3,
+   "comment": "MuddyWater has sent phishing emails to targets from the email address support@microsoftonlines[.]com. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1566.001",
+   "score": 3,
+   "comment": "MuddyWater has compromised third parties and used compromised accounts to send spearphishing emails with targeted attachments to recipients. MuddyWater has also sent spearphishing emails with the attachment Cybersecurity.doc, which served as the primarily payload for the next stage. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1566.002",
+   "score": 3,
+   "comment": "MuddyWater has sent targeted spearphishing e-mails with malicious links. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1567.002",
+   "score": 3,
+   "comment": "MuddyWater has attempted to exfiltrate data to Wasabi, a cloud storage service, using Rclone. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1571",
+   "score": 3,
+   "comment": "MuddyWater has used ports 8043 and 8848 for botnet C2 communication. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1573.001",
+   "score": 3,
+   "comment": "MuddyWater has used AES to encrypt C2 responses. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1574.001",
+   "score": 3,
+   "comment": "MuddyWater maintains persistence on victim networks through side-loading dlls to trick legitimate programs into running malware. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1583.001",
+   "score": 1,
+   "comment": "MuddyWater has established domains, some of which appeared to spoof legitimate domains for use in operations. | cobertura: lacuna",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1583.006",
+   "score": 1,
+   "comment": "MuddyWater has used file sharing services including OneHub, Sync, and TeraBox to distribute tools. | cobertura: lacuna",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1588.001",
+   "score": 3,
+   "comment": "MuddyWater has used publicly available malware for operations, likely to blend in with other cybercriminals. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1588.002",
+   "score": 3,
+   "comment": "MuddyWater has used legitimate tools ConnectWise, RemoteUtilities, and SimpleHelp to gain access to the target environment. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1590.004",
+   "score": 3,
+   "comment": "MuddyWater has mapped target networks; access to this information and more is then shared/sold to other Iran threat actors. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1684.001",
+   "score": 1,
+   "comment": "MuddyWater has used support@microsoftonlines[.]com to send phishing emails that masqueraded as security updates from Microsoft. MuddyWater has also impersonated TMCell (Altyn Asyr CJSC), the primary mobile operator in Turkmenistan, sending phishing emails with the email domain info@tmcell. | cobertura: lacuna",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1685",
+   "score": 3,
+   "comment": "MuddyWater can disable the system's local proxy settings. | cobertura: regra",
+   "enabled": true
+  }
+ ],
+ "gradient": {
+  "colors": [
+   "#ff5d6c",
+   "#ffb347",
+   "#2ecc8f"
+  ],
+  "minValue": 1,
+  "maxValue": 3
+ },
+ "layout": {
+  "layout": "side",
+  "showName": true,
+  "showID": true
+ }
+}

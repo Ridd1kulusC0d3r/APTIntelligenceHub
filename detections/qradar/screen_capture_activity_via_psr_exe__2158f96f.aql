@@ -1,0 +1,2 @@
+-- Screen Capture Activity Via Psr.EXE | T1113 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_psr_capture_screenshots.yml
+SELECT * FROM events WHERE devicetype=12 AND (LOWER("Process Path") LIKE '%\psr.exe' OR LOWER("Process Name") LIKE '%\psr.exe') AND (LOWER(Command) LIKE '%/start%' OR LOWER(Command) LIKE '%-start%')

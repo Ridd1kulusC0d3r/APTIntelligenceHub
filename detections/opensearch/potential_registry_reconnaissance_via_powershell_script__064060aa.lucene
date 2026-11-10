@@ -1,0 +1,2 @@
+// Potential Registry Reconnaissance Via PowerShell Script | T1007, T1012 | https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/powershell/powershell_script/posh_ps_registry_reconnaissance.yml
+powershell.file.script_block_text:/(Get-Item|gci|Get-ChildItem).{1,64}-Path.{1,64}\\(currentcontrolset\\services|CurrentVersion\\Policies\\Explorer\\Run|CurrentVersion\\Run|CurrentVersion\\ShellServiceObjectDelayLoad|CurrentVersion\\Windows\winlogon)\\/

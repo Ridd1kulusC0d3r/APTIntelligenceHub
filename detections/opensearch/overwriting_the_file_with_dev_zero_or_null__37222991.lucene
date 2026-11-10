@@ -1,0 +1,2 @@
+// Overwriting the File with Dev Zero or Null | T1485 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/execve/lnx_auditd_dd_delete_file.yml
+type:EXECVE AND a0:*dd* AND (a1:(*if\=\/dev\/null* OR *if\=\/dev\/zero*))

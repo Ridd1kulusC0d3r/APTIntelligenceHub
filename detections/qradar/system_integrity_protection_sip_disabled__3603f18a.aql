@@ -1,0 +1,2 @@
+-- System Integrity Protection (SIP) Disabled | T1518.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_csrutil_disable.yml
+SELECT * FROM events WHERE devicetype=102 AND (LOWER("Process Path") LIKE '%/csrutil' OR LOWER("Process Name") LIKE '%/csrutil') AND LOWER(Command) LIKE '%disable%'

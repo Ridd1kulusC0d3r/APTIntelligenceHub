@@ -1,0 +1,2 @@
+// Potential Persistence Via Powershell Search Order Hijacking - Task | T1053.005, T1059.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_schtasks_powershell_persistence.yml
+process.parent.executable.caseless:C\:\\WINDOWS\\System32\\svchost.exe AND (process.parent.command_line:*\-k\ netsvcs* AND process.parent.command_line:*\-s\ Schedule*) AND (process.command_line:(*\ \-windowstyle\ hidden OR *\ \-w\ hidden OR *\ \-ep\ bypass OR *\ \-noni))

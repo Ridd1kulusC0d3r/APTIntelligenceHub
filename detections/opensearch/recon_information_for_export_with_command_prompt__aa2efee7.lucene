@@ -1,0 +1,2 @@
+// Recon Information for Export with Command Prompt | T1119 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_recon.yml
+((process.executable.caseless:(*\\tree.com OR *\\WMIC.exe OR *\\doskey.exe OR *\\sc.exe)) OR (process.pe.original_file_name:(wmic.exe OR DOSKEY.EXE OR sc.exe))) AND (process.parent.command_line:(*\ \>\ %TEMP%\\* OR *\ \>\ %TMP%\\*))

@@ -1,0 +1,805 @@
+{
+ "name": "Kimsuky – APT Threat Map",
+ "versions": {
+  "layer": "4.5",
+  "navigator": "5.1.0"
+ },
+ "domain": "enterprise-attack",
+ "description": "Técnicas de Kimsuky com cobertura do catálogo (score 3=regra, 2=parcial, 1=lacuna)",
+ "techniques": [
+  {
+   "techniqueID": "T1003.001",
+   "score": 3,
+   "comment": "Kimsuky has gathered credentials using Mimikatz and ProcDump. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1005",
+   "score": 3,
+   "comment": "Kimsuky has collected Office, PDF, and HWP documents from its victims. Kimsuky has also harvested victim files through the use of the `RecentFiles()` function that collects paths of recently accessed files by parsing .lnk shortcuts from `%APPDATA%\\Microsoft\\Windows\\Recent`. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1007",
+   "score": 3,
+   "comment": "Kimsuky has used an instrumentor script to gather the names of all services running on a victim's system. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1012",
+   "score": 3,
+   "comment": "Kimsuky has obtained specific Registry keys and values on a compromised host. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1016",
+   "score": 3,
+   "comment": "Kimsuky has used `ipconfig/all` and web beacons sent via email to gather network configuration information. Kimsuky has also identified Host IP addresses leveraging the WMI class `Win32_NetworkAdapterConfiguration`. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1020",
+   "score": 3,
+   "comment": "Kimsuky has exfiltrated data to C2 servers using an automated script that executes every 10 minutes and after successful checks for the presence of pre-designated staged filenames. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1021.001",
+   "score": 3,
+   "comment": "Kimsuky has used RDP for direct remote point-and-click access. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1027",
+   "score": 3,
+   "comment": "Kimsuky has obfuscated binary strings including the use of XOR encryption and Base64 encoding. Kimsuky has also modified the first byte of DLL implants targeting victims to prevent recognition of the executable file format. Kimsuky has obfuscated strings using Single Instruction Multiple Data (SIMD) instructions that complicate static analysis. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1027.001",
+   "score": 3,
+   "comment": "Kimsuky has performed padding of PowerShell command line code with over 100 spaces. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1027.002",
+   "score": 3,
+   "comment": "Kimsuky has packed malware with UPX. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1027.007",
+   "score": 3,
+   "comment": "Kimsuky has leveraged dynamic API resolution using custom hashing techniques. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1027.010",
+   "score": 3,
+   "comment": "Kimsuky has encoded malicious PowerShell scripts using Base64. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1027.012",
+   "score": 3,
+   "comment": "Kimsuky has used the LNK icon location to execute malicious scripts. Kimsuky has also padded the LNK target field properties with extra spaces to obscure the script. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1027.013",
+   "score": 3,
+   "comment": "Kimsuky has obfuscated code within files by converting hexadecimal strings to decimal numbers using the `CLng function` in combination with processing arithmetic operations and leveraging the `Chr function` to generate readable characters. Kimsuky has also encoded files with Base64 and RC4. Kimsuky has utilized XOR and RC4 to encode malicious payloads. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1027.015",
+   "score": 3,
+   "comment": "Kimsuky has delivered malicious payloads within Zip archives. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1027.016",
+   "score": 3,
+   "comment": "Kimsuky has obfuscated code by filling scripts with junk code and concatenating strings to hamper analysis and detection. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1033",
+   "score": 3,
+   "comment": "Kimsuky has gathered the identity of the user by querying `System.Security.Principal` namespace using the `GetCurrent()` method. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1036.004",
+   "score": 3,
+   "comment": "Kimsuky has disguised services to appear as benign software or related to operating system functions. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1036.005",
+   "score": 3,
+   "comment": "Kimsuky has renamed malware to legitimate names such as `ESTCommon.dll` or `patch.dll`. Kimsuky has also disguised payloads using legitimate file names including a PowerShell payload named chrome.ps1. Kimsuky has also used a malicious QR code that masqueraded as a legitimate package delivery service. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1036.007",
+   "score": 3,
+   "comment": "Kimsuky has used an additional filename extension to hide the true file type. Kimsuky has also masqueraded malicious LNK files as PDF objects using the double extension .pdf.lnk. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1040",
+   "score": 3,
+   "comment": "Kimsuky has used the Nirsoft SniffPass network sniffer to obtain passwords sent over non-secure protocols. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1041",
+   "score": 3,
+   "comment": "Kimsuky has exfiltrated data over its C2 channel. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1053.005",
+   "score": 3,
+   "comment": "Kimsuky has downloaded additional malware with scheduled tasks. Kimsuky has established persistence by creating a scheduled task named “ChromeUpdateTaskMachine” through the PowerShell cmdlet `Register-ScheduleTask` which was set to execute another PowerShell script once, then five minutes after its creation and periodically repeat every 30 minutes. Kimsuky… | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1055",
+   "score": 3,
+   "comment": "Kimsuky has used Win7Elevate to inject malicious code into explorer.exe. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1055.001",
+   "score": 3,
+   "comment": "Kimsuky has the ability to load DLLs via reflective injection by allocating memory using `VirtualAllocEx()`, then decrypting a DLL with `WriteProcessMemory()` and invoking execution through `CreateRemoteThread()`. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1055.012",
+   "score": 3,
+   "comment": "Kimsuky has used a file injector DLL to spawn a benign process on the victim's system and inject the malicious payload into it via process hollowing. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1056.001",
+   "score": 3,
+   "comment": "Kimsuky has used a PowerShell-based keylogger as well as a tool called MECHANICAL to log keystrokes. Kimsuky has also leveraged Native Windows API functions such as `GetAsyncKeyState()` along with others to capture keystrokes every 50 milliseconds and stores data in a file stored in the temp directory. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1056.003",
+   "score": 3,
+   "comment": "Kimsuky has collected credentials from a fake Google account login page. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1057",
+   "score": 3,
+   "comment": "Kimsuky can gather a list of all processes running on a victim's machine. Kimsuky has also obtained running processes on the victim device utilizing PowerShell cmdlet `Get-Process`. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1059.001",
+   "score": 3,
+   "comment": "Kimsuky has executed a variety of PowerShell scripts including Invoke-Mimikatz. Kimsuky has also utilized PowerShell scripts for execution, persistence, and defense evasion. Kimsuky has leveraged PowerShell’s cmdlet `Expand-Archive` to extract contents of zip files into the same directory. Kimsuky has employed ClickFix type tactics enticing victims to copy… | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1059.003",
+   "score": 3,
+   "comment": "Kimsuky has executed Windows commands by using `cmd` and running batch scripts. Kimsuky has also used `cmd.exe` to automatically open downloaded decoy pdf documents with the system’s default PDF viewer. Kimsuky has utilized malicious payloads to create reverse shells within the victim environment. Kimsuky has also used batch scripts to eventually run… | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1059.005",
+   "score": 3,
+   "comment": "Kimsuky has used Visual Basic to download malicious payloads. Kimsuky has also used malicious VBA macros within maldocs disguised as forms that trigger when a victim types any content into the lure. Kimsuky has also leveraged VBScript (VBS) scripts to execute temp.vbs every 19 minutes using a scheduled task to run QuasarRAT. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1059.006",
+   "score": 3,
+   "comment": "Kimsuky has used a macOS Python implant to gather data as well as MailFetcher.py code to automatically collect email data. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1059.007",
+   "score": 3,
+   "comment": "Kimsuky has used JScript for logging and downloading additional tools. Kimsuky has used TRANSLATEXT, which contained four Javascript files for bypassing defenses, collecting sensitive information and screenshots, and exfiltrating data. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1070.004",
+   "score": 3,
+   "comment": "Kimsuky has deleted the exfiltrated data on disk after transmission. Kimsuky has also used an instrumentor script to terminate browser processes running on an infected system and then delete the cookie files on disk. Kimsuky has deleted files using the `Remove-Item` PowerShell commandlet to remove traces of executed payloads. Kimsuky has also removed… | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1070.006",
+   "score": 3,
+   "comment": "Kimsuky has manipulated timestamps for creation or compilation dates to defeat anti-forensics. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1071.001",
+   "score": 3,
+   "comment": "Kimsuky has used HTTP GET and POST requests for C2. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1071.002",
+   "score": 3,
+   "comment": "Kimsuky has used FTP to download additional malware to the target machine. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1071.003",
+   "score": 3,
+   "comment": "Kimsuky has used e-mail to send exfiltrated data to C2 servers. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1074.001",
+   "score": 3,
+   "comment": "Kimsuky has staged collected data files under `C:\\Program Files\\Common Files\\System\\Ole DB\\`. Kimsuky has also gathered data in structured directories prior to exfiltration under the %TEMP% environment variable. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1078.003",
+   "score": 3,
+   "comment": "Kimsuky has used a tool called GREASE to add a Windows admin account in order to allow them continued access via RDP. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1082",
+   "score": 3,
+   "comment": "Kimsuky has enumerated OS type, OS version, and other information using a script or the \"systeminfo\" command. Kimsuky has also obtained system information such as OS type, OS version, and system type through querying various Windows Management Instrumentation (WMI) classes including `Win32_OperatingSystem`. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1083",
+   "score": 3,
+   "comment": "Kimsuky has the ability to enumerate all files and directories on an infected system. Kimsuky has used a custom script with a function called CreateFileList() that can scan all filesystem drives, prioritizing C:\\Users, to locate files and file extensions of interest that ultimately generates a file called `FileList.txt` saved within the victims %TEMP%… | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1098.007",
+   "score": 3,
+   "comment": "Kimsuky has added accounts to specific groups with `net localgroup`. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1102.001",
+   "score": 3,
+   "comment": "Kimsuky has used TRANSLATEXT and a dead drop resolver to retrieve configurations and commands from a public blog site. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1102.002",
+   "score": 3,
+   "comment": "Kimsuky has used Blogspot pages and a Github repository for C2. Kimsuky has also leveraged Dropbox for downloading payloads and uploading victim system information. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1105",
+   "score": 3,
+   "comment": "Kimsuky has downloaded additional scripts, tools, and malware onto victim systems. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1106",
+   "score": 3,
+   "comment": "Kimsuky has utilized Native APIs to collect data from victim hosts and facilitate execution of malicious scripts. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1111",
+   "score": 1,
+   "comment": "Kimsuky has used a proprietary tool to intercept one time passwords required for two-factor authentication. | cobertura: lacuna",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1112",
+   "score": 3,
+   "comment": "Kimsuky has modified Registry settings for default file associations to enable all macros and for persistence. Kimsuky has also modified the registry entry for `HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Run` registry key for persistence with the name WindowsSecurityCheck. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1113",
+   "score": 3,
+   "comment": "Kimsuky has captured browser screenshots using TRANSLATEXT. Kimsuky has also obtained screen captures with custom malware. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1114.002",
+   "score": 3,
+   "comment": "Kimsuky has used tools such as the MailFetch mail crawler to collect victim emails (excluding spam) from online services via IMAP. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1114.003",
+   "score": 3,
+   "comment": "Kimsuky has set auto-forward rules on victim's e-mail accounts. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1115",
+   "score": 3,
+   "comment": "Kimsuky has the ability to steal data from the clipboard. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1124",
+   "score": 3,
+   "comment": "Kimsuky has gathered the system time of the device using the PowerShell cmdlet `Get-Date`. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1132.002",
+   "score": 2,
+   "comment": "Kimsuky has obfuscated HTTP Post request communications utilizing XOR with a designated key, followed by Base64 encoding. | cobertura: parcial (ASR/D3FEND)",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1133",
+   "score": 3,
+   "comment": "Kimsuky has used RDP to establish persistence. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1136.001",
+   "score": 3,
+   "comment": "Kimsuky has created accounts with `net user`. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1140",
+   "score": 3,
+   "comment": "Kimsuky has decoded malicious VBScripts using Base64. Kimsuky has also decoded malicious PowerShell scripts using Base64. Kimsuky has decoded RC4 obfuscated files prior to downloading files from their infrastructure. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1176.001",
+   "score": 3,
+   "comment": "Kimsuky has used Google Chrome browser extensions to infect victims and to steal passwords and cookies. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1185",
+   "score": 3,
+   "comment": "Kimsuky has the ability to use form-grabbing to extract emails and passwords from web data forms. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1190",
+   "score": 3,
+   "comment": "Kimsuky has exploited various vulnerabilities for initial access, including Microsoft Exchange vulnerability CVE-2020-0688. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1204.001",
+   "score": 3,
+   "comment": "Kimsuky has lured victims into clicking malicious links. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1204.002",
+   "score": 3,
+   "comment": "Kimsuky has used spearphishing attachments to entice victims into opening malicious files, including LNK files disguised with tailored filenames and fake extensions. Kimsuky has also delivered malicious payloads within archive files (e.g., ZIP), which display decoy documents upon execution while running malicious code in the background. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1204.004",
+   "score": 3,
+   "comment": "Kimsuky has leveraged ClickFix type tactics enticing victims to copy and paste malicious code. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1205",
+   "score": 2,
+   "comment": "Kimsuky has used TRANSLATEXT to redirect clients to legitimate Gmail, Naver or Kakao pages if the clients connect with no parameters. | cobertura: parcial (ASR/D3FEND)",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1217",
+   "score": 3,
+   "comment": "Kimsuky has collected sensitive browser data using the function `GetBrowserData()` to include login credentials, bookmarks, cookies, and encryption keys. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1218.005",
+   "score": 3,
+   "comment": "Kimsuky has used mshta.exe to run malicious scripts on the system. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1218.010",
+   "score": 3,
+   "comment": "Kimsuky has executed malware with `regsvr32s`. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1218.011",
+   "score": 3,
+   "comment": "Kimsuky has used `rundll32.exe` to execute malicious scripts and malware on a victim's network. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1219.002",
+   "score": 3,
+   "comment": "Kimsuky has used a modified TeamViewer client as a command and control channel. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1480.002",
+   "score": 1,
+   "comment": "Kimsuky has utilized a mutex to detect whether its malware is actively running on the victim host. Kimsuky has leveraged PowerShell to store the Process ID (PID) of the currently running malicious PowerShell script into a file named pid.txt which is saved locally on the victim host in the %TEMP% Directory and is queried prior to execution of subsequent… | cobertura: lacuna",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1489",
+   "score": 3,
+   "comment": "Kimsuky has disabled actively running virtual environments using the `KillMe` function to include VMware, Microsoft Hypervisors, and VirtualBox. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1497.001",
+   "score": 3,
+   "comment": "Kimsuky has detected and killed virtual environments by using the PowerShell cmdlet `Get-CimInstance` that searches the classname of the computer system manufacturer through an if statement of `if($computerSystem.Manufacturer -match \"VMware\" -or $computerSystem.Manufacturer -match \"Microsoft\" -or $computerSystem.Manufacturer -match \"VirtualBox\")`. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1505.003",
+   "score": 3,
+   "comment": "Kimsuky has used modified versions of open source PHP web shells to maintain access, often adding \"Dinosaur\" references within the code. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1518.001",
+   "score": 3,
+   "comment": "Kimsuky has checked for the presence of antivirus software with `powershell Get-CimInstance -Namespace root/securityCenter2 – classname antivirusproduct`. Kimsuky has also obtained details on antivirus software through WMI queries using `Win32_OperatingSystem` and `SecurityCenter2.AntiVirusProduct`. Kimsuky has also checked the status of Windows Defender… | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1534",
+   "score": 2,
+   "comment": "Kimsuky has sent internal spearphishing emails for lateral movement after stealing victim information. | cobertura: parcial (ASR/D3FEND)",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1539",
+   "score": 3,
+   "comment": "Kimsuky has used malware, such as TRANSLATEXT, to steal and exfiltrate browser cookies. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1543.003",
+   "score": 3,
+   "comment": "Kimsuky has created new services for persistence. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1546.001",
+   "score": 3,
+   "comment": "Kimsuky has a HWP document stealer module which changes the default program association in the registry to open HWP documents. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1547.001",
+   "score": 3,
+   "comment": "Kimsuky has placed scripts in the startup folder for persistence and modified the `HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\RunOnce` Registry key. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1550.002",
+   "score": 3,
+   "comment": "Kimsuky has used pass the hash for authentication to remote access software used in C2. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1552.001",
+   "score": 3,
+   "comment": "Kimsuky has used tools that are capable of obtaining credentials from saved mail. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1552.004",
+   "score": 3,
+   "comment": "Kimsuky has accessed a Local State files associated with Chromium-based browsers that contain the AES key used to encrypt passwords stored in the browser to include `app_bound_encrypted_key`. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1553.002",
+   "score": 3,
+   "comment": "Kimsuky has signed files with the name EGIS CO,. Ltd. and has stolen a valid certificate that is used to sign the malware and the dropper. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1555.003",
+   "score": 3,
+   "comment": "Kimsuky has used browser extensions including Google Chrome to steal passwords and cookies from browsers. Kimsuky has also used Nirsoft's WebBrowserPassView tool to dump the passwords obtained from victims. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1557",
+   "score": 3,
+   "comment": "Kimsuky has used modified versions of PHProxy to examine web traffic between the victim and the accessed website. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1559.001",
+   "score": 3,
+   "comment": "Kimsuky has leveraged Component Object Model (COM) to create scheduled tasks to include using naming conventions that mimic legitimate applications. Kimsuky has leveraged obfuscation VBScript to form a string in `WScript.Shell` which has downloaded a malicious payload to the victim environment. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1560.001",
+   "score": 3,
+   "comment": "Kimsuky has used QuickZip to archive stolen files before exfiltration. Kimsuky has used the Send() function to compress all collected data into a zip file named init,.zip, then renames it to init.dat, before exfiltration. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1560.003",
+   "score": 3,
+   "comment": "Kimsuky has used RC4 encryption before exfil. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1564.002",
+   "score": 3,
+   "comment": "Kimsuky has run `reg add ‘HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon\\SpecialAccounts\\UserList’ /v` to hide a newly created user. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1564.003",
+   "score": 3,
+   "comment": "Kimsuky has used an information gathering module that will hide an AV software window from the victim. Kimsuky has also been known to use `-WindowStyle Hidden` to conceal PowerShell windows. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1564.011",
+   "score": 3,
+   "comment": "Kimsuky has leveraged the PowerShell `-ErrorAction SilentlyContinue` command to continue execution through system events. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1566",
+   "score": 3,
+   "comment": "Kimsuky has used spearphishing to gain initial access and intelligence. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1566.001",
+   "score": 3,
+   "comment": "Kimsuky has used emails containing Word, Excel and/or HWP (Hangul Word Processor) documents in their spearphishing campaigns. Kimsuky has also distributed emails with attached compressed zip files that contained malicious .LNK files masquerading as legitimate files. Kimsuky has delivered tailored PDF documents that contain malicious links. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1566.002",
+   "score": 3,
+   "comment": "Kimsuky has sent spearphishing emails containing a link to a document that contained malicious macros or took the victim to an actor-controlled domain. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1567.002",
+   "score": 3,
+   "comment": "Kimsuky has exfiltrated stolen files and data to actor-controlled Blogspot accounts. Kimsuky has also leveraged Dropbox for uploading victim system information. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1568",
+   "score": 3,
+   "comment": "Kimsuky has used Dynamic DNS (DDNS) services, such as FreeDNS or No-IP DDNS, to include servers located in South Korea. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1583",
+   "score": 1,
+   "comment": "Kimsuky has used funds from stolen and laundered cryptocurrency to acquire operational infrastructure. | cobertura: lacuna",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1583.001",
+   "score": 1,
+   "comment": "Kimsuky has registered domains to spoof targeted organizations and trusted third parties including search engines, web platforms, and cryptocurrency exchanges. | cobertura: lacuna",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1583.004",
+   "score": 1,
+   "comment": "Kimsuky has purchased hosting servers with virtual currency and prepaid cards. | cobertura: lacuna",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1583.006",
+   "score": 1,
+   "comment": "Kimsuky has hosted content used for targeting efforts via web services such as Blogspot. Kimsuky has also leveraged Dropbox for hosting payloads and uploading victim system information. | cobertura: lacuna",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1584.001",
+   "score": 3,
+   "comment": "Kimsuky has compromised legitimate sites and used them to distribute malware. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1585",
+   "score": 1,
+   "comment": "Kimsuky has leveraged stolen PII to create accounts. | cobertura: lacuna",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1585.001",
+   "score": 1,
+   "comment": "Kimsuky has created social media accounts to monitor news and security trends as well as potential targets. | cobertura: lacuna",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1585.002",
+   "score": 1,
+   "comment": "Kimsuky has created email accounts for phishing operations. | cobertura: lacuna",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1586.002",
+   "score": 3,
+   "comment": "Kimsuky has compromised email accounts to send spearphishing e-mails. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1587",
+   "score": 3,
+   "comment": "Kimsuky created and used a mailing toolkit to use in spearphishing attacks. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1587.001",
+   "score": 3,
+   "comment": "Kimsuky has developed its own unique malware such as MailFetch.py for use in operations. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1588.002",
+   "score": 3,
+   "comment": "Kimsuky has obtained and used tools such as Nirsoft WebBrowserPassVIew, Mimikatz, and PsExec. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1588.003",
+   "score": 3,
+   "comment": "Kimsuky has stolen a valid certificate that is used to sign the malware and the dropper. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1588.005",
+   "score": 3,
+   "comment": "Kimsuky has obtained exploit code for various CVEs. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1589.002",
+   "score": 3,
+   "comment": "Kimsuky has collected valid email addresses including personal accounts that were subsequently used for spearphishing and other forms of social engineering. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1589.003",
+   "score": 3,
+   "comment": "Kimsuky has collected victim employee name information. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1591",
+   "score": 1,
+   "comment": "Kimsuky has collected victim organization information including but not limited to organization hierarchy, functions, press releases, and others. Kimsuky has also used large language models (LLMs) to gather information about potential targets of interest. | cobertura: lacuna",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1593.001",
+   "score": 1,
+   "comment": "Kimsuky has used Twitter to monitor potential victims and to prepare targeted phishing e-mails. | cobertura: lacuna",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1593.002",
+   "score": 1,
+   "comment": "Kimsuky has searched for vulnerabilities, tools, and geopolitical trends on Google to target victims. | cobertura: lacuna",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1594",
+   "score": 1,
+   "comment": "Kimsuky has searched for information on the target company's website. | cobertura: lacuna",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1596",
+   "score": 1,
+   "comment": "Kimsuky has used LLMs to better understand publicly reported vulnerabilities. | cobertura: lacuna",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1598",
+   "score": 1,
+   "comment": "Kimsuky has used tailored spearphishing emails to gather victim information including contat lists to identify additional targets. | cobertura: lacuna",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1598.003",
+   "score": 1,
+   "comment": "Kimsuky has used links in e-mail to steal account information including web beacons for target profiling. Kimsuky has also utilized QR codes (also known as Quishing) to direct victims to malicious links through the reliance of a mobile device to scan a code with an embedded malicious URL. | cobertura: lacuna",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1608.001",
+   "score": 3,
+   "comment": "Kimsuky has used compromised and acquired infrastructure to host and deliver malware including Blogspot to host beacons, file exfiltrators, and implants. Kimsuky has also hosted malicious payloads on Dropbox. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1620",
+   "score": 3,
+   "comment": "Kimsuky has used the Invoke-Mimikatz PowerShell script to reflectively load a Mimikatz credential stealing DLL into memory. Kimsuky has also used reflective loading through .NET assembly using `[System.Reflection.Assembly]::Load`. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1657",
+   "score": 1,
+   "comment": "Kimsuky has stolen and laundered cryptocurrency to self-fund operations including the acquisition of infrastructure. | cobertura: lacuna",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1678",
+   "score": 1,
+   "comment": "Kimsuky has utilized the Sleep function to ensure execution of scripts. | cobertura: lacuna",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1680",
+   "score": 1,
+   "comment": "Kimsuky has enumerated drives. | cobertura: lacuna",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1682",
+   "score": 1,
+   "comment": "Kimsuky has used LLMs to identify think tanks, government organizations, and experts to inform targeting for spearphishing campaigns. | cobertura: lacuna",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1684.001",
+   "score": 1,
+   "comment": "Kimsuky has also impersonated legitimate people, such as a foreign advisor, an embassy employee, and a think tank employee. Kimsuky has also purported to be a Japanese diplomat to communicate with the victims. | cobertura: lacuna",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1685",
+   "score": 3,
+   "comment": "Kimsuky has been observed turning off Windows Security Center and can hide the AV software window from the view of the infected user. | cobertura: regra",
+   "enabled": true
+  },
+  {
+   "techniqueID": "T1686",
+   "score": 3,
+   "comment": "Kimsuky has been observed disabling the system firewall. | cobertura: regra",
+   "enabled": true
+  }
+ ],
+ "gradient": {
+  "colors": [
+   "#ff5d6c",
+   "#ffb347",
+   "#2ecc8f"
+  ],
+  "minValue": 1,
+  "maxValue": 3
+ },
+ "layout": {
+  "layout": "side",
+  "showName": true,
+  "showID": true
+ }
+}

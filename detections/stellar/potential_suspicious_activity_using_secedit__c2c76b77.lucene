@@ -1,0 +1,18 @@
+// Potential Suspicious Activity Using SeCEdit | T1082, T1505.005, T1546.007, T1546.008, T1547.001, T1547.002, T1547.010, T1547.014, T1556.002, T1557, T1564.002, T1574.007, T1685, T1685.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_secedit_execution.yml
+(Image:*\\secedit.exe OR OriginalFileName:SeCEdit) AND ((CommandLine:*\/export* AND CommandLine:*\/cfg*) OR (CommandLine:*\/configure* AND CommandLine:*\/db*))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(Image:*\\\\secedit.exe OR OriginalFileName:SeCEdit) AND ((CommandLine:*\\/export* AND CommandLine:*\\/cfg*) OR (CommandLine:*\\/configure* AND CommandLine:*\\/db*))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

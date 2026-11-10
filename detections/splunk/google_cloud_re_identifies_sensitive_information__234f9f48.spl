@@ -1,0 +1,2 @@
+# Google Cloud Re-identifies Sensitive Information | T1565 | https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/gcp/audit/gcp_dlp_re_identifies_sensitive_information.yml
+gcp.audit.method_name="projects.content.reidentify"

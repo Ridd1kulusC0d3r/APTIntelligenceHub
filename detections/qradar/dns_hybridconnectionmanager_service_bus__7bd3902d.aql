@@ -1,0 +1,2 @@
+-- DNS HybridConnectionManager Service Bus | T1554 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/dns_query/dns_query_win_hybridconnectionmgr_servicebus.yml | NOTA: fallback QRadarAQL_payload_pipeline: campos sem propriedade DSM mapeada são buscados em UTF8(payload) – custo maior, crie custom properties
+SELECT * FROM events WHERE devicetype=12 AND LOWER(UTF8(payload)) LIKE '%servicebus.windows.net%' AND (LOWER("Process Path") LIKE '%hybridconnectionmanager%' OR LOWER("Process Name") LIKE '%hybridconnectionmanager%')

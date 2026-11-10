@@ -1,0 +1,2 @@
+// Rundll32 Registered COM Objects | T1546.015 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_registered_com_objects.yml
+(process.executable.caseless:*\\rundll32.exe OR process.pe.original_file_name:RUNDLL32.EXE) AND ((process.command_line:(*\-sta\ * OR *\-localserver\ *)) AND (process.command_line:*\{* AND process.command_line:*\}*))

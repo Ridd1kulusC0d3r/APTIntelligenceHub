@@ -1,0 +1,2 @@
+-- Operation Wocao Activity - Security | T1012, T1027, T1036.004, T1053.005, T1059.001 | https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2019/TA/Operation-Wocao/win_security_apt_wocao.yml
+SELECT * FROM events WHERE devicetype=12 AND "Event ID"=4799 AND LOWER("Target Username") LIKE 'administr%' AND LOWER("Process Path") LIKE '%\checkadmin.exe'

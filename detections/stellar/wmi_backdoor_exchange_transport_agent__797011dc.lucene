@@ -1,0 +1,18 @@
+// WMI Backdoor Exchange Transport Agent | T1546.003 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wmi_backdoor_exchange_transport_agent.yml
+ParentImage:*\\EdgeTransport.exe AND (NOT (Image:C\:\\Windows\\System32\\conhost.exe OR (Image:C\:\\Program\ Files\\Microsoft\\Exchange\ Server\\* AND Image:*\\Bin\\OleConverter.exe)))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "ParentImage:*\\\\EdgeTransport.exe AND (NOT (Image:C\\:\\\\Windows\\\\System32\\\\conhost.exe OR (Image:C\\:\\\\Program\\ Files\\\\Microsoft\\\\Exchange\\ Server\\\\* AND Image:*\\\\Bin\\\\OleConverter.exe)))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

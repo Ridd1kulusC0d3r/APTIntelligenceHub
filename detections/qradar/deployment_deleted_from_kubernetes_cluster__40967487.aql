@@ -1,0 +1,2 @@
+-- Deployment Deleted From Kubernetes Cluster | T1498 | https://github.com/SigmaHQ/sigma/blob/master/rules/application/kubernetes/audit/kubernetes_audit_deployment_deleted.yml | NOTA: fallback QRadarAQL_payload_pipeline: campos sem propriedade DSM mapeada são buscados em UTF8(payload) – custo maior, crie custom properties
+SELECT * FROM events WHERE LOWER(UTF8(payload)) LIKE '%delete%' AND LOWER(UTF8(payload)) LIKE '%deployments%'

@@ -1,0 +1,2 @@
+// NTFS Alternate Data Stream | T1059.001, T1564.004 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/powershell/powershell_script/posh_ps_ntfs_ads_access.yml
+any where (powershell.file.script_block_text like~ ("*set-content*", "*add-content*")) and powershell.file.script_block_text:"*-stream*"

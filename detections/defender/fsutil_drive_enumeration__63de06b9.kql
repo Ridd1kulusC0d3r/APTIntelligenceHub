@@ -1,0 +1,3 @@
+// Fsutil Drive Enumeration | T1120 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_fsutil_drive_enumeration.yml
+DeviceProcessEvents
+| where (FolderPath endswith "\\fsutil.exe" or ProcessVersionInfoOriginalFileName =~ "fsutil.exe") and ProcessCommandLine contains "drives"

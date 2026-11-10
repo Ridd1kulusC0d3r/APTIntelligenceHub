@@ -1,0 +1,18 @@
+// PUA - Seatbelt Execution | T1083, T1087, T1526 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_seatbelt.yml
+(Image:*\\Seatbelt.exe OR OriginalFileName:Seatbelt.exe OR Description:Seatbelt OR (CommandLine:(*\ DpapiMasterKeys* OR *\ InterestingProcesses* OR *\ InterestingFiles* OR *\ CertificateThumbprints* OR *\ ChromiumBookmarks* OR *\ ChromiumHistory* OR *\ ChromiumPresence* OR *\ CloudCredentials* OR *\ CredEnum* OR *\ CredGuard* OR *\ FirefoxHistory* OR *\ ProcessCreationEvents*))) OR ((CommandLine:(*\ \-group\=misc* OR *\ \-group\=remote* OR *\ \-group\=chromium* OR *\ \-group\=slack* OR *\ \-group\=system* OR *\ \-group\=user* OR *\ \-group\=all*)) AND CommandLine:*\ \-outputfile\=*)
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(Image:*\\\\Seatbelt.exe OR OriginalFileName:Seatbelt.exe OR Description:Seatbelt OR (CommandLine:(*\\ DpapiMasterKeys* OR *\\ InterestingProcesses* OR *\\ InterestingFiles* OR *\\ CertificateThumbprints* OR *\\ ChromiumBookmarks* OR *\\ ChromiumHistory* OR *\\ ChromiumPresence* OR *\\ CloudCredentials* OR *\\ CredEnum* OR *\\ CredGuard* OR *\\ FirefoxHistory* OR *\\ ProcessCreationEvents*))) OR ((CommandLine:(*\\ \\-group\\=misc* OR *\\ \\-group\\=remote* OR *\\ \\-group\\=chromium* OR *\\ \\-group\\=slack* OR *\\ \\-group\\=system* OR *\\ \\-group\\=user* OR *\\ \\-group\\=all*)) AND CommandLine:*\\ \\-outputfile\\=*)",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

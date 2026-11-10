@@ -1,0 +1,18 @@
+// Potential EmpireMonkey Activity | T1218.010 | https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2019/TA/EmpireMonkey/proc_creation_win_apt_empiremonkey.yml
+CommandLine:*\/e\:jscript* AND CommandLine:*\\Local\\Temp\\Errors.bat*
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "CommandLine:*\\/e\\:jscript* AND CommandLine:*\\\\Local\\\\Temp\\\\Errors.bat*",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

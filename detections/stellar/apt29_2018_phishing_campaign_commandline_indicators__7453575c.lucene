@@ -1,0 +1,18 @@
+// APT29 2018 Phishing Campaign CommandLine Indicators | T1218.011 | https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2018/TA/APT29-CozyBear/proc_creation_win_apt_apt29_phishing_campaign_indicators.yml
+CommandLine:*\-noni\ \-ep\ bypass\ $* OR (CommandLine:*cyzfc.dat,* AND CommandLine:*PointFunctionCall*)
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "CommandLine:*\\-noni\\ \\-ep\\ bypass\\ $* OR (CommandLine:*cyzfc.dat,* AND CommandLine:*PointFunctionCall*)",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

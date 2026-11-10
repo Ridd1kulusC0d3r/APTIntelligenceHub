@@ -1,0 +1,18 @@
+// External Remote SMB Logon from Public IP | T1078, T1110, T1133 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/account_management/win_security_successful_external_remote_smb_login.yml
+(EventID:4624 AND LogonType:3) AND (NOT ((IpAddress:\:\:1\/128 OR IpAddress:10.0.0.0\/8 OR IpAddress:127.0.0.0\/8 OR IpAddress:172.16.0.0\/12 OR IpAddress:192.168.0.0\/16 OR IpAddress:169.254.0.0\/16 OR IpAddress:fc00\:\:\/7 OR IpAddress:fe80\:\:\/10) OR (NOT _exists_:IpAddress) OR (IpAddress:(\- OR ""))))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(EventID:4624 AND LogonType:3) AND (NOT ((IpAddress:\\:\\:1\\/128 OR IpAddress:10.0.0.0\\/8 OR IpAddress:127.0.0.0\\/8 OR IpAddress:172.16.0.0\\/12 OR IpAddress:192.168.0.0\\/16 OR IpAddress:169.254.0.0\\/16 OR IpAddress:fc00\\:\\:\\/7 OR IpAddress:fe80\\:\\:\\/10) OR (NOT _exists_:IpAddress) OR (IpAddress:(\\- OR \"\"))))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

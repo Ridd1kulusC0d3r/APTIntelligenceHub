@@ -1,0 +1,2 @@
+// ETW Logging/Processing Option Disabled On IIS Server | T1505.004, T1685.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/iis-configuration/win_iis_logging_etw_disabled.yml
+any where (event.code:"29" and winlog.event_data.Configuration:"*@logTargetW3C" and winlog.event_data.OldValue:"*ETW*") and (not winlog.event_data.NewValue:"*ETW*")

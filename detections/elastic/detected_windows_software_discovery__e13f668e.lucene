@@ -1,0 +1,2 @@
+// Detected Windows Software Discovery | T1518 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_reg_software_discovery.yml
+process.executable.caseless:*\\reg.exe AND (process.command_line:*query* AND process.command_line:*\\software\\* AND process.command_line:*\/v* AND process.command_line:*svcversion*)

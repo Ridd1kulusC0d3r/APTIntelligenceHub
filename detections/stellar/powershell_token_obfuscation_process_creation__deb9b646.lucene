@@ -1,0 +1,18 @@
+// Powershell Token Obfuscation - Process Creation | T1027.009 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_token_obfuscation.yml
+(CommandLine:/\w+`(?:\w+|-|.)`[\w+|\s]/ OR CommandLine:/"(?:\{\d\})+"\s*-f/ OR CommandLine:/(?i)\$\{`?e`?n`?v`?:`?p`?a`?t`?h`?\}/) AND (NOT CommandLine:*$\{env\:path\}*)
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(CommandLine:/\\w+`(?:\\w+|-|.)`[\\w+|\\s]/ OR CommandLine:/\"(?:\\{\\d\\})+\"\\s*-f/ OR CommandLine:/(?i)\\$\\{`?e`?n`?v`?:`?p`?a`?t`?h`?\\}/) AND (NOT CommandLine:*$\\{env\\:path\\}*)",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,18 @@
+// Potential Ransomware Activity Using LegalNotice Message | T1491.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_legalnotice_susp_message.yml
+(TargetObject:(*\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System\\LegalNoticeCaption* OR *\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System\\LegalNoticeText*)) AND (Details:(*encrypted* OR *Unlock\-Password* OR *paying*))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(TargetObject:(*\\\\SOFTWARE\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\Policies\\\\System\\\\LegalNoticeCaption* OR *\\\\SOFTWARE\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\Policies\\\\System\\\\LegalNoticeText*)) AND (Details:(*encrypted* OR *Unlock\\-Password* OR *paying*))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,18 @@
+// Web Server Process Spawning Shell Or Recon Commands (Webshell) | T1190, T1505.003 | Hub
+(ParentImage:(*\\w3wp.exe OR *\\tomcat.exe OR *\\tomcat8.exe OR *\\tomcat9.exe OR *\\java.exe OR *\\httpd.exe OR *\\nginx.exe OR *\\UMWorkerProcess.exe)) AND (Image:(*\\cmd.exe OR *\\powershell.exe OR *\\whoami.exe OR *\\net.exe OR *\\net1.exe OR *\\nltest.exe OR *\\certutil.exe OR *\\rundll32.exe))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(ParentImage:(*\\\\w3wp.exe OR *\\\\tomcat.exe OR *\\\\tomcat8.exe OR *\\\\tomcat9.exe OR *\\\\java.exe OR *\\\\httpd.exe OR *\\\\nginx.exe OR *\\\\UMWorkerProcess.exe)) AND (Image:(*\\\\cmd.exe OR *\\\\powershell.exe OR *\\\\whoami.exe OR *\\\\net.exe OR *\\\\net1.exe OR *\\\\nltest.exe OR *\\\\certutil.exe OR *\\\\rundll32.exe))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

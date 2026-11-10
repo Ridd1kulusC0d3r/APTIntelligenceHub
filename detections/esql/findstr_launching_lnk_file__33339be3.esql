@@ -1,0 +1,2 @@
+// Findstr Launching .lnk File | T1027.003, T1036, T1202 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_findstr_lnk.yml
+from * metadata _id, _index, _version | where (ends_with(process.executable.caseless, "\\find.exe") or ends_with(process.executable.caseless, "\\findstr.exe") or process.pe.original_file_name in ("FIND.EXE", "FINDSTR.EXE")) and (ends_with(process.command_line, ".lnk") or ends_with(process.command_line, ".lnk\"") or ends_with(process.command_line, ".lnk'"))

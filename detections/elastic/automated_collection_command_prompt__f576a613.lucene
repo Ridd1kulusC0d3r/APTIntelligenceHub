@@ -1,0 +1,2 @@
+// Automated Collection Command Prompt | T1119, T1552.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_automated_collection.yml
+(process.command_line:(*.doc* OR *.docx* OR *.xls* OR *.xlsx* OR *.ppt* OR *.pptx* OR *.rtf* OR *.pdf* OR *.txt*)) AND ((process.command_line:*dir\ * AND process.command_line:*\ \/b\ * AND process.command_line:*\ \/s\ *) OR (process.pe.original_file_name:FINDSTR.EXE AND (process.command_line:(*\ \/e\ * OR *\ \/si\ *))))

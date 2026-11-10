@@ -1,0 +1,3 @@
+// Binary Padding - MacOS | T1027.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_binary_padding.yml
+DeviceProcessEvents
+| where (FolderPath endswith "/truncate" and ProcessCommandLine contains "-s +") or (FolderPath endswith "/dd" and (ProcessCommandLine contains "if=/dev/zero" or ProcessCommandLine contains "if=/dev/random" or ProcessCommandLine contains "if=/dev/urandom"))

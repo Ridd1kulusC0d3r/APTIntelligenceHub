@@ -1,0 +1,2 @@
+-- User Has Been Deleted Via Userdel | T1531 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_userdel.yml
+SELECT * FROM events WHERE devicetype=11 AND (LOWER("Process Path") LIKE '%/userdel' OR LOWER("Process Name") LIKE '%/userdel')

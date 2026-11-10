@@ -1,0 +1,3 @@
+// Prefetch File Deleted | T1070.004 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_delete/file_delete_win_delete_prefetch.yml
+DeviceFileEvents
+| where (FolderPath contains ":\\Windows\\Prefetch\\" and FolderPath endswith ".pf") and (not((InitiatingProcessFolderPath endswith ":\\windows\\system32\\svchost.exe" and (RequestAccountName contains "AUTHORI" or RequestAccountName contains "AUTORI"))))

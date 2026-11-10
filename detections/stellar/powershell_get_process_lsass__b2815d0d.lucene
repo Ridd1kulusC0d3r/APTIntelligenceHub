@@ -1,0 +1,18 @@
+// PowerShell Get-Process LSASS | T1552.004 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_getprocess_lsass.yml
+CommandLine:(*Get\-Process\ lsas* OR *ps\ lsas* OR *gps\ lsas*)
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "CommandLine:(*Get\\-Process\\ lsas* OR *ps\\ lsas* OR *gps\\ lsas*)",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

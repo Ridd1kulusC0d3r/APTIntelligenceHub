@@ -1,0 +1,2 @@
+# Defrag Deactivation - Security | T1053 | https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2018/TA/Slingshot/win_security_apt_slingshot.yml
+source="WinEventLog:Security" EventCode=4701 TaskName="\\Microsoft\\Windows\\Defrag\\ScheduledDefrag"

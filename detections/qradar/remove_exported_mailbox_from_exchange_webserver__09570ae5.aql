@@ -1,0 +1,2 @@
+-- Remove Exported Mailbox from Exchange Webserver | T1070 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/msexchange/win_exchange_proxyshell_remove_mailbox_export.yml | NOTA: fallback QRadarAQL_payload_pipeline: campos sem propriedade DSM mapeada são buscados em UTF8(payload) – custo maior, crie custom properties
+SELECT * FROM events WHERE devicetype=12 AND LOWER(UTF8(payload)) LIKE '%remove-mailboxexportrequest%' AND LOWER(UTF8(payload)) LIKE '% -identity %' AND LOWER(UTF8(payload)) LIKE '% -confirm "false"%'

@@ -1,0 +1,18 @@
+// Suspicious History File Operations | T1552.003 | https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_susp_histfile_operations.yml
+CommandLine:(*.bash_history* OR *.zsh_history* OR *.zhistory* OR *.history* OR *.sh_history* OR *fish_history*)
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "CommandLine:(*.bash_history* OR *.zsh_history* OR *.zhistory* OR *.history* OR *.sh_history* OR *fish_history*)",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

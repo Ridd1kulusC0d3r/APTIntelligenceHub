@@ -1,0 +1,2 @@
+// OpenSSH Server Listening On Socket | T1021.004 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/openssh/win_sshd_openssh_server_listening_on_socket.yml
+winlog.channel:OpenSSH\/Operational AND (event.code:4 AND winlog.event_data.process:sshd AND winlog.event_data.payload:Server\ listening\ on\ *)

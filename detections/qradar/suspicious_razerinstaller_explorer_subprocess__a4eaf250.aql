@@ -1,0 +1,2 @@
+-- Suspicious RazerInstaller Explorer Subprocess | T1553 | https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2021/Exploits/RazerInstaller-LPE-Exploit/proc_creation_win_exploit_other_razorinstaller_lpe.yml
+SELECT * FROM events WHERE devicetype=12 AND (LOWER("Parent Process Path") LIKE '%\razerinstaller.exe' AND ("Integrity Level" IN('System', 'S-1-16-16384'))) AND (NOT((LOWER("Process Path") LIKE 'c:\windows\installer\razer\installer\%' OR LOWER("Process Name") LIKE 'c:\windows\installer\razer\installer\%')))

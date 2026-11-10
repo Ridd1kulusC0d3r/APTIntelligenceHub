@@ -1,0 +1,2 @@
+// Failed Code Integrity Checks | T1027.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_codeintegrity_check_failure.yml
+any where winlog.channel:"Security" and ((event.code like~ ("5038", "6281")) and (not ((winlog.event_data.param1 like~ ("*\\CSFalconServiceUninstallTool_*", "*\\Program Files\\CrowdStrike\\*", "*\\System32\\drivers\\CrowdStrike\\*", "*\\Windows\\System32\\ScriptControl64_*")) or winlog.event_data.param1:"*\\Program Files\\Sophos\\*")))

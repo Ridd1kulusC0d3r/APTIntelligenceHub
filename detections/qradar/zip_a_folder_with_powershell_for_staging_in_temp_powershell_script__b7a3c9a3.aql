@@ -1,0 +1,2 @@
+-- Zip A Folder With PowerShell For Staging In Temp - PowerShell Script | T1074.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/powershell/powershell_script/posh_ps_susp_zip_compress.yml
+SELECT * FROM events WHERE devicetype=12 AND (LOWER(Message) LIKE '%compress-archive -path%-destinationpath $env:temp%' OR LOWER(Message) LIKE '%compress-archive -path%-destinationpath%\appdata\local\temp\%' OR LOWER(Message) LIKE '%compress-archive -path%-destinationpath%:\windows\temp\%')

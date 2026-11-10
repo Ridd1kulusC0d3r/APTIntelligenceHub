@@ -1,0 +1,2 @@
+// Remote XSL Execution Via Msxsl.EXE | T1220 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_msxsl_remote_execution.yml
+from * metadata _id, _index, _version | where ends_with(process.executable.caseless, "\\msxsl.exe") and process.command_line like "*http*"

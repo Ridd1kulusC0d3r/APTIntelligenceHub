@@ -1,0 +1,2 @@
+// Bitbucket Full Data Export Triggered | T1213.003 | https://github.com/SigmaHQ/sigma/blob/master/rules/application/bitbucket/audit/bitbucket_audit_full_data_export_triggered.yml
+from * metadata _id, _index, _version | where auditType.category=="Data pipeline" and auditType.action=="Full data export triggered"

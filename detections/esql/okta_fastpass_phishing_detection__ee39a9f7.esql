@@ -1,0 +1,2 @@
+// Okta FastPass Phishing Detection | T1566 | https://github.com/SigmaHQ/sigma/blob/master/rules/identity/okta/okta_fastpass_phishing_detection.yml
+from * metadata _id, _index, _version | where outcome.reason=="FastPass declined phishing attempt" and outcome.result=="FAILURE" and eventType=="user.authentication.auth_via_mfa"

@@ -1,0 +1,2 @@
+// Privilege Escalation via Named Pipe Impersonation | T1021 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_priv_escalation_via_named_pipe.yml
+((process.executable.caseless:(*\\cmd.exe OR *\\powershell.exe)) OR (process.pe.original_file_name:(Cmd.Exe OR PowerShell.EXE))) AND (process.command_line:*echo* AND process.command_line:*\>* AND process.command_line:*\\\\.\\pipe\\*)

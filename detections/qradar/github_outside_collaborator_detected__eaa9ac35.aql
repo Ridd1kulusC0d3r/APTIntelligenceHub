@@ -1,0 +1,2 @@
+-- Github Outside Collaborator Detected | T1098.001, T1098.003, T1213.003 | https://github.com/SigmaHQ/sigma/blob/master/rules/application/github/audit/github_outside_collaborator_detected.yml | NOTA: fallback QRadarAQL_payload_pipeline: campos sem propriedade DSM mapeada são buscados em UTF8(payload) – custo maior, crie custom properties
+SELECT * FROM events WHERE LOWER(UTF8(payload)) LIKE '%org.remove_outside_collaborator%' OR LOWER(UTF8(payload)) LIKE '%project.update_user_permission%'

@@ -1,0 +1,2 @@
+-- Turla Group Commands May 2020 | T1027, T1053.005, T1059.001 | https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2014/TA/Turla/proc_creation_win_apt_turla_comrat_may20.yml
+SELECT * FROM events WHERE devicetype=12 AND ((LOWER(Command) LIKE '%tracert -h 10 yahoo.com%' OR LOWER(Command) LIKE '%.wsqmcons))|iex;%' OR LOWER(Command) LIKE '%fr`omba`se6`4str`ing%') OR (Command MATCHES 'net\s+use\s+https://docs.live.net' AND LOWER(Command) LIKE '%@aol.co.uk%'))

@@ -1,0 +1,2 @@
+# Github Outside Collaborator Detected | T1098.001, T1098.003, T1213.003 | https://github.com/SigmaHQ/sigma/blob/master/rules/application/github/audit/github_outside_collaborator_detected.yml
+action IN ("org.remove_outside_collaborator", "project.update_user_permission")

@@ -1,0 +1,2 @@
+# SCM Database Handle Failure | T1010 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_scm_database_handle_failure.yml
+source="WinEventLog:Security" EventCode=4656 ObjectType="SC_MANAGER OBJECT" ObjectName="ServicesActive" AccessMask="0xf003f" NOT SubjectLogonId="0x3e4"

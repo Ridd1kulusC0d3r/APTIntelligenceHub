@@ -1,0 +1,2 @@
+// Suspicious Access to Sensitive File Extensions | T1039 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_susp_raccess_sensitive_fext.yml
+any where winlog.channel:"Security" and (event.code:"5145" and (winlog.event_data.RelativeTargetName like~ ("*.bak", "*.dmp", "*.edb", "*.kirbi", "*.msg", "*.nsf", "*.nst", "*.oab", "*.ost", "*.pst", "*.rdp")))

@@ -1,0 +1,18 @@
+// Potential WerFault ReflectDebugger Registry Value Abuse | T1036.003 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_persistence_reflectdebugger.yml
+TargetObject:*\\Microsoft\\Windows\\Windows\ Error\ Reporting\\Hangs\\ReflectDebugger
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "TargetObject:*\\\\Microsoft\\\\Windows\\\\Windows\\ Error\\ Reporting\\\\Hangs\\\\ReflectDebugger",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

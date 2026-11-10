@@ -1,0 +1,2 @@
+# Add or Remove Computer from DC | T1207 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_add_remove_computer.yml
+source="WinEventLog:Security" (EventCode IN (4741, 4743))

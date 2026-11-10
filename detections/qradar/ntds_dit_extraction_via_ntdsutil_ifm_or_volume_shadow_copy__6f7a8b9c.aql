@@ -1,0 +1,2 @@
+-- NTDS.dit Extraction Via Ntdsutil IFM Or Volume Shadow Copy | T1003.003 | Hub
+SELECT * FROM events WHERE devicetype=12 AND (((LOWER("Process Path") LIKE '%\ntdsutil.exe' OR LOWER("Process Name") LIKE '%\ntdsutil.exe') AND LOWER(Command) LIKE '%ifm%') OR ((LOWER("Process Path") LIKE '%\vssadmin.exe' OR LOWER("Process Name") LIKE '%\vssadmin.exe') AND (LOWER(Command) LIKE '%create%' AND LOWER(Command) LIKE '%shadow%')))

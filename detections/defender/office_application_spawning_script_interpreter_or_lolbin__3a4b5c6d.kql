@@ -1,0 +1,3 @@
+// Office Application Spawning Script Interpreter Or LOLBin | T1204.002, T1221 | Hub
+DeviceProcessEvents
+| where (InitiatingProcessFolderPath endswith "\\WINWORD.EXE" or InitiatingProcessFolderPath endswith "\\EXCEL.EXE" or InitiatingProcessFolderPath endswith "\\POWERPNT.EXE") and (FolderPath endswith "\\wscript.exe" or FolderPath endswith "\\cscript.exe" or FolderPath endswith "\\mshta.exe" or FolderPath endswith "\\powershell.exe" or FolderPath endswith "\\cmd.exe")

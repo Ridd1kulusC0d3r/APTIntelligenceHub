@@ -1,0 +1,2 @@
+// Mask System Power Settings Via Systemctl | T1653 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_systemctl_mask_power_settings.yml
+from * metadata _id, _index, _version | where ends_with(Image, "/systemctl") and CommandLine like "* mask*" and (CommandLine like "*suspend.target*" or CommandLine like "*hibernate.target*" or CommandLine like "*hybrid-sleep.target*")

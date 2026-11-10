@@ -1,0 +1,2 @@
+// Diagnostic Library Sdiageng.DLL Loaded By Msdt.EXE | T1202 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_dll_sdiageng_load_by_msdt.yml
+process.executable.caseless:*\\msdt.exe AND file.path:*\\sdiageng.dll

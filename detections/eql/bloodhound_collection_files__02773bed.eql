@@ -1,0 +1,2 @@
+// BloodHound Collection Files | T1059.001, T1069.001, T1069.002, T1087.001, T1087.002, T1482 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_bloodhound_collection.yml
+any where (file.path like~ ("*BloodHound.zip", "*_computers.json", "*_containers.json", "*_gpos.json", "*_groups.json", "*_ous.json", "*_users.json")) and (not (process.executable.caseless:"*\\svchost.exe" and file.path:"C:\\Program Files\\WindowsApps\\Microsoft.*" and file.path:"*\\pocket_containers.json"))

@@ -1,0 +1,2 @@
+// System Network Connections Discovery - Linux | T1049 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_system_network_connections_discovery.yml
+from * metadata _id, _index, _version | where ends_with(Image, "/lsof") or ends_with(Image, "/netstat") or ends_with(Image, "/sockstat") or ends_with(Image, "/ss")

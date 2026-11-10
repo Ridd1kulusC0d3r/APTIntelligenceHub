@@ -1,0 +1,18 @@
+// Potential LSASS Process Dump Via Procdump | T1003.001, T1036 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sysinternals_procdump_lsass.yml
+(CommandLine:(*\ \-ma\ * OR *\ \/ma\ * OR *\ –ma\ * OR *\ —ma\ * OR *\ ―ma\ *) OR CommandLine:(*\ \-mm\ * OR *\ \/mm\ * OR *\ –mm\ * OR *\ —mm\ * OR *\ ―mm\ *) OR CommandLine:(*\ \-mp\ * OR *\ \/mp\ * OR *\ –mp\ * OR *\ —mp\ * OR *\ ―mp\ *)) AND (CommandLine:(*\ ls* OR *\ keyiso* OR *\ samss*))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(CommandLine:(*\\ \\-ma\\ * OR *\\ \\/ma\\ * OR *\\ \u2013ma\\ * OR *\\ \u2014ma\\ * OR *\\ \u2015ma\\ *) OR CommandLine:(*\\ \\-mm\\ * OR *\\ \\/mm\\ * OR *\\ \u2013mm\\ * OR *\\ \u2014mm\\ * OR *\\ \u2015mm\\ *) OR CommandLine:(*\\ \\-mp\\ * OR *\\ \\/mp\\ * OR *\\ \u2013mp\\ * OR *\\ \u2014mp\\ * OR *\\ \u2015mp\\ *)) AND (CommandLine:(*\\ ls* OR *\\ keyiso* OR *\\ samss*))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

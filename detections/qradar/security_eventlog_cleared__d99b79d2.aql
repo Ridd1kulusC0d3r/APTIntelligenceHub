@@ -1,0 +1,2 @@
+-- Security Eventlog Cleared | T1685.005 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_audit_log_cleared.yml | NOTA: fallback QRadarAQL_payload_pipeline: campos sem propriedade DSM mapeada são buscados em UTF8(payload) – custo maior, crie custom properties
+SELECT * FROM events WHERE devicetype=12 AND (("Event ID"=517 AND LOWER(UTF8(payload)) LIKE '%security%') OR ("Event ID"=1102 AND LOWER(UTF8(payload)) LIKE '%microsoft-windows-eventlog%'))

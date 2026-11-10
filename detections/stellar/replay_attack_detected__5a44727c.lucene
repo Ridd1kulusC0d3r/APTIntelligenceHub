@@ -1,0 +1,18 @@
+// Replay Attack Detected | T1558 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_replay_attack_detected.yml
+EventID:4649
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "EventID:4649",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

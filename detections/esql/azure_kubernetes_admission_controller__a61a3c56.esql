@@ -1,0 +1,2 @@
+// Azure Kubernetes Admission Controller | T1078, T1552, T1552.007 | https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/azure/activity_logs/azure_kubernetes_admission_controller.yml
+from * metadata _id, _index, _version | where (starts_with(operationName, "MICROSOFT.KUBERNETES/CONNECTEDCLUSTERS/ADMISSIONREGISTRATION.K8S.IO") or starts_with(operationName, "MICROSOFT.CONTAINERSERVICE/MANAGEDCLUSTERS/ADMISSIONREGISTRATION.K8S.IO")) and (ends_with(operationName, "/MUTATINGWEBHOOKCONFIGURATIONS/WRITE") or ends_with(operationName, "/VALIDATINGWEBHOOKCONFIGURATIONS/WRITE"))

@@ -1,0 +1,2 @@
+# PowerShell Set-Acl On Windows Folder - PsScript | T1222 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/powershell/powershell_script/posh_ps_set_acl_susp_location.yml
+ScriptBlockText="*Set-Acl *" ScriptBlockText="*-AclObject *" (ScriptBlockText IN ("*-Path \"C:\\Windows*", "*-Path \"C:/Windows*", "*-Path 'C:\\Windows*", "*-Path 'C:/Windows*", "*-Path C:\\Windows*", "*-Path C:/Windows*", "*-Path $env:windir*", "*-Path \"$env:windir*", "*-Path '$env:windir*")) (ScriptBlockText IN ("*FullControl*", "*Allow*"))

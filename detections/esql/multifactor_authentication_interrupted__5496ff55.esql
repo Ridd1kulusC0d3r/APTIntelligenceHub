@@ -1,0 +1,2 @@
+// Multifactor Authentication Interrupted | T1078.004, T1110, T1621 | https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/azure/signin_logs/azure_mfa_interrupted.yml
+from * metadata _id, _index, _version | where ResultType==50074 and ResultDescription like "*Strong Auth required*" or ResultType==500121 and ResultDescription like "*Authentication failed during strong authentication request*"

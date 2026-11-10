@@ -1,0 +1,18 @@
+// Antivirus - Hacktool Signature | T1204 | https://github.com/SigmaHQ/sigma/blob/master/rules/category/antivirus/av_hacktool.yml
+(Signature:(ATK\/* OR Exploit.Script.CVE* OR HKTL* OR HTOOL* OR PWS.* OR PWSX* OR SecurityTool*)) OR (Signature:(*Adfind* OR *BloodH* OR *BloodyAD* OR *Brutel* OR *BruteR* OR *Cobalt* OR *COBEACON* OR *Cometer* OR *DumpCreds* OR *EDRfreeze* OR *FastReverseProxy* OR *Hacktool* OR *Havoc* OR *Impacket* OR *Keylogger* OR *Koadic* OR *Mimikatz* OR *Nighthawk* OR *PentestPowerShell* OR *Potato* OR *PowerSploit* OR *PowerSSH* OR *PshlSpy* OR *PSWTool* OR *PWCrack* OR *PWDump* OR *Responder* OR *Rozena* OR *Rusthound* OR *Sbelt* OR *Seatbelt* OR *SecurityTool* OR *SharpDump* OR *SharpHound* OR *Shellcode* OR *Sliver* OR *Snaffler* OR *SOAPHound* OR *Splinter* OR *Stowaway* OR *Swrort* OR *Trojan.Hound* OR *TurtleLoader* OR *Undefend* OR *Undfnd*))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(Signature:(ATK\\/* OR Exploit.Script.CVE* OR HKTL* OR HTOOL* OR PWS.* OR PWSX* OR SecurityTool*)) OR (Signature:(*Adfind* OR *BloodH* OR *BloodyAD* OR *Brutel* OR *BruteR* OR *Cobalt* OR *COBEACON* OR *Cometer* OR *DumpCreds* OR *EDRfreeze* OR *FastReverseProxy* OR *Hacktool* OR *Havoc* OR *Impacket* OR *Keylogger* OR *Koadic* OR *Mimikatz* OR *Nighthawk* OR *PentestPowerShell* OR *Potato* OR *PowerSploit* OR *PowerSSH* OR *PshlSpy* OR *PSWTool* OR *PWCrack* OR *PWDump* OR *Responder* OR *Rozena* OR *Rusthound* OR *Sbelt* OR *Seatbelt* OR *SecurityTool* OR *SharpDump* OR *SharpHound* OR *Shellcode* OR *Sliver* OR *Snaffler* OR *SOAPHound* OR *Splinter* OR *Stowaway* OR *Swrort* OR *Trojan.Hound* OR *TurtleLoader* OR *Undefend* OR *Undfnd*))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

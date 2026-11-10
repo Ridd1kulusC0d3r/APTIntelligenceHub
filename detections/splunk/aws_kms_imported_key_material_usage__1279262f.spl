@@ -1,0 +1,2 @@
+# AWS KMS Imported Key Material Usage | T1486, T1608.003 | https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/aws/cloudtrail/aws_kms_import_key_material.yml
+eventSource="kms.amazonaws.com" (eventName IN ("ImportKeyMaterial", "DeleteImportedKeyMaterial"))

@@ -1,0 +1,3 @@
+// DllUnregisterServer Function Call Via Msiexec.EXE | T1218.007 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_msiexec_dll.yml
+DeviceProcessEvents
+| where ((FolderPath endswith "\\msiexec.exe" or ProcessVersionInfoOriginalFileName =~ "msiexec.exe") and ((ProcessCommandLine contains " -z " or ProcessCommandLine contains " /z " or ProcessCommandLine contains " –z " or ProcessCommandLine contains " —z " or ProcessCommandLine contains " ―z ") and ProcessCommandLine contains ".dll")) and (not(ProcessCommandLine endswith "\\MsiExec.exe\" /Z \"C:\\Windows\\CCM\\MsiHandler.dll\""))

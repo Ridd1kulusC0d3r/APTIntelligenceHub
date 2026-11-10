@@ -1,0 +1,2 @@
+// Network Connection Initiated By Regsvr32.EXE | T1218.010, T1559.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_regsvr32_network_activity.yml
+any where network.direction:"true" and process.executable.caseless:"*\\regsvr32.exe"

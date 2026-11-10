@@ -1,0 +1,18 @@
+// Potential SMB Relay Attack Tool Execution | T1557.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_relay_attacks_tools.yml
+((Image:(*PetitPotam* OR *RottenPotato* OR *HotPotato* OR *JuicyPotato* OR *\\just_dce_* OR *Juicy\ Potato* OR *\\temp\\rot.exe* OR *\\Potato.exe* OR *\\SpoolSample.exe* OR *\\Responder.exe* OR *\\smbrelayx* OR *\\ntlmrelayx* OR *\\LocalPotato*)) OR (CommandLine:(*Invoke\-Tater* OR *\ smbrelay* OR *\ ntlmrelay* OR *cme\ smb\ * OR *\ \/ntlm\:NTLMhash\ * OR *Invoke\-PetitPotam* OR *.exe\ \-t\ *\ \-p\ *)) OR (CommandLine:*.exe\ \-c\ \"\{* AND CommandLine:*\}\"\ \-z)) AND (NOT (Image:(*HotPotatoes6* OR *HotPotatoes7* OR *HotPotatoes\ *)))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "((Image:(*PetitPotam* OR *RottenPotato* OR *HotPotato* OR *JuicyPotato* OR *\\\\just_dce_* OR *Juicy\\ Potato* OR *\\\\temp\\\\rot.exe* OR *\\\\Potato.exe* OR *\\\\SpoolSample.exe* OR *\\\\Responder.exe* OR *\\\\smbrelayx* OR *\\\\ntlmrelayx* OR *\\\\LocalPotato*)) OR (CommandLine:(*Invoke\\-Tater* OR *\\ smbrelay* OR *\\ ntlmrelay* OR *cme\\ smb\\ * OR *\\ \\/ntlm\\:NTLMhash\\ * OR *Invoke\\-PetitPotam* OR *.exe\\ \\-t\\ *\\ \\-p\\ *)) OR (CommandLine:*.exe\\ \\-c\\ \\\"\\{* AND CommandLine:*\\}\\\"\\ \\-z)) AND (NOT (Image:(*HotPotatoes6* OR *HotPotatoes7* OR *HotPotatoes\\ *)))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

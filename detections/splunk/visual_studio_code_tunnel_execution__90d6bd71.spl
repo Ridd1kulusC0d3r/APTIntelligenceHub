@@ -1,0 +1,2 @@
+# Visual Studio Code Tunnel Execution | T1071.001, T1219 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_vscode_tunnel_execution.yml
+source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=1 ((NOT OriginalFileName=* CommandLine="*.exe tunnel") OR (CommandLine="*.exe tunnel*" CommandLine="*--accept-server-license-terms*") OR (ParentCommandLine="* tunnel" Image="*\\cmd.exe" CommandLine="*/d /c *" CommandLine="*\\servers\\Stable-*" CommandLine="*code-server.cmd*"))

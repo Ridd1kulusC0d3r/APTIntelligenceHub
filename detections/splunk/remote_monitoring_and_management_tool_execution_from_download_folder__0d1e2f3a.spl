@@ -1,0 +1,2 @@
+# Remote Monitoring And Management Tool Execution From Download Folder | T1219 | Hub
+source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=1 (Image IN ("*AteraAgent*", "*ScreenConnect*", "*SimpleHelp*", "*AnyDesk*", "*Syncro*", "*netbird*") OR Product IN ("*Atera*", "*ScreenConnect*", "*SimpleHelp*", "*AnyDesk*")) (Image IN ("*\\Downloads\\*", "*\\AppData\\Local\\Temp\\*"))

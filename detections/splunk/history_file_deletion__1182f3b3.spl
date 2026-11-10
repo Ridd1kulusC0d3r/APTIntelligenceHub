@@ -1,0 +1,2 @@
+# History File Deletion | T1565.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_susp_history_delete.yml
+(Image IN ("*/rm", "*/unlink", "*/shred")) (CommandLine IN ("*/.bash_history*", "*/.zsh_history*") OR CommandLine IN ("*_history", "*.history", "*zhistory"))

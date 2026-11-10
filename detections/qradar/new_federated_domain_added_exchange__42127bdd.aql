@@ -1,0 +1,2 @@
+-- New Federated Domain Added - Exchange | T1136.003 | https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/m365/exchange/microsoft365_new_federated_domain_added_exchange.yml | NOTA: fallback QRadarAQL_payload_pipeline: campos sem propriedade DSM mapeada são buscados em UTF8(payload) – custo maior, crie custom properties
+SELECT * FROM events WHERE devicetype IN(99, 397) AND QIDNAME(qid)='Add-FederatedDomain' AND LOWER(UTF8(payload)) LIKE '%success%'

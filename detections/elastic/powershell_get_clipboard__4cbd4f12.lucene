@@ -1,0 +1,2 @@
+// PowerShell Get Clipboard | T1115 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/powershell/powershell_module/posh_pm_get_clipboard.yml
+powershell.file.script_block_text:*Get\-Clipboard*

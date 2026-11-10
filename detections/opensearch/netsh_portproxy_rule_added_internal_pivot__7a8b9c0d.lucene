@@ -1,0 +1,2 @@
+// Netsh PortProxy Rule Added (Internal Pivot) | T1090.001 | Hub
+process.executable.caseless:*\\netsh.exe AND (process.command_line:*portproxy* AND process.command_line:*add*)

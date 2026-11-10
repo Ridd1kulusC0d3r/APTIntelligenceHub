@@ -1,0 +1,2 @@
+// APT27 - Emissary Panda Activity | T1574.001 | https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2018/TA/APT27/proc_creation_win_apt_apt27_emissary_panda.yml
+from * metadata _id, _index, _version | where ends_with(process.parent.executable.caseless, "\\sllauncher.exe") and ends_with(process.executable.caseless, "\\svchost.exe") or process.parent.executable.caseless like "*\\AppData\\Roaming\\*" and ends_with(process.executable.caseless, "\\svchost.exe") and process.command_line like "*-k*"

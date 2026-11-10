@@ -1,0 +1,2 @@
+# EvilNum APT Golden Chickens Deployment Via OCX Files | T1218.011 | https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2020/TA/Evilnum/proc_creation_win_apt_evilnum_jul20.yml
+source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=1 CommandLine="*regsvr32*" CommandLine="*/s*" CommandLine="*/i*" CommandLine="*\\AppData\\Roaming\\*" CommandLine="*.ocx*"

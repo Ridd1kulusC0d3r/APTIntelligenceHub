@@ -1,0 +1,18 @@
+// TropicTrooper Campaign November 2018 | T1059.001 | https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2018/TA/TropicTrooper/proc_creation_win_apt_tropictrooper.yml
+CommandLine:*abCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCc*
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "CommandLine:*abCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCc*",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

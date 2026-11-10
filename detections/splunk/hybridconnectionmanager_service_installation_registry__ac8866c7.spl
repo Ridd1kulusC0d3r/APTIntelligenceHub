@@ -1,0 +1,2 @@
+# HybridConnectionManager Service Installation - Registry | T1608 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/registry_event_hybridconnectionmgr_svc_installation.yml
+source="WinEventLog:Microsoft-Windows-Sysmon/Operational" (EventCode IN (12, 13, 14)) (TargetObject="*\\Services\\HybridConnectionManager*" OR (EventType="SetValue" Details="*Microsoft.HybridConnectionManager.Listener.exe*"))

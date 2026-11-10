@@ -1,0 +1,2 @@
+# Suspicious CustomShellHost Execution | T1216 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_customshellhost_susp_exec.yml
+source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=1 ParentImage="*\\CustomShellHost.exe" NOT Image="C:\\Windows\\explorer.exe"

@@ -1,0 +1,2 @@
+-- Suspicious Unblock-File | T1553.005 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/powershell/powershell_script/posh_ps_susp_unblock_file.yml
+SELECT * FROM events WHERE devicetype=12 AND LOWER(Message) LIKE '%unblock-file %' AND LOWER(Message) LIKE '%-path %'

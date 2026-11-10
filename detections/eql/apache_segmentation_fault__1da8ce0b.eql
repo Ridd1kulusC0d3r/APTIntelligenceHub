@@ -1,0 +1,2 @@
+// Apache Segmentation Fault | T1499.004 | https://github.com/SigmaHQ/sigma/blob/master/rules/web/product/apache/web_apache_segfault.yml
+any where "exit signal Segmentation Fault"

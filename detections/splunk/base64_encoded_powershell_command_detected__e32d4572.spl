@@ -1,0 +1,2 @@
+# Base64 Encoded PowerShell Command Detected | T1027, T1059.001, T1140 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_frombase64string.yml
+source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=1 CommandLine="*::FromBase64String(*"

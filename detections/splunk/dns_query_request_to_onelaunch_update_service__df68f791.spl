@@ -1,0 +1,2 @@
+# DNS Query Request To OneLaunch Update Service | T1056 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/dns_query/dns_query_win_onelaunch_update_service.yml
+source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=22 QueryName="update.onelaunch.com" Image="*\\OneLaunch.exe"

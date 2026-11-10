@@ -1,0 +1,18 @@
+// Registry Set With Crypto-Classes From The "Cryptography" PowerShell Namespace | T1027.010, T1059.001, T1547.001 | https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/registry/registry_set/registry_set_powershell_crypto_namespace.yml
+TargetObject:*\\Shell\\Open\\Command* AND (Details:(*powershell* OR *pwsh*)) AND Details:*System.Security.Cryptography.* AND (Details:(*.AesCryptoServiceProvider* OR *.DESCryptoServiceProvider* OR *.DSACryptoServiceProvider* OR *.RC2CryptoServiceProvider* OR *.Rijndael* OR *.RSACryptoServiceProvider* OR *.TripleDESCryptoServiceProvider*))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "TargetObject:*\\\\Shell\\\\Open\\\\Command* AND (Details:(*powershell* OR *pwsh*)) AND Details:*System.Security.Cryptography.* AND (Details:(*.AesCryptoServiceProvider* OR *.DESCryptoServiceProvider* OR *.DSACryptoServiceProvider* OR *.RC2CryptoServiceProvider* OR *.Rijndael* OR *.RSACryptoServiceProvider* OR *.TripleDESCryptoServiceProvider*))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,2 @@
+-- UNC4841 - Download Compressed Files From Temp.sh Using Wget | T1140 | https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/UNC4841-Barracuda-ESG-Zero-Day-Exploitation/proc_creation_lnx_apt_unc4841_wget_download_compressed_file_tmep_sh.yml
+SELECT * FROM events WHERE devicetype=11 AND (LOWER("Process Path") LIKE '%/wget' OR LOWER("Process Name") LIKE '%/wget') AND LOWER(Command) LIKE '%https://temp.sh/%' AND (LOWER(Command) LIKE '%.rar' OR LOWER(Command) LIKE '%.zip')

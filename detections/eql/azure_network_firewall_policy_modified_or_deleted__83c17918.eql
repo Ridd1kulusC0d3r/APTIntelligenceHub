@@ -1,0 +1,2 @@
+// Azure Network Firewall Policy Modified or Deleted | T1686.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/azure/activity_logs/azure_network_firewall_policy_modified_or_deleted.yml
+any where operationName like~ ("MICROSOFT.NETWORK/FIREWALLPOLICIES/WRITE", "MICROSOFT.NETWORK/FIREWALLPOLICIES/JOIN/ACTION", "MICROSOFT.NETWORK/FIREWALLPOLICIES/CERTIFICATES/ACTION", "MICROSOFT.NETWORK/FIREWALLPOLICIES/DELETE")

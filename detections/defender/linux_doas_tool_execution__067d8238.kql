@@ -1,0 +1,3 @@
+// Linux Doas Tool Execution | T1548 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_doas_execution.yml
+DeviceProcessEvents
+| where FolderPath endswith "/doas"

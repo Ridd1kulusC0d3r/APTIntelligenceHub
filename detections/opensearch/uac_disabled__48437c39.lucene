@@ -1,0 +1,2 @@
+// UAC Disabled | T1548.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_uac_disable.yml
+registry.path:*\\Microsoft\\Windows\\CurrentVersion\\Policies\\System\\EnableLUA* AND winlog.event_data.Details:"DWORD \(0x00000000\)"

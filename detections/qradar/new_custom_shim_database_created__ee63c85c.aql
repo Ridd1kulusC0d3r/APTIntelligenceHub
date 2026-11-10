@@ -1,0 +1,2 @@
+-- New Custom Shim Database Created | T1547.009 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_creation_new_shim_database.yml
+SELECT * FROM events WHERE devicetype=12 AND (LOWER(Filename) LIKE '%:\windows\apppatch\custom\%' OR LOWER(Filename) LIKE '%:\windows\apppatch\customsdb\%')

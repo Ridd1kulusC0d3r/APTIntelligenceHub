@@ -1,0 +1,2 @@
+# WMI Backdoor Exchange Transport Agent | T1546.003 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wmi_backdoor_exchange_transport_agent.yml
+source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=1 ParentImage="*\\EdgeTransport.exe" NOT (Image="C:\\Windows\\System32\\conhost.exe" OR (Image="C:\\Program Files\\Microsoft\\Exchange Server\\*" Image="*\\Bin\\OleConverter.exe"))

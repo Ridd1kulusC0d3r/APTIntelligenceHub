@@ -1,0 +1,2 @@
+-- Suspicious Mount-DiskImage | T1553.005 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/powershell/powershell_script/posh_ps_susp_mount_diskimage.yml
+SELECT * FROM events WHERE devicetype=12 AND LOWER(Message) LIKE '%mount-diskimage %' AND LOWER(Message) LIKE '%-imagepath %'

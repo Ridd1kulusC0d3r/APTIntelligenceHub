@@ -1,0 +1,18 @@
+// Device Installation Blocked | T1200 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_device_installation_blocked.yml
+EventID:6423
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "EventID:6423",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

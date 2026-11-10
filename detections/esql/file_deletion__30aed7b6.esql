@@ -1,0 +1,2 @@
+// File Deletion | T1070.004 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_file_deletion.yml
+from * metadata _id, _index, _version | where ends_with(Image, "/rm") or ends_with(Image, "/shred") or ends_with(Image, "/unlink")

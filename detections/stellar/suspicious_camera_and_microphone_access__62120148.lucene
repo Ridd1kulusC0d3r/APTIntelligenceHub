@@ -1,0 +1,18 @@
+// Suspicious Camera and Microphone Access | T1123, T1125 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/registry_event_susp_mic_cam_access.yml
+(TargetObject:*\\Software\\Microsoft\\Windows\\CurrentVersion\\CapabilityAccessManager\\ConsentStore\\* AND TargetObject:*\\NonPackaged*) AND (TargetObject:(*microphone* OR *webcam*)) AND (TargetObject:(*\:#Windows#Temp#* OR *\:#$Recycle.bin#* OR *\:#Temp#* OR *\:#Users#Public#* OR *\:#Users#Default#* OR *\:#Users#Desktop#*))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(TargetObject:*\\\\Software\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\CapabilityAccessManager\\\\ConsentStore\\\\* AND TargetObject:*\\\\NonPackaged*) AND (TargetObject:(*microphone* OR *webcam*)) AND (TargetObject:(*\\:#Windows#Temp#* OR *\\:#$Recycle.bin#* OR *\\:#Temp#* OR *\\:#Users#Public#* OR *\\:#Users#Default#* OR *\\:#Users#Desktop#*))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

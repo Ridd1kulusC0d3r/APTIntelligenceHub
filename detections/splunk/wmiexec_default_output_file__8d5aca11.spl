@@ -1,0 +1,9 @@
+# Wmiexec Default Output File | T1047 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_wmiexec_default_filename.yml
+source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=11
+| rex field=TargetFilename "(?<TargetFilenameMatch>\\\\Windows\\\\__1\\d{9}\\.\\d{1,7}$)"
+| eval TargetFilenameCondition=if(isnotnull(TargetFilenameMatch), "true", "false")
+| rex field=TargetFilename "(?<TargetFilenameMatch2>C:\\\\__1\\d{9}\\.\\d{1,7}$)"
+| eval TargetFilenameCondition2=if(isnotnull(TargetFilenameMatch2), "true", "false")
+| rex field=TargetFilename "(?<TargetFilenameMatch3>D:\\\\__1\\d{9}\\.\\d{1,7}$)"
+| eval TargetFilenameCondition3=if(isnotnull(TargetFilenameMatch3), "true", "false")
+| search (TargetFilenameCondition="true" OR TargetFilenameCondition2="true" OR TargetFilenameCondition3="true")

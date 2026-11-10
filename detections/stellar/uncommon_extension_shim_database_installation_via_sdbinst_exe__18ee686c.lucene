@@ -1,0 +1,18 @@
+// Uncommon Extension Shim Database Installation Via Sdbinst.EXE | T1546.011 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sdbinst_susp_extension.yml
+(Image:*\\sdbinst.exe OR OriginalFileName:sdbinst.exe) AND (NOT (CommandLine:*.sdb* OR ((CommandLine:(*\ \-c OR *\ \-f OR *\ \-mm OR *\ \-t)) OR CommandLine:*\ \-m\ \-bg*) OR (NOT _exists_:CommandLine) OR CommandLine:""))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(Image:*\\\\sdbinst.exe OR OriginalFileName:sdbinst.exe) AND (NOT (CommandLine:*.sdb* OR ((CommandLine:(*\\ \\-c OR *\\ \\-f OR *\\ \\-mm OR *\\ \\-t)) OR CommandLine:*\\ \\-m\\ \\-bg*) OR (NOT _exists_:CommandLine) OR CommandLine:\"\"))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

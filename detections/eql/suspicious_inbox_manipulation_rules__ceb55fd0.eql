@@ -1,0 +1,2 @@
+// Suspicious Inbox Manipulation Rules | T1140 | https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/azure/identity_protection/azure_identity_protection_inbox_manipulation.yml
+any where riskEventType:"mcasSuspiciousInboxManipulationRules"

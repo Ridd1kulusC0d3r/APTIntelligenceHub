@@ -1,0 +1,18 @@
+// File Explorer Folder Opened Using Explorer Folder Shortcut Via Shell | T1135 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_explorer_folder_shortcut_via_shell_binary.yml
+(ParentImage:(*\\cmd.exe OR *\\powershell.exe OR *\\pwsh.exe)) AND Image:*\\explorer.exe AND CommandLine:*shell\:mycomputerfolder*
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(ParentImage:(*\\\\cmd.exe OR *\\\\powershell.exe OR *\\\\pwsh.exe)) AND Image:*\\\\explorer.exe AND CommandLine:*shell\\:mycomputerfolder*",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,18 @@
+// Space After Filename - macOS | T1036.006 | https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_space_after_filename.yml
+CommandLine:*\  OR Image:*\ 
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "CommandLine:*\\  OR Image:*\\ ",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

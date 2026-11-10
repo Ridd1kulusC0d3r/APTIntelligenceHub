@@ -1,0 +1,18 @@
+// Defrag Deactivation | T1053.005 | https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2018/TA/Slingshot/proc_creation_win_apt_slingshot.yml
+Image:*\\schtasks.exe AND (CommandLine:(*\/delete* OR *\/change*)) AND (CommandLine:*\/TN* AND CommandLine:*\\Microsoft\\Windows\\Defrag\\ScheduledDefrag*)
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "Image:*\\\\schtasks.exe AND (CommandLine:(*\\/delete* OR *\\/change*)) AND (CommandLine:*\\/TN* AND CommandLine:*\\\\Microsoft\\\\Windows\\\\Defrag\\\\ScheduledDefrag*)",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

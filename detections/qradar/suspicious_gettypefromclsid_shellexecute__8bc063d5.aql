@@ -1,0 +1,2 @@
+-- Suspicious GetTypeFromCLSID ShellExecute | T1546.015 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/powershell/powershell_script/posh_ps_susp_gettypefromclsid.yml
+SELECT * FROM events WHERE devicetype=12 AND LOWER(Message) LIKE '%::gettypefromclsid(%' AND LOWER(Message) LIKE '%.shellexecute(%'

@@ -1,0 +1,2 @@
+-- Communication To LocaltoNet Tunneling Service Initiated - Linux | T1090, T1102, T1572 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/network_connection/net_connection_lnx_domain_localtonet_tunnel.yml
+SELECT * FROM events WHERE devicetype=11 AND (LOWER("Destination Hostname") LIKE '%.localto.net' OR LOWER("Destination Hostname") LIKE '%.localtonet.com') AND Initiated='true'

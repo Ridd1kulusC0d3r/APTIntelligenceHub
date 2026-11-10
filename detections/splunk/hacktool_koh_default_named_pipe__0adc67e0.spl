@@ -1,0 +1,2 @@
+# HackTool - Koh Default Named Pipe | T1134.001, T1528 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/pipe_created/pipe_created_hktl_koh_default_pipe.yml
+source="WinEventLog:Microsoft-Windows-Sysmon/Operational" (EventCode IN (17, 18)) (PipeName IN ("*\\imposecost*", "*\\imposingcost*"))

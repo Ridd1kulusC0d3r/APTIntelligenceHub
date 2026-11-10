@@ -1,0 +1,18 @@
+// AWS CloudTrail Important Change | T1685.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/aws/cloudtrail/aws_cloudtrail_disable_logging.yml
+eventSource:cloudtrail.amazonaws.com AND (eventName:(StopLogging OR UpdateTrail OR DeleteTrail))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "eventSource:cloudtrail.amazonaws.com AND (eventName:(StopLogging OR UpdateTrail OR DeleteTrail))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

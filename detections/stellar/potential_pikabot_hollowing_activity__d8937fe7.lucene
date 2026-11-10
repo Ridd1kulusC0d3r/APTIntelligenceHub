@@ -1,0 +1,18 @@
+// Potential Pikabot Hollowing Activity | T1055.012 | https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/Malware/Pikabot/proc_creation_win_malware_pikabot_rundll32_hollowing.yml
+(ParentImage:*\\rundll32.exe AND (Image:(*\\SearchFilterHost.exe OR *\\SearchProtocolHost.exe OR *\\sndvol.exe OR *\\wermgr.exe OR *\\wwahost.exe))) AND (NOT (Image:*\\sndvol.exe AND ParentCommandLine:*mmsys.cpl*))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(ParentImage:*\\\\rundll32.exe AND (Image:(*\\\\SearchFilterHost.exe OR *\\\\SearchProtocolHost.exe OR *\\\\sndvol.exe OR *\\\\wermgr.exe OR *\\\\wwahost.exe))) AND (NOT (Image:*\\\\sndvol.exe AND ParentCommandLine:*mmsys.cpl*))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

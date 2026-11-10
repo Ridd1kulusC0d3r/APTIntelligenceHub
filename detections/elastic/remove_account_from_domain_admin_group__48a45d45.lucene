@@ -1,0 +1,2 @@
+// Remove Account From Domain Admin Group | T1531 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/powershell/powershell_script/posh_ps_susp_remove_adgroupmember.yml
+powershell.file.script_block_text:*Remove\-ADGroupMember* AND powershell.file.script_block_text:*\-Identity\ * AND powershell.file.script_block_text:*\-Members\ *

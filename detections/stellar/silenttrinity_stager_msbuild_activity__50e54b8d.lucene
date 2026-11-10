@@ -1,0 +1,18 @@
+// Silenttrinity Stager Msbuild Activity | T1127.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_silenttrinity_stager_msbuild_activity.yml
+Image:*\\msbuild.exe AND ((DestinationPort:(80 OR 443)) AND Initiated:true)
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "Image:*\\\\msbuild.exe AND ((DestinationPort:(80 OR 443)) AND Initiated:true)",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

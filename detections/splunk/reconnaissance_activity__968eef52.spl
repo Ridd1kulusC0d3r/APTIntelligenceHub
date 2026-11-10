@@ -1,0 +1,2 @@
+# Reconnaissance Activity | T1069.002, T1087.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_susp_net_recon_activity.yml
+source="WinEventLog:Security" EventCode=4661 AccessMask="0x2d" (ObjectType IN ("SAM_USER", "SAM_GROUP")) ObjectName="S-1-5-21-*" (ObjectName IN ("*-500", "*-512"))

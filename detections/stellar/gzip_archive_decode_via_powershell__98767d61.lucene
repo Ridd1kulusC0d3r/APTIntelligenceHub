@@ -1,0 +1,18 @@
+// Gzip Archive Decode Via PowerShell | T1132.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_decode_gzip.yml
+CommandLine:*GZipStream* AND CommandLine:*\:\:Decompress*
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "CommandLine:*GZipStream* AND CommandLine:*\\:\\:Decompress*",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

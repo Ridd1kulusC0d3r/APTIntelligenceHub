@@ -1,0 +1,18 @@
+// Suspicious Eventlog Clearing or Configuration Change Activity | T1685.001, T1685.005 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_eventlog_clear.yml
+(((Image:*\\wevtutil.exe OR OriginalFileName:wevtutil.exe) AND (CommandLine:(*clear\-log\ * OR *\ cl\ * OR *set\-log\ * OR *\ sl\ * OR *lfn\:*))) OR ((Image:(*\\powershell.exe OR *\\powershell_ise.exe OR *\\pwsh.exe)) AND ((CommandLine:(*Clear\-EventLog\ * OR *Remove\-EventLog\ * OR *Limit\-EventLog\ * OR *Clear\-WinEvent\ *)) OR (CommandLine:*Eventing.Reader.EventLogSession* AND CommandLine:*ClearLog*) OR (CommandLine:*Diagnostics.EventLog* AND CommandLine:*Clear*))) OR ((Image:(*\\powershell.exe OR *\\powershell_ise.exe OR *\\pwsh.exe OR *\\wmic.exe)) AND CommandLine:*ClearEventLog*)) AND (NOT ((ParentImage:(C\:\\Windows\\SysWOW64\\msiexec.exe OR C\:\\Windows\\System32\\msiexec.exe)) AND CommandLine:*\ sl\ *))
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(((Image:*\\\\wevtutil.exe OR OriginalFileName:wevtutil.exe) AND (CommandLine:(*clear\\-log\\ * OR *\\ cl\\ * OR *set\\-log\\ * OR *\\ sl\\ * OR *lfn\\:*))) OR ((Image:(*\\\\powershell.exe OR *\\\\powershell_ise.exe OR *\\\\pwsh.exe)) AND ((CommandLine:(*Clear\\-EventLog\\ * OR *Remove\\-EventLog\\ * OR *Limit\\-EventLog\\ * OR *Clear\\-WinEvent\\ *)) OR (CommandLine:*Eventing.Reader.EventLogSession* AND CommandLine:*ClearLog*) OR (CommandLine:*Diagnostics.EventLog* AND CommandLine:*Clear*))) OR ((Image:(*\\\\powershell.exe OR *\\\\powershell_ise.exe OR *\\\\pwsh.exe OR *\\\\wmic.exe)) AND CommandLine:*ClearEventLog*)) AND (NOT ((ParentImage:(C\\:\\\\Windows\\\\SysWOW64\\\\msiexec.exe OR C\\:\\\\Windows\\\\System32\\\\msiexec.exe)) AND CommandLine:*\\ sl\\ *))",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

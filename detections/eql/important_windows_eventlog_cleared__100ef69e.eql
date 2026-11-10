@@ -1,0 +1,2 @@
+// Important Windows Eventlog Cleared | T1685.005 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/system/microsoft_windows_eventlog/win_system_susp_eventlog_cleared.yml
+any where winlog.channel:"System" and (event.code:"104" and winlog.provider_name:"Microsoft-Windows-Eventlog" and (winlog.channel like~ ("Microsoft-Windows-PowerShell/Operational", "Microsoft-Windows-Sysmon/Operational", "PowerShellCore/Operational", "Security", "System", "Windows PowerShell")))

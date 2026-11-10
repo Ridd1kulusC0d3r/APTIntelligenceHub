@@ -1,0 +1,2 @@
+-- Azure AD Only Single Factor Authentication Required | T1078.004, T1556.006 | https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/azure/signin_logs/azure_ad_only_single_factor_auth_required.yml | NOTA: fallback QRadarAQL_payload_pipeline: campos sem propriedade DSM mapeada são buscados em UTF8(payload) – custo maior, crie custom properties
+SELECT * FROM events WHERE Status='Success' AND LOWER(UTF8(payload)) LIKE '%singlefactorauthentication%'

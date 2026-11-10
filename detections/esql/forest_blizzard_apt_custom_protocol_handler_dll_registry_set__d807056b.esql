@@ -1,0 +1,2 @@
+// Forest Blizzard APT - Custom Protocol Handler DLL Registry Set | T1547.001 | https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2024/TA/Forest-Blizzard/registry_set_apt_forest_blizzard_custom_protocol_handler_dll.yml
+from * metadata _id, _index, _version | where registry.path like "*\\CLSID\\{026CC6D7-34B2-33D5-B551-CA31EB6CE345}\\Server*" and ends_with(winlog.event_data.Details, ".dll")

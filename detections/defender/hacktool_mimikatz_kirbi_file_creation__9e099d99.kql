@@ -1,0 +1,3 @@
+// HackTool - Mimikatz Kirbi File Creation | T1558 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_hktl_mimikatz_files.yml
+DeviceFileEvents
+| where FolderPath endswith ".kirbi" or FolderPath endswith "mimilsa.log"

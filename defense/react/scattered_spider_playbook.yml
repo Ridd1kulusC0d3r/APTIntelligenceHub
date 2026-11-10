@@ -1,0 +1,171 @@
+title: RP_custom_scattered_spider
+id: RP9366
+description: >
+  Playbook gerado (heurístico) a partir das técnicas ATT&CK de Scattered Spider. Revisar antes do uso.
+author: APT Threat Map
+creation_date: 2026/11/10
+severity: H
+tlp: AMBER
+pap: AMBER
+tags:
+  - attack.t1003.003
+  - attack.t1006
+  - attack.t1016
+  - attack.t1018
+  - attack.t1021.001
+  - attack.t1021.004
+  - attack.t1021.007
+  - attack.t1041
+  - attack.t1059.001
+  - attack.t1059.004
+  - attack.t1068
+  - attack.t1069
+  - attack.t1069.002
+  - attack.t1070.008
+  - attack.t1074
+  - attack.t1078
+  - attack.t1078.004
+  - attack.t1082
+  - attack.t1083
+  - attack.t1087
+  - attack.t1087.002
+  - attack.t1090
+  - attack.t1098
+  - attack.t1098.003
+  - attack.t1105
+  - attack.t1114
+  - attack.t1114.003
+  - attack.t1133
+  - attack.t1136
+  - attack.t1204
+  - attack.t1213.003
+  - attack.t1213.005
+  - attack.t1217
+  - attack.t1219.002
+  - attack.t1484.002
+  - attack.t1486
+  - attack.t1490
+  - attack.t1530
+  - attack.t1538
+  - attack.t1539
+  - attack.t1543.002
+  - attack.t1552.001
+  - attack.t1552.004
+  - attack.t1553.002
+  - attack.t1555.005
+  - attack.t1556.006
+  - attack.t1556.009
+  - attack.t1564.008
+  - attack.t1567.002
+  - attack.t1572
+  - attack.t1578.002
+  - attack.t1580
+  - attack.t1583.001
+  - attack.t1585.001
+  - attack.t1588.001
+  - attack.t1588.002
+  - attack.t1589
+  - attack.t1598
+  - attack.t1598.003
+  - attack.t1598.004
+  - attack.t1621
+  - attack.t1657
+  - attack.t1684.001
+  - attack.t1685
+identification:
+  - RA2001  # List victims of security alert
+  - RA2002  # List host vulnerabilities
+  - RA2003  # Put compromised accounts on monitoring
+  - RA2101  # List hosts communicated with internal domain
+  - RA2102  # List hosts communicated with internal ip
+  - RA2104  # Analyse domain name
+  - RA2105  # Analyse IP
+  - RA2106  # Analyse uri
+  - RA2107  # List hosts communicated by port
+  - RA2109  # List hosts connected to intranet
+  - RA2110  # List data transferred
+  - RA2111  # Collect transferred data
+  - RA2112  # Identify transferred data
+  - RA2113  # List hosts communicated with external domain
+  - RA2114  # List hosts communicated with external ip
+  - RA2115  # List hosts communicated with external url
+  - RA2116  # Find data transferred by content pattern
+  - RA2117  # Analyse user-agent
+  - RA2201  # List users opened email message
+  - RA2202  # Collect email message
+  - RA2203  # List email message receivers
+  - RA2204  # Make sure email message is phishing
+  - RA2205  # Extract observables from email message
+  - RA2206  # Analyse email address
+  - RA2301  # List files created
+  - RA2302  # List files modified
+  - RA2303  # List files deleted
+  - RA2304  # List files downloaded
+  - RA2306  # Find file by path
+  - RA2307  # Find file by metadata
+  - RA2308  # Find file by hash
+  - RA2310  # Find file by content pattern
+  - RA2311  # Collect file
+  - RA2312  # Analyse file hash
+  - RA2313  # Analyse windows pe
+  - RA2318  # Analyse script
+  - RA2401  # List processes executed
+  - RA2402  # Find process by executable path
+  - RA2403  # Find process by executable metadata
+  - RA2404  # Find process by executable hash
+  - RA2406  # Find process by executable content pattern
+  - RA2501  # List registry keys modified
+  - RA2504  # List registry keys created
+  - RA2505  # List services created
+  - RA2506  # List services modified
+  - RA2507  # List services deleted
+  - RA2508  # Analyse registry key
+  - RA2601  # List users authenticated
+  - RA2602  # List user accounts
+containment:
+  - RA3001  # Patch vulnerability
+  - RA3101  # Block external ip address
+  - RA3102  # Block internal ip address
+  - RA3103  # Block external domain
+  - RA3105  # Block external url
+  - RA3108  # Block port internal communication
+  - RA3109  # Block user external communication
+  - RA3110  # Block user internal communication
+  - RA3111  # Block data transferring by content pattern
+  - RA3201  # Block domain on email
+  - RA3202  # Block sender on email
+  - RA3203  # Quarantine email message
+  - RA3302  # Quarantine file by hash
+  - RA3303  # Quarantine file by path
+  - RA3304  # Quarantine file by content pattern
+  - RA3401  # Block process by executable path
+  - RA3402  # Block process by executable metadata
+  - RA3403  # Block process by executable hash
+  - RA3405  # Block process by executable content pattern
+  - RA3501  # Disable system service
+  - RA3601  # Lock user account
+eradication:
+  - RA4201  # Delete email message
+  - RA4301  # Remove file
+  - RA4501  # Remove registry key
+  - RA4502  # Remove service
+  - RA4601  # Revoke authentication credentials
+  - RA4602  # Remove user account
+recovery:
+  - RA5001  # Reinstall host from golden image
+  - RA5002  # Restore data from backup
+  - RA5101  # Unblock blocked ip
+  - RA5102  # Unblock blocked domain
+  - RA5103  # Unblock blocked url
+  - RA5104  # Unblock blocked port
+  - RA5105  # Unblock blocked user
+  - RA5201  # Unblock domain on email
+  - RA5202  # Unblock sender on email
+  - RA5203  # Restore quarantined email message
+  - RA5301  # Restore quarantined file
+  - RA5401  # Unblock blocked process
+  - RA5501  # Enable disabled service
+  - RA5601  # Unlock locked user account
+lessons_learned:
+  - RA6001
+  - RA6002

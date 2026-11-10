@@ -1,0 +1,18 @@
+// HackTool - SecurityXploded Execution | T1555 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_secutyxploded.yml
+Company:SecurityXploded OR Image:*PasswordDump.exe OR OriginalFileName:*PasswordDump.exe
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "Company:SecurityXploded OR Image:*PasswordDump.exe OR OriginalFileName:*PasswordDump.exe",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

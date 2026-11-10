@@ -1,0 +1,2 @@
+// Potential Secure Deletion with SDelete | T1027.005, T1070.004, T1485, T1553.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_sdelete_potential_secure_deletion.yml
+winlog.channel:Security AND ((event.code:(4656 OR 4663 OR 4658)) AND (winlog.event_data.ObjectName:(*.AAA OR *.ZZZ)))

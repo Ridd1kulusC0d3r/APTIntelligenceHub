@@ -1,0 +1,3 @@
+// Suspicious RDP Redirect Using TSCON | T1021.001, T1563.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_tscon_rdp_redirect.yml
+DeviceProcessEvents
+| where ProcessCommandLine contains " /dest:rdp-tcp#"

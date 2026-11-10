@@ -1,0 +1,2 @@
+# System and Hardware Information Discovery | T1082 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/path/lnx_auditd_system_info_discovery2.yml
+type="PATH" (name IN ("/sys/class/dmi/id/bios_version", "/sys/class/dmi/id/product_name", "/sys/class/dmi/id/chassis_vendor", "/proc/scsi/scsi", "/proc/ide/hd0/model", "/proc/version", "/etc/*version", "/etc/*release", "/etc/issue"))

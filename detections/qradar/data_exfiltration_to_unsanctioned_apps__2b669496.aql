@@ -1,0 +1,2 @@
+-- Data Exfiltration to Unsanctioned Apps | T1537 | https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/m365/threat_management/microsoft365_data_exfiltration_to_unsanctioned_app.yml | NOTA: fallback QRadarAQL_payload_pipeline: campos sem propriedade DSM mapeada são buscados em UTF8(payload) – custo maior, crie custom properties
+SELECT * FROM events WHERE devicetype IN(443, 397) AND QIDNAME(qid)='Data exfiltration to unsanctioned apps' AND LOWER(UTF8(payload)) LIKE '%success%'

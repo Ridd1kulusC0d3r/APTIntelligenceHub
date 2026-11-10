@@ -1,0 +1,2 @@
+// PowerShell Script Change Permission Via Set-Acl - PsScript | T1222 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/powershell/powershell_script/posh_ps_set_acl.yml
+powershell.file.script_block_text:*Set\-Acl\ * AND powershell.file.script_block_text:*\-AclObject\ * AND powershell.file.script_block_text:*\-Path\ *

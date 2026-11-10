@@ -1,0 +1,18 @@
+// Suspicious RDP Redirect Using TSCON | T1021.001, T1563.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_tscon_rdp_redirect.yml
+CommandLine:*\ \/dest\:rdp\-tcp#*
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "CommandLine:*\\ \\/dest\\:rdp\\-tcp#*",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

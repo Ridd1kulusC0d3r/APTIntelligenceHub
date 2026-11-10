@@ -1,0 +1,18 @@
+// Suspicious Connection to Remote Account | T1110.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/powershell/powershell_script/posh_ps_susp_networkcredential.yml
+ScriptBlockText:(*System.DirectoryServices.Protocols.LdapDirectoryIdentifier* OR *System.Net.NetworkCredential* OR *System.DirectoryServices.Protocols.LdapConnection*)
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "ScriptBlockText:(*System.DirectoryServices.Protocols.LdapDirectoryIdentifier* OR *System.Net.NetworkCredential* OR *System.DirectoryServices.Protocols.LdapConnection*)",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

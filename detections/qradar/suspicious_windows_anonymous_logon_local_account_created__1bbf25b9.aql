@@ -1,0 +1,2 @@
+-- Suspicious Windows ANONYMOUS LOGON Local Account Created | T1136.001, T1136.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_susp_local_anon_logon_created.yml
+SELECT * FROM events WHERE devicetype=12 AND "Event ID"=4720 AND (LOWER("SAM Account Name") LIKE '%anonymous%' AND LOWER("SAM Account Name") LIKE '%logon%')

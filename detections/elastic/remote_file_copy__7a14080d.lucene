@@ -1,0 +1,2 @@
+// Remote File Copy | T1105 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/builtin/lnx_file_copy.yml
+(*scp\ * OR *rsync\ * OR *sftp\ *) AND (*@* OR *\:*)

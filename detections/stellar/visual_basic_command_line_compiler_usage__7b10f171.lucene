@@ -1,0 +1,18 @@
+// Visual Basic Command Line Compiler Usage | T1027.004 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_visual_basic_compiler.yml
+ParentImage:*\\vbc.exe AND Image:*\\cvtres.exe
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "ParentImage:*\\\\vbc.exe AND Image:*\\\\cvtres.exe",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

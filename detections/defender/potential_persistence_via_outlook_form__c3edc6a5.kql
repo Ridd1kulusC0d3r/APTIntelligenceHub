@@ -1,0 +1,3 @@
+// Potential Persistence Via Outlook Form | T1137.003 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_office_outlook_newform.yml
+DeviceFileEvents
+| where InitiatingProcessFolderPath endswith "\\outlook.exe" and (FolderPath contains "\\AppData\\Local\\Microsoft\\FORMS\\IPM" or FolderPath contains "\\Local Settings\\Application Data\\Microsoft\\Forms")

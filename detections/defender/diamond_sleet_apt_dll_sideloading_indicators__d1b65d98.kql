@@ -1,0 +1,3 @@
+// Diamond Sleet APT DLL Sideloading Indicators | T1574.001 | https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/Diamond-Sleet/image_load_apt_diamond_sleet_side_load.yml
+DeviceImageLoadEvents
+| where (InitiatingProcessFolderPath endswith ":\\ProgramData\\clip.exe" and FolderPath endswith ":\\ProgramData\\Version.dll") or (InitiatingProcessFolderPath endswith ":\\ProgramData\\wsmprovhost.exe" and FolderPath endswith ":\\ProgramData\\DSROLE.dll")

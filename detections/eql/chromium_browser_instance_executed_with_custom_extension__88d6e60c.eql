@@ -1,0 +1,2 @@
+// Chromium Browser Instance Executed With Custom Extension | T1176.001 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_browsers_chromium_load_extension.yml
+any where (process.executable.caseless like~ ("*\\brave.exe", "*\\chrome.exe", "*\\msedge.exe", "*\\opera.exe", "*\\vivaldi.exe")) and process.command_line:"*--load-extension=*"

@@ -1,0 +1,2 @@
+-- Potential Bucket Enumeration on AWS | T1580, T1619 | https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/aws/cloudtrail/aws_enum_buckets.yml | NOTA: fallback QRadarAQL_payload_pipeline: campos sem propriedade DSM mapeada são buscados em UTF8(payload) – custo maior, crie custom properties
+SELECT * FROM events WHERE devicetype IN(516, 519, 456, 460, 501, 502, 507, 440, 347) AND QIDNAME(qid)='ListBuckets' AND (NOT(LOWER(UTF8(payload)) LIKE '%assumedrole%'))

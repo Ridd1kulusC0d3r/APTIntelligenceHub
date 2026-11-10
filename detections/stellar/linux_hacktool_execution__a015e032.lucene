@@ -1,0 +1,18 @@
+// Linux HackTool Execution | T1587 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_susp_hktl_execution.yml
+(Image:(*\/crackmapexec OR *\/havoc OR *\/merlin\-agent OR *\/merlinServer\-Linux\-x64 OR *\/msfconsole OR *\/msfvenom OR *\/ps\-empire\ server OR *\/ps\-empire OR *\/sliver\-client OR *\/sliver\-server OR *\/Villain.py)) OR (Image:(*\/cobaltstrike* OR *\/teamserver*)) OR (Image:(*\/autorecon OR *\/httpx OR *\/legion OR *\/naabu OR *\/netdiscover OR *\/nuclei OR *\/recon\-ng)) OR Image:*\/sniper* OR (Image:(*\/dirb OR *\/dirbuster OR *\/eyewitness OR *\/feroxbuster OR *\/ffuf OR *\/gobuster OR *\/wfuzz OR *\/whatweb)) OR (Image:(*\/joomscan OR *\/nikto OR *\/wpscan)) OR (Image:(*\/aircrack\-ng OR *\/bloodhound\-python OR *\/bpfdos OR *\/ebpfki OR *\/evil\-winrm OR *\/hashcat OR *\/hoaxshell.py OR *\/hydra OR *\/john OR *\/ncrack OR *\/nxc\-ubuntu\-latest OR *\/pidhide OR *\/pspy32 OR *\/pspy32s OR *\/pspy64 OR *\/pspy64s OR *\/setoolkit OR *\/sqlmap OR *\/writeblocker)) OR Image:*\/linpeas*
+
+// Stellar Cyber Query Builder (DSL):
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(Image:(*\\/crackmapexec OR *\\/havoc OR *\\/merlin\\-agent OR *\\/merlinServer\\-Linux\\-x64 OR *\\/msfconsole OR *\\/msfvenom OR *\\/ps\\-empire\\ server OR *\\/ps\\-empire OR *\\/sliver\\-client OR *\\/sliver\\-server OR *\\/Villain.py)) OR (Image:(*\\/cobaltstrike* OR *\\/teamserver*)) OR (Image:(*\\/autorecon OR *\\/httpx OR *\\/legion OR *\\/naabu OR *\\/netdiscover OR *\\/nuclei OR *\\/recon\\-ng)) OR Image:*\\/sniper* OR (Image:(*\\/dirb OR *\\/dirbuster OR *\\/eyewitness OR *\\/feroxbuster OR *\\/ffuf OR *\\/gobuster OR *\\/wfuzz OR *\\/whatweb)) OR (Image:(*\\/joomscan OR *\\/nikto OR *\\/wpscan)) OR (Image:(*\\/aircrack\\-ng OR *\\/bloodhound\\-python OR *\\/bpfdos OR *\\/ebpfki OR *\\/evil\\-winrm OR *\\/hashcat OR *\\/hoaxshell.py OR *\\/hydra OR *\\/john OR *\\/ncrack OR *\\/nxc\\-ubuntu\\-latest OR *\\/pidhide OR *\\/pspy32 OR *\\/pspy32s OR *\\/pspy64 OR *\\/pspy64s OR *\\/setoolkit OR *\\/sqlmap OR *\\/writeblocker)) OR Image:*\\/linpeas*",
+            "analyze_wildcard": true
+          }
+        }
+      ]
+    }
+  }
+}

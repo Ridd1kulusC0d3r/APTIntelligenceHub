@@ -1,0 +1,2 @@
+-- Powershell DNSExfiltration | T1048 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/powershell/powershell_script/posh_ps_invoke_dnsexfiltration.yml
+SELECT * FROM events WHERE devicetype=12 AND (LOWER(Message) LIKE '%invoke-dnsexfiltrator%' OR (LOWER(Message) LIKE '% -i %' AND LOWER(Message) LIKE '% -d %' AND LOWER(Message) LIKE '% -p %' AND LOWER(Message) LIKE '% -doh %' AND LOWER(Message) LIKE '% -t %'))

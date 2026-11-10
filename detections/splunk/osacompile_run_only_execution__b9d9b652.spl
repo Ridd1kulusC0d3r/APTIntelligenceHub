@@ -1,0 +1,2 @@
+# OSACompile Run-Only Execution | T1059.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_osacompile_runonly_execution.yml
+CommandLine="*osacompile*" CommandLine="* -x *" CommandLine="* -e *"

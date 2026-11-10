@@ -1,0 +1,3 @@
+// Remote Access Tool - Anydesk Execution From Suspicious Folder | T1219.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_remote_access_tools_anydesk_susp_exec.yml
+DeviceProcessEvents
+| where ((FolderPath endswith "\\AnyDesk.exe" or FolderPath endswith "\\AnyDeskMSI.exe") or ProcessVersionInfoFileDescription =~ "AnyDesk" or ProcessVersionInfoProductName =~ "AnyDesk" or ProcessVersionInfoCompanyName =~ "AnyDesk Software GmbH") and (not((FolderPath contains "\\AppData\\" or FolderPath contains "Program Files (x86)\\AnyDesk" or FolderPath contains "Program Files\\AnyDesk")))

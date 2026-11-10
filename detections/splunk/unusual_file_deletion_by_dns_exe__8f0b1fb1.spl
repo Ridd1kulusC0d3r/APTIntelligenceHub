@@ -1,0 +1,2 @@
+# Unusual File Deletion by Dns.exe | T1133 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_delete/file_delete_win_unusual_deletion_by_dns_exe.yml
+source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=23 Image="*\\dns.exe" NOT TargetFilename="*\\dns.log"

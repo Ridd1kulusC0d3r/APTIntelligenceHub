@@ -1,0 +1,3 @@
+// Linux Recon Indicators | T1552.001, T1592.004 | https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_susp_recon_indicators.yml
+DeviceProcessEvents
+| where ProcessCommandLine contains " -name .htpasswd" or ProcessCommandLine contains " -perm -4000 "

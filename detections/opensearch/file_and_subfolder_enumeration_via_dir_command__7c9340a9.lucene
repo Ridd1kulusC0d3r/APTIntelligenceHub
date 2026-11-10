@@ -1,0 +1,2 @@
+// File And SubFolder Enumeration Via Dir Command | T1217 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_cmd_dir_execution.yml
+((process.executable.caseless:*\\cmd.exe OR process.pe.original_file_name:Cmd.Exe) AND (process.command_line:(*\-s* OR *\/s* OR *–s* OR *—s* OR *―s*) AND process.command_line:*dir\ *)) AND (NOT process.command_line:*rmdir*)

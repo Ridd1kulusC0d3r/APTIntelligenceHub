@@ -1,0 +1,2 @@
+// Suspicious Desktopimgdownldr Target File | T1105 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_susp_desktopimgdownldr_file.yml
+from * metadata _id, _index, _version | where ends_with(process.executable.caseless, "\\svchost.exe") and file.path like "*\\Personalization\\LockScreenImage\\*" and not file.path like "*C:\\Windows\\*" and not (file.path like "*.jpg*" or file.path like "*.jpeg*" or file.path like "*.png*")

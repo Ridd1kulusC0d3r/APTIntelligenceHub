@@ -1,0 +1,2 @@
+// Suspicious Microsoft Office Child Process - MacOS | T1059.002, T1137.002, T1204.002 | https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_office_susp_child_processes.yml
+(ParentImage:(*Microsoft\ Word* OR *Microsoft\ Excel* OR *Microsoft\ PowerPoint* OR *Microsoft\ OneNote*)) AND (Image:(*\/bash OR *\/curl OR *\/dash OR *\/fish OR *\/osacompile OR *\/osascript OR *\/sh OR *\/zsh OR *\/python OR *\/python3 OR *\/wget))

@@ -1,0 +1,2 @@
+-- DNS Query Request To OneLaunch Update Service | T1056 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/dns_query/dns_query_win_onelaunch_update_service.yml | NOTA: fallback QRadarAQL_payload_pipeline: campos sem propriedade DSM mapeada são buscados em UTF8(payload) – custo maior, crie custom properties
+SELECT * FROM events WHERE devicetype=12 AND LOWER(UTF8(payload)) LIKE '%update.onelaunch.com%' AND (LOWER("Process Path") LIKE '%\onelaunch.exe' OR LOWER("Process Name") LIKE '%\onelaunch.exe')

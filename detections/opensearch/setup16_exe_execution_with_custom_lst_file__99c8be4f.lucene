@@ -1,0 +1,2 @@
+// Setup16.EXE Execution With Custom .Lst File | T1574.005 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_setup16_custom_lst_execution.yml
+(process.parent.executable.caseless:C\:\\Windows\\SysWOW64\\setup16.exe AND process.parent.command_line:*\ \-m\ *) AND (NOT process.executable.caseless:C\:\\\~MSSETUP.T\\*)

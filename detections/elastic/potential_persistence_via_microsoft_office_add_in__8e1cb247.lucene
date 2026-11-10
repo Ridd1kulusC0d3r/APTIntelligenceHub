@@ -1,0 +1,2 @@
+// Potential Persistence Via Microsoft Office Add-In | T1137.006 | https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_office_addin_persistence.yml
+(file.path:*\\Microsoft\\Word\\Startup\\* AND file.path:*.wll) OR (file.path:*\\Microsoft\\Excel\\Startup\\* AND file.path:*.xll) OR (file.path:*Microsoft\\Excel\\XLSTART\\* AND file.path:*.xlam) OR (file.path:*\\Microsoft\\Addins\\* AND (file.path:(*.xlam OR *.xla OR *.ppam)))
