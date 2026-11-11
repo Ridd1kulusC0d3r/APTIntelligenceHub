@@ -15,6 +15,21 @@ e detecções em **Sigma, Splunk, Elastic (Lucene/EQL/ES|QL), OpenSearch, QRadar
 | Regras Sigma × formatos | 866 × 9 |
 | Contramedidas D3FEND / ações RE&CT / regras ASR | 146 / 216 / 19 |
 
+## Demonstração
+Gravações reais da aplicação (tema escuro) — vídeos MP4 em [`assets/media/`](assets/media/).
+
+🎬 **Tour completo (≈50 s):** [`assets/media/apt-threat-map-tour.mp4`](assets/media/apt-threat-map-tour.mp4)
+
+| 🗺️ Mapa 2D — “Ameaças ao Brasil” | 🕸️ Grafo de relacionamentos |
+|---|---|
+| ![Mapa 2D](assets/media/map.gif) | ![Grafo](assets/media/graph.gif) |
+| **🔗 Traçagem grupo → defesa** | **🛡️ Detecções e 🧩 cobertura ATT&CK** |
+| ![Traçagem](assets/media/trace.gif) | ![Detecções](assets/media/detect.gif) |
+
+**🌗 Tema claro/escuro** (identidade visual LLMInjection): ![Tema](assets/media/theme.gif)
+
+Para regravar: `node pipeline/record_demo.js && bash pipeline/make_media.sh` (Playwright + ffmpeg).
+
 ## Funcionalidades
 - **🗺️ Mapa 2D** – coroplético origem/alvo, fluxos origem→alvo, painel por país (quem ataca, TTPs, cobertura), atalho “Ameaças ao Brasil”.
 - **🕸️ Relacionamentos** – grafo (grupo, país, setor, ferramenta, técnica) com 8 tipos de relação filtráveis, ego-rede N saltos, similaridade TTP.
@@ -26,6 +41,7 @@ e detecções em **Sigma, Splunk, Elastic (Lucene/EQL/ES|QL), OpenSearch, QRadar
 ## Estrutura
 ```
 index.html            # aplicação completa (offline, ~3,4 MB, dados gzip embutidos)
+assets/media/         # GIFs e vídeos de demonstração (MP4/GIF)
 data/                 # CSVs: grupos, matriz técnica→defesa, cadeia de traçagem, ferramentas IR
 detections/           # sigma/ splunk/ elastic/ eql/ esql/ opensearch/ qradar/ stellar/ defender/ + index.csv
 defense/              # dettect/ navigator/ react/
