@@ -1,15 +1,16 @@
 """Constrói a base de conhecimento final (kb.json) para o APT Threat Map:
 entidades normalizadas + técnica → {D3FEND, RE&CT, Defender (tabelas/ASR), mitigações, data components (DeTT&CT), regras multi-formato}."""
+from paths import BUILD, EXT, OUT, RAW, REPO  # diretórios configuráveis: ver pipeline/paths.py
 import json, glob, re, math, collections, yaml, os, sys
 import pycountry
-sys.path.insert(0, "/tmp/build")
+sys.path.insert(0, BUILD)
 from detections import PRIORITY
 
-D = json.load(open("/tmp/build/data2.json"))
-RI = json.load(open("/tmp/build/rules_index.json"))
+D = json.load(open(BUILD + "/data2.json"))
+RI = json.load(open(BUILD + "/rules_index.json"))
 CONV = {}
 for env in ("sys", "kusto", "qradar"):
-    for rid, v in json.load(open(f"/tmp/build/conv_{env}.json")).items():
+    for rid, v in json.load(open(f"{BUILD}/conv_{env}.json")).items():
         CONV.setdefault(rid, {}).update(v)
 ents, tech, soft = D["ents"], D["tech"], D["soft"]
 
@@ -143,7 +144,7 @@ for e in ents: e.setdefault("sim", [])
 
 # ------------------------------------------------------------------ D3FEND
 D3, d3_by_tech = {}, {}
-for f in glob.glob("/tmp/ext/d3f/*.json"):
+for f in glob.glob(EXT + "/d3f/*.json"):
     t = os.path.basename(f)[:-5]
     b = json.load(open(f))["off_to_def"]["results"]["bindings"]
     rows, seen = [], set()
@@ -161,7 +162,7 @@ D3_ORDER = {"Model": 0, "Harden": 1, "Detect": 2, "Isolate": 3, "Deceive": 4, "E
 
 # ------------------------------------------------------------------ RE&CT
 RA = {}
-for f in glob.glob("/tmp/ext/atc-react-master/response_actions/*.yml"):
+for f in glob.glob(EXT + "/atc-react-master/response_actions/*.yml"):
     y = yaml.safe_load(open(f))
     rid = y["id"]
     title = re.sub(r"^RA_\d+_", "", y["title"]).replace("_", " ")
@@ -360,9 +361,9 @@ for f in FMTS:
     CONVSTATS[f] = dict(ok=ok, fb=fb, err=len(RULES) - ok - fb)
 KB = dict(DC2MDE=DC2MDE, CONVSTATS=CONVSTATS, E=E, SRC=SRC_LIST, TOOLS=TOOLS_OUT, TK=TK, D3=D3, RA=RA, ASR=ASR, MIT=D["mit_names"], RULES=RULES, DET=DET,
           COUNTRIES=COUNTRIES, FACET_PREP=PREP, malware=D["malware"], sources_sheet=D["sources"], aptm_total=D["aptm_total"])
-json.dump(KB, open("/tmp/build/kb.json", "w"), ensure_ascii=False, separators=(",", ":"))
+json.dump(KB, open(BUILD + "/kb.json", "w"), ensure_ascii=False, separators=(",", ":"))
 print("ents", len(E), "tools", len(TOOLS_OUT), "(MITRE", sum(1 for t in TOOLS_OUT if t["s"]), ") techniques", len(TK), "D3", len(D3), "RA", len(RA),
-      "rules", len(RULES), "countries", len(COUNTRIES), "kb MB", round(os.path.getsize("/tmp/build/kb.json") / 1e6, 2))
+      "rules", len(RULES), "countries", len(COUNTRIES), "kb MB", round(os.path.getsize(BUILD + "/kb.json") / 1e6, 2))
 print("sim pairs", sum(len(e["sim"]) for e in E), "| ents com setor canônico", sum(1 for e in E if e["sec"]), "| com vítimas ISO", sum(1 for e in E if e["v"]),
       "| motivação", collections.Counter(m for e in E for m in e["mo"]))
 print("TK sem D3FEND", sum(1 for t in TK.values() if not t["d3"]), "| sem regra", sum(1 for t in TK.values() if not t["r"]), "| com ASR", sum(1 for t in TK.values() if t["asr"]))

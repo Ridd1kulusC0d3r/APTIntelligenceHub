@@ -1,5 +1,6 @@
+from paths import BUILD, EXT, OUT, RAW, REPO  # diretórios configuráveis: ver pipeline/paths.py
 import json, os, time, concurrent.futures as cf, urllib.request
-ea = json.load(open("/tmp/ea.json"))["objects"]
+ea = json.load(open(RAW + "/ea.json"))["objects"]
 objs = {o["id"]: o for o in ea if not o.get("revoked") and not o.get("x_mitre_deprecated")}
 def ext(o): return next((e["external_id"] for e in o.get("external_references", []) if e.get("source_name") == "mitre-attack"), None)
 tech = {i: ext(o) for i, o in objs.items() if o["type"] == "attack-pattern"}
@@ -18,7 +19,7 @@ used |= {t.split(".")[0] for t in used if t}
 used = sorted(t for t in used if t)
 print("techniques to fetch:", len(used))
 def get(t):
-    fn = f"/tmp/ext/d3f/{t}.json"
+    fn = f"{EXT}/d3f/{t}.json"
     if os.path.exists(fn) and os.path.getsize(fn) > 50: return t, "cached"
     for a in range(3):
         try:

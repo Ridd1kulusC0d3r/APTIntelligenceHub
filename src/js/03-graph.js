@@ -150,7 +150,7 @@ function drawGraph() {
     else c.arc(n.x, n.y, n.r, 0, 6.2832);
     c.fill();
     if (n === G.sel || n === G.hover) { c.lineWidth = 2 / t.k; c.strokeStyle = "#fff"; c.stroke(); }
-    if (n === G.focusNode) { c.beginPath(); c.arc(n.x, n.y, n.r + 5 / t.k, 0, 6.2832); c.lineWidth = 2 / t.k; c.strokeStyle = "#f5c542"; c.stroke(); }
+    if (n === G.focusNode) { c.beginPath(); c.arc(n.x, n.y, n.r + 5 / t.k, 0, 6.2832); c.lineWidth = 2 / t.k; c.strokeStyle = "#e8c25a"; c.stroke(); }
     else if (n.ty === "g") { c.lineWidth = 1 / t.k; c.strokeStyle = MCOL[E[+n.id.slice(2)].mo0] || "#0008"; c.stroke(); }
   }
   c.font = `${11 / Math.sqrt(t.k)}px Segoe UI, sans-serif`; c.textAlign = "center";
@@ -158,7 +158,7 @@ function drawGraph() {
   for (const n of G.nodes) {
     const show = lblMode === 2 || (lblMode === 1 && ((nb && nb.has(n.id)) || lblSet.has(n.id) || n.ty === "s" || (n.ty === "c" && n.deg > 2)));
     if (!show || (nb && !nb.has(n.id) && lblMode !== 2)) continue;
-    c.globalAlpha = 1; c.fillStyle = n.ty === "g" ? "#e6eeff" : n.ty === "k" ? "#d6c8ff" : n.ty === "t" ? "#ffd29a" : n.ty === "s" ? "#9ff3cd" : "#ffe08a";
+    c.globalAlpha = 1; c.fillStyle = n.ty === "g" ? "#eeebe2" : n.ty === "k" ? "#d9cfee" : n.ty === "t" ? "#f6d3a8" : n.ty === "s" ? "#a8e3c4" : "#f3dc9a";
     const lb = n.ty === "k" ? n.id.slice(2) : n.lb; c.fillText(lb.length > 28 ? lb.slice(0, 27) + "…" : lb, n.x, n.y - n.r - 3);
   }
   c.restore();
@@ -182,7 +182,7 @@ function nodeInfo(n) {
   if (ty === "c") h += `<button class="btn sm" onclick="countryPanel('${k}')">no mapa</button>`;
   if (ty === "t") h += `<button class="btn sm" onclick="setTool(${k})">filtrar grupos</button>`;
   h += `</div>`;
-  if (ty === "t") { const t = TOOLS[+k]; h += `<div class="note">${esc(t.d || "")}</div>${t.s ? `<a target=_blank href="https://attack.mitre.org/software/${t.s}/">ATT&CK ${t.s} ↗</a>` : ""}`; }
+  if (ty === "t") { const t = TOOLS[+k]; h += `<div class="note">${esc(t.d || "")}</div>${t.s ? `<a target="_blank" rel="noopener noreferrer" href="https://attack.mitre.org/software/${t.s}/">ATT&CK ${t.s} ↗</a>` : ""}`; }
   if (ty === "g") { const e = E[+k]; h += `<div class="note">${esc((e.d || "").slice(0, 320))}</div>`; }
   for (const [t, arr] of Object.entries(grp)) {
     h += `<div class="sec"><h4><span class="sw" style="display:inline-block;width:12px;height:3px;background:${ECOL[t]};vertical-align:middle;margin-right:4px"></span>${EN[t]} (${arr.length})</h4>${arr.slice(0, 80).map(x => `<div class="gl" onclick="G.sel=G.nodes.find(n=>n.id==='${esc(x.o.id)}');drawGraph();nodeInfo(G.sel)"><span>${esc(x.o.lb)}</span><span class="sc">${esc(x.info || "")}</span></div>`).join("")}</div>`;

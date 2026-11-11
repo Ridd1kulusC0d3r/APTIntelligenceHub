@@ -1,0 +1,15 @@
+{
+  "name": "apt-intelligence-hub",
+  "private": true,
+  "description": "APT Threat Map: inteligência de ameaças APT, detecções multi-SIEM e defesa, em um único HTML offline.",
+  "license": "MIT",
+  "scripts": {
+    "build": "python3 tools/build.py",
+    "test": "bash tools/qa.sh",
+    "test:fast": "bash tools/qa.sh --fast",
+    "demo": "node pipeline/record_demo.js && bash pipeline/make_media.sh"
+  },
+  "devDependencies": {
+    "playwright": "^1.49.0"
+  }
+}

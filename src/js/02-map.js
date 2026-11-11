@@ -51,8 +51,8 @@ function renderMap() {
   MAP.orig = orig; MAP.vict = vict;
   const val = mode === "orig" ? orig : mode === "vict" ? vict : {};
   const mx = d3.max(Object.values(val)) || 1;
-  const sc = d3.scaleSequentialSqrt([0, mx], mode === "orig" ? d3.interpolateRgb("#16294a", "#4da3ff") : d3.interpolateRgb("#2a1a2e", "#ff5d6c"));
-  MAP.cg.attr("fill", f => { const iso = NUM2ISO[f.id]; const v = iso && val[iso]; return v ? sc(v) : "#111a2b"; }).classed("sel", f => NUM2ISO[f.id] && NUM2ISO[f.id] === MAP.selC);
+  const sc = d3.scaleSequentialSqrt([0, mx], mode === "orig" ? d3.interpolateRgb("#2b2820", "#d8c79a") : d3.interpolateRgb("#3a2418", "#f0885a"));
+  MAP.cg.attr("fill", f => { const iso = NUM2ISO[f.id]; const v = iso && val[iso]; return v ? sc(v) : "#1a1916"; }).classed("sel", f => NUM2ISO[f.id] && NUM2ISO[f.id] === MAP.selC);
   // marcadores
   const pts = [], cnt = {};
   if (showMk) FILT.forEach(e => {
@@ -88,7 +88,7 @@ function renderMap() {
     .on("mouseleave", hideTip).on("click", (ev, d) => arcPanel(d));
   // legenda
   const top = Object.entries(orig).sort((a, b) => b[1] - a[1]).slice(0, 6);
-  $("#mleg").innerHTML = `<div><b style="color:#dbe4f3">${mode === "orig" ? "Origem (atribuição)" : mode === "vict" ? "Alvos (vitimologia)" : "Sem coroplético"}</b> ${mode !== "none" ? `<span style="display:inline-block;width:120px;height:8px;border-radius:4px;vertical-align:middle;margin:0 6px;background:linear-gradient(90deg,${sc(0)},${sc(mx)})"></span>0–${mx} grupos` : ""}</div>
+  $("#mleg").innerHTML = `<div><b style="color:var(--txt)">${mode === "orig" ? "Origem (atribuição)" : mode === "vict" ? "Alvos (vitimologia)" : "Sem coroplético"}</b> ${mode !== "none" ? `<span style="display:inline-block;width:120px;height:8px;border-radius:4px;vertical-align:middle;margin:0 6px;background:linear-gradient(90deg,${sc(0)},${sc(mx)})"></span>0–${mx} grupos` : ""}</div>
    <div style="margin-top:4px">Ponto (motivação): ${MOTIV.map(m => `<span class="sw" style="background:${MCOL[m]}"></span>${m}`).join("")}<span class="sw" style="background:${MCOL[""]}"></span>n/i</div>
    <div style="margin-top:4px">Arco/borda (origem): ${top.map(([i]) => `<span class="sw" style="background:${ocol(i)}"></span>${esc(cname(i))}`).join("")} · ${pts.length} grupos plotados · ${arcs.length} fluxos · ${FILT.filter(e => !e.iso).length} sem origem (não plotados)</div>`;
 }

@@ -1,5 +1,6 @@
 """Extrai e consolida grupos APT de: planilha 'APT Groups and Operations', MITRE ATT&CK (STIX),
 ThaiCERT Threat Group Cards (MISP galaxy), Malpedia (lista de atores) e cyber-research/APTMalware (overview.csv)."""
+from paths import BUILD, EXT, OUT, RAW, REPO  # diretórios configuráveis: ver pipeline/paths.py
 import json, re, csv, collections, openpyxl, os
 
 def norm(s):
@@ -38,7 +39,7 @@ ISO = {"CN": "China", "RU": "Russia", "KP": "North Korea", "IR": "Iran", "IL": "
        "MY": "Malaysia", "PH": "Philippines", "CO": "Colombia", "MX": "Mexico", "RO": "Romania", "IT": "Italy"}
 
 # ---------------- 1. Planilha APT Groups and Operations ----------------
-wb = openpyxl.load_workbook("/tmp/apt.xlsx", read_only=True)
+wb = openpyxl.load_workbook(RAW + "/apt.xlsx", read_only=True)
 sheet_groups = []
 for sh, country in COUNTRY_SHEET.items():
     rows = list(wb[sh].iter_rows(values_only=True))
@@ -78,7 +79,7 @@ for r in list(wb["_Sources"].iter_rows(values_only=True))[2:]:
     if r and r[0] and r[1]: srcs.append(dict(name=str(r[0]).strip(), url=str(r[1]).strip()))
 
 # ---------------- 2. MITRE ATT&CK ----------------
-ea = json.load(open("/tmp/ea.json"))["objects"]
+ea = json.load(open(RAW + "/ea.json"))["objects"]
 objs = {o["id"]: o for o in ea if not o.get("revoked") and not o.get("x_mitre_deprecated")}
 tech = {}
 for o in objs.values():
@@ -162,12 +163,12 @@ mbyid = {g["id"]: g for g in mgroups.values()}
 print("mitre groups:", len(mbyid), "techniques:", len(techidx))
 
 # ---------------- 3. ThaiCERT ----------------
-etda = json.load(open("/tmp/etda.json"))["values"]
+etda = json.load(open(RAW + "/etda.json"))["values"]
 # ---------------- 4. Malpedia ----------------
-mp = json.load(open("/tmp/mp.json"))
+mp = json.load(open(RAW + "/mp.json"))
 # ---------------- 5. APTMalware ----------------
 aptm = collections.Counter(); aptm_c = {}
-for r in csv.DictReader(open("/tmp/aptm.csv")):
+for r in csv.DictReader(open(RAW + "/aptm.csv")):
     aptm[r["APT-group"]] += 1; aptm_c[r["APT-group"]] = r["Country"]
 
 # ---------------- Consolidação ----------------
@@ -280,7 +281,7 @@ def attach_or_new(names, country, src, create=True, mid=None):
 for e in ents: e.setdefault("vendor_names", {}); e.setdefault("sigmahq", []); e.setdefault("brandefense", None); e.setdefault("etype","")
 CMAP = {"Russian Federation":"Russia","DPRK":"North Korea","Korea (Democratic People's Republic of)":"North Korea","United States":"NATO / Five Eyes","USA":"NATO / Five Eyes","Iran (Islamic Republic of)":"Iran"}
 # EternalLiberty: matriz de nomes por fornecedor
-for r in csv.DictReader(open("/tmp/ext/eternal.csv", encoding="utf-8", errors="ignore")):
+for r in csv.DictReader(open(EXT + "/eternal.csv", encoding="utf-8", errors="ignore")):
     off = (r.get("Threat Actor Official Name") or "").strip()
     if not off: continue
     vend = {k: v.strip() for k, v in r.items() if k not in ("Threat Actor Official Name","Confidence","Type","Country") and v and v.strip()}
@@ -290,7 +291,7 @@ for r in csv.DictReader(open("/tmp/ext/eternal.csv", encoding="utf-8", errors="i
     ents[i]["vendor_names"].update(vend); ents[i]["etype"] = ents[i]["etype"] or (r.get("Type") or "")
 # MISP threat-actor galaxy
 misp_by_uuid = {}; misp_rel_raw = []
-for x in json.load(open("/tmp/ext/misp_ta.json"))["values"]:
+for x in json.load(open(EXT + "/misp_ta.json"))["values"]:
     m = x.get("meta", {}); names = [x["value"]] + m.get("synonyms", [])
     c = ISO.get(m.get("country",""), m.get("country") or "")
     i = attach_or_new(names, c, "MISP Galaxy", True)
@@ -300,13 +301,13 @@ for x in json.load(open("/tmp/ext/misp_ta.json"))["values"]:
     e["victims"] = sorted(set(e["victims"]) | set(m.get("cfr-suspected-victims", [])))
     if not e["desc"]: e["desc"] = (x.get("description") or "")[:900]
 # Microsoft taxonomy + mapeamento MSFT<->CrowdStrike
-wbm = _ox.load_workbook("/tmp/ext/msft.xlsx", read_only=True)
+wbm = _ox.load_workbook(EXT + "/msft.xlsx", read_only=True)
 for r in list(wbm.active.iter_rows(values_only=True))[2:]:
     if not r or not r[1]: continue
     names = [str(r[1]).strip()] + clean_aliases([r[3]])
     i = attach_or_new(names, str(r[2] or "").strip() if str(r[2] or "") in COUNTRY_SHEET.values() else "", "Microsoft Threat Actor Naming", True)
     ents[i]["vendor_names"]["Microsoft"] = str(r[1]).strip()
-for r in csv.DictReader(open("/tmp/ext/msft_cs.csv")):
+for r in csv.DictReader(open(EXT + "/msft_cs.csv")):
     i = best_match([r["Microsoft"], r["CrowdStrike"]])
     if i is not None:
         ents[i]["vendor_names"]["Microsoft"] = r["Microsoft"]; ents[i]["vendor_names"]["CrowdStrike"] = r["CrowdStrike"]
@@ -315,7 +316,7 @@ for r in csv.DictReader(open("/tmp/ext/msft_cs.csv")):
             if a not in ents[i]["aliases"]: ents[i]["aliases"].append(a)
 # BRANDEFENSE dataset (APT + ransomware, com fontes primárias)
 for fn, typ in (("apt-groups","APT"),("ransomware-groups","Ransomware")):
-    for it in json.load(open(f"/tmp/ext/threat-actor-dataset-main/data/{fn}.json"))["items"]:
+    for it in json.load(open(f"{EXT}/threat-actor-dataset-main/data/{fn}.json"))["items"]:
         al = [a["name"] if isinstance(a, dict) else a for a in it.get("aliases", [])]
         mid = it.get("mitre_attack_id") if str(it.get("mitre_attack_id","")).startswith("G") else None
         c = CMAP.get(it.get("suspected_origin",""), it.get("suspected_origin","") or "")
@@ -324,7 +325,7 @@ for fn, typ in (("apt-groups","APT"),("ransomware-groups","Ransomware")):
         e["sectors"] = sorted(set(e["sectors"]) | set(it.get("target_sectors", []) or []))
         if not e["desc"]: e["desc"] = it.get("summary", "")
 # SigmaHQ emerging-threats por ator
-for d in sorted(glob.glob("/tmp/ext/sigma-master/rules-emerging-threats/*/TA/*")):
+for d in sorted(glob.glob(EXT + "/sigma-master/rules-emerging-threats/*/TA/*")):
     folder = os.path.basename(d); parts = [folder.replace("-", " ")] + folder.split("-")
     OVR = {"Mustang-Panda-Australia-Campaign": "G0129", "Peach-Sandstorm": "G0064", "OilRig": "G0049", "ACTINIUM": "G0047",
            "Axiom": "G0001", "Greenbug": "G0049", "Lazarus": "G0032", "Diamond-Sleet": "G0032", "Onyx-Sleet": "G0138", "DPRK": "G0032", "Turla": "G0010", "APT28": "G0007", "Forest-Blizzard": "G0007", "Cozy-Bear": "G0016", "APT29-CozyBear": "G0016", "FIN7": "G0046", "MuddyWater": "G0069", "MERCURY": "G0069", "Winnti": "G0044", "APT10": "G0045", "Mint-Sandstorm": "G0059"}
@@ -355,7 +356,7 @@ def name2iso(n):
     if re.fullmatch(r"[A-Z]{2}", n): return n
     try: return pycountry.countries.lookup(n).alpha_2
     except Exception: return ""
-am = json.load(open("/tmp/ext/APTmap-master/apt.json"))["features"]
+am = json.load(open(EXT + "/APTmap-master/apt.json"))["features"]
 am_by_uuid = {}
 def flat(v):
     out = []
@@ -418,7 +419,7 @@ for i, rels in rel_items:
             ents[i]["am_rel"].append([j, r.get("type"), lk])
 
 # ---------------- 8. Google Cloud (Mandiant) APT groups ----------------
-for k, g in json.load(open("/tmp/ext/gcp.json")).items():
+for k, g in json.load(open(EXT + "/gcp.json")).items():
     c = g.get("suspected attribution", "") or ""
     i = attach_or_new([g["name"]], {"China": "China", "Russia": "Russia", "Iran": "Iran", "North Korea": "North Korea"}.get(c.strip(), ""), "Google Cloud (Mandiant) APT Groups", True)
     ents[i]["gcp"] = dict(attr=c, sectors=clean_desc(g.get("target sectors"), 500), overview=clean_desc(g.get("overview"), 500),
@@ -428,7 +429,7 @@ for k, g in json.load(open("/tmp/ext/gcp.json")).items():
 WC = {"China": "China", "Russia": "Russia", "North Korea": "North Korea", "Iran": "Iran", "Israel": "Israel", "United States": "NATO / Five Eyes",
       "United Kingdom": "NATO / Five Eyes", "Pakistan": "Pakistan", "India": "India", "Vietnam": "Vietnam", "South Korea": "South Korea",
       "Turkey": "Turkey", "Uzbekistan": "Other", "Belarus": "Belarus", "Lebanon": "Middle East", "United Arab Emirates": "Middle East", "Spain": "Spain", "Ukraine": "Ukraine"}
-for w in json.load(open("/tmp/ext/wiki_apt.json")):
+for w in json.load(open(EXT + "/wiki_apt.json")):
     names = [n for n in w.get("names", []) if n]
     if not names: continue
     i = attach_or_new(names, WC.get(w.get("country", ""), ""), "Wikipedia APT list", True)
@@ -479,4 +480,4 @@ print("entidades consolidadas:", len(ents), "| com ISO:", sum(1 for e in ents if
       "| GCP:", sum(1 for e in ents if e["gcp"]), "| wiki:", sum(1 for e in ents if e["wiki"]))
 for t in techidx.values(): t["mit"] = sorted(set(tech_mit.get(t["id"], [])))
 json.dump(dict(ents=ents, tech=techidx, malware=mal, sources=srcs, soft=soft_out, mit_names=mit_names,
-               aptm_total=sum(aptm.values())), open("/tmp/build/data2.json", "w"), default=list)
+               aptm_total=sum(aptm.values())), open(BUILD + "/data2.json", "w"), default=list)

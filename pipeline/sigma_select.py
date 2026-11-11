@@ -1,11 +1,12 @@
 """Seleciona regras Sigma por técnica ATT&CK (SigmaHQ + regras próprias do hub) e grava índice para conversão multi-backend.
 Critérios: tag exata attack.tXXXX, status (stable>test>experimental), nível (critical>high>medium>low),
 pasta (rules > rules-threat-hunting > rules-emerging-threats), evita regras 'deprecated'/'unsupported' e logsources exóticos."""
+from paths import BUILD, EXT, OUT, RAW, REPO  # diretórios configuráveis: ver pipeline/paths.py
 import json, glob, os, re, yaml, collections, sys
-sys.path.insert(0, "/tmp/build")
+sys.path.insert(0, BUILD)
 from detections import PRIORITY
 
-D = json.load(open("/tmp/build/data2.json"))
+D = json.load(open(BUILD + "/data2.json"))
 used = set()
 for e in D["ents"]:
     used |= set(e["techniques"])
@@ -19,7 +20,7 @@ LV = {"critical": 4, "high": 3, "medium": 2, "low": 1, "informational": 0}
 FOLDER = {"rules": 2, "rules-threat-hunting": 1, "rules-emerging-threats": 0}
 idx = {}
 by_tech = collections.defaultdict(list)
-root = "/tmp/ext/sigma-master/"
+root = EXT + "/sigma-master/"
 for f in glob.glob(root + "rules*/**/*.yml", recursive=True):
     folder = f[len(root):].split("/")[0]
     if folder not in FOLDER: continue
@@ -67,11 +68,11 @@ for e in D["ents"]:
             if v["path"].endswith(rel):
                 sel[rid] = v
 # regras próprias do hub (detections.py)
-os.makedirs("/tmp/build/hub_rules", exist_ok=True)
+os.makedirs(BUILD + "/hub_rules", exist_ok=True)
 for p in PRIORITY:
     for y in p["sigma"]:
         d = yaml.safe_load(y); rid = d["id"]
-        fn = f"/tmp/build/hub_rules/{rid}.yml"; open(fn, "w").write(y)
+        fn = f"{BUILD}/hub_rules/{rid}.yml"; open(fn, "w").write(y)
         techs = sorted({t.replace("attack.", "").upper() for t in d.get("tags", []) if re.fullmatch(r"attack\.t\d{4}(\.\d{3})?", t)})
         ls = d.get("logsource", {})
         sel[rid] = dict(path=fn, title=d["title"], level=d.get("level", ""), status=d.get("status", ""), tags=techs,
@@ -81,7 +82,7 @@ for p in PRIORITY:
         for t in techs:
             tech_rules.setdefault(t, [])
             if rid not in tech_rules[t]: tech_rules[t].insert(0, rid)
-json.dump(dict(rules=sel, tech_rules=tech_rules), open("/tmp/build/rules_index.json", "w"))
+json.dump(dict(rules=sel, tech_rules=tech_rules), open(BUILD + "/rules_index.json", "w"))
 print("regras SigmaHQ indexadas:", len(idx), "| selecionadas:", len(sel), "| técnicas com regra:", len(tech_rules),
       "| técnicas usadas sem regra:", len([t for t in used if t not in tech_rules]))
 print(collections.Counter(v["ls"] for v in sel.values()).most_common(15))

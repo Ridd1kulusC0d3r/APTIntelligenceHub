@@ -1,6 +1,7 @@
 """Centróides (lon/lat) de países a partir do world-atlas 50m (TopoJSON) – usados para posicionar grupos/arcos, inclusive países pequenos ausentes no 110m."""
+from paths import BUILD, EXT, OUT, RAW, REPO  # diretórios configuráveis: ver pipeline/paths.py
 import json, math
-t = json.load(open("/tmp/build/vendor/countries-50m.json"))
+t = json.load(open(BUILD + "/vendor/countries-50m.json"))
 sc, tr = t["transform"]["scale"], t["transform"]["translate"]
 arcs = []
 for a in t["arcs"]:
@@ -36,5 +37,5 @@ for g in t["objects"]["countries"]["geometries"]:
         out[g["id"]] = [round(best[1][0], 2), round(best[1][1], 2)]
     elif best:
         out["name:" + g["properties"]["name"]] = [round(best[1][0], 2), round(best[1][1], 2)]
-json.dump(out, open("/tmp/build/centroids.json", "w"))
+json.dump(out, open(BUILD + "/centroids.json", "w"))
 print(len(out), out.get("076"), out.get("643"), out.get("840"), out.get("702"), out.get("250"))

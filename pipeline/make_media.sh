@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Converte as gravações (webm) em MP4 H.264 + GIF e monta o vídeo-tour. Requer ffmpeg e python3.
 set -e
-RAW="${APT_RAW:-${TMPDIR:-/tmp}/apt-rec}"; OUT="$(dirname "$0")/../assets/media"; mkdir -p "$OUT"
+RAW="${APT_RAW:-${TMPDIR:-/tmp}/apt-rec}"; OUT="$(cd "$(dirname "$0")/.." && pwd)/assets/media"; mkdir -p "$OUT"
 python3 - "$RAW" "$OUT" <<'PY'
 import json,subprocess,sys
 raw,out=sys.argv[1:3]; t=json.load(open(f"{raw}/times.json")); order=['map','graph','trace','detect','theme']

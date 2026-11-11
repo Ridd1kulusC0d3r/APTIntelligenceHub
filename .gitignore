@@ -10,3 +10,7 @@ samples/
 *.exe
 *.dll
 *.bin
+tests/.out/
+node_modules/
+package-lock.json
+_site/

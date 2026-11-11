@@ -3,19 +3,20 @@
 // =====================================================================================
 const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"}[c]));
+const safeUrl = u => /^https?:\/\//i.test(String(u ?? "")) ? String(u) : "#"; // links vindos dos dados: só http(s)
 const TAC = ["reconnaissance", "resource-development", "initial-access", "execution", "persistence", "privilege-escalation", "stealth", "defense-impairment", "credential-access", "discovery", "lateral-movement", "collection", "command-and-control", "exfiltration", "impact"];
 const TACPT = {"reconnaissance": "Reconhecimento", "resource-development": "Desenv. de recursos", "initial-access": "Acesso inicial", "execution": "Execução", "persistence": "Persistência", "privilege-escalation": "Escalada de privilégio", "stealth": "Furtividade (Stealth)", "defense-impairment": "Enfraquecimento de defesas", "credential-access": "Acesso a credenciais", "discovery": "Descoberta", "lateral-movement": "Movimento lateral", "collection": "Coleta", "command-and-control": "Comando e controle", "exfiltration": "Exfiltração", "impact": "Impacto"};
 const MOTIV = ["Espionagem", "Financeiro", "Sabotagem/Destrutivo", "Hacktivismo/Influência"];
-const MCOL = {"Espionagem": "#4da3ff", "Financeiro": "#ffb347", "Sabotagem/Destrutivo": "#ff5d6c", "Hacktivismo/Influência": "#c084fc", "": "#7d8aa5"};
-const OCOL = {CN: "#ff5d6c", RU: "#4da3ff", KP: "#ffb347", IR: "#2ecc8f"};
-const PAL = ["#22d3ee", "#f472b6", "#a3e635", "#f59e0b", "#818cf8", "#fb7185", "#34d399", "#e879f9", "#fde047", "#60a5fa"];
-const D3COL = {Model: "#94a3b8", Harden: "#2ecc8f", Detect: "#4da3ff", Isolate: "#ffb347", Deceive: "#c084fc", Evict: "#ff5d6c", Restore: "#22d3ee"};
+const MCOL = {"Espionagem": "#6fa8dc", "Financeiro": "#e9a94b", "Sabotagem/Destrutivo": "#e4572e", "Hacktivismo/Influência": "#b38ad6", "": "#8b8577"};
+const OCOL = {CN: "#e4572e", RU: "#6fa8dc", KP: "#e9a94b", IR: "#5fbf8f"};
+const PAL = ["#5ab8c4", "#d9809f", "#a3e635", "#f59e0b", "#818cf8", "#fb7185", "#34d399", "#e879f9", "#fde047", "#60a5fa"];
+const D3COL = {Model: "#94a3b8", Harden: "#5fbf8f", Detect: "#6fa8dc", Isolate: "#e9a94b", Deceive: "#b38ad6", Evict: "#e4572e", Restore: "#5ab8c4"};
 const D3ORD = ["Model", "Harden", "Detect", "Isolate", "Deceive", "Evict", "Restore"];
 const STG = ["identification", "containment", "eradication", "recovery"];
 const STGPT = {preparation: "Preparação", identification: "Identificação", containment: "Contenção", eradication: "Erradicação", recovery: "Recuperação", lessons_learned: "Lições aprendidas"};
 const FMT = [["sigma", "Sigma"], ["splunk", "Splunk SPL"], ["elastic", "Elastic Lucene (ECS)"], ["eql", "Elastic EQL"], ["esql", "Elastic ES|QL"], ["opensearch", "OpenSearch Lucene"], ["qradar", "QRadar AQL"], ["stellar", "Stellar Cyber"], ["defender", "Defender XDR KQL"]];
-const ECOL = {attr: "#f5c542", vic: "#ff6b6b", sec: "#2ecc8f", tool: "#ff9f43", tech: "#a78bfa", impl: "#64748b", rel: "#22d3ee", sim: "#f472b6"};
-const NCOL = {c: "#f5c542", s: "#2ecc8f", t: "#ff9f43", k: "#a78bfa"};
+const ECOL = {attr: "#e8c25a", vic: "#e4655a", sec: "#5fbf8f", tool: "#f0885a", tech: "#a891d6", impl: "#7d776a", rel: "#5ab8c4", sim: "#d9809f"};
+const NCOL = {c: "#e8c25a", s: "#5fbf8f", t: "#f0885a", k: "#a891d6"};
 let KB, E, TK, TOOLS, RULES, D3, RA, ASR, MIT, DET, CTRY, SRC, FILT = [];
 const hash = s => [...String(s)].reduce((a, c) => (a * 31 + c.charCodeAt(0)) >>> 0, 7);
 const ocol = iso => OCOL[iso] || (iso ? PAL[hash(iso) % PAL.length] : "#6b7a96");
@@ -94,8 +95,8 @@ function refreshActive() {
 // ------------------------------------------------------------------ KPIs
 function buildKpis() {
   const nT = Object.keys(TK).length, nR = Object.keys(RULES).length;
-  const k = [[E.length, "grupos/entidades"], [E.filter(e => e.nt).length, "com TTPs ATT&CK"], [E.filter(e => e.ns >= 3).length, "corroborados (≥3 fontes)"], [E.filter(e => e.iso).length, "com origem geolocalizada"],
-    [TOOLS.length, "ferramentas/malware"], [nT, "técnicas mapeadas"], [nR, "regras Sigma (9 formatos)"], [Object.keys(D3).length, "contramedidas D3FEND"], [Object.keys(RA).length, "ações RE&CT"], [ASR.length, "regras ASR Defender"], [SRC.length, "fontes integradas"]];
+  const k = [[E.length, "grupos / entidades"], [E.filter(e => e.nt).length, "com TTPs ATT&CK"], [E.filter(e => e.ns >= 3).length, "corroborados (≥3 fontes)"], [E.filter(e => e.iso).length, "com origem geolocalizada"],
+    [TOOLS.length, "ferramentas / malware"], [nT, "técnicas mapeadas"], [nR, "regras Sigma (9 formatos)"], [Object.keys(D3).length, "contramedidas D3FEND"], [Object.keys(RA).length, "ações RE&CT"], [ASR.length, "regras ASR Defender"], [SRC.length, "fontes integradas"]];
   $("#kpis").innerHTML = k.map(([v, l]) => `<div class="kpi"><b>${v.toLocaleString("pt-BR")}</b><small>${l}</small></div>`).join("");
 }
 // ------------------------------------------------------------------ filtros globais

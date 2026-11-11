@@ -3,11 +3,12 @@
   kusto  : pySigma 1.5  → Defender XDR KQL, Elastic Lucene/EQL/ES|QL (ecs_windows), OpenSearch Lucene (ecs_windows), Stellar Cyber (Lucene campos nativos)
   qradar : pySigma 0.11 → QRadar AQL (QRadarAQL_fields_pipeline)
 Uso: python convert_worker.py <env>   → grava /tmp/build/conv_<env>.json  {rule_id: {fmt: query | {"err": msg}}}"""
+from paths import BUILD, EXT, OUT, RAW, REPO  # diretórios configuráveis: ver pipeline/paths.py
 import json, sys, warnings, traceback
 warnings.filterwarnings("ignore")
 from sigma.collection import SigmaCollection
 env = sys.argv[1]
-IDX = json.load(open("/tmp/build/rules_index.json"))["rules"]
+IDX = json.load(open(BUILD + "/rules_index.json"))["rules"]
 
 def mk():
     if env == "sys":
@@ -55,6 +56,6 @@ for rid, r in IDX.items():
                 err = f"{type(ex).__name__}: {str(ex).splitlines()[0][:220] if str(ex) else ''}"
         if err: res[fmt] = {"err": err}
     out[rid] = res
-json.dump(out, open(f"/tmp/build/conv_{env}.json", "w"))
+json.dump(out, open(f"{BUILD}/conv_{env}.json", "w"))
 ok = {f: sum(1 for v in out.values() if isinstance(v.get(f), str)) for f in B}
 print(env, "regras:", len(out), "ok por formato:", ok)

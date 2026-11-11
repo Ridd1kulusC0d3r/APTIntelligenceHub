@@ -1,8 +1,9 @@
 """Monta o APT Threat Map (HTML único, offline) + artefatos complementares (CSV, MD, ZIPs, DeTT&CT, Navigator, RE&CT)."""
-import json, gzip, base64, os, csv, zipfile, re, io, datetime, collections, html
+from paths import BUILD, EXT, OUT, RAW, REPO  # diretórios configuráveis: ver pipeline/paths.py
+import sys, json, gzip, base64, os, csv, zipfile, re, io, datetime, collections, html
 import pycountry
 
-B = "/tmp/build"; OUT = "/mnt/session/outputs"; os.makedirs(OUT, exist_ok=True)
+B = BUILD; os.makedirs(OUT, exist_ok=True)
 KB = json.load(open(f"{B}/kb.json"))
 IR = json.load(open(f"{B}/ir.json")); DISC = json.load(open(f"{B}/disc.json"))
 CENT = json.load(open(f"{B}/centroids.json"))
@@ -63,15 +64,19 @@ META = dict(sources=SOURCES, method=METHOD, ir=IR, disc=DISC)
 json.dump(SOURCES, open(f"{B}/sources.json", "w"), ensure_ascii=False)
 
 # ---------------- HTML
+# Grava o payload em src/data/ e delega a montagem a tools/build.py (mesmo montador usado no CI).
 raw = json.dumps(KB, ensure_ascii=False, separators=(",", ":")).encode()
 b64 = base64.b64encode(gzip.compress(raw, 9)).decode()
-head = open(f"{B}/tpl/head.html").read()
-body = open(f"{B}/tpl/body.html").read().replace("{{KB_MB}}", f"{len(raw) / 1e6:.1f}").replace("{{GEN}}", GEN)
-app = "\n".join(open(f"{B}/tpl/app{i}.js").read() for i in range(1, 7))
 static = ("const WORLD=" + json.dumps(WORLD, separators=(",", ":")) + ";\nconst CENT=" + json.dumps(CENT, separators=(",", ":")) +
           ";\nconst ALLC=" + json.dumps(ALLC, ensure_ascii=False, separators=(",", ":")) + ";\nconst META=" + json.dumps(META, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/") + ";\n")
-d3js = open(f"{B}/vendor/d3.min.js").read(); topo = open(f"{B}/vendor/topojson-client.min.js").read()
-HTML = (head + body + f"<script>{d3js}</script>\n<script>{topo}</script>\n<script id=\"kb\" type=\"text/plain\">{b64}</script>\n<script>\n{static}\n{app}\n</script>\n</body></html>")
+SRC_DATA = REPO / "src" / "data"
+(SRC_DATA / "kb.json.gz.b64").write_text(b64, encoding="utf-8")
+(SRC_DATA / "static.js").write_text(static, encoding="utf-8")
+(SRC_DATA / "meta.json").write_text(json.dumps({"kb_mb": f"{len(raw) / 1e6:.1f}", "generated": GEN}, indent=1), encoding="utf-8")
+sys.path.insert(0, str(REPO / "tools"))
+import build as site_build  # noqa: E402
+HTML = site_build.build()
+(REPO / "index.html").write_text(HTML, encoding="utf-8")
 open(f"{OUT}/APT_Threat_Map.html", "w", encoding="utf-8").write(HTML)
 print("HTML MB", round(len(HTML.encode()) / 1e6, 2), "| KB raw", round(len(raw) / 1e6, 2), "gz+b64", round(len(b64) / 1e6, 2))
 

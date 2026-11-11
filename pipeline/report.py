@@ -1,6 +1,7 @@
 """Relatório Markdown do APT Threat Map (resumo executivo + achados de TI + engenharia de detecção)."""
+from paths import BUILD, EXT, OUT, RAW, REPO  # diretórios configuráveis: ver pipeline/paths.py
 import json, collections, datetime, os, zipfile, glob
-KB = json.load(open("/tmp/build/kb.json")); OUT = "/mnt/session/outputs"
+KB = json.load(open(BUILD + "/kb.json"))
 E, TK, TOOLS, RULES, D3, RA, ASR, SRC = KB["E"], KB["TK"], KB["TOOLS"], KB["RULES"], KB["D3"], KB["RA"], KB["ASR"], KB["SRC"]
 CT = KB["COUNTRIES"]; cs = KB["CONVSTATS"]
 cn = lambda i: CT.get(i, {}).get("n", i)
@@ -84,7 +85,7 @@ md += ["\n## 9. Arquivos entregues",
        "| `IR_tools_catalog.csv` | Catálogo de ferramentas de IR/análise (planilha) |",
        "| `build_scripts.zip` | Pipeline reprodutível (extração, enriquecimento, conversão multi-backend, build) |",
        "\n## 10. Fontes e limitações", "| Fonte | Uso |", "|---|---|"]
-SOURCES = json.load(open("/tmp/build/sources.json"))
+SOURCES = json.load(open(BUILD + "/sources.json"))
 md += [f"| [{s['n']}]({s['u']}) | {s['used']} |" for s in SOURCES]
 md += ["\n**Limitações:** atribuição contestável e aliases conflitantes entre fontes (fusões frouxas possíveis); vitimologia reflete viés de reporte; mapeamentos Defender/ASR e RE&CT são curados/heurísticos; D3FEND não cobre técnicas pré-ataque e várias recentes; conversões exigem ajuste de campos/índices (Stellar Cyber sem backend oficial; QRadar fallback por payload; Defender XDR sem Script Block/Security/cloud); Hudson Rock, Radware, Nuix e o artigo do Medium (bloqueado) foram apenas referenciados. Nenhuma amostra de malware foi baixada ou executada."]
 open(f"{OUT}/APT_Threat_Map_Report.md", "w").write("\n".join(md))
